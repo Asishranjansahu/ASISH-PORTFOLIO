@@ -1,33 +1,81 @@
-# Portfolio Website
+# ASISH RANJAN SAHU — Portfolio
 
-This is a modern, responsive portfolio website built with React, Vite, and Tailwind CSS.
+A modern, animated portfolio built with React, Vite, Tailwind CSS, and a lightweight 3D starfield background. It features a skills section with brand logos, project cards with images, and contact links.
 
-## Getting Started
+## Live
 
-1.  **Install dependencies:**
-    ```bash
-    npm install
-    ```
+- Preview (local): http://localhost:4173/
+- Dev: http://localhost:5173/
+- Production (after deploy): https://asishranjansahu.com
 
-2.  **Start the development server:**
-    ```bash
-    npm run dev
-    ```
+## Features
 
-3.  **Build for production:**
-    ```bash
-    npm run build
-    ```
-
-## Customization
-
--   **Content:** Edit `src/App.jsx` to update your personal information, projects, and skills.
--   **Styling:** The project uses Tailwind CSS. You can modify `tailwind.config.js` or add custom styles in `src/index.css`.
--   **Icons:** The project uses `lucide-react` for icons.
+- Hero with animated glitch text and 3D starfield background
+- Categorized skills with brand logos and hover effects
+- Core competencies and soft skills with icons
+- Featured projects with cover images and hover overlay
+- Contact links with GitHub, LinkedIn, and email
 
 ## Tech Stack
 
--   React
--   Vite
--   Tailwind CSS
--   Lucide React (Icons)
+- React (UI)  
+- Vite (bundler)  
+- Tailwind CSS (styling)  
+- lucide-react (icons)  
+- @react-three/fiber + drei + maath (background)
+
+## Getting Started
+
+1. Install dependencies
+   ```bash
+   npm install
+   ```
+2. Start dev server
+   ```bash
+   npm run dev
+   ```
+3. Build production
+   ```bash
+   npm run build
+   ```
+4. Preview production
+   ```bash
+   npm run preview
+   ```
+
+## Project Structure
+
+- src/App.jsx — main page content
+- src/components/Background3D.jsx — starfield background
+- src/components/GlitchText.jsx — animated heading effect
+- src/index.css — global styles and utilities
+
+## Deployment
+
+### Vercel (recommended)
+- Import repo: https://github.com/Asishranjansahu/ASISH-PORTFOLIO
+- Build command: `npm run build`
+- Output directory: `dist`
+- Domains:
+  - Primary: `asishranjansahu.com`
+  - DNS: A @ → 76.76.21.21, CNAME www → cname.vercel-dns.com
+
+### GitHub Pages (optional)
+- Add to vite.config.js: `base: '/ASISH-PORTFOLIO/'`
+- Install: `npm i -D gh-pages`
+- Scripts:
+  - `"predeploy": "npm run build"`
+  - `"deploy": "gh-pages -d dist"`
+- Deploy: `npm run deploy`
+- Pages: gh-pages branch
+
+## Customize Content
+
+- Edit skills, logos, and percentages in `src/App.jsx`
+- Update project images in `src/App.jsx` (use files in `public/` or URLs)
+- Adjust theme colors in `src/index.css` and Tailwind config
+
+## Author
+
+- GitHub: https://github.com/Asishranjansahu
+- LinkedIn: https://linkedin.com/in/asish-ranjan-sahu
