@@ -1,0 +1,91 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply bg-black text-slate-100 font-sans overflow-x-hidden;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-black;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-cyan-900 rounded-full hover:bg-cyan-700 transition-colors;
+}
+
+/* Utilities */
+@layer utilities {
+  .text-glow {
+    text-shadow: 0 0 10px rgba(0, 243, 255, 0.5), 0 0 20px rgba(0, 243, 255, 0.3);
+  }
+  
+  .box-glow {
+    box-shadow: 0 0 20px rgba(0, 243, 255, 0.1);
+  }
+
+  .clip-path-polygon-1 {
+    clip-path: polygon(0 0, 100% 0, 100% 35%, 0 35%);
+  }
+  
+  .clip-path-polygon-2 {
+    clip-path: polygon(0 65%, 100% 65%, 100% 100%, 0 100%);
+  }
+
+  .scroll-snap-x {
+    scroll-snap-type: x mandatory;
+  }
+
+  .snap-center {
+    scroll-snap-align: center;
+  }
+
+  .ring-progress {
+    position: relative;
+    width: 80px;
+    height: 80px;
+    border-radius: 9999px;
+    background: conic-gradient(#06b6d4 var(--p, 0%), #0f172a var(--p, 0%));
+  }
+
+  .ring-progress::before {
+    content: '';
+    position: absolute;
+    inset: 10px;
+    border-radius: 9999px;
+    background: #000000;
+  }
+}
+
+/* Holographic Card Effect */
+.holo-card {
+  @apply relative overflow-hidden bg-black/40 backdrop-blur-xl border border-white/10 rounded-xl transition-all duration-300;
+}
+
+.holo-card::before {
+  content: '';
+  @apply absolute inset-0 opacity-0 transition-opacity duration-300 pointer-events-none;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.1) 0%,
+    rgba(255, 255, 255, 0) 100%
+  );
+}
+
+.holo-card:hover {
+  @apply border-cyan-500/50 shadow-[0_0_30px_rgba(0,243,255,0.2)];
+  transform: translateY(-5px);
+}
+
+.holo-card:hover::before {
+  @apply opacity-100;
+}
