@@ -5,9 +5,25 @@ import GlitchText from './components/GlitchText';
 import TypewriterText from './components/TypewriterText';
 import Navbar from './components/Navbar';
 
+import GithubStats from './components/GithubStats';
+import HireMe from './components/HireMe';
 import Background3D from './components/Background3D';
 
 function App() {
+  const [currentStatus, setCurrentStatus] = useState(0);
+  const statuses = [
+    { text: "System Online", color: "cyan" },
+    { text: "Currently Building", color: "green" },
+    { text: "Learning Next.js", color: "purple" }
+  ];
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentStatus((prev) => (prev + 1) % statuses.length);
+    }, 3000);
+    return () => clearInterval(interval);
+  }, []);
+
   const fadeInUp = {
     hidden: { opacity: 0, y: 50 },
     visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: "easeOut" } }
@@ -54,8 +70,19 @@ function App() {
               variants={staggerContainer}
               className="order-2 lg:order-1 space-y-8"
             >
-              <motion.div variants={fadeInUp} className="inline-block px-4 py-2 rounded-full border border-cyan-500/30 bg-cyan-500/10 text-cyan-400 font-mono text-xs tracking-[0.2em] uppercase box-glow">
-                System Online
+              <motion.div 
+                variants={fadeInUp} 
+                className={`inline-flex items-center gap-2 px-4 py-2 rounded-full border bg-opacity-10 text-xs tracking-[0.2em] uppercase box-glow transition-colors duration-500
+                  ${currentStatus === 0 ? 'border-cyan-500/30 bg-cyan-500 text-cyan-400' : ''}
+                  ${currentStatus === 1 ? 'border-green-500/30 bg-green-500 text-green-400' : ''}
+                  ${currentStatus === 2 ? 'border-purple-500/30 bg-purple-500 text-purple-400' : ''}
+                `}
+              >
+                <span className={`w-2 h-2 rounded-full animate-pulse ${
+                  currentStatus === 0 ? 'bg-cyan-400' : 
+                  currentStatus === 1 ? 'bg-green-400' : 'bg-purple-400'
+                }`} />
+                {statuses[currentStatus].text}
               </motion.div>
               
               <div className="space-y-2">
@@ -568,6 +595,9 @@ function App() {
           </div>
         </section>
 
+        {/* GitHub Stats Section */}
+        <GithubStats />
+
         <section id="achievements" className="py-32 px-6 bg-black/60 scroll-mt-20">
           <div className="max-w-7xl mx-auto">
             <motion.h3 
@@ -602,6 +632,7 @@ function App() {
         </section>
 
         {/* Contact Section */}
+        <HireMe />
         <section id="contact" className="py-32 px-6 relative overflow-hidden scroll-mt-20">
           <div className="absolute inset-0 bg-gradient-to-t from-cyan-900/10 to-transparent pointer-events-none"></div>
           
