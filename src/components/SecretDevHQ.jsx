@@ -8,6 +8,31 @@ const SecretDevHQ = ({ onClose }) => {
   const [showContent, setShowContent] = useState(false);
 
   useEffect(() => {
+    // Play retro unlock sound
+    const playUnlockSound = () => {
+      const AudioContext = window.AudioContext || window.webkitAudioContext;
+      if (!AudioContext) return;
+      
+      const ctx = new AudioContext();
+      const osc = ctx.createOscillator();
+      const gain = ctx.createGain();
+      
+      osc.type = 'square';
+      osc.frequency.setValueAtTime(440, ctx.currentTime);
+      osc.frequency.exponentialRampToValueAtTime(880, ctx.currentTime + 0.1);
+      
+      gain.gain.setValueAtTime(0.1, ctx.currentTime);
+      gain.gain.exponentialRampToValueAtTime(0.01, ctx.currentTime + 0.5);
+      
+      osc.connect(gain);
+      gain.connect(ctx.destination);
+      
+      osc.start();
+      osc.stop(ctx.currentTime + 0.5);
+    };
+
+    playUnlockSound();
+
     // Initial Access Sequence
     const timer1 = setTimeout(() => setAccessGranted(true), 1500);
     const timer2 = setTimeout(() => {
