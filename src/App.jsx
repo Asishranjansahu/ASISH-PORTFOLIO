@@ -183,22 +183,6 @@ function App() {
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-60"></div>
                 </div>
-                
-                {/* Floating Elements */}
-                <motion.div 
-                  animate={{ y: [0, -20, 0] }}
-                  transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-                  className="absolute -right-8 top-20 bg-black/50 backdrop-blur-xl p-4 border border-cyan-500/30 rounded-lg box-glow"
-                >
-                  <Code2 className="w-8 h-8 text-cyan-400" />
-                </motion.div>
-                <motion.div 
-                  animate={{ y: [0, 20, 0] }}
-                  transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-                  className="absolute -left-8 bottom-40 bg-black/50 backdrop-blur-xl p-4 border border-purple-500/30 rounded-lg box-glow"
-                >
-                  <Cpu className="w-8 h-8 text-purple-400" />
-                </motion.div>
               </div>
             </motion.div>
           </div>
