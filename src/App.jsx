@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Github, Linkedin, Mail, ExternalLink, Code2, Cpu, GraduationCap, Briefcase, Award, Cloud, Database, Cog, CircuitBoard, Image, Server, Globe, GitPullRequest, Shapes, HardDrive, Boxes, Workflow, Lightbulb, Users, RefreshCw, MessageCircle, MapPin, Send, User, FileText, FolderGit2, Terminal } from 'lucide-react';
+import { Github, Linkedin, Mail, ExternalLink, Code2, Cpu, GraduationCap, Briefcase, Award, Cloud, Database, Cog, CircuitBoard, Image, Server, Globe, GitPullRequest, Shapes, HardDrive, Boxes, Workflow, Lightbulb, Users, RefreshCw, MessageCircle, MapPin, Send, User, FileText, FolderGit2, Terminal, X } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import GlitchText from './components/GlitchText';
 import TypewriterText from './components/TypewriterText';
