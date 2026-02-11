@@ -1,4 +1,4 @@
-<p align="center"><img src="public/profile.svg" alt="ARS Logo" width="96"></p>
+<p align="center"><img src="public/projects/thread-sense.svg" alt="Thread Sense Logo" width="120"></p>
 # ASISH RANJAN SAHU — Portfolio
 
 A modern, animated portfolio built with React, Vite, Tailwind CSS, and a lightweight 3D starfield background. It features a skills section with brand logos, project cards with images, and contact links.
