@@ -258,8 +258,8 @@ function App() {
                 
                 <div className="relative border-l-2 border-cyan-500/30 ml-3 md:ml-6 space-y-12 pl-8 md:pl-12 py-4">
                   {[
-                    { title: "NIST University", degree: "M.Tech in CSE", year: "Pursuing", color: "cyan" },
-                    { title: "VITAM", degree: "B.Tech in CSE", year: "2021-2025", color: "purple" }
+                    { title: "NIST University", degree: "M.Tech in CSE", year: "Pursuing", color: "cyan", bgClass: "bg-cyan-500/10", textClass: "text-cyan-400", borderClass: "border-cyan-500/20" },
+                    { title: "VITAM", degree: "B.Tech in CSE", year: "2021-2025", color: "purple", bgClass: "bg-purple-500/10", textClass: "text-purple-400", borderClass: "border-purple-500/20" }
                   ].map((item, i) => (
                     <motion.div 
                       key={i}
@@ -269,7 +269,7 @@ function App() {
                       className="relative"
                     >
                       {/* Timeline Icon */}
-                      <span className="absolute -left-[41px] md:-left-[57px] top-0 flex items-center justify-center w-10 h-10 md:w-12 md:h-12 rounded-full bg-black border border-cyan-500 text-cyan-400 shadow-[0_0_10px_rgba(34,211,238,0.3)] z-10">
+                      <span className="absolute -left-[53px] md:-left-[73px] top-0 flex items-center justify-center w-10 h-10 md:w-12 md:h-12 rounded-full bg-black border border-cyan-500 text-cyan-400 shadow-[0_0_10px_rgba(34,211,238,0.3)] z-10">
                          <GraduationCap className="w-5 h-5 md:w-6 md:h-6" />
                       </span>
 
@@ -280,7 +280,7 @@ function App() {
                             <h4 className="font-display text-xl font-bold text-white group-hover:text-cyan-400 transition-colors">{item.title}</h4>
                             <p className="text-slate-400 mt-2 font-mono text-sm">{item.degree}</p>
                           </div>
-                          <span className={`px-3 py-1 rounded-full text-xs font-bold bg-${item.color}-500/10 text-${item.color}-400 border border-${item.color}-500/20`}>
+                          <span className={`px-3 py-1 rounded-full text-xs font-bold ${item.bgClass} ${item.textClass} border ${item.borderClass}`}>
                             {item.year}
                           </span>
                         </div>
@@ -308,7 +308,7 @@ function App() {
                     className="relative"
                   >
                     {/* Timeline Icon */}
-                    <span className="absolute -left-[41px] md:-left-[57px] top-0 flex items-center justify-center w-10 h-10 md:w-12 md:h-12 rounded-full bg-black border border-purple-500 text-purple-400 shadow-[0_0_10px_rgba(168,85,247,0.3)] z-10">
+                    <span className="absolute -left-[53px] md:-left-[73px] top-0 flex items-center justify-center w-10 h-10 md:w-12 md:h-12 rounded-full bg-black border border-purple-500 text-purple-400 shadow-[0_0_10px_rgba(168,85,247,0.3)] z-10">
                        <Briefcase className="w-5 h-5 md:w-6 md:h-6" />
                     </span>
 
