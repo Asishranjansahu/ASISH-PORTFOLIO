@@ -133,6 +133,114 @@ function App() {
           </div>
         </section>
 
+        {/* About Me Section */}
+        <section id="about-me" className="py-32 px-6 scroll-mt-20 relative">
+          <div className="max-w-7xl mx-auto">
+            <motion.h3 
+              initial={{ opacity: 0, x: -50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              className="font-display text-3xl font-bold mb-16 flex items-center gap-4 text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-purple-500"
+            >
+              <User className="w-8 h-8 text-cyan-400" />
+              ABOUT ME
+            </motion.h3>
+
+            <div className="grid md:grid-cols-2 gap-16 items-start">
+              <motion.div 
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                className="space-y-6 text-slate-400 leading-relaxed text-lg"
+              >
+                <p>
+                  I am a passionate <span className="text-cyan-400 font-bold">Full Stack Developer</span> with a deep love for building scalable web applications and exploring emerging technologies. My journey in tech is driven by a curiosity to understand how things work under the hood and a desire to create impactful digital solutions.
+                </p>
+                <p>
+                  With a strong foundation in <span className="text-purple-400 font-bold">Computer Science</span>, I specialize in the MERN stack and have experience working with modern frameworks and cloud technologies. When I'm not coding, you can find me exploring new tech trends, contributing to open source, or solving complex algorithmic problems.
+                </p>
+                
+                <div className="pt-8 grid grid-cols-2 gap-4">
+                  <div className="p-4 border border-cyan-500/20 bg-cyan-500/5 rounded-lg">
+                    <h4 className="text-cyan-400 font-bold mb-2 flex items-center gap-2">
+                      <Terminal className="w-4 h-4" /> Frontend
+                    </h4>
+                    <p className="text-sm">React, Next.js, Tailwind CSS, Framer Motion</p>
+                  </div>
+                  <div className="p-4 border border-purple-500/20 bg-purple-500/5 rounded-lg">
+                    <h4 className="text-purple-400 font-bold mb-2 flex items-center gap-2">
+                      <Server className="w-4 h-4" /> Backend
+                    </h4>
+                    <p className="text-sm">Node.js, Express, MongoDB, PostgreSQL</p>
+                  </div>
+                  <div className="p-4 border border-pink-500/20 bg-pink-500/5 rounded-lg">
+                    <h4 className="text-pink-400 font-bold mb-2 flex items-center gap-2">
+                      <Database className="w-4 h-4" /> Database
+                    </h4>
+                    <p className="text-sm">MongoDB, MySQL, Firebase</p>
+                  </div>
+                  <div className="p-4 border border-emerald-500/20 bg-emerald-500/5 rounded-lg">
+                    <h4 className="text-emerald-400 font-bold mb-2 flex items-center gap-2">
+                      <Cloud className="w-4 h-4" /> Tools
+                    </h4>
+                    <p className="text-sm">Git, Docker, AWS, Vercel</p>
+                  </div>
+                </div>
+              </motion.div>
+
+              <motion.div 
+                initial={{ opacity: 0, scale: 0.9 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                transition={{ delay: 0.2 }}
+                className="relative"
+              >
+                <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/20 to-purple-500/20 rounded-2xl blur-xl"></div>
+                <div className="relative bg-black/50 border border-white/10 rounded-2xl p-8 backdrop-blur-sm">
+                  <div className="flex items-center gap-2 mb-6 border-b border-white/10 pb-4">
+                    <div className="w-3 h-3 rounded-full bg-red-500"></div>
+                    <div className="w-3 h-3 rounded-full bg-yellow-500"></div>
+                    <div className="w-3 h-3 rounded-full bg-green-500"></div>
+                    <span className="ml-4 text-xs font-mono text-slate-500">developer.js</span>
+                  </div>
+                  <div className="font-mono text-sm space-y-4">
+                    <div>
+                      <span className="text-purple-400">const</span> <span className="text-cyan-400">developer</span> <span className="text-white">=</span> <span className="text-yellow-400">{`{`}</span>
+                    </div>
+                    <div className="pl-4">
+                      <span className="text-slate-400">name:</span> <span className="text-green-400">"Asish Ranjan Sahu"</span>,
+                    </div>
+                    <div className="pl-4">
+                      <span className="text-slate-400">role:</span> <span className="text-green-400">"Full Stack Developer"</span>,
+                    </div>
+                    <div className="pl-4">
+                      <span className="text-slate-400">traits:</span> <span className="text-yellow-400">[</span>
+                    </div>
+                    <div className="pl-8">
+                      <span className="text-green-400">"Problem Solver"</span>,
+                    </div>
+                    <div className="pl-8">
+                      <span className="text-green-400">"Continuous Learner"</span>,
+                    </div>
+                    <div className="pl-8">
+                      <span className="text-green-400">"Tech Enthusiast"</span>
+                    </div>
+                    <div className="pl-4">
+                      <span className="text-yellow-400">]</span>,
+                    </div>
+                    <div className="pl-4">
+                      <span className="text-slate-400">hardWorker:</span> <span className="text-purple-400">true</span>,
+                    </div>
+                    <div className="pl-4">
+                      <span className="text-slate-400">quickLearner:</span> <span className="text-purple-400">true</span>
+                    </div>
+                    <div>
+                      <span className="text-yellow-400">{`}`}</span>;
+                    </div>
+                  </div>
+                </div>
+              </motion.div>
+            </div>
+          </div>
+        </section>
+
         {/* Education & Experience Grid */}
         <section id="education" className="py-32 px-6 scroll-mt-20">
           <div className="max-w-7xl mx-auto">
