@@ -14,8 +14,13 @@ export default {
         'glitch-1': 'glitch-1 2.5s infinite linear alternate-reverse',
         'glitch-2': 'glitch-2 3s infinite linear alternate-reverse',
         'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+        'scanline': 'scanline 8s linear infinite',
       },
       keyframes: {
+        'scanline': {
+          '0%': { backgroundPosition: '0 0' },
+          '100%': { backgroundPosition: '0 100%' },
+        },
         'glitch-1': {
           '0%': { clipPath: 'polygon(0 2%, 100% 2%, 100% 5%, 0 5%)' },
           '10%': { clipPath: 'polygon(0 15%, 100% 15%, 100% 15%, 0 15%)' },

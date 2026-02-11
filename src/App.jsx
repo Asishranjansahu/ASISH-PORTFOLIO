@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import { Github, Linkedin, Mail, ExternalLink, Code2, Terminal, Cpu, GraduationCap, Briefcase, Award, Cloud, Database, Cog, CircuitBoard, Image, Server, Globe, GitPullRequest, Shapes, HardDrive, Boxes, Workflow, Lightbulb, Users, RefreshCw, MessageCircle, MapPin, Send, User, FileText, FolderGit2 } from 'lucide-react';
-import { motion } from 'framer-motion';
+import { Github, Linkedin, Mail, ExternalLink, Code2, Terminal as TerminalIcon, Cpu, GraduationCap, Briefcase, Award, Cloud, Database, Cog, CircuitBoard, Image, Server, Globe, GitPullRequest, Shapes, HardDrive, Boxes, Workflow, Lightbulb, Users, RefreshCw, MessageCircle, MapPin, Send, User, FileText, FolderGit2 } from 'lucide-react';
+import { motion, AnimatePresence } from 'framer-motion';
 import GlitchText from './components/GlitchText';
 import TypewriterText from './components/TypewriterText';
 import Navbar from './components/Navbar';
@@ -8,8 +8,39 @@ import Navbar from './components/Navbar';
 import GithubStats from './components/GithubStats';
 import HireMe from './components/HireMe';
 import Background3D from './components/Background3D';
+import Terminal from './components/Terminal';
 
 function App() {
+  const [showTerminal, setShowTerminal] = useState(false);
+  const [matrixMode, setMatrixMode] = useState(false);
+  const [konamiIndex, setKonamiIndex] = useState(0);
+
+  const konamiCode = [
+    'ArrowUp', 'ArrowUp', 'ArrowDown', 'ArrowDown',
+    'ArrowLeft', 'ArrowRight', 'ArrowLeft', 'ArrowRight',
+    'b', 'a'
+  ];
+
+  useEffect(() => {
+    const handleKeyDown = (e) => {
+      if (e.key === konamiCode[konamiIndex]) {
+        const nextIndex = konamiIndex + 1;
+        setKonamiIndex(nextIndex);
+        if (nextIndex === konamiCode.length) {
+          setMatrixMode(prev => !prev);
+          setKonamiIndex(0);
+          // Optional: Show a toast or message
+          console.log("Konami Code Activated!");
+        }
+      } else {
+        setKonamiIndex(0);
+      }
+    };
+
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [konamiIndex]);
+
   const [currentStatus, setCurrentStatus] = useState(0);
   const statuses = [
     { text: "System Online", color: "cyan" },
@@ -51,14 +82,40 @@ function App() {
   }, []);
 
   return (
-    <div className="relative min-h-screen bg-black text-slate-100 font-sans selection:bg-cyan-500/30 overflow-x-hidden">
+    <div className={`relative min-h-screen bg-black transition-colors duration-700 overflow-x-hidden ${
+      matrixMode 
+        ? 'font-mono text-green-500 selection:bg-green-500/30' 
+        : 'text-slate-100 font-sans selection:bg-cyan-500/30'
+    }`}>
+      {matrixMode && (
+        <div className="fixed inset-0 pointer-events-none z-[60] bg-[linear-gradient(rgba(18,16,16,0)_50%,rgba(0,0,0,0.25)_50%),linear-gradient(90deg,rgba(255,0,0,0.06),rgba(0,255,0,0.02),rgba(0,0,255,0.06))] bg-[length:100%_2px,3px_100%] animate-scanline mix-blend-overlay opacity-20"></div>
+      )}
+      
       <Navbar />
-      {show3D && <Background3D />}
+      {show3D && !matrixMode && <Background3D />}
       
       {/* Overlay Pattern - Optimized for performance */}
       <div className="fixed inset-0 z-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-[0.03] pointer-events-none"></div>
 
-      
+      {/* Terminal Toggle & Modal */}
+      <div className="fixed bottom-6 right-6 z-50">
+        <motion.button
+          whileHover={{ scale: 1.1 }}
+          whileTap={{ scale: 0.9 }}
+          onClick={() => setShowTerminal(!showTerminal)}
+          className={`p-4 rounded-full shadow-lg border backdrop-blur-sm transition-all duration-300 ${
+            showTerminal || matrixMode
+              ? 'bg-green-500 text-black border-green-400 shadow-[0_0_20px_rgba(34,197,94,0.5)]'
+              : 'bg-black/50 text-cyan-400 border-cyan-500/30 hover:border-cyan-400 hover:shadow-[0_0_20px_rgba(34,211,238,0.3)]'
+          }`}
+        >
+          <TerminalIcon className="w-6 h-6" />
+        </motion.button>
+      </div>
+
+      <AnimatePresence>
+        {showTerminal && <Terminal onClose={() => setShowTerminal(false)} />}
+      </AnimatePresence>
 
       <main className="relative z-10">
         {/* Hero Section */}
