@@ -29,13 +29,13 @@ const ProfileCard = () => {
                 />
                 
                 {/* Floating Badge (Top Right) */}
-                 <div className="absolute top-4 right-4 z-20 bg-black/40 backdrop-blur-md px-3 py-1.5 rounded-full border border-white/10 flex items-center gap-2 hover:bg-black/60 transition-colors">
+                 <a href="#contact" className="absolute top-4 right-4 z-20 bg-black/40 backdrop-blur-md px-3 py-1.5 rounded-full border border-white/10 flex items-center gap-2 hover:bg-black/60 hover:border-green-500/50 transition-all cursor-pointer group/badge">
                     <span className="relative flex h-2 w-2">
                       <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
                       <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
                     </span>
-                    <span className="text-[10px] font-bold text-white tracking-widest uppercase">Available</span>
-                </div>
+                    <span className="text-[10px] font-bold text-white tracking-widest uppercase group-hover/badge:text-green-400 transition-colors">Hire Me</span>
+                </a>
             </div>
 
             {/* Content Section */}
