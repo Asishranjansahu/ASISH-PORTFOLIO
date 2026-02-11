@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ShieldAlert, Fingerprint, Bug, Coffee, Zap, Lock, Unlock, X, Skull } from 'lucide-react';
+import { ShieldAlert, Fingerprint, Bug, Zap, Unlock, X, Skull } from 'lucide-react';
 import confetti from 'canvas-confetti';
 
 const SecretDevHQ = ({ onClose }) => {
