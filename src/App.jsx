@@ -558,7 +558,7 @@ function App() {
                   ].map((item, i) => (
                     <div key={i} className="group relative bg-zinc-900/50 hover:bg-zinc-900 rounded-xl p-6 flex flex-col items-center justify-center gap-4 border border-zinc-800 hover:border-pink-500/50 transition-all duration-300 hover:-translate-y-1">
                       <div className="absolute inset-0 bg-gradient-to-br from-pink-500/5 to-transparent opacity-0 group-hover:opacity-100 rounded-xl transition-opacity" />
-                      <item.icon className="w-10 h-10 text-slate-500 group-hover:text-pink-400 transition-colors duration-300" />
+                      <item.icon className="w-10 h-10 text-pink-400 transition-colors duration-300" />
                       <span className="font-mono text-sm text-slate-400 group-hover:text-pink-400 transition-colors text-center">{item.label}</span>
                     </div>
                   ))}
