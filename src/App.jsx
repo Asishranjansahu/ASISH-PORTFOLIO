@@ -1,9 +1,9 @@
-import React, { useEffect, useState, Suspense, lazy } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Github, Linkedin, Mail, ExternalLink, Code2, Terminal, Cpu, GraduationCap, Briefcase, Award, Cloud, Database, Cog, CircuitBoard, Image, Server, Globe, GitPullRequest, Shapes, HardDrive, Boxes, Workflow, Lightbulb, Users, RefreshCw, MessageCircle } from 'lucide-react';
 import { motion } from 'framer-motion';
 import GlitchText from './components/GlitchText';
 
-const Background3D = lazy(() => import('./components/Background3D'));
+import Background3D from './components/Background3D';
 
 function App() {
   const fadeInUp = {
@@ -68,11 +68,7 @@ function App() {
           </a>
         </div>
       </aside>
-      {show3D && (
-        <Suspense fallback={<div className="fixed inset-0 z-0 bg-gradient-to-b from-black via-black to-black"></div>}>
-          <Background3D />
-        </Suspense>
-      )}
+      {show3D && <Background3D />}
       
       {/* Overlay Pattern */}
       <div className="fixed inset-0 z-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-20 pointer-events-none mix-blend-overlay"></div>
