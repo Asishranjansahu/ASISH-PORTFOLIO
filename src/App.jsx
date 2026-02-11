@@ -7,6 +7,7 @@ import Navbar from './components/Navbar';
 import TerminalComponent from './components/Terminal';
 import CommandPalette from './components/CommandPalette';
 import LiveDashboard from './components/LiveDashboard';
+import EngineeringProcess from './components/EngineeringProcess';
 
 import GithubStats from './components/GithubStats';
 import HireMe from './components/HireMe';
@@ -688,6 +689,10 @@ function App() {
             </div>
           </div>
         </section>
+
+        {/* Engineering Process Section */}
+        <EngineeringProcess />
+
 
         {/* GitHub Stats Section */}
         <GithubStats />
