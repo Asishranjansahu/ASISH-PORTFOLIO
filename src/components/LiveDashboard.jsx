@@ -44,8 +44,8 @@ const LiveDashboard = () => {
       {/* Header */}
       <div className="flex items-center justify-between px-6 py-3 border-b border-white/10 bg-black/20">
         <div className="flex items-center gap-2">
-          <div className="w-2 h-2 rounded-full bg-red-500 animate-pulse" />
-          <span className="text-xs font-mono font-bold text-slate-400 tracking-wider uppercase">Live Dashboard</span>
+          <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
+          <span className="text-xs font-mono font-bold text-green-400 tracking-wider uppercase">SYSTEM ONLINE</span>
         </div>
         <div className="flex items-center gap-4 text-xs font-mono text-slate-500">
           <span className="flex items-center gap-1">
