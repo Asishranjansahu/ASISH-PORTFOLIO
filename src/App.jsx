@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Github, Linkedin, Mail, ExternalLink, Code2, Terminal, Cpu, GraduationCap, Briefcase, Award, Cloud, Database, Cog, CircuitBoard, Image, Server, Globe, GitPullRequest, Shapes, HardDrive, Boxes, Workflow, Lightbulb, Users, RefreshCw, MessageCircle, MapPin, Send, User } from 'lucide-react';
+import { Github, Linkedin, Mail, ExternalLink, Code2, Terminal, Cpu, GraduationCap, Briefcase, Award, Cloud, Database, Cog, CircuitBoard, Image, Server, Globe, GitPullRequest, Shapes, HardDrive, Boxes, Workflow, Lightbulb, Users, RefreshCw, MessageCircle, MapPin, Send, User, FileText } from 'lucide-react';
 import { motion } from 'framer-motion';
 import GlitchText from './components/GlitchText';
 import TypewriterText from './components/TypewriterText';
@@ -70,13 +70,22 @@ function App() {
                 I am Asish Ranjan Sahu. A Full Stack Developer engineering the next generation of digital experiences.
               </motion.div>
 
-              <motion.div variants={fadeInUp} className="flex gap-6 pt-4">
+              <motion.div variants={fadeInUp} className="flex flex-wrap gap-6 pt-4">
                 <a href="#projects" className="group relative px-8 py-4 bg-white text-black font-display font-bold tracking-widest uppercase overflow-hidden">
                   <span className="relative z-10 group-hover:text-white transition-colors duration-300">View Work</span>
                   <div className="absolute inset-0 bg-cyan-600 transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-300 ease-out"></div>
                 </a>
                 <a href="#contact" className="group px-8 py-4 border border-white/20 font-display font-bold tracking-widest uppercase hover:bg-white/5 transition-all">
                   Contact
+                </a>
+                <a 
+                  href="/resume.pdf" 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="group px-8 py-4 border border-cyan-500/30 font-display font-bold tracking-widest uppercase hover:bg-cyan-500/10 transition-all flex items-center gap-2 text-cyan-400"
+                >
+                  <FileText className="w-5 h-5" />
+                  Resume
                 </a>
               </motion.div>
             </motion.div>
