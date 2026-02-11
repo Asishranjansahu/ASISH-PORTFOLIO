@@ -4,9 +4,16 @@ import { Points, PointMaterial } from '@react-three/drei';
 import { inSphere } from 'maath/random';
 import * as THREE from 'three';
 
-function StarLayer({ radius = 1.5, count = 5000, color = '#cbd5e1', size = 0.01 }) {
+function StarLayer({ radius = 1.5, count = 5000, color = '#cbd5e1', size = 0.01, speed = 0.02 }) {
   const ref = useRef();
   const [sphere] = useState(() => inSphere(new Float32Array(count), { radius }));
+
+  useFrame((state, delta) => {
+    if (ref.current) {
+      ref.current.rotation.y += delta * speed;
+      ref.current.rotation.x += delta * (speed * 0.6);
+    }
+  });
 
   return (
     <group rotation={[0, 0, Math.PI / 4]}>
@@ -41,9 +48,9 @@ const Background3D = () => {
           <Canvas camera={{ position: [0, 0, 1.2], near: 0.1, far: 100 }}>
             <color attach="background" args={['#07080c']} />
             <group scale={1.2}>
-              <StarLayer radius={1.6} count={4000} color="#cbd5e1" size={0.009} />
-              <StarLayer radius={1.8} count={3000} color="#cbd5e1" size={0.011} />
-              <StarLayer radius={2.0} count={2500} color="#cbd5e1" size={0.013} />
+              <StarLayer radius={1.6} count={4000} color="#cbd5e1" size={0.009} speed={0.018} />
+              <StarLayer radius={1.8} count={3000} color="#cbd5e1" size={0.011} speed={0.014} />
+              <StarLayer radius={2.0} count={2500} color="#cbd5e1" size={0.013} speed={0.010} />
             </group>
           </Canvas>
         </div>
