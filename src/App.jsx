@@ -290,42 +290,42 @@ function App() {
                   tech: "IoT • Flutter • Firebase",
                   desc: "Automated campus management system integrating IoT sensors.",
                   color: "cyan",
-                  image: "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?q=80&w=1200&auto=format&fit=crop"
+                  image: "https://placehold.co/1200x800/0f172a/ffffff?text=Smart+Campus"
                 },
                 {
                   title: "Dev Connect",
                   tech: "MERN • Socket.IO",
                   desc: "Real-time collaboration platform for developers.",
                   color: "purple",
-                  image: "https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=1200&auto=format&fit=crop"
+                  image: "https://placehold.co/1200x800/0f172a/ffffff?text=Dev+Connect"
                 },
                 {
                   title: "Task Master",
                   tech: "JS • LocalStorage",
                   desc: "Dynamic task management with persistent storage.",
                   color: "pink",
-                  image: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=1200&auto=format&fit=crop"
+                  image: "https://placehold.co/1200x800/0f172a/ffffff?text=Task+Master"
                 },
                 {
                   title: "Thread Sense",
                   tech: "React • Tailwind • Firebase",
                   desc: "Social threads app with realtime updates and modern UI.",
                   color: "emerald",
-                  image: "https://images.unsplash.com/photo-1517519014922-8dcd3f5f7bfc?q=80&w=1200&auto=format&fit=crop"
+                  image: "https://placehold.co/1200x800/0f172a/ffffff?text=Thread+Sense"
                 },
                 {
                   title: "Portfolio",
                   tech: "React • Vite • Tailwind",
                   desc: "Personal portfolio with 3D background and animated sections.",
                   color: "sky",
-                  image: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=1200&auto=format&fit=crop"
+                  image: "https://placehold.co/1200x800/0f172a/ffffff?text=Portfolio"
                 },
                 {
                   title: "ZERODHA CLONE",
                   tech: "React • Chart.js",
                   desc: "Brokerage UI clone with charts and order flow screens.",
                   color: "indigo",
-                  image: "https://images.unsplash.com/photo-1549421263-5ec394a5ad56?q=80&w=1200&auto=format&fit=crop"
+                  image: "https://placehold.co/1200x800/0f172a/ffffff?text=ZERODHA+CLONE"
                 }
               ].map((project, i) => (
                 <motion.div 
