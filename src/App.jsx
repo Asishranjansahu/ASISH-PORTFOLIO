@@ -29,7 +29,14 @@ function App() {
 
   useEffect(() => {
     const handleKeyDown = (e) => {
-      if (e.key === konamiCode[konamiIndex]) {
+      // Normalize key to lowercase for robustness (e.g. 'b' vs 'B')
+      const key = e.key.toLowerCase();
+      // Map Arrow keys to match our array if needed, but standardizing on standard key names
+      // 'arrowup', 'arrowdown', 'arrowleft', 'arrowright', 'b', 'a'
+      
+      const targetKey = konamiCode[konamiIndex].toLowerCase();
+      
+      if (key === targetKey) {
         const nextIndex = konamiIndex + 1;
         setKonamiIndex(nextIndex);
         if (nextIndex === konamiCode.length) {
@@ -38,7 +45,10 @@ function App() {
           console.log("Konami Code Activated! Secret unlocked.");
         }
       } else {
-        setKonamiIndex(0);
+        // Only reset if it's NOT a modifier key (Shift/Ctrl/Alt) which might be pressed accidentally
+        if (!['shift', 'control', 'alt', 'meta'].includes(key)) {
+             setKonamiIndex(0);
+        }
       }
     };
 
