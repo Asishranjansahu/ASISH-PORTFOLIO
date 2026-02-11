@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Code2, Menu, X, FolderGit2, GraduationCap, Briefcase, Award, Mail, User, Cpu, Brain, Github } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
+import StatusBadge from './StatusBadge';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -43,18 +44,22 @@ const Navbar = () => {
         </a>
 
         {/* Desktop Navigation */}
-        <div className="hidden md:flex items-center gap-8">
-          {navLinks.map((link) => (
-            <a 
-              key={link.name} 
-              href={link.href} 
-              className="group relative p-2"
-              title={link.name}
-            >
-              <div className="absolute inset-0 bg-cyan-500/20 rounded-lg scale-0 group-hover:scale-100 transition-transform duration-300"></div>
-              <link.icon className="w-6 h-6 text-slate-400 group-hover:text-cyan-400 transition-colors relative z-10" />
-            </a>
-          ))}
+        <div className="hidden md:flex items-center gap-6">
+          <div className="flex items-center gap-4">
+            {navLinks.map((link) => (
+              <a 
+                key={link.name} 
+                href={link.href} 
+                className="group relative p-2"
+                title={link.name}
+              >
+                <div className="absolute inset-0 bg-cyan-500/20 rounded-lg scale-0 group-hover:scale-100 transition-transform duration-300"></div>
+                <link.icon className="w-5 h-5 text-slate-400 group-hover:text-cyan-400 transition-colors relative z-10" />
+              </a>
+            ))}
+          </div>
+          <div className="w-px h-6 bg-white/10"></div>
+          <StatusBadge />
         </div>
 
         {/* Mobile Menu Button */}
@@ -75,6 +80,9 @@ const Navbar = () => {
               className="absolute top-full left-0 right-0 bg-black/95 backdrop-blur-xl border-b border-white/10 p-6 md:hidden"
             >
               <div className="flex flex-col gap-6">
+                <div className="flex justify-center pb-4 border-b border-white/10">
+                  <StatusBadge />
+                </div>
                 {navLinks.map((link) => (
                   <a 
                     key={link.name} 
