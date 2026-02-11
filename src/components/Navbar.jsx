@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import { Code2, Menu, X, FolderGit2, GraduationCap, Briefcase, Award, Mail, User, Cpu, Brain, Github } from 'lucide-react';
+import { Code2, Menu, X, FolderGit2, GraduationCap, Briefcase, Award, Mail, User, Cpu, Brain, Github, IdCard } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import StatusBadge from './StatusBadge';
 
-const Navbar = () => {
+const Navbar = ({ onOpenProfile }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
@@ -57,6 +57,14 @@ const Navbar = () => {
                 <link.icon className="w-5 h-5 text-slate-400 group-hover:text-cyan-400 transition-colors relative z-10" />
               </a>
             ))}
+            <button 
+              onClick={onOpenProfile}
+              className="group relative p-2"
+              title="View Profile Card"
+            >
+              <div className="absolute inset-0 bg-purple-500/20 rounded-lg scale-0 group-hover:scale-100 transition-transform duration-300"></div>
+              <IdCard className="w-5 h-5 text-slate-400 group-hover:text-purple-400 transition-colors relative z-10" />
+            </button>
           </div>
           <div className="w-px h-6 bg-white/10"></div>
           <StatusBadge />
@@ -94,6 +102,16 @@ const Navbar = () => {
                     {link.name}
                   </a>
                 ))}
+                <button 
+                  onClick={() => {
+                    onOpenProfile();
+                    setIsOpen(false);
+                  }}
+                  className="text-lg font-display font-bold uppercase tracking-widest text-slate-400 hover:text-purple-400 flex items-center gap-4 text-left"
+                >
+                  <IdCard className="w-5 h-5 text-purple-400" />
+                  View Profile Card
+                </button>
               </div>
             </motion.div>
           )}

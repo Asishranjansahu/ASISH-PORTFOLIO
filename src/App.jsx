@@ -17,6 +17,7 @@ import Background3D from './components/Background3D';
 function App() {
   const [matrixMode, setMatrixMode] = useState(false);
   const [konamiIndex, setKonamiIndex] = useState(0);
+  const [isProfileOpen, setIsProfileOpen] = useState(true);
 
   const konamiCode = [
     'ArrowUp', 'ArrowUp', 'ArrowDown', 'ArrowDown',
@@ -141,8 +142,36 @@ function App() {
         <div className="fixed inset-0 pointer-events-none z-[60] bg-[linear-gradient(rgba(18,16,16,0)_50%,rgba(0,0,0,0.25)_50%),linear-gradient(90deg,rgba(255,0,0,0.06),rgba(0,255,0,0.02),rgba(0,0,255,0.06))] bg-[length:100%_2px,3px_100%] animate-scanline mix-blend-overlay opacity-20"></div>
       )}
       
-      <Navbar />
+      <Navbar onOpenProfile={() => setIsProfileOpen(true)} />
       {show3D && !matrixMode && <Background3D />}
+
+      <AnimatePresence>
+        {isProfileOpen && (
+          <motion.div 
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-[200] flex items-center justify-center bg-black/80 backdrop-blur-md p-4"
+            onClick={() => setIsProfileOpen(false)}
+          >
+            <motion.div 
+              initial={{ scale: 0.9, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.9, opacity: 0 }}
+              onClick={(e) => e.stopPropagation()}
+              className="relative"
+            >
+              <button 
+                onClick={() => setIsProfileOpen(false)}
+                className="absolute -top-12 right-0 md:-right-12 text-white/50 hover:text-white transition-colors"
+              >
+                <X className="w-8 h-8" />
+              </button>
+              <ProfileCard />
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
       
       {/* Overlay Pattern - Optimized for performance */}
       <div className="fixed inset-0 z-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-[0.03] pointer-events-none"></div>
@@ -313,9 +342,52 @@ function App() {
                 initial={{ opacity: 0, scale: 0.9 }}
                 whileInView={{ opacity: 1, scale: 1 }}
                 transition={{ delay: 0.2 }}
-                className="flex justify-center"
+                className="relative"
               >
-                <ProfileCard />
+                <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/20 to-purple-500/20 rounded-2xl blur-xl"></div>
+                <div className="relative bg-black/50 border border-white/10 rounded-2xl p-8 backdrop-blur-sm">
+                  <div className="flex items-center gap-2 mb-6 border-b border-white/10 pb-4">
+                    <div className="w-3 h-3 rounded-full bg-red-500"></div>
+                    <div className="w-3 h-3 rounded-full bg-yellow-500"></div>
+                    <div className="w-3 h-3 rounded-full bg-green-500"></div>
+                    <span className="ml-4 text-xs font-mono text-slate-500">developer.js</span>
+                  </div>
+                  <div className="font-mono text-sm space-y-4">
+                    <div>
+                      <span className="text-purple-400">const</span> <span className="text-cyan-400">developer</span> <span className="text-white">=</span> <span className="text-yellow-400">{`{`}</span>
+                    </div>
+                    <div className="pl-4">
+                      <span className="text-slate-400">name:</span> <span className="text-green-400">"Asish Ranjan Sahu"</span>,
+                    </div>
+                    <div className="pl-4">
+                      <span className="text-slate-400">role:</span> <span className="text-green-400">"Full Stack Developer"</span>,
+                    </div>
+                    <div className="pl-4">
+                      <span className="text-slate-400">traits:</span> <span className="text-yellow-400">[</span>
+                    </div>
+                    <div className="pl-8">
+                      <span className="text-green-400">"Problem Solver"</span>,
+                    </div>
+                    <div className="pl-8">
+                      <span className="text-green-400">"Continuous Learner"</span>,
+                    </div>
+                    <div className="pl-8">
+                      <span className="text-green-400">"Tech Enthusiast"</span>
+                    </div>
+                    <div className="pl-4">
+                      <span className="text-yellow-400">]</span>,
+                    </div>
+                    <div className="pl-4">
+                      <span className="text-slate-400">hardWorker:</span> <span className="text-purple-400">true</span>,
+                    </div>
+                    <div className="pl-4">
+                      <span className="text-slate-400">quickLearner:</span> <span className="text-purple-400">true</span>
+                    </div>
+                    <div>
+                      <span className="text-yellow-400">{`}`}</span>;
+                    </div>
+                  </div>
+                </div>
               </motion.div>
             </div>
           </div>
