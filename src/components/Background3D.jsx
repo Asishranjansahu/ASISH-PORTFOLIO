@@ -4,7 +4,7 @@ import { Points, PointMaterial, Sparkles } from '@react-three/drei';
 import { inSphere } from 'maath/random';
 import * as THREE from 'three';
 
-function StarLayer({ radius = 1.5, count = 5000, color = '#7dd3fc', size = 0.002, speed = 0.1 }) {
+function StarLayer({ radius = 1.5, count = 5000, color = '#7dd3fc', size = 0.01, speed = 0.1 }) {
   const ref = useRef();
   const [sphere] = useState(() => inSphere(new Float32Array(count), { radius }));
 
@@ -80,21 +80,41 @@ function Aurora() {
   );
 }
 
+const supportsWebGL = () => {
+  try {
+    const canvas = document.createElement('canvas');
+    return !!(canvas.getContext('webgl') || canvas.getContext('experimental-webgl'));
+  } catch {
+    return false;
+  }
+};
+
 const Background3D = () => {
   return (
-    <div className="fixed inset-0 z-0 bg-black">
-      <Canvas camera={{ position: [0, 0, 1], near: 0.1, far: 100 }}>
-        <color attach="background" args={['#05060a']} />
-        <fog attach="fog" args={['#0b0c10', 2, 10]} />
-        <Aurora />
-        <group scale={1.2}>
-          <StarLayer radius={1.6} count={6000} color="#7dd3fc" size={0.002} speed={0.08} />
-          <StarLayer radius={1.8} count={4000} color="#a78bfa" size={0.0025} speed={0.06} />
-          <StarLayer radius={2.0} count={3000} color="#f472b6" size={0.003} speed={0.04} />
-        </group>
-        <Sparkles count={80} scale={[3, 2, 1]} size={2} speed={0.4} color="#22d3ee" opacity={0.8} />
-      </Canvas>
-    </div>
+    <>
+      {supportsWebGL() ? (
+        <div className="fixed inset-0 z-0 bg-black">
+          {/* Decorative gradients always present behind WebGL */}
+          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_rgba(34,211,238,0.10)_0%,_rgba(0,0,0,0)_60%)] pointer-events-none"></div>
+          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom,_rgba(167,139,250,0.08)_0%,_rgba(0,0,0,0)_60%)] pointer-events-none"></div>
+          <Canvas camera={{ position: [0, 0, 1.2], near: 0.1, far: 100 }}>
+            <color attach="background" args={['#07080c']} />
+            <Aurora />
+            <group scale={1.2}>
+              <StarLayer radius={1.6} count={4000} color="#7dd3fc" size={0.009} speed={0.08} />
+              <StarLayer radius={1.8} count={3000} color="#a78bfa" size={0.011} speed={0.06} />
+              <StarLayer radius={2.0} count={2500} color="#f472b6" size={0.013} speed={0.04} />
+            </group>
+            <Sparkles count={80} scale={[3, 2, 1]} size={2} speed={0.4} color="#22d3ee" opacity={0.8} />
+          </Canvas>
+        </div>
+      ) : (
+        <div className="fixed inset-0 z-0 bg-gradient-to-b from-[#08090d] via-[#0a0b10] to-black">
+          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_rgba(34,211,238,0.12)_0%,_rgba(0,0,0,0)_60%)]"></div>
+          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom,_rgba(167,139,250,0.10)_0%,_rgba(0,0,0,0)_60%)]"></div>
+        </div>
+      )}
+    </>
   );
 };
 
