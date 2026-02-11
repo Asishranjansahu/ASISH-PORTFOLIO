@@ -9,6 +9,7 @@ import CommandPalette from './components/CommandPalette';
 import LiveDashboard from './components/LiveDashboard';
 import EngineeringProcess from './components/EngineeringProcess';
 import ProfileCard from './components/ProfileCard';
+import SecretDevHQ from './components/SecretDevHQ';
 
 import GithubStats from './components/GithubStats';
 import HireMe from './components/HireMe';
@@ -18,6 +19,7 @@ function App() {
   const [matrixMode, setMatrixMode] = useState(false);
   const [konamiIndex, setKonamiIndex] = useState(0);
   const [isProfileOpen, setIsProfileOpen] = useState(true);
+  const [isSecretOpen, setIsSecretOpen] = useState(false);
 
   const konamiCode = [
     'ArrowUp', 'ArrowUp', 'ArrowDown', 'ArrowDown',
@@ -31,10 +33,9 @@ function App() {
         const nextIndex = konamiIndex + 1;
         setKonamiIndex(nextIndex);
         if (nextIndex === konamiCode.length) {
-          setMatrixMode(prev => !prev);
+          setIsSecretOpen(true);
           setKonamiIndex(0);
-          // Optional: Show a toast or message
-          console.log("Konami Code Activated!");
+          console.log("Konami Code Activated! Secret unlocked.");
         }
       } else {
         setKonamiIndex(0);
@@ -890,8 +891,20 @@ function App() {
       />
       
       <AnimatePresence>
+        {isSecretOpen && (
+          <SecretDevHQ onClose={() => setIsSecretOpen(false)} />
+        )}
+      </AnimatePresence>
+
+      <AnimatePresence>
         {isTerminalOpen && (
-          <TerminalComponent onClose={() => setIsTerminalOpen(false)} />
+          <TerminalComponent 
+            onClose={() => setIsTerminalOpen(false)} 
+            onUnlockSecret={() => {
+              setIsSecretOpen(true);
+              setIsTerminalOpen(false);
+            }}
+          />
         )}
       </AnimatePresence>
     </div>

@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Terminal as TerminalIcon, X, Maximize2, Minus } from 'lucide-react';
 
-const Terminal = ({ onClose }) => {
+const Terminal = ({ onClose, onUnlockSecret }) => {
   const [input, setInput] = useState('');
   const [output, setOutput] = useState([
     { type: 'system', content: 'Welcome to AsishOS v1.0.0' },
@@ -53,6 +53,13 @@ const Terminal = ({ onClose }) => {
       { type: 'text', content: '- Reading "Clean Code" by Uncle Bob' },
     ],
     contact: () => handleScrollTo('contact', 'Contact'),
+    'sudo hire-asish': () => {
+      if (onUnlockSecret) {
+        setTimeout(() => onUnlockSecret(), 1000);
+        return [{ type: 'success', content: 'ACCESS GRANTED. INITIATING SECRET PROTOCOL...' }];
+      }
+      return [{ type: 'error', content: 'Secret protocol unavailable.' }];
+    },
     clear: () => [],
     exit: () => {
       onClose();
