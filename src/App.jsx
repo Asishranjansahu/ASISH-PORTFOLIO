@@ -269,9 +269,9 @@ function App() {
                       className="relative"
                     >
                       {/* Timeline Icon */}
-                      <span className="absolute -left-[53px] md:-left-[73px] top-0 flex items-center justify-center w-10 h-10 md:w-12 md:h-12 rounded-full bg-black border border-cyan-500 text-cyan-400 shadow-[0_0_10px_rgba(34,211,238,0.3)] z-10">
-                         <GraduationCap className="w-5 h-5 md:w-6 md:h-6" />
-                      </span>
+                      <span className="absolute -left-5 md:-left-[73px] top-0 flex items-center justify-center w-10 h-10 md:w-12 md:h-12 rounded-full bg-black border border-cyan-500 text-cyan-400 shadow-[0_0_10px_rgba(34,211,238,0.3)] z-10">
+                       <GraduationCap className="w-5 h-5 md:w-6 md:h-6" />
+                    </span>
 
                       {/* Content Card */}
                       <div className="holo-card p-8 group relative hover:-translate-y-1 transition-transform duration-300">
@@ -308,7 +308,7 @@ function App() {
                     className="relative"
                   >
                     {/* Timeline Icon */}
-                    <span className="absolute -left-[53px] md:-left-[73px] top-0 flex items-center justify-center w-10 h-10 md:w-12 md:h-12 rounded-full bg-black border border-purple-500 text-purple-400 shadow-[0_0_10px_rgba(168,85,247,0.3)] z-10">
+                    <span className="absolute -left-5 md:-left-[73px] top-0 flex items-center justify-center w-10 h-10 md:w-12 md:h-12 rounded-full bg-black border border-purple-500 text-purple-400 shadow-[0_0_10px_rgba(168,85,247,0.3)] z-10">
                        <Briefcase className="w-5 h-5 md:w-6 md:h-6" />
                     </span>
 
@@ -345,7 +345,7 @@ function App() {
             
             <div className="relative border-l-2 border-cyan-500/30 ml-3 md:ml-6 pl-8 md:pl-12 py-4">
               {/* Timeline Icon */}
-              <span className="absolute -left-[53px] md:-left-[73px] top-0 flex items-center justify-center w-10 h-10 md:w-12 md:h-12 rounded-full bg-black border border-cyan-500 text-cyan-400 shadow-[0_0_10px_rgba(34,211,238,0.3)] z-10">
+              <span className="absolute -left-5 md:-left-[73px] top-0 flex items-center justify-center w-10 h-10 md:w-12 md:h-12 rounded-full bg-black border border-cyan-500 text-cyan-400 shadow-[0_0_10px_rgba(34,211,238,0.3)] z-10">
                 <FolderGit2 className="w-5 h-5 md:w-6 md:h-6" />
               </span>
 
