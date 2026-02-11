@@ -245,6 +245,7 @@ function App() {
         <section id="education" className="py-32 px-6 scroll-mt-20">
           <div className="max-w-7xl mx-auto">
             <div className="grid md:grid-cols-2 gap-16">
+              {/* Education Column */}
               <div>
                 <motion.h3 
                   initial={{ opacity: 0, x: -50 }}
@@ -254,32 +255,42 @@ function App() {
                   <GraduationCap className="w-8 h-8 text-cyan-400" />
                   EDUCATION
                 </motion.h3>
-                <div className="space-y-8">
+                
+                <div className="relative border-l-2 border-cyan-500/30 ml-3 md:ml-6 space-y-12 pl-8 md:pl-12 py-4">
                   {[
                     { title: "NIST University", degree: "M.Tech in CSE", year: "Pursuing", color: "cyan" },
                     { title: "VITAM", degree: "B.Tech in CSE", year: "2021-2025", color: "purple" }
                   ].map((item, i) => (
                     <motion.div 
                       key={i}
-                      initial={{ opacity: 0, y: 20 }}
-                      whileInView={{ opacity: 1, y: 0 }}
+                      initial={{ opacity: 0, x: -20 }}
+                      whileInView={{ opacity: 1, x: 0 }}
                       transition={{ delay: i * 0.2 }}
-                      className="holo-card p-8 group"
+                      className="relative"
                     >
-                      <div className="flex justify-between items-start">
-                        <div>
-                          <h4 className="font-display text-xl font-bold text-white group-hover:text-cyan-400 transition-colors">{item.title}</h4>
-                          <p className="text-slate-400 mt-2 font-mono text-sm">{item.degree}</p>
+                      {/* Timeline Icon */}
+                      <span className="absolute -left-[41px] md:-left-[57px] top-0 flex items-center justify-center w-10 h-10 md:w-12 md:h-12 rounded-full bg-black border border-cyan-500 text-cyan-400 shadow-[0_0_10px_rgba(34,211,238,0.3)] z-10">
+                         <GraduationCap className="w-5 h-5 md:w-6 md:h-6" />
+                      </span>
+
+                      {/* Content Card */}
+                      <div className="holo-card p-8 group relative hover:-translate-y-1 transition-transform duration-300">
+                        <div className="flex justify-between items-start">
+                          <div>
+                            <h4 className="font-display text-xl font-bold text-white group-hover:text-cyan-400 transition-colors">{item.title}</h4>
+                            <p className="text-slate-400 mt-2 font-mono text-sm">{item.degree}</p>
+                          </div>
+                          <span className={`px-3 py-1 rounded-full text-xs font-bold bg-${item.color}-500/10 text-${item.color}-400 border border-${item.color}-500/20`}>
+                            {item.year}
+                          </span>
                         </div>
-                        <span className={`px-3 py-1 rounded-full text-xs font-bold bg-${item.color}-500/10 text-${item.color}-400 border border-${item.color}-500/20`}>
-                          {item.year}
-                        </span>
                       </div>
                     </motion.div>
                   ))}
                 </div>
               </div>
 
+              {/* Experience Column */}
               <div id="experience" className="scroll-mt-24">
                 <motion.h3 
                   initial={{ opacity: 0, x: 50 }}
@@ -289,23 +300,33 @@ function App() {
                   <Briefcase className="w-8 h-8 text-purple-400" />
                   EXPERIENCE
                 </motion.h3>
-                <motion.div 
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  className="holo-card p-8 relative overflow-visible"
-                >
-                  <div className="absolute -left-3 top-8 w-6 h-6 bg-purple-500 rounded-full blur-lg"></div>
-                  <div className="flex justify-between items-start mb-6">
-                    <div>
-                      <h4 className="font-display text-2xl font-bold text-white">Web Developer</h4>
-                      <p className="text-purple-400 font-mono text-sm mt-1">Innovixion Tech</p>
+
+                <div className="relative border-l-2 border-purple-500/30 ml-3 md:ml-6 space-y-12 pl-8 md:pl-12 py-4">
+                  <motion.div 
+                    initial={{ opacity: 0, x: 20 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    className="relative"
+                  >
+                    {/* Timeline Icon */}
+                    <span className="absolute -left-[41px] md:-left-[57px] top-0 flex items-center justify-center w-10 h-10 md:w-12 md:h-12 rounded-full bg-black border border-purple-500 text-purple-400 shadow-[0_0_10px_rgba(168,85,247,0.3)] z-10">
+                       <Briefcase className="w-5 h-5 md:w-6 md:h-6" />
+                    </span>
+
+                    {/* Content Card */}
+                    <div className="holo-card p-8 relative overflow-visible group hover:-translate-y-1 transition-transform duration-300">
+                      <div className="flex justify-between items-start mb-6">
+                        <div>
+                          <h4 className="font-display text-2xl font-bold text-white">Web Developer</h4>
+                          <p className="text-purple-400 font-mono text-sm mt-1">Innovixion Tech</p>
+                        </div>
+                        <span className="text-xs font-mono text-slate-500">Nov - Dec 2023</span>
+                      </div>
+                      <p className="text-slate-400 leading-relaxed border-l-2 border-white/10 pl-4">
+                        Developed responsive applications implementing CRUD operations. Optimized performance and maintained clean code architecture.
+                      </p>
                     </div>
-                    <span className="text-xs font-mono text-slate-500">Nov - Dec 2023</span>
-                  </div>
-                  <p className="text-slate-400 leading-relaxed border-l-2 border-white/10 pl-4">
-                    Developed responsive applications implementing CRUD operations. Optimized performance and maintained clean code architecture.
-                  </p>
-                </motion.div>
+                  </motion.div>
+                </div>
               </div>
             </div>
           </div>
