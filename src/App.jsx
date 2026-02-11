@@ -230,7 +230,7 @@ function App() {
                   tech: "React • Tailwind • Firebase",
                   desc: "Social threads app with realtime updates and modern UI.",
                   color: "emerald",
-                  image: "https://placehold.co/1200x800/0f172a/ffffff?text=Thread+Sense"
+                  image: "/projects/thread-sense.svg"
                 },
                 {
                   title: "Portfolio",
