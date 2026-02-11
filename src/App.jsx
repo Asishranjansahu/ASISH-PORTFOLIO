@@ -34,91 +34,14 @@ function App() {
 
   return (
     <div className="relative min-h-screen bg-black text-slate-100 font-sans selection:bg-cyan-500/30 overflow-x-hidden">
-      <aside className="fixed left-0 top-0 bottom-0 z-50 w-72 bg-black/60 backdrop-blur-md border-r border-white/10 hidden md:flex flex-col p-6 gap-6">
-        <div className="flex items-center gap-4">
-          <div className="w-14 h-14 rounded-full overflow-hidden border border-white/10">
-            <img 
-              src="/profile.jpeg" 
-              alt="Profile" 
-              className="w-full h-full object-cover"
-              onError={(e) => { e.currentTarget.onerror = null; e.currentTarget.src = 'https://ui-avatars.com/api/?name=Asish+Ranjan+Sahu&background=0D8ABC&color=fff&size=256'; }}
-            />
-          </div>
-          <div>
-            <div className="font-display font-bold text-sm text-white">ASISH RANJAN SAHU</div>
-            <div className="text-[11px] text-slate-400">Full Stack Developer</div>
-            <div className="text-[11px] text-slate-500">Odisha, India</div>
-          </div>
-        </div>
-        <nav className="flex flex-col gap-2 text-xs font-mono">
-          <a href="#projects" className="px-3 py-2 rounded-lg border border-white/10 hover:border-cyan-500/50 hover:bg-white/5 transition-colors">Projects</a>
-          <a href="#skills" className="px-3 py-2 rounded-lg border border-white/10 hover:border-cyan-500/50 hover:bg-white/5 transition-colors">Skills</a>
-          <a href="#achievements" className="px-3 py-2 rounded-lg border border-white/10 hover:border-cyan-500/50 hover:bg-white/5 transition-colors">Achievements</a>
-          <a href="#contact" className="px-3 py-2 rounded-lg border border-white/10 hover:border-cyan-500/50 hover:bg-white/5 transition-colors">Contact</a>
-        </nav>
-        <div className="mt-auto flex gap-3">
-          <a href="mailto:asishranjansahu2003@gmail.com" className="p-2 rounded-lg bg-white/5 border border-white/10 hover:bg-white/10 transition">
-            <Mail className="w-4 h-4 text-white" />
-          </a>
-          <a href="https://linkedin.com/in/asish-ranjan-sahu" className="p-2 rounded-lg bg-white/5 border border-white/10 hover:bg-white/10 transition">
-            <Linkedin className="w-4 h-4 text-white" />
-          </a>
-          <a href="https://github.com/Asishranjansahu" className="p-2 rounded-lg bg-white/5 border border-white/10 hover:bg-white/10 transition">
-            <Github className="w-4 h-4 text-white" />
-          </a>
-        </div>
-      </aside>
       {show3D && <Background3D />}
       
       {/* Overlay Pattern */}
       <div className="fixed inset-0 z-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-20 pointer-events-none mix-blend-overlay"></div>
 
-      {/* Top Navbar */}
-      <header className="fixed top-0 left-0 right-0 z-50 bg-[#121316]/80 backdrop-blur-md border-b border-white/10">
-        <div className="max-w-7xl mx-auto px-6 py-3 flex items-center justify-between">
-          <div className="flex items-center gap-4">
-            <div className="w-10 h-10 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center">
-              <span className="font-display font-bold text-white">AR</span>
-            </div>
-            <div className="hidden sm:flex flex-col leading-tight">
-              <span className="font-display font-bold text-sm text-white">ASISH RANJAN SAHU</span>
-              <span className="text-[11px] text-slate-400">Full Stack Developer</span>
-            </div>
-          </div>
-          <nav className="hidden md:flex items-center gap-8 text-sm font-mono">
-            {[
-              { label: 'Home', href: '#about' },
-              { label: 'Portfolio', href: '#projects', active: true },
-              { label: 'Terminal', href: '#skills' },
-              { label: 'Project', href: '#projects' },
-              { label: 'Contact', href: '#contact' }
-            ].map((item) => (
-              <a
-                key={item.label}
-                href={item.href}
-                className={`text-slate-300 hover:text-white transition-colors ${item.active ? 'underline underline-offset-8' : ''}`}
-              >
-                {item.label}
-              </a>
-            ))}
-          </nav>
-          <div className="flex items-center gap-4">
-            <a href="#contact" className="px-4 py-2 rounded-lg bg-yellow-500 text-black font-display font-bold hover:bg-yellow-400 transition-colors">
-              Contact Me
-            </a>
-            <div className="w-9 h-9 rounded-full overflow-hidden border border-white/10">
-              <img 
-                src="/profile.jpeg" 
-                alt="Avatar" 
-                className="w-full h-full object-cover"
-                onError={(e) => { e.currentTarget.onerror = null; e.currentTarget.src = 'https://ui-avatars.com/api/?name=ARS&background=0D8ABC&color=fff&size=256'; }}
-              />
-            </div>
-          </div>
-        </div>
-      </header>
+      
 
-      <main className="relative z-10 md:ml-72">
+      <main className="relative z-10">
         {/* Hero Section */}
         <section id="about" className="min-h-screen flex items-center justify-center px-6 relative">
           <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-16 items-center">
@@ -307,7 +230,7 @@ function App() {
                   tech: "React • Tailwind • Firebase",
                   desc: "Social threads app with realtime updates and modern UI.",
                   color: "emerald",
-                  image: "https://placehold.co/1200x800/0f172a/ffffff?text=Thread+Sense"
+                  image: "/projects/thread-sense.svg"
                 },
                 {
                   title: "Portfolio",
