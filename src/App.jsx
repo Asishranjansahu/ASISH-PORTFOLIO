@@ -3,6 +3,7 @@ import { Github, Linkedin, Mail, ExternalLink, Code2, Terminal, Cpu, GraduationC
 import { motion } from 'framer-motion';
 import GlitchText from './components/GlitchText';
 import TypewriterText from './components/TypewriterText';
+import Navbar from './components/Navbar';
 
 import Background3D from './components/Background3D';
 
@@ -35,6 +36,7 @@ function App() {
 
   return (
     <div className="relative min-h-screen bg-black text-slate-100 font-sans selection:bg-cyan-500/30 overflow-x-hidden">
+      <Navbar />
       {show3D && <Background3D />}
       
       {/* Overlay Pattern */}
@@ -132,7 +134,7 @@ function App() {
         </section>
 
         {/* Education & Experience Grid */}
-        <section id="education" className="py-32 px-6">
+        <section id="education" className="py-32 px-6 scroll-mt-20">
           <div className="max-w-7xl mx-auto">
             <div className="grid md:grid-cols-2 gap-16">
               <div>
@@ -170,7 +172,7 @@ function App() {
                 </div>
               </div>
 
-              <div>
+              <div id="experience" className="scroll-mt-24">
                 <motion.h3 
                   initial={{ opacity: 0, x: 50 }}
                   whileInView={{ opacity: 1, x: 0 }}
@@ -202,7 +204,7 @@ function App() {
         </section>
 
         {/* Projects Section */}
-        <section id="projects" className="py-32 px-6 bg-black/50">
+        <section id="projects" className="py-32 px-6 bg-black/50 scroll-mt-20">
           <div className="max-w-7xl mx-auto">
             <motion.h3 
               initial={{ opacity: 0, y: 20 }}
@@ -432,7 +434,7 @@ function App() {
           </div>
         </section>
 
-        <section id="achievements" className="py-32 px-6 bg-black/60">
+        <section id="achievements" className="py-32 px-6 bg-black/60 scroll-mt-20">
           <div className="max-w-7xl mx-auto">
             <motion.h3 
               initial={{ opacity: 0, y: 20 }}
@@ -466,7 +468,7 @@ function App() {
         </section>
 
         {/* Contact Section */}
-        <section id="contact" className="py-32 px-6 relative overflow-hidden">
+        <section id="contact" className="py-32 px-6 relative overflow-hidden scroll-mt-20">
           <div className="absolute inset-0 bg-gradient-to-t from-cyan-900/10 to-transparent pointer-events-none"></div>
           
           <div className="max-w-7xl mx-auto relative z-10">
