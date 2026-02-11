@@ -467,7 +467,7 @@ function App() {
                   ].map((item, i) => (
                     <div key={i} className="group relative bg-zinc-900/50 hover:bg-zinc-900 rounded-xl p-6 flex flex-col items-center justify-center gap-4 border border-zinc-800 hover:border-cyan-500/50 transition-all duration-300 hover:-translate-y-1">
                       <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/5 to-transparent opacity-0 group-hover:opacity-100 rounded-xl transition-opacity" />
-                      <img src={item.icon} alt={item.label} className="w-12 h-12 object-contain filter grayscale group-hover:grayscale-0 transition-all duration-300 group-hover:scale-110" />
+                      <img src={item.icon} alt={item.label} className="w-12 h-12 object-contain transition-all duration-300 group-hover:scale-110" />
                       <span className="font-mono text-sm text-slate-400 group-hover:text-cyan-400 transition-colors">{item.label}</span>
                     </div>
                   ))}
@@ -489,7 +489,7 @@ function App() {
                   ].map((item, i) => (
                     <div key={i} className="group relative bg-zinc-900/50 hover:bg-zinc-900 rounded-xl p-6 flex flex-col items-center justify-center gap-4 border border-zinc-800 hover:border-purple-500/50 transition-all duration-300 hover:-translate-y-1">
                       <div className="absolute inset-0 bg-gradient-to-br from-purple-500/5 to-transparent opacity-0 group-hover:opacity-100 rounded-xl transition-opacity" />
-                      <img src={item.icon} alt={item.label} className="w-12 h-12 object-contain filter grayscale group-hover:grayscale-0 transition-all duration-300 group-hover:scale-110" />
+                      <img src={item.icon} alt={item.label} className="w-12 h-12 object-contain transition-all duration-300 group-hover:scale-110" />
                       <span className="font-mono text-sm text-slate-400 group-hover:text-purple-400 transition-colors">{item.label}</span>
                     </div>
                   ))}
@@ -510,7 +510,7 @@ function App() {
                   ].map((item, i) => (
                     <div key={i} className="group relative bg-zinc-900/50 hover:bg-zinc-900 rounded-xl p-6 flex flex-col items-center justify-center gap-4 border border-zinc-800 hover:border-emerald-500/50 transition-all duration-300 hover:-translate-y-1">
                       <div className="absolute inset-0 bg-gradient-to-br from-emerald-500/5 to-transparent opacity-0 group-hover:opacity-100 rounded-xl transition-opacity" />
-                      <img src={item.icon} alt={item.label} className="w-12 h-12 object-contain filter grayscale group-hover:grayscale-0 transition-all duration-300 group-hover:scale-110" />
+                      <img src={item.icon} alt={item.label} className="w-12 h-12 object-contain transition-all duration-300 group-hover:scale-110" />
                       <span className="font-mono text-sm text-slate-400 group-hover:text-emerald-400 transition-colors">{item.label}</span>
                     </div>
                   ))}
@@ -534,7 +534,7 @@ function App() {
                   ].map((item, i) => (
                     <div key={i} className="group relative bg-zinc-900/50 hover:bg-zinc-900 rounded-xl p-6 flex flex-col items-center justify-center gap-4 border border-zinc-800 hover:border-orange-500/50 transition-all duration-300 hover:-translate-y-1">
                       <div className="absolute inset-0 bg-gradient-to-br from-orange-500/5 to-transparent opacity-0 group-hover:opacity-100 rounded-xl transition-opacity" />
-                      <img src={item.icon} alt={item.label} className="w-12 h-12 object-contain filter grayscale group-hover:grayscale-0 transition-all duration-300 group-hover:scale-110" />
+                      <img src={item.icon} alt={item.label} className="w-12 h-12 object-contain transition-all duration-300 group-hover:scale-110" />
                       <span className="font-mono text-sm text-slate-400 group-hover:text-orange-400 transition-colors">{item.label}</span>
                     </div>
                   ))}
