@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import { Github, Linkedin, Mail, ExternalLink, Code2, Terminal, Cpu, GraduationCap, Briefcase, Award, Cloud, Database, Cog, CircuitBoard, Image, Server, Globe, GitPullRequest, Shapes, HardDrive, Boxes, Workflow, Lightbulb, Users, RefreshCw, MessageCircle } from 'lucide-react';
+import { Github, Linkedin, Mail, ExternalLink, Code2, Terminal, Cpu, GraduationCap, Briefcase, Award, Cloud, Database, Cog, CircuitBoard, Image, Server, Globe, GitPullRequest, Shapes, HardDrive, Boxes, Workflow, Lightbulb, Users, RefreshCw, MessageCircle, MapPin, Send, User } from 'lucide-react';
 import { motion } from 'framer-motion';
 import GlitchText from './components/GlitchText';
+import TypewriterText from './components/TypewriterText';
 
 import Background3D from './components/Background3D';
 
@@ -65,9 +66,13 @@ function App() {
                 </motion.h2>
               </div>
 
-              <motion.p variants={fadeInUp} className="text-xl text-slate-400 max-w-xl leading-relaxed border-l-2 border-cyan-500/50 pl-6">
-                I am Asish Ranjan Sahu. A Full Stack Developer engineering the next generation of digital experiences.
-              </motion.p>
+              <motion.div variants={fadeInUp} className="text-xl text-slate-400 max-w-xl leading-relaxed border-l-2 border-cyan-500/50 pl-6 min-h-[80px]">
+                <TypewriterText 
+                  text="I am Asish Ranjan Sahu. A Full Stack Developer engineering the next generation of digital experiences."
+                  typingSpeed={40}
+                  startDelay={1500}
+                />
+              </motion.div>
 
               <motion.div variants={fadeInUp} className="flex gap-6 pt-4">
                 <a href="#projects" className="group relative px-8 py-4 bg-white text-black font-display font-bold tracking-widest uppercase overflow-hidden">
@@ -455,38 +460,123 @@ function App() {
           </div>
         </section>
 
-        {/* Footer */}
-        <footer id="contact" className="py-32 px-6 relative overflow-hidden">
+        {/* Contact Section */}
+        <section id="contact" className="py-32 px-6 relative overflow-hidden">
           <div className="absolute inset-0 bg-gradient-to-t from-cyan-900/10 to-transparent pointer-events-none"></div>
-          <div className="max-w-4xl mx-auto text-center relative z-10">
-            <motion.h2 
+          
+          <div className="max-w-7xl mx-auto relative z-10">
+            <motion.h3 
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              className="font-display text-4xl md:text-7xl font-bold mb-12"
+              className="font-display text-4xl md:text-6xl font-bold mb-20 text-center"
             >
-              LET'S BUILD THE <br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-pink-500">IMPOSSIBLE</span>
-            </motion.h2>
-            
-            <div className="flex justify-center gap-8 mb-16">
-              {[
-                { icon: Mail, href: "mailto:asishranjansahu2003@gmail.com" },
-                { icon: Linkedin, href: "https://linkedin.com/in/asish-ranjan-sahu" },
-                { icon: Github, href: "https://github.com/Asishranjansahu" }
-              ].map((item, i) => (
-                <motion.a 
-                  key={i}
-                  href={item.href}
-                  whileHover={{ scale: 1.2, rotate: 5 }}
-                  className="p-4 rounded-full bg-white/5 border border-white/10 hover:bg-white/10 hover:border-cyan-500/50 transition-all text-white"
+              GET IN <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-pink-500">TOUCH</span>
+            </motion.h3>
+
+            <div className="grid md:grid-cols-2 gap-12 items-start">
+              {/* Contact Info */}
+              <motion.div 
+                initial={{ opacity: 0, x: -50 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                className="space-y-8"
+              >
+                <div className="holo-card p-8 space-y-6">
+                  <h4 className="font-display text-2xl font-bold text-white mb-6">Contact Information</h4>
+                  
+                  <a href="mailto:asishranjansahu2003@gmail.com" className="flex items-center gap-4 text-slate-400 hover:text-cyan-400 transition-colors group">
+                    <div className="w-12 h-12 rounded-full bg-white/5 flex items-center justify-center group-hover:bg-cyan-500/20 transition-colors">
+                      <Mail className="w-6 h-6" />
+                    </div>
+                    <div>
+                      <p className="text-sm font-mono text-slate-500">Email</p>
+                      <p className="text-lg font-bold">asishranjansahu2003@gmail.com</p>
+                    </div>
+                  </a>
+
+                  <div className="flex items-center gap-4 text-slate-400 group">
+                    <div className="w-12 h-12 rounded-full bg-white/5 flex items-center justify-center">
+                      <MapPin className="w-6 h-6" />
+                    </div>
+                    <div>
+                      <p className="text-sm font-mono text-slate-500">Location</p>
+                      <p className="text-lg font-bold">Odisha, India</p>
+                    </div>
+                  </div>
+
+                  <div className="pt-8 border-t border-white/10 flex gap-4">
+                    <a href="https://linkedin.com/in/asish-ranjan-sahu" target="_blank" rel="noopener noreferrer" className="p-3 rounded-full bg-white/5 hover:bg-[#0077b5] hover:text-white transition-all duration-300">
+                      <Linkedin className="w-6 h-6" />
+                    </a>
+                    <a href="https://github.com/Asishranjansahu" target="_blank" rel="noopener noreferrer" className="p-3 rounded-full bg-white/5 hover:bg-[#333] hover:text-white transition-all duration-300">
+                      <Github className="w-6 h-6" />
+                    </a>
+                  </div>
+                </div>
+              </motion.div>
+
+              {/* Contact Form */}
+              <motion.div 
+                initial={{ opacity: 0, x: 50 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                className="holo-card p-8"
+              >
+                <form 
+                  onSubmit={(e) => {
+                    e.preventDefault();
+                    const formData = new FormData(e.target);
+                    const subject = `Portfolio Inquiry from ${formData.get('name')}`;
+                    const body = formData.get('message');
+                    window.location.href = `mailto:asishranjansahu2003@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+                  }}
+                  className="space-y-6"
                 >
-                  <item.icon className="w-6 h-6" />
-                </motion.a>
-              ))}
+                  <div className="space-y-2">
+                    <label className="text-sm font-mono text-cyan-400">YOUR NAME</label>
+                    <div className="relative">
+                      <User className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-slate-500" />
+                      <input 
+                        type="text" 
+                        name="name"
+                        required
+                        className="w-full bg-black/50 border border-white/10 rounded-lg py-3 pl-12 pr-4 text-white focus:border-cyan-500 focus:outline-none focus:ring-1 focus:ring-cyan-500/50 transition-all"
+                        placeholder="John Doe"
+                      />
+                    </div>
+                  </div>
+
+                  <div className="space-y-2">
+                    <label className="text-sm font-mono text-cyan-400">YOUR MESSAGE</label>
+                    <textarea 
+                      name="message"
+                      required
+                      rows="4"
+                      className="w-full bg-black/50 border border-white/10 rounded-lg p-4 text-white focus:border-cyan-500 focus:outline-none focus:ring-1 focus:ring-cyan-500/50 transition-all"
+                      placeholder="Tell me about your project..."
+                    ></textarea>
+                  </div>
+
+                  <button 
+                    type="submit"
+                    className="w-full py-4 bg-gradient-to-r from-cyan-600 to-blue-600 rounded-lg font-bold tracking-widest uppercase hover:from-cyan-500 hover:to-blue-500 transition-all flex items-center justify-center gap-2 group"
+                  >
+                    Send Message
+                    <Send className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                  </button>
+                </form>
+              </motion.div>
             </div>
-            
-            <p className="font-mono text-xs text-slate-600 uppercase tracking-widest">
-              © {new Date().getFullYear()} Asish Ranjan Sahu • System Status: Online
+          </div>
+        </section>
+
+        {/* Footer */}
+        <footer className="py-8 border-t border-white/10 bg-black/80 backdrop-blur-sm">
+          <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-4">
+            <p className="font-mono text-xs text-slate-500">
+              © {new Date().getFullYear()} Asish Ranjan Sahu
+            </p>
+            <p className="font-mono text-xs text-cyan-500/70 flex items-center gap-2">
+              <span className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></span>
+              SYSTEM ONLINE
             </p>
           </div>
         </footer>
