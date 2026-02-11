@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Github, Linkedin, Mail, ExternalLink, Code2, Terminal, Cpu, GraduationCap, Briefcase, Award, Cloud, Database, Cog, CircuitBoard, Image, Server, Globe, GitPullRequest, Shapes, HardDrive, Boxes, Workflow, Lightbulb, Users, RefreshCw, MessageCircle, MapPin, Send, User, FileText } from 'lucide-react';
+import { Github, Linkedin, Mail, ExternalLink, Code2, Terminal, Cpu, GraduationCap, Briefcase, Award, Cloud, Database, Cog, CircuitBoard, Image, Server, Globe, GitPullRequest, Shapes, HardDrive, Boxes, Workflow, Lightbulb, Users, RefreshCw, MessageCircle, MapPin, Send, User, FileText, FolderGit2 } from 'lucide-react';
 import { motion } from 'framer-motion';
 import GlitchText from './components/GlitchText';
 import TypewriterText from './components/TypewriterText';
@@ -343,89 +343,96 @@ function App() {
               FEATURED <span className="text-stroke-cyan text-transparent">PROJECTS</span>
             </motion.h3>
             
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {[
-                {
-                  title: "Smart Campus",
-                  tech: "IoT • Flutter • Firebase",
-                  desc: "Automated campus management system integrating IoT sensors.",
-                  color: "cyan",
-                  image: "https://placehold.co/1200x800/0f172a/ffffff?text=Smart+Campus"
-                },
-                {
-                  title: "Dev Connect",
-                  tech: "MERN • Socket.IO",
-                  desc: "Real-time collaboration platform for developers.",
-                  color: "purple",
-                  image: "https://placehold.co/1200x800/0f172a/ffffff?text=Dev+Connect"
-                },
-                {
-                  title: "Task Master",
-                  tech: "JS • LocalStorage",
-                  desc: "Dynamic task management with persistent storage.",
-                  color: "pink",
-                  image: "https://placehold.co/1200x800/0f172a/ffffff?text=Task+Master"
-                },
-                {
-                  title: "Thread Sense",
-                  tech: "React • Tailwind • Firebase",
-                  desc: "Social threads app with realtime updates and modern UI.",
-                  color: "emerald",
-                  image: "/projects/thread-sense.svg"
-                },
-                {
-                  title: "Portfolio",
-                  tech: "React • Vite • Tailwind",
-                  desc: "Personal portfolio with 3D background and animated sections.",
-                  color: "sky",
-                  image: "https://placehold.co/1200x800/0f172a/ffffff?text=Portfolio"
-                },
-                {
-                  title: "ZERODHA CLONE",
-                  tech: "React • Chart.js",
-                  desc: "Brokerage UI clone with charts and order flow screens.",
-                  color: "indigo",
-                  image: "https://placehold.co/1200x800/0f172a/ffffff?text=ZERODHA+CLONE"
-                }
-              ].map((project, i) => (
-                <motion.div 
-                  key={i}
-                  initial={{ opacity: 0, y: 50 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ delay: i * 0.1 }}
-                  className="holo-card group h-full"
-                >
-                  <div className="h-48 relative overflow-hidden">
-                    <img 
-                      src={project.image} 
-                      alt={project.title} 
-                      loading="lazy"
-                      onError={(e) => {
-                        e.currentTarget.onerror = null;
-                        e.currentTarget.src = "https://placehold.co/1200x800/0f172a/ffffff?text=Project+Image";
-                      }}
-                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" 
-                    />
-                    <div className={`absolute inset-0 bg-gradient-to-tr from-${project.color}-500/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500`}></div>
-                    <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300 transform scale-90 group-hover:scale-100">
-                      <ExternalLink className="w-12 h-12 text-white" />
+            <div className="relative border-l-2 border-cyan-500/30 ml-3 md:ml-6 pl-8 md:pl-12 py-4">
+              {/* Timeline Icon */}
+              <span className="absolute -left-[53px] md:-left-[73px] top-0 flex items-center justify-center w-10 h-10 md:w-12 md:h-12 rounded-full bg-black border border-cyan-500 text-cyan-400 shadow-[0_0_10px_rgba(34,211,238,0.3)] z-10">
+                <FolderGit2 className="w-5 h-5 md:w-6 md:h-6" />
+              </span>
+
+              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                {[
+                  {
+                    title: "Smart Campus",
+                    tech: "IoT • Flutter • Firebase",
+                    desc: "Automated campus management system integrating IoT sensors.",
+                    color: "cyan",
+                    image: "https://placehold.co/1200x800/0f172a/ffffff?text=Smart+Campus"
+                  },
+                  {
+                    title: "Dev Connect",
+                    tech: "MERN • Socket.IO",
+                    desc: "Real-time collaboration platform for developers.",
+                    color: "purple",
+                    image: "https://placehold.co/1200x800/0f172a/ffffff?text=Dev+Connect"
+                  },
+                  {
+                    title: "Task Master",
+                    tech: "JS • LocalStorage",
+                    desc: "Dynamic task management with persistent storage.",
+                    color: "pink",
+                    image: "https://placehold.co/1200x800/0f172a/ffffff?text=Task+Master"
+                  },
+                  {
+                    title: "Thread Sense",
+                    tech: "React • Tailwind • Firebase",
+                    desc: "Social threads app with realtime updates and modern UI.",
+                    color: "emerald",
+                    image: "/projects/thread-sense.svg"
+                  },
+                  {
+                    title: "Portfolio",
+                    tech: "React • Vite • Tailwind",
+                    desc: "Personal portfolio with 3D background and animated sections.",
+                    color: "sky",
+                    image: "https://placehold.co/1200x800/0f172a/ffffff?text=Portfolio"
+                  },
+                  {
+                    title: "ZERODHA CLONE",
+                    tech: "React • Chart.js",
+                    desc: "Brokerage UI clone with charts and order flow screens.",
+                    color: "indigo",
+                    image: "https://placehold.co/1200x800/0f172a/ffffff?text=ZERODHA+CLONE"
+                  }
+                ].map((project, i) => (
+                  <motion.div 
+                    key={i}
+                    initial={{ opacity: 0, y: 50 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ delay: i * 0.1 }}
+                    className="holo-card group h-full"
+                  >
+                    <div className="h-48 relative overflow-hidden">
+                      <img 
+                        src={project.image} 
+                        alt={project.title} 
+                        loading="lazy"
+                        onError={(e) => {
+                          e.currentTarget.onerror = null;
+                          e.currentTarget.src = "https://placehold.co/1200x800/0f172a/ffffff?text=Project+Image";
+                        }}
+                        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" 
+                      />
+                      <div className={`absolute inset-0 bg-gradient-to-tr from-${project.color}-500/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500`}></div>
+                      <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300 transform scale-90 group-hover:scale-100">
+                        <ExternalLink className="w-12 h-12 text-white" />
+                      </div>
                     </div>
-                  </div>
-                  <div className="p-8">
-                    <h4 className="font-display text-2xl font-bold mb-2 group-hover:text-cyan-400 transition-colors">{project.title}</h4>
-                    <p className="text-xs font-mono text-slate-500 mb-4 uppercase tracking-wider">{project.tech}</p>
-                    <p className="text-slate-400 text-sm leading-relaxed mb-6">{project.desc}</p>
-                    <div className="flex gap-4">
-                      <button className="text-xs font-bold uppercase tracking-widest hover:text-cyan-400 transition-colors flex items-center gap-2">
-                        <Github className="w-4 h-4" /> Code
-                      </button>
-                      <button className="text-xs font-bold uppercase tracking-widest hover:text-purple-400 transition-colors flex items-center gap-2">
-                        <ExternalLink className="w-4 h-4" /> Live
-                      </button>
+                    <div className="p-8">
+                      <h4 className="font-display text-2xl font-bold mb-2 group-hover:text-cyan-400 transition-colors">{project.title}</h4>
+                      <p className="text-xs font-mono text-slate-500 mb-4 uppercase tracking-wider">{project.tech}</p>
+                      <p className="text-slate-400 text-sm leading-relaxed mb-6">{project.desc}</p>
+                      <div className="flex gap-4">
+                        <button className="text-xs font-bold uppercase tracking-widest hover:text-cyan-400 transition-colors flex items-center gap-2">
+                          <Github className="w-4 h-4" /> Code
+                        </button>
+                        <button className="text-xs font-bold uppercase tracking-widest hover:text-purple-400 transition-colors flex items-center gap-2">
+                          <ExternalLink className="w-4 h-4" /> Live
+                        </button>
+                      </div>
                     </div>
-                  </div>
-                </motion.div>
-              ))}
+                  </motion.div>
+                ))}
+              </div>
             </div>
           </div>
         </section>
