@@ -8,6 +8,7 @@ import TerminalComponent from './components/Terminal';
 import CommandPalette from './components/CommandPalette';
 import LiveDashboard from './components/LiveDashboard';
 import EngineeringProcess from './components/EngineeringProcess';
+import ProfileCard from './components/ProfileCard';
 
 import GithubStats from './components/GithubStats';
 import HireMe from './components/HireMe';
@@ -312,52 +313,9 @@ function App() {
                 initial={{ opacity: 0, scale: 0.9 }}
                 whileInView={{ opacity: 1, scale: 1 }}
                 transition={{ delay: 0.2 }}
-                className="relative"
+                className="flex justify-center"
               >
-                <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/20 to-purple-500/20 rounded-2xl blur-xl"></div>
-                <div className="relative bg-black/50 border border-white/10 rounded-2xl p-8 backdrop-blur-sm">
-                  <div className="flex items-center gap-2 mb-6 border-b border-white/10 pb-4">
-                    <div className="w-3 h-3 rounded-full bg-red-500"></div>
-                    <div className="w-3 h-3 rounded-full bg-yellow-500"></div>
-                    <div className="w-3 h-3 rounded-full bg-green-500"></div>
-                    <span className="ml-4 text-xs font-mono text-slate-500">developer.js</span>
-                  </div>
-                  <div className="font-mono text-sm space-y-4">
-                    <div>
-                      <span className="text-purple-400">const</span> <span className="text-cyan-400">developer</span> <span className="text-white">=</span> <span className="text-yellow-400">{`{`}</span>
-                    </div>
-                    <div className="pl-4">
-                      <span className="text-slate-400">name:</span> <span className="text-green-400">"Asish Ranjan Sahu"</span>,
-                    </div>
-                    <div className="pl-4">
-                      <span className="text-slate-400">role:</span> <span className="text-green-400">"Full Stack Developer"</span>,
-                    </div>
-                    <div className="pl-4">
-                      <span className="text-slate-400">traits:</span> <span className="text-yellow-400">[</span>
-                    </div>
-                    <div className="pl-8">
-                      <span className="text-green-400">"Problem Solver"</span>,
-                    </div>
-                    <div className="pl-8">
-                      <span className="text-green-400">"Continuous Learner"</span>,
-                    </div>
-                    <div className="pl-8">
-                      <span className="text-green-400">"Tech Enthusiast"</span>
-                    </div>
-                    <div className="pl-4">
-                      <span className="text-yellow-400">]</span>,
-                    </div>
-                    <div className="pl-4">
-                      <span className="text-slate-400">hardWorker:</span> <span className="text-purple-400">true</span>,
-                    </div>
-                    <div className="pl-4">
-                      <span className="text-slate-400">quickLearner:</span> <span className="text-purple-400">true</span>
-                    </div>
-                    <div>
-                      <span className="text-yellow-400">{`}`}</span>;
-                    </div>
-                  </div>
-                </div>
+                <ProfileCard />
               </motion.div>
             </div>
           </div>
