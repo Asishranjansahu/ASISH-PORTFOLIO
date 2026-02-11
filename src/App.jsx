@@ -438,130 +438,128 @@ function App() {
         </section>
 
         {/* Skills Section */}
-        <section id="skills" className="py-24 bg-[#0f1012]">
+        <section id="skills" className="py-24 bg-[#0f1012] relative overflow-hidden">
           <div className="max-w-7xl mx-auto px-6">
             <motion.h3 
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              className="font-display text-4xl md:text-6xl font-bold mb-12 text-cyan-400"
+              className="font-display text-4xl md:text-6xl font-bold mb-20 text-center text-white"
             >
-              Technical Skills
+              TECHNICAL <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-purple-500">SKILLS</span>
             </motion.h3>
-            <div className="space-y-12">
-              <motion.div initial={{ opacity: 0, y: 10 }} whileInView={{ opacity: 1, y: 0 }} className="space-y-4">
-                <h4 className="font-display text-xl md:text-2xl font-bold text-white">Programming Languages</h4>
-                <div className="flex gap-6 overflow-x-auto scroll-snap-x pb-2">
-                  {[
-                    { label: 'Java', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg' },
-                    { label: 'JavaScript', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg' },
-                    { label: 'HTML', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg' },
-                    { label: 'CSS', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg' }
-                  ].map((item, i) => (
-                    <div key={item.label} className="snap-center group min-w-[180px] rounded-2xl p-4 bg-zinc-900/70 border border-zinc-800 hover:border-cyan-500/50 transition-all hover:translate-y-[-3px] hover:shadow-[0_12px_32px_rgba(34,211,238,0.15)]">
-                      <div className="flex items-center gap-3">
-                        <img src={item.icon} alt={item.label} className="w-8 h-8 object-contain group-hover:scale-110 transition-transform" />
-                        <span className="font-mono text-sm text-slate-300 group-hover:text-cyan-400">{item.label}</span>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </motion.div>
 
-              <motion.div initial={{ opacity: 0, y: 10 }} whileInView={{ opacity: 1, y: 0 }} className="space-y-4">
-                <h4 className="font-display text-xl md:text-2xl font-bold text-white">Frameworks & Libraries</h4>
-                <div className="flex gap-6 overflow-x-auto scroll-snap-x pb-2">
+            <div className="space-y-20">
+              {/* Frontend */}
+              <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }}>
+                <div className="flex items-center gap-4 mb-8">
+                  <div className="h-px bg-gradient-to-r from-transparent to-slate-800 flex-1" />
+                  <span className="text-cyan-400 font-mono tracking-[0.2em] uppercase text-sm font-bold">Frontend Development</span>
+                  <div className="h-px bg-gradient-to-l from-transparent to-slate-800 flex-1" />
+                </div>
+                <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-6">
                   {[
                     { label: 'React.js', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg' },
-                    { label: 'Node.js', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-plain.svg' },
-                    { label: 'Bootstrap', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bootstrap/bootstrap-original.svg' },
-                    { label: 'Express.js', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original.svg' }
+                    { label: 'JavaScript', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg' },
+                    { label: 'HTML5', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg' },
+                    { label: 'CSS3', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg' },
+                    { label: 'Tailwind CSS', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original.svg' },
+                    { label: 'Bootstrap', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bootstrap/bootstrap-original.svg' }
                   ].map((item, i) => (
-                    <div key={item.label} className="snap-center group min-w-[180px] rounded-2xl p-4 bg-zinc-900/70 border border-zinc-800 hover:border-cyan-500/50 transition-all hover:translate-y-[-3px] hover:shadow-[0_12px_32px_rgba(34,211,238,0.15)]">
-                      <div className="flex items-center gap-3">
-                        <img src={item.icon} alt={item.label} className="w-8 h-8 object-contain group-hover:scale-110 transition-transform" />
-                        <span className="font-mono text-sm text-slate-300 group-hover:text-cyan-400">{item.label}</span>
-                      </div>
+                    <div key={i} className="group relative bg-zinc-900/50 hover:bg-zinc-900 rounded-xl p-6 flex flex-col items-center justify-center gap-4 border border-zinc-800 hover:border-cyan-500/50 transition-all duration-300 hover:-translate-y-1">
+                      <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/5 to-transparent opacity-0 group-hover:opacity-100 rounded-xl transition-opacity" />
+                      <img src={item.icon} alt={item.label} className="w-12 h-12 object-contain filter grayscale group-hover:grayscale-0 transition-all duration-300 group-hover:scale-110" />
+                      <span className="font-mono text-sm text-slate-400 group-hover:text-cyan-400 transition-colors">{item.label}</span>
                     </div>
                   ))}
                 </div>
               </motion.div>
 
-              <motion.div initial={{ opacity: 0, y: 10 }} whileInView={{ opacity: 1, y: 0 }} className="space-y-4">
-                <h4 className="font-display text-xl md:text-2xl font-bold text-white">Databases</h4>
-                <div className="flex gap-6 overflow-x-auto scroll-snap-x pb-2">
+              {/* Backend */}
+              <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }}>
+                <div className="flex items-center gap-4 mb-8">
+                  <div className="h-px bg-gradient-to-r from-transparent to-slate-800 flex-1" />
+                  <span className="text-purple-400 font-mono tracking-[0.2em] uppercase text-sm font-bold">Backend Development</span>
+                  <div className="h-px bg-gradient-to-l from-transparent to-slate-800 flex-1" />
+                </div>
+                <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-6">
+                  {[
+                    { label: 'Node.js', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg' },
+                    { label: 'Express.js', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original.svg' },
+                    { label: 'Java', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg' }
+                  ].map((item, i) => (
+                    <div key={i} className="group relative bg-zinc-900/50 hover:bg-zinc-900 rounded-xl p-6 flex flex-col items-center justify-center gap-4 border border-zinc-800 hover:border-purple-500/50 transition-all duration-300 hover:-translate-y-1">
+                      <div className="absolute inset-0 bg-gradient-to-br from-purple-500/5 to-transparent opacity-0 group-hover:opacity-100 rounded-xl transition-opacity" />
+                      <img src={item.icon} alt={item.label} className="w-12 h-12 object-contain filter grayscale group-hover:grayscale-0 transition-all duration-300 group-hover:scale-110" />
+                      <span className="font-mono text-sm text-slate-400 group-hover:text-purple-400 transition-colors">{item.label}</span>
+                    </div>
+                  ))}
+                </div>
+              </motion.div>
+
+              {/* Database */}
+              <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }}>
+                <div className="flex items-center gap-4 mb-8">
+                  <div className="h-px bg-gradient-to-r from-transparent to-slate-800 flex-1" />
+                  <span className="text-emerald-400 font-mono tracking-[0.2em] uppercase text-sm font-bold">Database</span>
+                  <div className="h-px bg-gradient-to-l from-transparent to-slate-800 flex-1" />
+                </div>
+                <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-6">
                   {[
                     { label: 'MongoDB', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg' },
-                    { label: 'SQL', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg' },
                     { label: 'MySQL', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg' }
                   ].map((item, i) => (
-                    <div key={item.label} className="snap-center group min-w-[180px] rounded-2xl p-4 bg-zinc-900/70 border border-zinc-800 hover:border-cyan-500/50 transition-all hover:translate-y-[-3px] hover:shadow-[0_12px_32px_rgba(34,211,238,0.15)]">
-                      <div className="flex items-center gap-3">
-                        <img src={item.icon} alt={item.label} className="w-8 h-8 object-contain group-hover:scale-110 transition-transform" />
-                        <span className="font-mono text-sm text-slate-300 group-hover:text-cyan-400">{item.label}</span>
-                      </div>
+                    <div key={i} className="group relative bg-zinc-900/50 hover:bg-zinc-900 rounded-xl p-6 flex flex-col items-center justify-center gap-4 border border-zinc-800 hover:border-emerald-500/50 transition-all duration-300 hover:-translate-y-1">
+                      <div className="absolute inset-0 bg-gradient-to-br from-emerald-500/5 to-transparent opacity-0 group-hover:opacity-100 rounded-xl transition-opacity" />
+                      <img src={item.icon} alt={item.label} className="w-12 h-12 object-contain filter grayscale group-hover:grayscale-0 transition-all duration-300 group-hover:scale-110" />
+                      <span className="font-mono text-sm text-slate-400 group-hover:text-emerald-400 transition-colors">{item.label}</span>
                     </div>
                   ))}
                 </div>
               </motion.div>
 
-              <motion.div initial={{ opacity: 0, y: 10 }} whileInView={{ opacity: 1, y: 0 }} className="space-y-4">
-                <h4 className="font-display text-xl md:text-2xl font-bold text-white">Developer Tools</h4>
-                <div className="flex gap-6 overflow-x-auto scroll-snap-x pb-2">
+              {/* Tools & DevOps */}
+              <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }}>
+                <div className="flex items-center gap-4 mb-8">
+                  <div className="h-px bg-gradient-to-r from-transparent to-slate-800 flex-1" />
+                  <span className="text-orange-400 font-mono tracking-[0.2em] uppercase text-sm font-bold">Tools & DevOps</span>
+                  <div className="h-px bg-gradient-to-l from-transparent to-slate-800 flex-1" />
+                </div>
+                <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-6">
                   {[
                     { label: 'Git', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg' },
-                    { label: 'VS Code', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg' },
+                    { label: 'AWS', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-plain-wordmark.svg' },
                     { label: 'Postman', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postman/postman-original.svg' },
+                    { label: 'VS Code', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg' },
                     { label: 'npm', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/npm/npm-original-wordmark.svg' }
                   ].map((item, i) => (
-                    <div key={item.label} className="snap-center group min-w-[180px] rounded-2xl p-4 bg-zinc-900/70 border border-zinc-800 hover:border-cyan-500/50 transition-all hover:translate-y-[-3px] hover:shadow-[0_12px_32px_rgba(34,211,238,0.15)]">
-                      <div className="flex items-center gap-3">
-                        <img src={item.icon} alt={item.label} className="w-8 h-8 object-contain group-hover:scale-110 transition-transform" />
-                        <span className="font-mono text-sm text-slate-300 group-hover:text-cyan-400">{item.label}</span>
-                      </div>
+                    <div key={i} className="group relative bg-zinc-900/50 hover:bg-zinc-900 rounded-xl p-6 flex flex-col items-center justify-center gap-4 border border-zinc-800 hover:border-orange-500/50 transition-all duration-300 hover:-translate-y-1">
+                      <div className="absolute inset-0 bg-gradient-to-br from-orange-500/5 to-transparent opacity-0 group-hover:opacity-100 rounded-xl transition-opacity" />
+                      <img src={item.icon} alt={item.label} className="w-12 h-12 object-contain filter grayscale group-hover:grayscale-0 transition-all duration-300 group-hover:scale-110" />
+                      <span className="font-mono text-sm text-slate-400 group-hover:text-orange-400 transition-colors">{item.label}</span>
                     </div>
                   ))}
                 </div>
               </motion.div>
 
-              <motion.div initial={{ opacity: 0, y: 10 }} whileInView={{ opacity: 1, y: 0 }} className="space-y-4">
-                <h4 className="font-display text-xl md:text-2xl font-bold text-white">Core Competencies</h4>
-                <div className="flex gap-6 overflow-x-auto scroll-snap-x pb-2">
+              {/* Core Competencies */}
+              <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }}>
+                <div className="flex items-center gap-4 mb-8">
+                  <div className="h-px bg-gradient-to-r from-transparent to-slate-800 flex-1" />
+                  <span className="text-pink-400 font-mono tracking-[0.2em] uppercase text-sm font-bold">Core Concepts</span>
+                  <div className="h-px bg-gradient-to-l from-transparent to-slate-800 flex-1" />
+                </div>
+                <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-6">
                   {[
-                    { label: 'Data Structures & Algorithms', icon: Workflow },
-                    { label: 'Full Stack Development', icon: Code2 },
-                    { label: 'RESTful APIs', icon: Server },
-                    { label: 'Web Development', icon: Globe },
+                    { label: 'DSA', icon: Workflow },
                     { label: 'OOPS', icon: Shapes },
-                    { label: 'Code Review', icon: GitPullRequest },
-                    { label: 'Data Modeling', icon: Database },
-                    { label: 'Caching', icon: HardDrive },
-                    { label: 'Microservices fundamentals', icon: Boxes }
+                    { label: 'REST APIs', icon: Server },
+                    { label: 'Full Stack', icon: Code2 },
+                    { label: 'Microservices', icon: Boxes }
                   ].map((item, i) => (
-                    <div key={item.label} className="snap-center group min-w-[220px] rounded-2xl p-4 bg-zinc-900/70 border border-zinc-800 hover:border-cyan-500/50 transition-all hover:translate-y-[-3px] hover:shadow-[0_12px_32px_rgba(34,211,238,0.15)]">
-                      <div className="flex items-center gap-3">
-                        <item.icon className="w-6 h-6 text-cyan-400 group-hover:scale-110 transition-transform" />
-                        <span className="font-mono text-sm text-slate-300 group-hover:text-cyan-400">{item.label}</span>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </motion.div>
-
-              <motion.div initial={{ opacity: 0, y: 10 }} whileInView={{ opacity: 1, y: 0 }} className="space-y-4">
-                <h4 className="font-display text-xl md:text-2xl font-bold text-white">Soft Skills</h4>
-                <div className="flex gap-6 overflow-x-auto scroll-snap-x pb-2">
-                  {[
-                    { label: 'Problem Solving', icon: Lightbulb },
-                    { label: 'Team Collaboration', icon: Users },
-                    { label: 'Agile Development', icon: RefreshCw },
-                    { label: 'Communication', icon: MessageCircle },
-                    { label: 'AWS (EC2, S3 Basics)', icon: Cloud }
-                  ].map((item, i) => (
-                    <div key={item.label} className="snap-center group min-w-[220px] rounded-2xl p-4 bg-zinc-900/70 border border-zinc-800 hover:border-cyan-500/50 transition-all hover:translate-y-[-3px] hover:shadow-[0_12px_32px_rgba(34,211,238,0.15)]">
-                      <div className="flex items-center gap-3">
-                        <item.icon className="w-6 h-6 text-cyan-400 group-hover:scale-110 transition-transform" />
-                        <span className="font-mono text-sm text-slate-300 group-hover:text-cyan-400">{item.label}</span>
-                      </div>
+                    <div key={i} className="group relative bg-zinc-900/50 hover:bg-zinc-900 rounded-xl p-6 flex flex-col items-center justify-center gap-4 border border-zinc-800 hover:border-pink-500/50 transition-all duration-300 hover:-translate-y-1">
+                      <div className="absolute inset-0 bg-gradient-to-br from-pink-500/5 to-transparent opacity-0 group-hover:opacity-100 rounded-xl transition-opacity" />
+                      <item.icon className="w-10 h-10 text-slate-500 group-hover:text-pink-400 transition-colors duration-300" />
+                      <span className="font-mono text-sm text-slate-400 group-hover:text-pink-400 transition-colors text-center">{item.label}</span>
                     </div>
                   ))}
                 </div>
