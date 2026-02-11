@@ -66,11 +66,15 @@ function App() {
                 </motion.h2>
               </div>
 
-              <motion.div variants={fadeInUp} className="text-xl text-slate-400 max-w-xl leading-relaxed border-l-2 border-cyan-500/50 pl-6 min-h-[80px]">
+              <motion.div variants={fadeInUp} className="text-xl text-slate-400 max-w-xl leading-relaxed border-l-2 border-cyan-500/50 pl-6 min-h-[120px]">
                 <TypewriterText 
-                  text="I am Asish Ranjan Sahu. A Full Stack Developer engineering the next generation of digital experiences."
-                  typingSpeed={40}
-                  startDelay={1500}
+                  texts={[
+                    "I am Asish Ranjan Sahu.",
+                    "A Full Stack Developer engineering the next generation of digital experiences."
+                  ]}
+                  typingSpeed={50}
+                  deletingSpeed={30}
+                  pauseTime={2000}
                 />
               </motion.div>
 
