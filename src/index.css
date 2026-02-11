@@ -68,7 +68,7 @@ body {
 
 /* Holographic Card Effect */
 .holo-card {
-  @apply relative overflow-hidden bg-black/40 backdrop-blur-xl border border-white/10 rounded-xl transition-all duration-300;
+  @apply relative overflow-hidden bg-black/40 backdrop-blur-sm border border-white/10 rounded-xl transition-all duration-300;
 }
 
 .holo-card::before {

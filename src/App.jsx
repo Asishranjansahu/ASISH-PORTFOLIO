@@ -39,8 +39,8 @@ function App() {
       <Navbar />
       {show3D && <Background3D />}
       
-      {/* Overlay Pattern */}
-      <div className="fixed inset-0 z-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-20 pointer-events-none mix-blend-overlay"></div>
+      {/* Overlay Pattern - Optimized for performance */}
+      <div className="fixed inset-0 z-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-[0.03] pointer-events-none"></div>
 
       
 

@@ -1,16 +1,28 @@
 import React, { useEffect, useState } from 'react';
-import { motion } from 'framer-motion';
+import { motion, useMotionValue, useSpring } from 'framer-motion';
 
 const CustomCursor = () => {
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [isHovering, setIsHovering] = useState(false);
+  
+  // Use MotionValues to avoid React re-renders on every mouse move
+  const mouseX = useMotionValue(0);
+  const mouseY = useMotionValue(0);
+
+  // Smooth spring animation for the cursor
+  const springConfig = { damping: 25, stiffness: 700 };
+  const cursorX = useSpring(mouseX, springConfig);
+  const cursorY = useSpring(mouseY, springConfig);
 
   useEffect(() => {
+    // Disable on mobile/touch devices to save performance
+    if (typeof window !== 'undefined' && window.matchMedia('(pointer: coarse)').matches) {
+      return;
+    }
+
     const mouseMove = (e) => {
-      setMousePosition({
-        x: e.clientX,
-        y: e.clientY
-      });
+      // Update motion values directly without triggering component re-render
+      mouseX.set(e.clientX);
+      mouseY.set(e.clientY);
     };
 
     const handleMouseOver = (e) => {
@@ -28,34 +40,32 @@ const CustomCursor = () => {
       window.removeEventListener('mousemove', mouseMove);
       window.removeEventListener('mouseover', handleMouseOver);
     };
-  }, []);
-
-  const variants = {
-    default: {
-      x: mousePosition.x - 16,
-      y: mousePosition.y - 16,
-      height: 32,
-      width: 32,
-      backgroundColor: "rgba(0, 243, 255, 0.3)",
-      border: "2px solid #00f3ff",
-    },
-    hover: {
-      x: mousePosition.x - 32,
-      y: mousePosition.y - 32,
-      height: 64,
-      width: 64,
-      backgroundColor: "rgba(255, 0, 255, 0.3)",
-      border: "2px solid #ff00ff",
-      mixBlendMode: "difference"
-    }
-  };
+  }, [mouseX, mouseY]);
 
   return (
     <motion.div
       className="fixed top-0 left-0 rounded-full pointer-events-none z-50 hidden md:block backdrop-blur-sm"
-      variants={variants}
-      animate={isHovering ? "hover" : "default"}
-      transition={{ type: "spring", stiffness: 500, damping: 28 }}
+      style={{
+        x: cursorX,
+        y: cursorY,
+        translateX: "-50%", // Center the cursor
+        translateY: "-50%"
+      }}
+      animate={{
+        width: isHovering ? 64 : 32,
+        height: isHovering ? 64 : 32,
+        backgroundColor: isHovering ? "rgba(255, 0, 255, 0.3)" : "rgba(0, 243, 255, 0.3)",
+        borderColor: isHovering ? "#ff00ff" : "#00f3ff",
+        borderWidth: "2px",
+        borderStyle: "solid",
+        mixBlendMode: isHovering ? "difference" : "normal"
+      }}
+      transition={{
+        width: { duration: 0.2 },
+        height: { duration: 0.2 },
+        backgroundColor: { duration: 0.2 },
+        borderColor: { duration: 0.2 }
+      }}
     />
   );
 };

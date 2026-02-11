@@ -46,12 +46,16 @@ const Background3D = () => {
     <>
       {supportsWebGL() ? (
         <div className="fixed inset-0 z-0 bg-[#0b0b0b]">
-          <Canvas camera={{ position: [0, 0, 1.2], near: 0.1, far: 100 }}>
+          <Canvas 
+            dpr={[1, 1.5]} // Limit pixel ratio for performance
+            camera={{ position: [0, 0, 1.2], near: 0.1, far: 100 }}
+            gl={{ antialias: false, powerPreference: "high-performance" }} // Disable AA for performance
+          >
            <color attach="background" args={['#040506']} />
             <group scale={1.2}>
-              <StarLayer radius={1.6} count={3400} color="#7b8290" size={0.004} speed={0.016} opacity={0.15} />
-              <StarLayer radius={1.8} count={2700} color="#7b8290" size={0.0045} speed={0.012} opacity={0.14} />
-              <StarLayer radius={2.0} count={2100} color="#7b8290" size={0.005} speed={0.009} opacity={0.13} />
+              {/* Reduced particle counts for better performance on mobile/laptops */}
+              <StarLayer radius={1.6} count={1500} color="#7b8290" size={0.004} speed={0.016} opacity={0.15} />
+              <StarLayer radius={2.0} count={1000} color="#7b8290" size={0.005} speed={0.009} opacity={0.13} />
             </group>
           </Canvas>
         </div>
