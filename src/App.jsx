@@ -91,27 +91,11 @@ function App() {
         <div className="fixed inset-0 pointer-events-none z-[60] bg-[linear-gradient(rgba(18,16,16,0)_50%,rgba(0,0,0,0.25)_50%),linear-gradient(90deg,rgba(255,0,0,0.06),rgba(0,255,0,0.02),rgba(0,0,255,0.06))] bg-[length:100%_2px,3px_100%] animate-scanline mix-blend-overlay opacity-20"></div>
       )}
       
-      <Navbar />
+      <Navbar toggleTerminal={() => setShowTerminal(!showTerminal)} />
       {show3D && !matrixMode && <Background3D />}
       
       {/* Overlay Pattern - Optimized for performance */}
       <div className="fixed inset-0 z-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-[0.03] pointer-events-none"></div>
-
-      {/* Terminal Toggle & Modal */}
-      <div className="fixed bottom-6 right-6 z-50">
-        <motion.button
-          whileHover={{ scale: 1.1 }}
-          whileTap={{ scale: 0.9 }}
-          onClick={() => setShowTerminal(!showTerminal)}
-          className={`p-4 rounded-full shadow-lg border backdrop-blur-sm transition-all duration-300 ${
-            showTerminal || matrixMode
-              ? 'bg-green-500 text-black border-green-400 shadow-[0_0_20px_rgba(34,197,94,0.5)]'
-              : 'bg-black/50 text-cyan-400 border-cyan-500/30 hover:border-cyan-400 hover:shadow-[0_0_20px_rgba(34,211,238,0.3)]'
-          }`}
-        >
-          <TerminalIcon className="w-6 h-6" />
-        </motion.button>
-      </div>
 
       <AnimatePresence>
         {showTerminal && <Terminal onClose={() => setShowTerminal(false)} />}

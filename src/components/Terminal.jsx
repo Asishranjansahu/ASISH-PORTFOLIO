@@ -11,35 +11,33 @@ const Terminal = ({ onClose }) => {
   const inputRef = useRef(null);
   const bottomRef = useRef(null);
 
+  const handleScrollTo = (id, name) => {
+    const element = document.getElementById(id);
+    if (element) {
+      onClose();
+      setTimeout(() => {
+        element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }, 300);
+      return [{ type: 'success', content: `Navigating to ${name} section...` }];
+    }
+    return [{ type: 'error', content: `Section #${id} not found!` }];
+  };
+
   const commands = {
     help: () => [
       { type: 'info', content: 'Available commands (click to run):' },
-      { type: 'success', content: '  about    - Who am I?', action: 'about' },
-      { type: 'success', content: '  projects - View my work', action: 'projects' },
-      { type: 'success', content: '  skills   - Technical stack', action: 'skills' },
+      { type: 'success', content: '  about    - Who am I? (Navigates to About)', action: 'about' },
+      { type: 'success', content: '  projects - View my work (Navigates to Projects)', action: 'projects' },
+      { type: 'success', content: '  skills   - Technical stack (Navigates to Skills)', action: 'skills' },
       { type: 'success', content: '  blog     - View dev logs', action: 'blog' },
       { type: 'success', content: '  now      - What I am doing', action: 'now' },
-      { type: 'success', content: '  contact  - Get in touch', action: 'contact' },
+      { type: 'success', content: '  contact  - Get in touch (Navigates to Contact)', action: 'contact' },
       { type: 'success', content: '  clear    - Clear terminal', action: 'clear' },
       { type: 'success', content: '  exit     - Close terminal', action: 'exit' },
     ],
-    about: () => [
-      { type: 'info', content: 'Asish Ranjan Sahu | Full Stack Developer' },
-      { type: 'text', content: 'Passionate about building scalable web applications and interactive experiences.' },
-      { type: 'text', content: 'Currently learning: Next.js, Three.js, System Design.' },
-    ],
-    projects: () => [
-      { type: 'info', content: 'Featured Projects:' },
-      { type: 'text', content: '1. Portfolio (This site) - React, Tailwind, Framer Motion' },
-      { type: 'text', content: '2. E-commerce Platform - MERN Stack' },
-      { type: 'text', content: '3. Task Manager - Next.js, TypeScript' },
-      { type: 'warning', content: 'Type "open <number>" to view details (simulated).' },
-    ],
-    skills: () => [
-      { type: 'info', content: 'Frontend: React, Next.js, Tailwind, Three.js' },
-      { type: 'info', content: 'Backend: Node.js, Express, MongoDB, PostgreSQL' },
-      { type: 'info', content: 'Tools: Git, Docker, AWS, Linux' },
-    ],
+    about: () => handleScrollTo('about-me', 'About Me'),
+    projects: () => handleScrollTo('projects', 'Projects'),
+    skills: () => handleScrollTo('skills', 'Skills'),
     blog: () => [
       { type: 'info', content: 'Latest Dev Logs:' },
       { type: 'text', content: '2025-02-12: Added Konami Code support. (Hint: Up, Up, Down, Down...)' },
@@ -54,11 +52,7 @@ const Terminal = ({ onClose }) => {
       { type: 'text', content: '- Learning Advanced Three.js & WebGL' },
       { type: 'text', content: '- Reading "Clean Code" by Uncle Bob' },
     ],
-    contact: () => [
-      { type: 'info', content: 'Email: contact@asish.dev' },
-      { type: 'info', content: 'GitHub: github.com/Asishranjansahu' },
-      { type: 'info', content: 'LinkedIn: linkedin.com/in/asishranjansahu' },
-    ],
+    contact: () => handleScrollTo('contact', 'Contact'),
     clear: () => [],
     exit: () => {
       onClose();

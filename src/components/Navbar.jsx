@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import { Code2, Menu, X, FolderGit2, GraduationCap, Briefcase, Award, Mail, User } from 'lucide-react';
+import { Code2, Menu, X, FolderGit2, GraduationCap, Briefcase, Award, Mail, User, Terminal } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
-const Navbar = () => {
+const Navbar = ({ toggleTerminal }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
@@ -26,12 +26,17 @@ const Navbar = () => {
   return (
     <nav className={`fixed top-0 left-0 right-0 z-[100] transition-all duration-300 ${scrolled ? 'bg-black/80 backdrop-blur-md border-b border-white/10 py-4' : 'bg-gradient-to-b from-black/80 to-transparent py-6'}`}>
       <div className="max-w-7xl mx-auto px-6 flex justify-between items-center">
-        {/* Logo (Icon Only) */}
-        <a href="#" className="relative group">
-          <div className="absolute inset-0 bg-cyan-500 blur-lg opacity-20 group-hover:opacity-40 transition-opacity"></div>
-          <div className="relative border border-white/10 p-2 rounded-lg bg-black/50 hover:border-cyan-500/50 transition-colors">
-            <Code2 className="w-8 h-8 text-cyan-400" />
+        {/* Logo */}
+        <a href="#" className="flex items-center gap-3 group">
+          <div className="relative">
+            <div className="absolute inset-0 bg-cyan-500 blur-lg opacity-20 group-hover:opacity-40 transition-opacity"></div>
+            <div className="relative border border-white/10 p-2 rounded-lg bg-black/50 hover:border-cyan-500/50 transition-colors">
+              <Code2 className="w-8 h-8 text-cyan-400" />
+            </div>
           </div>
+          <span className="font-display font-bold text-xl tracking-tight text-white group-hover:text-cyan-400 transition-colors">
+            Asish<span className="text-cyan-400">.dev</span>
+          </span>
         </a>
 
         {/* Desktop Navigation */}
@@ -47,6 +52,16 @@ const Navbar = () => {
               <link.icon className="w-6 h-6 text-slate-400 group-hover:text-cyan-400 transition-colors relative z-10" />
             </a>
           ))}
+          
+          {/* Terminal Toggle */}
+          <button 
+            onClick={toggleTerminal}
+            className="group relative p-2"
+            title="Open Terminal"
+          >
+            <div className="absolute inset-0 bg-green-500/20 rounded-lg scale-0 group-hover:scale-100 transition-transform duration-300"></div>
+            <Terminal className="w-6 h-6 text-green-400 group-hover:text-green-300 transition-colors relative z-10" />
+          </button>
         </div>
 
         {/* Mobile Menu Button */}
@@ -78,6 +93,17 @@ const Navbar = () => {
                     {link.name}
                   </a>
                 ))}
+                
+                <button 
+                  onClick={() => {
+                    setIsOpen(false);
+                    toggleTerminal();
+                  }}
+                  className="text-lg font-display font-bold uppercase tracking-widest text-green-400 hover:text-green-300 flex items-center gap-4"
+                >
+                  <Terminal className="w-5 h-5 text-green-400" />
+                  Terminal
+                </button>
               </div>
             </motion.div>
           )}
