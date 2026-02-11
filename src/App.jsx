@@ -1,9 +1,12 @@
 import React, { useEffect, useState } from 'react';
-import { Github, Linkedin, Mail, ExternalLink, Code2, Cpu, GraduationCap, Briefcase, Award, Cloud, Database, Cog, CircuitBoard, Image, Server, Globe, GitPullRequest, Shapes, HardDrive, Boxes, Workflow, Lightbulb, Users, RefreshCw, MessageCircle, MapPin, Send, User, FileText, FolderGit2 } from 'lucide-react';
+import { Github, Linkedin, Mail, ExternalLink, Code2, Cpu, GraduationCap, Briefcase, Award, Cloud, Database, Cog, CircuitBoard, Image, Server, Globe, GitPullRequest, Shapes, HardDrive, Boxes, Workflow, Lightbulb, Users, RefreshCw, MessageCircle, MapPin, Send, User, FileText, FolderGit2, Terminal } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import GlitchText from './components/GlitchText';
 import TypewriterText from './components/TypewriterText';
 import Navbar from './components/Navbar';
+import TerminalComponent from './components/Terminal';
+import CommandPalette from './components/CommandPalette';
+import LiveDashboard from './components/LiveDashboard';
 
 import GithubStats from './components/GithubStats';
 import HireMe from './components/HireMe';
@@ -70,6 +73,66 @@ function App() {
   };
 
   const [show3D, setShow3D] = useState(false);
+
+  // Keyboard Shortcuts & Power User Features
+  const [isCommandPaletteOpen, setIsCommandPaletteOpen] = useState(false);
+  const [isTerminalOpen, setIsTerminalOpen] = useState(false);
+  const [lastKey, setLastKey] = useState(null);
+
+  useEffect(() => {
+    const handleKeyDown = (e) => {
+      // Don't trigger if user is typing in an input
+      const isInput = ['INPUT', 'TEXTAREA'].includes(document.activeElement.tagName);
+      if (isInput) return;
+
+      // Toggle Command Palette with '/'
+      if (e.key === '/' && !isTerminalOpen) {
+        e.preventDefault();
+        setIsCommandPaletteOpen(prev => !prev);
+        return;
+      }
+
+      // Toggle Terminal with 't' or 'T'
+      if (e.key.toLowerCase() === 't' && !isCommandPaletteOpen) {
+        e.preventDefault();
+        setIsTerminalOpen(prev => !prev);
+        return;
+      }
+
+      // G Chord Logic
+      if (e.key.toLowerCase() === 'g') {
+        setLastKey('g');
+        // Reset chord after 1 second
+        setTimeout(() => setLastKey(null), 1000);
+        return;
+      }
+
+      if (lastKey === 'g') {
+        if (e.key.toLowerCase() === 'p') {
+           const projects = document.getElementById('projects');
+           if(projects) projects.scrollIntoView({ behavior: 'smooth' });
+           setLastKey(null);
+        } else if (e.key.toLowerCase() === 'c') {
+           const contact = document.getElementById('contact');
+           if(contact) contact.scrollIntoView({ behavior: 'smooth' });
+           setLastKey(null);
+        }
+      }
+    };
+
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [lastKey, isCommandPaletteOpen, isTerminalOpen]);
+
+  const navigateTo = (sectionId) => {
+    if (sectionId === 'terminal') {
+      setIsTerminalOpen(true);
+      return;
+    }
+    const section = document.getElementById(sectionId);
+    if (section) section.scrollIntoView({ behavior: 'smooth' });
+  };
+
 
   useEffect(() => {
     const prefersReducedMotion = typeof window !== "undefined" && window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -152,6 +215,11 @@ function App() {
                   Resume
                 </a>
               </motion.div>
+              
+              <motion.div variants={fadeInUp}>
+                <LiveDashboard />
+              </motion.div>
+
             </motion.div>
 
             <motion.div 
@@ -772,6 +840,18 @@ function App() {
           </div>
         </footer>
       </main>
+
+      <CommandPalette 
+        isOpen={isCommandPaletteOpen} 
+        onClose={() => setIsCommandPaletteOpen(false)}
+        navigateTo={navigateTo}
+      />
+      
+      <AnimatePresence>
+        {isTerminalOpen && (
+          <TerminalComponent onClose={() => setIsTerminalOpen(false)} />
+        )}
+      </AnimatePresence>
     </div>
   );
 }
