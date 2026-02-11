@@ -242,6 +242,39 @@ function App() {
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-60"></div>
                 </div>
+
+                {/* Floating Skills */}
+                <motion.div
+                  animate={{ y: [0, -20, 0] }}
+                  transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+                  className="absolute -top-4 -right-4 w-16 h-16 bg-black/80 border border-cyan-500/30 rounded-xl flex items-center justify-center backdrop-blur-md shadow-lg shadow-cyan-500/20"
+                >
+                  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" alt="React" className="w-8 h-8 animate-spin-slow" />
+                </motion.div>
+
+                <motion.div
+                  animate={{ y: [0, 20, 0] }}
+                  transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+                  className="absolute top-1/2 -right-12 w-14 h-14 bg-black/80 border border-purple-500/30 rounded-xl flex items-center justify-center backdrop-blur-md shadow-lg shadow-purple-500/20"
+                >
+                  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" alt="Node" className="w-7 h-7" />
+                </motion.div>
+
+                <motion.div
+                  animate={{ y: [0, -15, 0] }}
+                  transition={{ duration: 6, repeat: Infinity, ease: "easeInOut", delay: 2 }}
+                  className="absolute -bottom-8 right-10 w-12 h-12 bg-black/80 border border-yellow-500/30 rounded-xl flex items-center justify-center backdrop-blur-md shadow-lg shadow-yellow-500/20"
+                >
+                  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JS" className="w-6 h-6 rounded" />
+                </motion.div>
+
+                <motion.div
+                  animate={{ x: [0, 15, 0] }}
+                  transition={{ duration: 7, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
+                  className="absolute -left-8 top-1/3 w-14 h-14 bg-black/80 border border-blue-500/30 rounded-xl flex items-center justify-center backdrop-blur-md shadow-lg shadow-blue-500/20"
+                >
+                  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python" className="w-7 h-7" />
+                </motion.div>
               </div>
             </motion.div>
           </div>
