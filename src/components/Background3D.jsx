@@ -1,17 +1,12 @@
 import React, { useRef, useState } from 'react';
 import { Canvas, useFrame } from '@react-three/fiber';
-import { Points, PointMaterial, Sparkles } from '@react-three/drei';
+import { Points, PointMaterial } from '@react-three/drei';
 import { inSphere } from 'maath/random';
 import * as THREE from 'three';
 
-function StarLayer({ radius = 1.5, count = 5000, color = '#7dd3fc', size = 0.01, speed = 0.1 }) {
+function StarLayer({ radius = 1.5, count = 5000, color = '#7dd3fc', size = 0.01 }) {
   const ref = useRef();
   const [sphere] = useState(() => inSphere(new Float32Array(count), { radius }));
-
-  useFrame((state, delta) => {
-    ref.current.rotation.x -= delta * speed;
-    ref.current.rotation.y -= delta * (speed * 1.5);
-  });
 
   return (
     <group rotation={[0, 0, Math.PI / 4]}>
@@ -31,13 +26,7 @@ function StarLayer({ radius = 1.5, count = 5000, color = '#7dd3fc', size = 0.01,
 
 function Aurora() {
   const materialRef = useRef();
-  useFrame(({ clock }) => {
-    if (materialRef.current) {
-      materialRef.current.uniforms.uTime.value = clock.elapsedTime;
-    }
-  });
   const uniforms = {
-    uTime: { value: 0 },
     uColor1: { value: new THREE.Color('#06b6d4') },
     uColor2: { value: new THREE.Color('#a78bfa') },
     uColor3: { value: new THREE.Color('#f472b6') }
@@ -52,7 +41,6 @@ function Aurora() {
   const fragment = `
     precision highp float;
     varying vec2 vUv;
-    uniform float uTime;
     uniform vec3 uColor1;
     uniform vec3 uColor2;
     uniform vec3 uColor3;
@@ -61,9 +49,9 @@ function Aurora() {
     }
     void main() {
       vec2 uv = vUv;
-      uv.y += sin(uv.x*6.0 + uTime*0.6)*0.02;
-      float band1 = smoothstep(0.2, 0.8, sin(uv.y*8.0 + uTime*0.8));
-      float band2 = smoothstep(0.2, 0.8, sin(uv.y*10.0 - uTime*0.6));
+      uv.y += sin(uv.x*6.0)*0.02;
+      float band1 = smoothstep(0.2, 0.8, sin(uv.y*8.0));
+      float band2 = smoothstep(0.2, 0.8, sin(uv.y*10.0));
       float glow = smoothstep(0.0, 1.0, band1*0.6 + band2*0.4);
       vec3 col = mix(uColor1, uColor2, band1);
       col = mix(col, uColor3, band2);
@@ -101,11 +89,10 @@ const Background3D = () => {
             <color attach="background" args={['#07080c']} />
             <Aurora />
             <group scale={1.2}>
-              <StarLayer radius={1.6} count={4000} color="#7dd3fc" size={0.009} speed={0.08} />
-              <StarLayer radius={1.8} count={3000} color="#a78bfa" size={0.011} speed={0.06} />
-              <StarLayer radius={2.0} count={2500} color="#f472b6" size={0.013} speed={0.04} />
+              <StarLayer radius={1.6} count={4000} color="#7dd3fc" size={0.009} />
+              <StarLayer radius={1.8} count={3000} color="#a78bfa" size={0.011} />
+              <StarLayer radius={2.0} count={2500} color="#f472b6" size={0.013} />
             </group>
-            <Sparkles count={80} scale={[3, 2, 1]} size={2} speed={0.4} color="#22d3ee" opacity={0.8} />
           </Canvas>
         </div>
       ) : (
