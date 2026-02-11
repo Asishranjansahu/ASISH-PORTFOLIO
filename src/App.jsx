@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Github, Linkedin, Mail, ExternalLink, Code2, Terminal as TerminalIcon, Cpu, GraduationCap, Briefcase, Award, Cloud, Database, Cog, CircuitBoard, Image, Server, Globe, GitPullRequest, Shapes, HardDrive, Boxes, Workflow, Lightbulb, Users, RefreshCw, MessageCircle, MapPin, Send, User, FileText, FolderGit2 } from 'lucide-react';
+import { Github, Linkedin, Mail, ExternalLink, Code2, Cpu, GraduationCap, Briefcase, Award, Cloud, Database, Cog, CircuitBoard, Image, Server, Globe, GitPullRequest, Shapes, HardDrive, Boxes, Workflow, Lightbulb, Users, RefreshCw, MessageCircle, MapPin, Send, User, FileText, FolderGit2 } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import GlitchText from './components/GlitchText';
 import TypewriterText from './components/TypewriterText';
@@ -8,10 +8,8 @@ import Navbar from './components/Navbar';
 import GithubStats from './components/GithubStats';
 import HireMe from './components/HireMe';
 import Background3D from './components/Background3D';
-import Terminal from './components/Terminal';
 
 function App() {
-  const [showTerminal, setShowTerminal] = useState(false);
   const [matrixMode, setMatrixMode] = useState(false);
   const [konamiIndex, setKonamiIndex] = useState(0);
 
@@ -91,18 +89,11 @@ function App() {
         <div className="fixed inset-0 pointer-events-none z-[60] bg-[linear-gradient(rgba(18,16,16,0)_50%,rgba(0,0,0,0.25)_50%),linear-gradient(90deg,rgba(255,0,0,0.06),rgba(0,255,0,0.02),rgba(0,0,255,0.06))] bg-[length:100%_2px,3px_100%] animate-scanline mix-blend-overlay opacity-20"></div>
       )}
       
-      <Navbar 
-        toggleTerminal={() => setShowTerminal(!showTerminal)} 
-        closeTerminal={() => setShowTerminal(false)}
-      />
+      <Navbar />
       {show3D && !matrixMode && <Background3D />}
       
       {/* Overlay Pattern - Optimized for performance */}
       <div className="fixed inset-0 z-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-[0.03] pointer-events-none"></div>
-
-      <AnimatePresence>
-        {showTerminal && <Terminal onClose={() => setShowTerminal(false)} />}
-      </AnimatePresence>
 
       <main className="relative z-10">
         {/* Hero Section */}

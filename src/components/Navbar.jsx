@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import { Code2, Menu, X, FolderGit2, GraduationCap, Briefcase, Award, Mail, User, Terminal } from 'lucide-react';
+import { Code2, Menu, X, FolderGit2, GraduationCap, Briefcase, Award, Mail, User } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
-const Navbar = ({ toggleTerminal, closeTerminal }) => {
+const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
@@ -47,22 +47,11 @@ const Navbar = ({ toggleTerminal, closeTerminal }) => {
               href={link.href} 
               className="group relative p-2"
               title={link.name}
-              onClick={closeTerminal}
             >
               <div className="absolute inset-0 bg-cyan-500/20 rounded-lg scale-0 group-hover:scale-100 transition-transform duration-300"></div>
               <link.icon className="w-6 h-6 text-slate-400 group-hover:text-cyan-400 transition-colors relative z-10" />
             </a>
           ))}
-          
-          {/* Terminal Toggle */}
-          <button 
-            onClick={toggleTerminal}
-            className="group relative p-2"
-            title="Open Terminal"
-          >
-            <div className="absolute inset-0 bg-green-500/20 rounded-lg scale-0 group-hover:scale-100 transition-transform duration-300"></div>
-            <Terminal className="w-6 h-6 text-green-400 group-hover:text-green-300 transition-colors relative z-10" />
-          </button>
         </div>
 
         {/* Mobile Menu Button */}
@@ -88,26 +77,12 @@ const Navbar = ({ toggleTerminal, closeTerminal }) => {
                     key={link.name} 
                     href={link.href} 
                     className="text-lg font-display font-bold uppercase tracking-widest text-slate-400 hover:text-cyan-400 flex items-center gap-4"
-                    onClick={() => {
-                      setIsOpen(false);
-                      closeTerminal();
-                    }}
+                    onClick={() => setIsOpen(false)}
                   >
                     <link.icon className="w-5 h-5 text-cyan-400" />
                     {link.name}
                   </a>
                 ))}
-                
-                <button 
-                  onClick={() => {
-                    setIsOpen(false);
-                    toggleTerminal();
-                  }}
-                  className="text-lg font-display font-bold uppercase tracking-widest text-green-400 hover:text-green-300 flex items-center gap-4"
-                >
-                  <Terminal className="w-5 h-5 text-green-400" />
-                  Terminal
-                </button>
               </div>
             </motion.div>
           )}
