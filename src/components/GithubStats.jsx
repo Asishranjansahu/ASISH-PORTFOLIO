@@ -55,20 +55,6 @@ const GithubStats = () => {
             <GitHubCalendar 
               username="Asishranjansahu" 
               colorScheme="dark"
-              blockSize={14}
-              blockMargin={4}
-              fontSize={14}
-              theme={{
-                dark: ['#161b22', '#0e4429', '#006d32', '#26a641', '#39d353'],
-              }}
-              style={{
-                color: '#94a3b8',
-              }}
-              renderBlock={(block, activity) => (
-                <div title={`${activity.count} activities on ${activity.date}`} className="w-full h-full hover:opacity-80 transition-opacity">
-                  {block}
-                </div>
-              )}
             />
           </div>
         </motion.div>
