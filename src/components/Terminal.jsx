@@ -13,14 +13,15 @@ const Terminal = ({ onClose }) => {
 
   const commands = {
     help: () => [
-      { type: 'info', content: 'Available commands:' },
-      { type: 'success', content: '  about    - Who am I?' },
-      { type: 'success', content: '  projects - View my work' },
-      { type: 'success', content: '  skills   - Technical stack' },
-      { type: 'success', content: '  blog     - Latest updates' },
-      { type: 'success', content: '  contact  - Get in touch' },
-      { type: 'success', content: '  clear    - Clear terminal' },
-      { type: 'success', content: '  exit     - Close terminal' },
+      { type: 'info', content: 'Available commands (click to run):' },
+      { type: 'success', content: '  about    - Who am I?', action: 'about' },
+      { type: 'success', content: '  projects - View my work', action: 'projects' },
+      { type: 'success', content: '  skills   - Technical stack', action: 'skills' },
+      { type: 'success', content: '  blog     - View dev logs', action: 'blog' },
+      { type: 'success', content: '  now      - What I am doing', action: 'now' },
+      { type: 'success', content: '  contact  - Get in touch', action: 'contact' },
+      { type: 'success', content: '  clear    - Clear terminal', action: 'clear' },
+      { type: 'success', content: '  exit     - Close terminal', action: 'exit' },
     ],
     about: () => [
       { type: 'info', content: 'Asish Ranjan Sahu | Full Stack Developer' },
@@ -41,9 +42,17 @@ const Terminal = ({ onClose }) => {
     ],
     blog: () => [
       { type: 'info', content: 'Latest Dev Logs:' },
-      { type: 'text', content: '2025-02-12: Added Konami Code support. Try it! (Up, Up, Down...)' },
-      { type: 'text', content: '2025-02-10: Optimized 3D background performance.' },
-      { type: 'text', content: '2025-02-01: Built this terminal because GUIs are overrated.' },
+      { type: 'text', content: '2025-02-12: Added Konami Code support. (Hint: Up, Up, Down, Down...)' },
+      { type: 'text', content: '2025-02-10: Optimized 3D background performance with Three.js.' },
+      { type: 'text', content: '2025-02-01: Initialized AsishOS v1.0.0.' },
+      { type: 'warning', content: 'More updates coming soon!' },
+    ],
+    now: () => [
+      { type: 'info', content: 'Now Page (What I am doing):' },
+      { type: 'text', content: 'Currently focused on:' },
+      { type: 'text', content: '- Building high-performance React apps' },
+      { type: 'text', content: '- Learning Advanced Three.js & WebGL' },
+      { type: 'text', content: '- Reading "Clean Code" by Uncle Bob' },
     ],
     contact: () => [
       { type: 'info', content: 'Email: contact@asish.dev' },
@@ -57,23 +66,31 @@ const Terminal = ({ onClose }) => {
     },
   };
 
-  const handleCommand = (e) => {
+  const processCommand = (cmdText) => {
+    const cmd = cmdText.trim().toLowerCase();
+    
+    if (cmd === 'clear') {
+      setOutput([]);
+      return;
+    }
+
+    let newOutput = [...output, { type: 'command', content: `> ${cmdText}` }];
+
+    if (commands[cmd]) {
+      const result = commands[cmd]();
+      if (result) newOutput = [...newOutput, ...result];
+    } else if (cmd !== '') {
+      newOutput.push({ type: 'error', content: `Command not found: ${cmd}. Type "help".` });
+    }
+
+    setOutput(newOutput);
+    // Keep focus on input
+    setTimeout(() => inputRef.current?.focus(), 10);
+  };
+
+  const handleKeyDown = (e) => {
     if (e.key === 'Enter') {
-      const cmd = input.trim().toLowerCase();
-      let newOutput = [...output, { type: 'command', content: `> ${input}` }];
-
-      if (commands[cmd]) {
-        if (cmd === 'clear') {
-          newOutput = [];
-        } else {
-          const result = commands[cmd]();
-          if (result) newOutput = [...newOutput, ...result];
-        }
-      } else if (cmd !== '') {
-        newOutput.push({ type: 'error', content: `Command not found: ${cmd}. Type "help".` });
-      }
-
-      setOutput(newOutput);
+      processCommand(input);
       setInput('');
     }
   };
@@ -121,7 +138,19 @@ const Terminal = ({ onClose }) => {
             line.type === 'warning' ? 'text-yellow-400' :
             'text-slate-300'
           }`}>
-            {line.content}
+            {line.action ? (
+              <button 
+                onClick={(e) => {
+                  e.stopPropagation(); // Prevent focusing input immediately if that interferes
+                  processCommand(line.action);
+                }}
+                className="text-left w-full hover:bg-green-500/10 hover:text-green-300 focus:outline-none transition-colors cursor-pointer"
+              >
+                {line.content}
+              </button>
+            ) : (
+              <span>{line.content}</span>
+            )}
           </div>
         ))}
         <div className="flex items-center gap-2 text-green-400 mt-2">
@@ -131,7 +160,7 @@ const Terminal = ({ onClose }) => {
             type="text"
             value={input}
             onChange={(e) => setInput(e.target.value)}
-            onKeyDown={handleCommand}
+            onKeyDown={handleKeyDown}
             className="bg-transparent border-none outline-none flex-1 text-white caret-green-400"
             autoFocus
           />
