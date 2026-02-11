@@ -66,7 +66,7 @@ function App() {
                 </motion.h2>
               </div>
 
-              <motion.div variants={fadeInUp} className="text-xl text-slate-400 max-w-xl leading-relaxed border-l-2 border-cyan-500/50 pl-6 min-h-[160px] flex items-center">
+              <motion.div variants={fadeInUp} className="text-xl text-slate-400 max-w-xl leading-relaxed border-l-2 border-cyan-500/50 pl-6 h-[180px] flex items-start">
                 <TypewriterText 
                   texts={[
                     "I am Asish Ranjan Sahu.",
