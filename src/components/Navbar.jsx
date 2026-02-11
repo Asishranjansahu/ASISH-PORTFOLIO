@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Code2, Menu, X } from 'lucide-react';
+import { Code2, Menu, X, FolderGit2, GraduationCap, Briefcase, Award, Mail } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 const Navbar = () => {
@@ -15,11 +15,11 @@ const Navbar = () => {
   }, []);
 
   const navLinks = [
-    { name: 'Projects', href: '#projects' },
-    { name: 'Education', href: '#education' },
-    { name: 'Work Experience', href: '#experience' },
-    { name: 'Achievements', href: '#achievements' },
-    { name: 'Contact', href: '#contact' },
+    { name: 'Projects', href: '#projects', icon: FolderGit2 },
+    { name: 'Education', href: '#education', icon: GraduationCap },
+    { name: 'Work Experience', href: '#experience', icon: Briefcase },
+    { name: 'Achievements', href: '#achievements', icon: Award },
+    { name: 'Contact', href: '#contact', icon: Mail },
   ];
 
   return (
@@ -39,10 +39,11 @@ const Navbar = () => {
             <a 
               key={link.name} 
               href={link.href} 
-              className="text-sm font-display font-bold uppercase tracking-widest text-slate-400 hover:text-cyan-400 transition-colors relative group"
+              className="group relative p-2"
+              title={link.name}
             >
-              {link.name}
-              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-cyan-400 transition-all group-hover:w-full"></span>
+              <div className="absolute inset-0 bg-cyan-500/20 rounded-lg scale-0 group-hover:scale-100 transition-transform duration-300"></div>
+              <link.icon className="w-6 h-6 text-slate-400 group-hover:text-cyan-400 transition-colors relative z-10" />
             </a>
           ))}
         </div>
@@ -69,9 +70,10 @@ const Navbar = () => {
                   <a 
                     key={link.name} 
                     href={link.href} 
-                    className="text-lg font-display font-bold uppercase tracking-widest text-slate-400 hover:text-cyan-400"
+                    className="text-lg font-display font-bold uppercase tracking-widest text-slate-400 hover:text-cyan-400 flex items-center gap-4"
                     onClick={() => setIsOpen(false)}
                   >
+                    <link.icon className="w-5 h-5 text-cyan-400" />
                     {link.name}
                   </a>
                 ))}
