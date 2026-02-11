@@ -34,6 +34,40 @@ function App() {
 
   return (
     <div className="relative min-h-screen bg-black text-slate-100 font-sans selection:bg-cyan-500/30 overflow-x-hidden">
+      <aside className="fixed left-0 top-0 bottom-0 z-50 w-72 bg-black/60 backdrop-blur-md border-r border-white/10 hidden md:flex flex-col p-6 gap-6">
+        <div className="flex items-center gap-4">
+          <div className="w-14 h-14 rounded-full overflow-hidden border border-white/10">
+            <img 
+              src="/profile.jpeg" 
+              alt="Profile" 
+              className="w-full h-full object-cover"
+              onError={(e) => { e.currentTarget.onerror = null; e.currentTarget.src = 'https://ui-avatars.com/api/?name=Asish+Ranjan+Sahu&background=0D8ABC&color=fff&size=256'; }}
+            />
+          </div>
+          <div>
+            <div className="font-display font-bold text-sm text-white">ASISH RANJAN SAHU</div>
+            <div className="text-[11px] text-slate-400">Full Stack Developer</div>
+            <div className="text-[11px] text-slate-500">Odisha, India</div>
+          </div>
+        </div>
+        <nav className="flex flex-col gap-2 text-xs font-mono">
+          <a href="#projects" className="px-3 py-2 rounded-lg border border-white/10 hover:border-cyan-500/50 hover:bg-white/5 transition-colors">Projects</a>
+          <a href="#skills" className="px-3 py-2 rounded-lg border border-white/10 hover:border-cyan-500/50 hover:bg-white/5 transition-colors">Skills</a>
+          <a href="#achievements" className="px-3 py-2 rounded-lg border border-white/10 hover:border-cyan-500/50 hover:bg-white/5 transition-colors">Achievements</a>
+          <a href="#contact" className="px-3 py-2 rounded-lg border border-white/10 hover:border-cyan-500/50 hover:bg-white/5 transition-colors">Contact</a>
+        </nav>
+        <div className="mt-auto flex gap-3">
+          <a href="mailto:asishranjansahu2003@gmail.com" className="p-2 rounded-lg bg-white/5 border border-white/10 hover:bg-white/10 transition">
+            <Mail className="w-4 h-4 text-white" />
+          </a>
+          <a href="https://linkedin.com/in/asish-ranjan-sahu" className="p-2 rounded-lg bg-white/5 border border-white/10 hover:bg-white/10 transition">
+            <Linkedin className="w-4 h-4 text-white" />
+          </a>
+          <a href="https://github.com/Asishranjansahu" className="p-2 rounded-lg bg-white/5 border border-white/10 hover:bg-white/10 transition">
+            <Github className="w-4 h-4 text-white" />
+          </a>
+        </div>
+      </aside>
       {show3D && (
         <Suspense fallback={<div className="fixed inset-0 z-0 bg-gradient-to-b from-black via-black to-black"></div>}>
           <Background3D />
@@ -68,7 +102,7 @@ function App() {
         </motion.div>
       </header>
 
-      <main className="relative z-10">
+      <main className="relative z-10 md:ml-72">
         {/* Hero Section */}
         <section id="about" className="min-h-screen flex items-center justify-center px-6 relative">
           <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-16 items-center">
@@ -445,6 +479,39 @@ function App() {
                   ))}
                 </div>
               </motion.div>
+            </div>
+          </div>
+        </section>
+
+        <section id="achievements" className="py-32 px-6 bg-black/60">
+          <div className="max-w-7xl mx-auto">
+            <motion.h3 
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              className="font-display text-4xl md:text-6xl font-bold mb-12 text-white flex items-center gap-3"
+            >
+              <Award className="w-8 h-8 text-cyan-400" /> Achievements
+            </motion.h3>
+            <div className="grid md:grid-cols-3 gap-8">
+              {[
+                { title: "Hackathon Finalist", desc: "Built a feature-rich web app under time constraints.", color: "cyan" },
+                { title: "Top Performer", desc: "Recognized for consistent delivery and code quality.", color: "purple" },
+                { title: "AWS EC2/S3 Basics", desc: "Hands-on with EC2 instances and S3 storage.", color: "pink" }
+              ].map((item, i) => (
+                <motion.div 
+                  key={i}
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ delay: i * 0.1 }}
+                  className="holo-card p-8 group"
+                >
+                  <div className="flex items-center gap-3 mb-3">
+                    <Award className={`w-6 h-6 text-${item.color}-400`} />
+                    <h4 className="font-display text-xl font-bold text-white group-hover:text-cyan-400 transition-colors">{item.title}</h4>
+                  </div>
+                  <p className="text-slate-400 text-sm leading-relaxed">{item.desc}</p>
+                </motion.div>
+              ))}
             </div>
           </div>
         </section>
