@@ -147,7 +147,7 @@ function App() {
 
       <main className="relative z-10">
         {/* Hero Section */}
-        <section id="about" className="min-h-screen flex items-center justify-center px-6 relative">
+        <section id="about" className="min-h-screen flex items-center justify-center px-6 relative pt-32">
           <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-16 items-center">
             <motion.div 
               initial="hidden"
