@@ -4,7 +4,7 @@ import { Points, PointMaterial } from '@react-three/drei';
 import { inSphere } from 'maath/random';
 import * as THREE from 'three';
 
-function StarLayer({ radius = 1.5, count = 5000, color = '#cbd5e1', size = 0.01, speed = 0.02 }) {
+function StarLayer({ radius = 1.5, count = 5000, color = '#94a3b8', size = 0.006, speed = 0.02, opacity = 0.18 }) {
   const ref = useRef();
   const [sphere] = useState(() => inSphere(new Float32Array(count), { radius }));
 
@@ -24,7 +24,8 @@ function StarLayer({ radius = 1.5, count = 5000, color = '#cbd5e1', size = 0.01,
           size={size}
           sizeAttenuation={true}
           depthWrite={false}
-          blending={THREE.AdditiveBlending}
+          opacity={opacity}
+          blending={THREE.NormalBlending}
         />
       </Points>
     </group>
@@ -46,11 +47,11 @@ const Background3D = () => {
       {supportsWebGL() ? (
         <div className="fixed inset-0 z-0 bg-[#0b0b0b]">
           <Canvas camera={{ position: [0, 0, 1.2], near: 0.1, far: 100 }}>
-            <color attach="background" args={['#07080c']} />
+            <color attach="background" args={['#050607']} />
             <group scale={1.2}>
-              <StarLayer radius={1.6} count={4000} color="#cbd5e1" size={0.009} speed={0.018} />
-              <StarLayer radius={1.8} count={3000} color="#cbd5e1" size={0.011} speed={0.014} />
-              <StarLayer radius={2.0} count={2500} color="#cbd5e1" size={0.013} speed={0.010} />
+              <StarLayer radius={1.6} count={3500} color="#94a3b8" size={0.005} speed={0.016} opacity={0.16} />
+              <StarLayer radius={1.8} count={2800} color="#94a3b8" size={0.006} speed={0.012} opacity={0.15} />
+              <StarLayer radius={2.0} count={2200} color="#94a3b8" size={0.007} speed={0.009} opacity={0.14} />
             </group>
           </Canvas>
         </div>
