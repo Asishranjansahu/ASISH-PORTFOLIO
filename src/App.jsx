@@ -77,29 +77,49 @@ function App() {
       {/* Overlay Pattern */}
       <div className="fixed inset-0 z-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-20 pointer-events-none mix-blend-overlay"></div>
 
-      {/* Header */}
-      <header className="fixed top-6 left-0 right-0 z-50 flex justify-center pointer-events-none">
-        <motion.div 
-          initial={{ y: -100, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          transition={{ duration: 1, type: "spring" }}
-          className="bg-black/40 backdrop-blur-md border border-white/10 px-8 py-4 rounded-full pointer-events-auto flex items-center gap-8 box-glow"
-        >
-          <a href="#" className="font-display font-bold text-xl tracking-widest text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-purple-500">
-            ASISH RANJAN SAHU
-          </a>
-          <nav className="hidden md:flex gap-8 text-xs font-mono tracking-widest text-slate-400">
-            {['About', 'Projects', 'Skills', 'Contact'].map((item) => (
-              <a 
-                key={item} 
-                href={`#${item.toLowerCase()}`}
-                className="hover:text-cyan-400 transition-colors uppercase"
+      {/* Top Navbar */}
+      <header className="fixed top-0 left-0 right-0 z-50 bg-[#121316]/80 backdrop-blur-md border-b border-white/10">
+        <div className="max-w-7xl mx-auto px-6 py-3 flex items-center justify-between">
+          <div className="flex items-center gap-4">
+            <div className="w-10 h-10 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center">
+              <span className="font-display font-bold text-white">AR</span>
+            </div>
+            <div className="hidden sm:flex flex-col leading-tight">
+              <span className="font-display font-bold text-sm text-white">ASISH RANJAN SAHU</span>
+              <span className="text-[11px] text-slate-400">Full Stack Developer</span>
+            </div>
+          </div>
+          <nav className="hidden md:flex items-center gap-8 text-sm font-mono">
+            {[
+              { label: 'Home', href: '#about' },
+              { label: 'Portfolio', href: '#projects', active: true },
+              { label: 'Terminal', href: '#skills' },
+              { label: 'Project', href: '#projects' },
+              { label: 'Contact', href: '#contact' }
+            ].map((item) => (
+              <a
+                key={item.label}
+                href={item.href}
+                className={`text-slate-300 hover:text-white transition-colors ${item.active ? 'underline underline-offset-8' : ''}`}
               >
-                {item}
+                {item.label}
               </a>
             ))}
           </nav>
-        </motion.div>
+          <div className="flex items-center gap-4">
+            <a href="#contact" className="px-4 py-2 rounded-lg bg-yellow-500 text-black font-display font-bold hover:bg-yellow-400 transition-colors">
+              Contact Me
+            </a>
+            <div className="w-9 h-9 rounded-full overflow-hidden border border-white/10">
+              <img 
+                src="/profile.jpeg" 
+                alt="Avatar" 
+                className="w-full h-full object-cover"
+                onError={(e) => { e.currentTarget.onerror = null; e.currentTarget.src = 'https://ui-avatars.com/api/?name=ARS&background=0D8ABC&color=fff&size=256'; }}
+              />
+            </div>
+          </div>
+        </div>
       </header>
 
       <main className="relative z-10 md:ml-72">
