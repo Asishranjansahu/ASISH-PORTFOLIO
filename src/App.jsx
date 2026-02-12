@@ -287,17 +287,9 @@ function App() {
                 <motion.div
                   animate={{ x: [0, 15, 0] }}
                   transition={{ duration: 7, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
-                  className="absolute -left-8 top-1/3 w-14 h-14 bg-black/80 border border-blue-500/30 rounded-xl flex items-center justify-center backdrop-blur-md shadow-lg shadow-blue-500/20"
+                  className="absolute -left-8 top-1/3 w-14 h-14 bg-black/80 border border-red-500/30 rounded-xl flex items-center justify-center backdrop-blur-md shadow-lg shadow-red-500/20"
                 >
-                  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python" className="w-7 h-7" />
-                </motion.div>
-
-                <motion.div
-                  animate={{ x: [0, -15, 0] }}
-                  transition={{ duration: 7, repeat: Infinity, ease: "easeInOut", delay: 1.5 }}
-                  className="absolute bottom-1/4 -left-6 w-12 h-12 bg-black/80 border border-red-500/30 rounded-xl flex items-center justify-center backdrop-blur-md shadow-lg shadow-red-500/20"
-                >
-                  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" alt="Java" className="w-6 h-6" />
+                  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" alt="Java" className="w-7 h-7" />
                 </motion.div>
               </div>
             </motion.div>
