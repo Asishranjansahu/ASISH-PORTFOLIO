@@ -519,42 +519,54 @@ function App() {
                     tech: "IoT • Flutter • Firebase",
                     desc: "Automated campus management system integrating IoT sensors.",
                     color: "cyan",
-                    image: "https://placehold.co/1200x800/0f172a/ffffff?text=Smart+Campus"
+                    image: "https://placehold.co/1200x800/0f172a/ffffff?text=Smart+Campus",
+                    live: "https://smart-campus-iot.web.app",
+                    github: "https://github.com/Asishranjansahu/smart-campus"
                   },
                   {
                     title: "Dev Connect",
                     tech: "MERN • Socket.IO",
                     desc: "Real-time collaboration platform for developers.",
                     color: "purple",
-                    image: "https://placehold.co/1200x800/0f172a/ffffff?text=Dev+Connect"
+                    image: "https://placehold.co/1200x800/0f172a/ffffff?text=Dev+Connect",
+                    live: "https://dev-connect-live.onrender.com",
+                    github: "https://github.com/Asishranjansahu/dev-connect"
                   },
                   {
                     title: "Task Master",
                     tech: "JS • LocalStorage",
                     desc: "Dynamic task management with persistent storage.",
                     color: "pink",
-                    image: "https://placehold.co/1200x800/0f172a/ffffff?text=Task+Master"
+                    image: "https://placehold.co/1200x800/0f172a/ffffff?text=Task+Master",
+                    live: "https://asishranjansahu.github.io/task-master",
+                    github: "https://github.com/Asishranjansahu/task-master"
                   },
                   {
                     title: "Thread Sense",
                     tech: "React • Tailwind • Firebase",
                     desc: "Social threads app with realtime updates and modern UI.",
                     color: "emerald",
-                    image: "/projects/thread-sense.svg"
+                    image: "/projects/thread-sense.svg",
+                    live: "https://thread-sense.vercel.app",
+                    github: "https://github.com/Asishranjansahu/thread-sense"
                   },
                   {
                     title: "Portfolio",
                     tech: "React • Vite • Tailwind",
                     desc: "Personal portfolio with 3D background and animated sections.",
                     color: "sky",
-                    image: "https://placehold.co/1200x800/0f172a/ffffff?text=Portfolio"
+                    image: "https://placehold.co/1200x800/0f172a/ffffff?text=Portfolio",
+                    live: "https://asishranjansahu.vercel.app",
+                    github: "https://github.com/Asishranjansahu/ASISH-PORTFOLIO"
                   },
                   {
                     title: "ZERODHA CLONE",
                     tech: "React • Chart.js",
                     desc: "Brokerage UI clone with charts and order flow screens.",
                     color: "indigo",
-                    image: "https://placehold.co/1200x800/0f172a/ffffff?text=ZERODHA+CLONE"
+                    image: "https://placehold.co/1200x800/0f172a/ffffff?text=ZERODHA+CLONE",
+                    live: "https://zerodha-clone-demo.vercel.app",
+                    github: "https://github.com/Asishranjansahu/zerodha-clone"
                   }
                 ].map((project, i) => (
                   <motion.div 
@@ -562,7 +574,8 @@ function App() {
                     initial={{ opacity: 0, y: 50 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ delay: i * 0.1 }}
-                    className="holo-card group h-full"
+                    onClick={() => window.open(project.live, '_blank')}
+                    className="holo-card group h-full cursor-pointer hover:shadow-2xl hover:shadow-cyan-500/20 transition-all duration-300"
                   >
                     <div className="h-48 relative overflow-hidden">
                       <img 
@@ -585,10 +598,22 @@ function App() {
                       <p className="text-xs font-mono text-slate-500 mb-4 uppercase tracking-wider">{project.tech}</p>
                       <p className="text-slate-400 text-sm leading-relaxed mb-6">{project.desc}</p>
                       <div className="flex gap-4">
-                        <button className="text-xs font-bold uppercase tracking-widest hover:text-cyan-400 transition-colors flex items-center gap-2">
+                        <button 
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            window.open(project.github, '_blank');
+                          }}
+                          className="text-xs font-bold uppercase tracking-widest hover:text-cyan-400 transition-colors flex items-center gap-2"
+                        >
                           <Github className="w-4 h-4" /> Code
                         </button>
-                        <button className="text-xs font-bold uppercase tracking-widest hover:text-purple-400 transition-colors flex items-center gap-2">
+                        <button 
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            window.open(project.live, '_blank');
+                          }}
+                          className="text-xs font-bold uppercase tracking-widest hover:text-purple-400 transition-colors flex items-center gap-2"
+                        >
                           <ExternalLink className="w-4 h-4" /> Live
                         </button>
                       </div>
