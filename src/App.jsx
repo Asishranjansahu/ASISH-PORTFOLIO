@@ -520,7 +520,7 @@ function App() {
                     desc: "Automated campus management system integrating IoT sensors.",
                     color: "cyan",
                     image: "https://placehold.co/1200x800/0f172a/ffffff?text=Smart+Campus",
-                    live: "https://smart-campus-iot.web.app",
+                    live: "https://smart-campus-automation-system.vercel.app/",
                     github: "https://github.com/Asishranjansahu/smart-campus"
                   },
                   {
