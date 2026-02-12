@@ -26,10 +26,10 @@ const GithubStats = () => {
         {/* Stats Grid */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-16">
           {[
-            { label: 'Total Commits', value: '500+', icon: GitCommit, color: 'text-cyan-400' },
-            { label: 'Pull Requests', value: '50+', icon: GitPullRequest, color: 'text-purple-400' },
-            { label: 'Repositories', value: '25+', icon: Github, color: 'text-pink-400' },
-            { label: 'Stars Earned', value: '100+', icon: Star, color: 'text-yellow-400' },
+            { label: 'Total Commits', value: '126', icon: GitCommit, color: 'text-cyan-400' },
+            { label: 'Pull Requests', value: '10+', icon: GitPullRequest, color: 'text-purple-400' },
+            { label: 'Repositories', value: '7', icon: Github, color: 'text-pink-400' },
+            { label: 'Stars Earned', value: '11', icon: Star, color: 'text-yellow-400' },
           ].map((stat, i) => (
             <motion.div
               key={i}
