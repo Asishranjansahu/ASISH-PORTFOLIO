@@ -58,7 +58,7 @@ const ProfileCard = () => {
                             <Users className="w-3.5 h-3.5 text-cyan-400" />
                         </div>
                         <div className="flex flex-col">
-                            <span className="text-sm font-bold text-white leading-none">1.2k</span>
+                            <span className="text-sm font-bold text-white leading-none">3</span>
                             <span className="text-[10px] text-slate-500 font-bold uppercase tracking-wider">Followers</span>
                         </div>
                     </div>
@@ -67,7 +67,7 @@ const ProfileCard = () => {
                             <FolderGit2 className="w-3.5 h-3.5 text-purple-400" />
                         </div>
                         <div className="flex flex-col">
-                            <span className="text-sm font-bold text-white leading-none">48</span>
+                            <span className="text-sm font-bold text-white leading-none">6</span>
                             <span className="text-[10px] text-slate-500 font-bold uppercase tracking-wider">Projects</span>
                         </div>
                     </div>
