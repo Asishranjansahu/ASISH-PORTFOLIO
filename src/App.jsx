@@ -372,7 +372,7 @@ function App() {
               </div>
 
               <motion.div variants={fadeInUp} className="text-xl text-slate-400 max-w-xl leading-relaxed border-l-2 border-cyan-500/50 pl-6">
-                I am Asish Ranjan Sahu. A Full Stack Developer engineering the next generation of digital experiences.
+                I design and ship high-performance web products that feel fast, clean, and built to last.
               </motion.div>
 
               <motion.div variants={fadeInUp} className="flex flex-wrap gap-6 pt-4">
