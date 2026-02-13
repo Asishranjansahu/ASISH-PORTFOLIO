@@ -69,7 +69,7 @@ const WhoAmI = () => {
                     </div>
                     <div className="flex gap-3 items-start group">
                         <span className="text-cyan-500 mt-1 group-hover:translate-x-1 transition-transform">{'>'}</span>
-                        <p className="group-hover:text-cyan-400 transition-colors">3+ years of shipping code that works.</p>
+                        <p className="group-hover:text-cyan-400 transition-colors">Fresh talent ready to build <strong className="text-white">Next-Gen</strong> solutions.</p>
                     </div>
                 </div>
 
