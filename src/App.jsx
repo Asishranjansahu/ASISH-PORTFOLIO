@@ -408,7 +408,7 @@ function App() {
                 <FolderGit2 className="w-5 h-5 md:w-6 md:h-6" />
               </span>
 
-              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+              <div className="flex overflow-x-auto pb-8 gap-8 snap-x snap-mandatory hide-scrollbar">
                 {[
                   {
                     title: "Smart Campus",
@@ -467,11 +467,11 @@ function App() {
                 ].map((project, i) => (
                   <motion.div 
                     key={i}
-                    initial={{ opacity: 0, y: 50 }}
-                    whileInView={{ opacity: 1, y: 0 }}
+                    initial={{ opacity: 0, x: 50 }}
+                    whileInView={{ opacity: 1, x: 0 }}
                     transition={{ delay: i * 0.1 }}
                     onClick={() => window.open(project.live, '_blank')}
-                    className="holo-card group h-full cursor-pointer hover:shadow-2xl hover:shadow-cyan-500/20 transition-all duration-300"
+                    className="holo-card group h-full cursor-pointer hover:shadow-2xl hover:shadow-cyan-500/20 transition-all duration-300 min-w-[300px] md:min-w-[400px] snap-center flex-none"
                   >
                     <div className="h-48 relative overflow-hidden">
                       <img 
