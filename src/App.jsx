@@ -239,6 +239,72 @@ function App() {
     return icons[mainTech] || 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg';
   };
 
+  const getColorClass = (color, type) => {
+    const colors = {
+      cyan: {
+        text: 'text-cyan-400',
+        bg: 'bg-cyan-400',
+        border: 'border-cyan-500/30',
+        hoverBorder: 'hover:border-cyan-500/50',
+        hoverShadow: 'hover:shadow-cyan-500/10',
+        hoverText: 'group-hover:text-cyan-400',
+        linkText: 'text-cyan-500 hover:text-cyan-400',
+        linkBg: 'bg-cyan-500/10 group-hover/link:bg-cyan-500/20'
+      },
+      purple: {
+        text: 'text-purple-400',
+        bg: 'bg-purple-400',
+        border: 'border-purple-500/30',
+        hoverBorder: 'hover:border-purple-500/50',
+        hoverShadow: 'hover:shadow-purple-500/10',
+        hoverText: 'group-hover:text-purple-400',
+        linkText: 'text-purple-500 hover:text-purple-400',
+        linkBg: 'bg-purple-500/10 group-hover/link:bg-purple-500/20'
+      },
+      pink: {
+        text: 'text-pink-400',
+        bg: 'bg-pink-400',
+        border: 'border-pink-500/30',
+        hoverBorder: 'hover:border-pink-500/50',
+        hoverShadow: 'hover:shadow-pink-500/10',
+        hoverText: 'group-hover:text-pink-400',
+        linkText: 'text-pink-500 hover:text-pink-400',
+        linkBg: 'bg-pink-500/10 group-hover/link:bg-pink-500/20'
+      },
+      emerald: {
+        text: 'text-emerald-400',
+        bg: 'bg-emerald-400',
+        border: 'border-emerald-500/30',
+        hoverBorder: 'hover:border-emerald-500/50',
+        hoverShadow: 'hover:shadow-emerald-500/10',
+        hoverText: 'group-hover:text-emerald-400',
+        linkText: 'text-emerald-500 hover:text-emerald-400',
+        linkBg: 'bg-emerald-500/10 group-hover/link:bg-emerald-500/20'
+      },
+      sky: {
+        text: 'text-sky-400',
+        bg: 'bg-sky-400',
+        border: 'border-sky-500/30',
+        hoverBorder: 'hover:border-sky-500/50',
+        hoverShadow: 'hover:shadow-sky-500/10',
+        hoverText: 'group-hover:text-sky-400',
+        linkText: 'text-sky-500 hover:text-sky-400',
+        linkBg: 'bg-sky-500/10 group-hover/link:bg-sky-500/20'
+      },
+      indigo: {
+        text: 'text-indigo-400',
+        bg: 'bg-indigo-400',
+        border: 'border-indigo-500/30',
+        hoverBorder: 'hover:border-indigo-500/50',
+        hoverShadow: 'hover:shadow-indigo-500/10',
+        hoverText: 'group-hover:text-indigo-400',
+        linkText: 'text-indigo-500 hover:text-indigo-400',
+        linkBg: 'bg-indigo-500/10 group-hover/link:bg-indigo-500/20'
+      }
+    };
+    return colors[color]?.[type] || colors.cyan[type];
+  };
+
   return (
     <div className={`relative min-h-screen bg-black transition-colors duration-700 overflow-x-hidden ${
       matrixMode 
@@ -513,80 +579,80 @@ function App() {
               >
                 {[...PROJECTS, ...PROJECTS].map((project, i) => (
                   <motion.div 
-                    key={i}
-                    initial={{ opacity: 0, scale: 0.9 }}
-                    whileInView={{ opacity: 1, scale: 1 }}
-                    transition={{ delay: (i % PROJECTS.length) * 0.1 }}
-                    className="group relative flex-none w-[290px] bg-zinc-900/50 backdrop-blur-sm border border-white/5 hover:border-cyan-500/30 rounded-xl overflow-hidden flex flex-col transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-cyan-500/10"
-                  >
-                    {/* Image Section */}
-                    <div className="h-32 relative overflow-hidden group-hover:h-36 transition-all duration-500">
-                      <img 
-                        src={project.image} 
-                        alt={project.title}
-                        loading="lazy" 
-                        onError={(e) => {
-                          e.currentTarget.onerror = null;
-                          e.currentTarget.src = "https://placehold.co/1200x800/0f172a/ffffff?text=Project";
-                        }}
-                        className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-t from-zinc-900 to-transparent opacity-80" />
-                      
-                      {/* Floating Logo Badge */}
-                      <div className="absolute top-3 right-3 w-10 h-10 rounded-full bg-black/60 backdrop-blur-md border border-white/10 flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300">
-                        <img 
-                          src={getTechIcon(project.tech.split('•')[0])} 
-                          alt="Tech Logo" 
-                          className="w-6 h-6 object-contain"
-                        />
-                      </div>
-                    </div>
+            key={i}
+            initial={{ opacity: 0, scale: 0.9 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            transition={{ delay: (i % PROJECTS.length) * 0.1 }}
+            className={`group relative flex-none w-[290px] bg-zinc-900/50 backdrop-blur-sm border rounded-xl overflow-hidden flex flex-col transition-all duration-300 hover:-translate-y-1 hover:shadow-xl ${getColorClass(project.color, 'border')} ${getColorClass(project.color, 'hoverBorder')} ${getColorClass(project.color, 'hoverShadow')}`}
+          >
+            {/* Image Section */}
+            <div className="h-32 relative overflow-hidden group-hover:h-36 transition-all duration-500">
+              <img 
+                src={project.image} 
+                alt={project.title}
+                loading="lazy" 
+                onError={(e) => {
+                  e.currentTarget.onerror = null;
+                  e.currentTarget.src = "https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=2070&auto=format&fit=crop";
+                }}
+                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-zinc-900 to-transparent opacity-80" />
+              
+              {/* Floating Logo Badge */}
+              <div className="absolute top-3 right-3 w-10 h-10 rounded-full bg-black/60 backdrop-blur-md border border-white/10 flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300">
+                <img 
+                  src={getTechIcon(project.tech.split('•')[0])} 
+                  alt="Tech Logo" 
+                  className="w-6 h-6 object-contain"
+                />
+              </div>
+            </div>
 
-                    {/* Content Section */}
-                    <div className="p-5 flex-1 flex flex-col relative">
-                      <div className="flex items-center gap-2 mb-2">
-                        <span className={`w-1.5 h-1.5 rounded-full bg-${project.color}-400 animate-pulse`} />
-                        <span className={`text-${project.color}-400 text-[10px] font-mono font-bold uppercase tracking-wider`}>
-                          {project.tech}
-                        </span>
-                      </div>
+            {/* Content Section */}
+            <div className="p-5 flex-1 flex flex-col relative">
+              <div className="flex items-center gap-2 mb-2">
+                <span className={`w-1.5 h-1.5 rounded-full animate-pulse ${getColorClass(project.color, 'bg')}`} />
+                <span className={`text-[10px] font-mono font-bold uppercase tracking-wider ${getColorClass(project.color, 'text')}`}>
+                  {project.tech}
+                </span>
+              </div>
 
-                      <h4 className="font-display text-lg font-bold text-white mb-2 leading-tight group-hover:text-cyan-400 transition-colors">
-                        {project.title}
-                      </h4>
-                      
-                      <p className="text-slate-400 text-xs leading-relaxed line-clamp-3 mb-4 flex-1">
-                        {project.desc}
-                      </p>
+              <h4 className={`font-display text-lg font-bold text-white mb-2 leading-tight transition-colors ${getColorClass(project.color, 'hoverText')}`}>
+                {project.title}
+              </h4>
+              
+              <p className="text-slate-400 text-xs leading-relaxed line-clamp-3 mb-4 flex-1">
+                {project.desc}
+              </p>
 
-                      {/* Action Links */}
-                      <div className="flex items-center justify-between pt-4 border-t border-white/5 mt-auto">
-                        <a 
-                          href={project.github}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="flex items-center gap-2 text-xs font-bold text-slate-500 hover:text-white transition-colors group/link"
-                        >
-                          <div className="p-1.5 rounded-full bg-white/5 group-hover/link:bg-white/10 transition-colors">
-                            <Github className="w-3.5 h-3.5" />
-                          </div>
-                          Code
-                        </a>
-                        <a 
-                          href={project.live}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="flex items-center gap-2 text-xs font-bold text-cyan-500 hover:text-cyan-400 transition-colors group/link"
-                        >
-                          Live Demo
-                          <div className="p-1.5 rounded-full bg-cyan-500/10 group-hover/link:bg-cyan-500/20 transition-colors">
-                            <ExternalLink className="w-3.5 h-3.5" />
-                          </div>
-                        </a>
-                      </div>
-                    </div>
-                  </motion.div>
+              {/* Action Links */}
+              <div className="flex items-center justify-between pt-4 border-t border-white/5 mt-auto">
+                <a 
+                  href={project.github}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-2 text-xs font-bold text-slate-500 hover:text-white transition-colors group/link"
+                >
+                  <div className="p-1.5 rounded-full bg-white/5 group-hover/link:bg-white/10 transition-colors">
+                    <Github className="w-3.5 h-3.5" />
+                  </div>
+                  Code
+                </a>
+                <a 
+                  href={project.live}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={`flex items-center gap-2 text-xs font-bold transition-colors group/link ${getColorClass(project.color, 'linkText')}`}
+                >
+                  Live Demo
+                  <div className={`p-1.5 rounded-full transition-colors ${getColorClass(project.color, 'linkBg')}`}>
+                    <ExternalLink className="w-3.5 h-3.5" />
+                  </div>
+                </a>
+              </div>
+            </div>
+          </motion.div>
                 ))}
               </div>
             </div>
