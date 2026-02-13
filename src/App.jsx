@@ -14,6 +14,7 @@ import SecretDevHQ from './components/SecretDevHQ';
 import GithubStats from './components/GithubStats';
 import HireMe from './components/HireMe';
 import Background3D from './components/Background3D';
+import NewsTicker from './components/NewsTicker';
 
 function App() {
   const [matrixMode, setMatrixMode] = useState(false);
@@ -925,6 +926,9 @@ function App() {
         navigateTo={navigateTo}
       />
       
+      {/* News Ticker */}
+      <NewsTicker />
+
       <AnimatePresence>
         {isSecretOpen && (
           <SecretDevHQ onClose={() => setIsSecretOpen(false)} />
