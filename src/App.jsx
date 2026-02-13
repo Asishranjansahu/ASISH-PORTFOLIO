@@ -14,7 +14,6 @@ import SecretDevHQ from './components/SecretDevHQ';
 import GithubStats from './components/GithubStats';
 import HireMe from './components/HireMe';
 import Background3D from './components/Background3D';
-import ServiceCards from './components/ServiceCards';
 import WhoAmI from './components/WhoAmI';
 
 function App() {
@@ -655,9 +654,6 @@ function App() {
 
         {/* Engineering Process Section */}
         <EngineeringProcess />
-
-        {/* Services / What I Can Build */}
-        <ServiceCards />
 
         {/* GitHub Stats Section */}
         <GithubStats />
