@@ -13,6 +13,7 @@ body {
 /* Custom Scrollbar */
 ::-webkit-scrollbar {
   width: 8px;
+  height: 8px;
 }
 
 ::-webkit-scrollbar-track {
@@ -49,43 +50,11 @@ body {
     scroll-snap-align: center;
   }
 
-  .ring-progress {
-    position: relative;
-    width: 80px;
-    height: 80px;
-    border-radius: 9999px;
-    background: conic-gradient(#06b6d4 var(--p, 0%), #0f172a var(--p, 0%));
+  .hide-scrollbar::-webkit-scrollbar {
+    display: none;
   }
-
-  .ring-progress::before {
-    content: '';
-    position: absolute;
-    inset: 10px;
-    border-radius: 9999px;
-    background: #000000;
+  .hide-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
   }
-}
-
-/* Holographic Card Effect */
-.holo-card {
-  @apply relative overflow-hidden bg-black/40 backdrop-blur-sm border border-white/10 rounded-xl transition-all duration-300;
-}
-
-.holo-card::before {
-  content: '';
-  @apply absolute inset-0 opacity-0 transition-opacity duration-300 pointer-events-none;
-  background: linear-gradient(
-    135deg,
-    rgba(255, 255, 255, 0.1) 0%,
-    rgba(255, 255, 255, 0) 100%
-  );
-}
-
-.holo-card:hover {
-  @apply border-cyan-500/50 shadow-[0_0_30px_rgba(0,243,255,0.2)];
-  transform: translateY(-5px);
-}
-
-.holo-card:hover::before {
-  @apply opacity-100;
 }

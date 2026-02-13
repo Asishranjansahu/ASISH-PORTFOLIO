@@ -58,7 +58,7 @@ const PROJECTS = [
     tech: "React • Vite • Tailwind",
     desc: "Personal portfolio with 3D background and animated sections.",
     color: "sky",
-    image: "https://placehold.co/1200x800/0f172a/ffffff?text=Portfolio",
+    image: "https://images.unsplash.com/photo-1545665277-5937489579f2?q=80&w=2070&auto=format&fit=crop",
     live: "https://asishranjansahu.vercel.app",
     github: "https://github.com/Asishranjansahu/ASISH-PORTFOLIO"
   },
@@ -67,7 +67,7 @@ const PROJECTS = [
     tech: "React • Chart.js",
     desc: "Brokerage UI clone with charts and order flow screens.",
     color: "indigo",
-    image: "https://placehold.co/1200x800/0f172a/ffffff?text=ZERODHA+CLONE",
+    image: "https://images.unsplash.com/photo-1611974765270-ca1258634369?q=80&w=2064&auto=format&fit=crop",
     live: "https://zerodha-clone-demo.vercel.app",
     github: "https://github.com/Asishranjansahu/zerodha-clone"
   }
@@ -82,24 +82,13 @@ function App() {
     if (!scrollContainer) return;
 
     let animationFrameId;
-    let accumulatedScroll = 0;
     
-    // Calculate dimensions once to avoid reflows
-    const firstItem = scrollContainer.children[0];
-    const itemWidth = firstItem ? firstItem.offsetWidth : 290;
-    const gap = 32; // gap-8 = 32px
-    const singleSetWidth = (itemWidth + gap) * PROJECTS.length;
-
     const scroll = () => {
       if (!isPaused && scrollContainer) {
-        accumulatedScroll += 0.5;
-        
-        // Use a clearer reset logic
-        if (scrollContainer.scrollLeft >= singleSetWidth) {
+        scrollContainer.scrollLeft += 0.5;
+        // Check if we've scrolled past the first half
+        if (scrollContainer.scrollLeft >= scrollContainer.scrollWidth / 2) {
           scrollContainer.scrollLeft = 0;
-          accumulatedScroll = 0;
-        } else {
-          scrollContainer.scrollLeft += 0.5;
         }
       }
       animationFrameId = requestAnimationFrame(scroll);
