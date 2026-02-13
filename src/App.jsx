@@ -681,122 +681,44 @@ function App() {
               TECHNICAL <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-purple-500">SKILLS</span>
             </motion.h3>
 
-            <div className="space-y-20">
-              {/* Frontend */}
-              <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }}>
-                <div className="flex items-center gap-4 mb-8">
-                  <div className="h-px bg-gradient-to-r from-transparent to-slate-800 flex-1" />
-                  <span className="text-cyan-400 font-mono tracking-[0.2em] uppercase text-sm font-bold">Frontend Development</span>
-                  <div className="h-px bg-gradient-to-l from-transparent to-slate-800 flex-1" />
-                </div>
-                <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-6">
-                  {[
-                    { label: 'React.js', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg' },
-                    { label: 'JavaScript', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg' },
-                    { label: 'HTML5', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg' },
-                    { label: 'CSS3', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg' },
-                    { label: 'Tailwind CSS', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original.svg' },
-                    { label: 'Bootstrap', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bootstrap/bootstrap-original.svg' }
-                  ].map((item, i) => (
-                    <div key={i} className="group relative bg-zinc-900/50 hover:bg-zinc-900 rounded-xl p-6 flex flex-col items-center justify-center gap-4 border border-zinc-800 hover:border-cyan-500/50 transition-all duration-300 hover:-translate-y-1">
-                      <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/5 to-transparent opacity-0 group-hover:opacity-100 rounded-xl transition-opacity" />
-                      <img src={item.icon} alt={item.label} className="w-12 h-12 object-contain transition-all duration-300 group-hover:scale-110" />
-                      <span className="font-mono text-sm text-slate-400 group-hover:text-cyan-400 transition-colors">{item.label}</span>
-                    </div>
-                  ))}
-                </div>
-              </motion.div>
-
-              {/* Backend */}
-              <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }}>
-                <div className="flex items-center gap-4 mb-8">
-                  <div className="h-px bg-gradient-to-r from-transparent to-slate-800 flex-1" />
-                  <span className="text-purple-400 font-mono tracking-[0.2em] uppercase text-sm font-bold">Backend Development</span>
-                  <div className="h-px bg-gradient-to-l from-transparent to-slate-800 flex-1" />
-                </div>
-                <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-6">
-                  {[
-                    { label: 'Node.js', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg' },
-                    { label: 'Express.js', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original.svg' },
-                    { label: 'Java', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg' }
-                  ].map((item, i) => (
-                    <div key={i} className="group relative bg-zinc-900/50 hover:bg-zinc-900 rounded-xl p-6 flex flex-col items-center justify-center gap-4 border border-zinc-800 hover:border-purple-500/50 transition-all duration-300 hover:-translate-y-1">
-                      <div className="absolute inset-0 bg-gradient-to-br from-purple-500/5 to-transparent opacity-0 group-hover:opacity-100 rounded-xl transition-opacity" />
-                      <img src={item.icon} alt={item.label} className="w-12 h-12 object-contain transition-all duration-300 group-hover:scale-110" />
-                      <span className="font-mono text-sm text-slate-400 group-hover:text-purple-400 transition-colors">{item.label}</span>
-                    </div>
-                  ))}
-                </div>
-              </motion.div>
-
-              {/* Database */}
-              <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }}>
-                <div className="flex items-center gap-4 mb-8">
-                  <div className="h-px bg-gradient-to-r from-transparent to-slate-800 flex-1" />
-                  <span className="text-emerald-400 font-mono tracking-[0.2em] uppercase text-sm font-bold">Database</span>
-                  <div className="h-px bg-gradient-to-l from-transparent to-slate-800 flex-1" />
-                </div>
-                <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-6">
-                  {[
-                    { label: 'MongoDB', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg' },
-                    { label: 'MySQL', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg' }
-                  ].map((item, i) => (
-                    <div key={i} className="group relative bg-zinc-900/50 hover:bg-zinc-900 rounded-xl p-6 flex flex-col items-center justify-center gap-4 border border-zinc-800 hover:border-emerald-500/50 transition-all duration-300 hover:-translate-y-1">
-                      <div className="absolute inset-0 bg-gradient-to-br from-emerald-500/5 to-transparent opacity-0 group-hover:opacity-100 rounded-xl transition-opacity" />
-                      <img src={item.icon} alt={item.label} className="w-12 h-12 object-contain transition-all duration-300 group-hover:scale-110" />
-                      <span className="font-mono text-sm text-slate-400 group-hover:text-emerald-400 transition-colors">{item.label}</span>
-                    </div>
-                  ))}
-                </div>
-              </motion.div>
-
-              {/* Tools & DevOps */}
-              <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }}>
-                <div className="flex items-center gap-4 mb-8">
-                  <div className="h-px bg-gradient-to-r from-transparent to-slate-800 flex-1" />
-                  <span className="text-orange-400 font-mono tracking-[0.2em] uppercase text-sm font-bold">Tools & DevOps</span>
-                  <div className="h-px bg-gradient-to-l from-transparent to-slate-800 flex-1" />
-                </div>
-                <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-6">
-                  {[
-                    { label: 'Git', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg' },
-                    { label: 'AWS', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-plain-wordmark.svg' },
-                    { label: 'Postman', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postman/postman-original.svg' },
-                    { label: 'VS Code', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg' },
-                    { label: 'npm', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/npm/npm-original-wordmark.svg' }
-                  ].map((item, i) => (
-                    <div key={i} className="group relative bg-zinc-900/50 hover:bg-zinc-900 rounded-xl p-6 flex flex-col items-center justify-center gap-4 border border-zinc-800 hover:border-orange-500/50 transition-all duration-300 hover:-translate-y-1">
-                      <div className="absolute inset-0 bg-gradient-to-br from-orange-500/5 to-transparent opacity-0 group-hover:opacity-100 rounded-xl transition-opacity" />
-                      <img src={item.icon} alt={item.label} className="w-12 h-12 object-contain transition-all duration-300 group-hover:scale-110" />
-                      <span className="font-mono text-sm text-slate-400 group-hover:text-orange-400 transition-colors">{item.label}</span>
-                    </div>
-                  ))}
-                </div>
-              </motion.div>
-
-              {/* Core Competencies */}
-              <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }}>
-                <div className="flex items-center gap-4 mb-8">
-                  <div className="h-px bg-gradient-to-r from-transparent to-slate-800 flex-1" />
-                  <span className="text-pink-400 font-mono tracking-[0.2em] uppercase text-sm font-bold">Core Concepts</span>
-                  <div className="h-px bg-gradient-to-l from-transparent to-slate-800 flex-1" />
-                </div>
-                <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-6">
-                  {[
-                    { label: 'DSA', icon: Workflow },
-                    { label: 'OOPS', icon: Shapes },
-                    { label: 'REST APIs', icon: Server },
-                    { label: 'Full Stack', icon: Code2 },
-                    { label: 'Microservices', icon: Boxes }
-                  ].map((item, i) => (
-                    <div key={i} className="group relative bg-zinc-900/50 hover:bg-zinc-900 rounded-xl p-6 flex flex-col items-center justify-center gap-4 border border-zinc-800 hover:border-pink-500/50 transition-all duration-300 hover:-translate-y-1">
-                      <div className="absolute inset-0 bg-gradient-to-br from-pink-500/5 to-transparent opacity-0 group-hover:opacity-100 rounded-xl transition-opacity" />
-                      <item.icon className="w-10 h-10 text-pink-400 transition-colors duration-300" />
-                      <span className="font-mono text-sm text-slate-400 group-hover:text-pink-400 transition-colors text-center">{item.label}</span>
-                    </div>
-                  ))}
-                </div>
-              </motion.div>
+            <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+              {[
+                {
+                  category: "Frontend",
+                  items: "React • Next • TypeScript • Tailwind",
+                  color: "cyan"
+                },
+                {
+                  category: "Backend",
+                  items: "Node • Express • REST APIs • Auth",
+                  color: "purple"
+                },
+                {
+                  category: "Tools",
+                  items: "Git • Docker • Vercel • Postman",
+                  color: "emerald"
+                },
+                {
+                  category: "Core",
+                  items: "System Design • Performance • Clean Architecture",
+                  color: "pink"
+                }
+              ].map((skill, index) => (
+                <motion.div 
+                  key={index}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ delay: index * 0.1 }}
+                  className="holo-card p-8 group hover:-translate-y-1 transition-transform duration-300"
+                >
+                  <h4 className={`font-mono text-xs tracking-[0.2em] uppercase font-bold mb-4 transition-colors ${getColorClass(skill.color, 'text')}`}>
+                    {skill.category}
+                  </h4>
+                  <p className="text-2xl md:text-3xl font-bold text-slate-300 group-hover:text-white transition-colors leading-relaxed">
+                    {skill.items}
+                  </p>
+                </motion.div>
+              ))}
             </div>
           </div>
         </section>
