@@ -30,9 +30,6 @@ const WhoAmI = () => {
                         }}
                         className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500"
                     />
-                    <div className="absolute top-4 left-4 bg-white text-black px-2 py-0.5 font-bold font-mono text-xs tracking-wider">
-                        ASISH.exe
-                    </div>
                 </div>
             </motion.div>
 
