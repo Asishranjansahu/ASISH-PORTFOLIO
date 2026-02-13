@@ -504,10 +504,10 @@ function App() {
                     whileInView={{ opacity: 1, scale: 1 }}
                     transition={{ delay: (i % PROJECTS.length) * 0.1 }}
                     onClick={() => window.open(project.live, '_blank')}
-                    className="group relative flex-none w-[280px] md:w-[320px] h-[380px] bg-zinc-900 border border-white/10 overflow-hidden cursor-pointer hover:border-cyan-500/50 transition-all duration-500"
+                    className="group relative flex-none w-[350px] bg-zinc-900 border border-white/10 hover:border-cyan-500/50 transition-all duration-300 overflow-hidden cursor-pointer flex flex-col"
                   >
-                    {/* Image Background with Overlay */}
-                    <div className="absolute inset-0">
+                    {/* Image Section */}
+                    <div className="h-[200px] relative overflow-hidden">
                       <img 
                         src={project.image} 
                         alt={project.title}
@@ -516,51 +516,47 @@ function App() {
                           e.currentTarget.onerror = null;
                           e.currentTarget.src = "https://placehold.co/1200x800/0f172a/ffffff?text=Project";
                         }}
-                        className="w-full h-full object-cover opacity-60 group-hover:opacity-40 group-hover:scale-110 transition-all duration-700"
+                        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                       />
-                      <div className="absolute inset-0 bg-gradient-to-t from-zinc-950 via-zinc-950/80 to-transparent" />
-                    </div>
-
-                    {/* Content */}
-                    <div className="absolute inset-0 p-6 flex flex-col justify-end">
-                      <div className="transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
-                        <div className="flex items-center gap-3 mb-3">
-                          <span className={`w-2 h-2 rounded-full bg-${project.color}-400 animate-pulse`} />
-                          <span className={`text-${project.color}-400 text-xs font-mono tracking-widest uppercase`}>{project.tech.split('•')[0]}</span>
-                        </div>
-                        
-                        <h4 className="font-display text-2xl font-bold text-white mb-2 leading-tight">{project.title}</h4>
-                        
-                        <p className="text-slate-400 text-xs leading-relaxed line-clamp-2 mb-6 opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100">
-                          {project.desc}
-                        </p>
-
-                        <div className="flex items-center gap-4 opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-200">
-                          <button 
-                            onClick={(e) => {
-                              e.stopPropagation();
-                              window.open(project.github, '_blank');
-                            }}
-                            className="p-2 rounded-full bg-white/5 hover:bg-white/10 hover:text-cyan-400 transition-colors"
-                          >
-                            <Github className="w-4 h-4" />
-                          </button>
-                          <button 
-                            onClick={(e) => {
-                              e.stopPropagation();
-                              window.open(project.live, '_blank');
-                            }}
-                            className="flex items-center gap-2 text-xs font-bold uppercase tracking-widest hover:text-cyan-400 transition-colors"
-                          >
-                            View Project <ExternalLink className="w-3 h-3" />
-                          </button>
-                        </div>
+                      <div className={`absolute inset-0 bg-gradient-to-t from-zinc-900 to-transparent opacity-60`} />
+                      
+                      {/* Tech Badge */}
+                      <div className="absolute top-4 right-4">
+                        <span className={`px-3 py-1 rounded-full text-[10px] font-mono font-bold uppercase tracking-wider bg-black/50 backdrop-blur-md border border-${project.color}-500/30 text-${project.color}-400`}>
+                          {project.tech.split('•')[0]}
+                        </span>
                       </div>
                     </div>
 
-                    {/* Corner Accents */}
-                    <div className="absolute top-0 left-0 w-16 h-16 border-l-2 border-t-2 border-white/10 group-hover:border-cyan-500/50 transition-colors duration-500" />
-                    <div className="absolute bottom-0 right-0 w-16 h-16 border-r-2 border-b-2 border-white/10 group-hover:border-cyan-500/50 transition-colors duration-500" />
+                    {/* Content Section */}
+                    <div className="p-5 flex-1 flex flex-col">
+                      <h4 className="font-display text-xl font-bold text-white mb-2 group-hover:text-cyan-400 transition-colors">{project.title}</h4>
+                      
+                      <p className="text-slate-400 text-xs leading-relaxed line-clamp-2 mb-4 flex-1">
+                        {project.desc}
+                      </p>
+
+                      <div className="flex items-center gap-4 mt-auto pt-4 border-t border-white/5">
+                        <button 
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            window.open(project.github, '_blank');
+                          }}
+                          className="text-xs font-bold uppercase tracking-widest text-slate-500 hover:text-white transition-colors flex items-center gap-2"
+                        >
+                          <Github className="w-4 h-4" /> Code
+                        </button>
+                        <button 
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            window.open(project.live, '_blank');
+                          }}
+                          className="text-xs font-bold uppercase tracking-widest text-cyan-500 hover:text-cyan-400 transition-colors flex items-center gap-2 ml-auto"
+                        >
+                          Live Demo <ExternalLink className="w-3 h-3" />
+                        </button>
+                      </div>
+                    </div>
                   </motion.div>
                 ))}
               </div>
