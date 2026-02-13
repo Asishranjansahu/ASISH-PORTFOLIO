@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import { Github, Linkedin, Mail, ExternalLink, Code2, Cpu, GraduationCap, Briefcase, Award, Cloud, Database, Cog, CircuitBoard, Image, Server, Globe, GitPullRequest, Shapes, HardDrive, Boxes, Workflow, Lightbulb, Users, RefreshCw, MessageCircle, MapPin, Send, User, FileText, FolderGit2, Terminal, X } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import GlitchText from './components/GlitchText';
@@ -16,7 +16,88 @@ import HireMe from './components/HireMe';
 import Background3D from './components/Background3D';
 import WhoAmI from './components/WhoAmI';
 
+const PROJECTS = [
+  {
+    title: "Smart Campus",
+    tech: "IoT • Flutter • Firebase",
+    desc: "IoT-enabled campus management platform that automates attendance, monitoring, and resource tracking using real-time sensor data and Firebase backend.",
+    color: "cyan",
+    image: "https://placehold.co/1200x800/0f172a/ffffff?text=Smart+Campus",
+    live: "https://smart-campus-automation-system.vercel.app/",
+    github: "https://github.com/Asishranjansahu/smart-campus"
+  },
+  {
+    title: "Dev Connect",
+    tech: "MERN • Socket.IO",
+    desc: "Real-time collaboration platform for developers.",
+    color: "purple",
+    image: "https://placehold.co/1200x800/0f172a/ffffff?text=Dev+Connect",
+    live: "https://dev-connect-live.onrender.com",
+    github: "https://github.com/Asishranjansahu/dev-connect"
+  },
+  {
+    title: "Task Master",
+    tech: "JS • LocalStorage",
+    desc: "Dynamic task management with persistent storage.",
+    color: "pink",
+    image: "https://placehold.co/1200x800/0f172a/ffffff?text=Task+Master",
+    live: "https://asishranjansahu.github.io/task-master",
+    github: "https://github.com/Asishranjansahu/task-master"
+  },
+  {
+    title: "Thread Sense",
+    tech: "React • Tailwind • Firebase",
+    desc: "Social threads app with realtime updates and modern UI.",
+    color: "emerald",
+    image: "/projects/thread-sense.svg",
+    live: "https://thread-sense.vercel.app",
+    github: "https://github.com/Asishranjansahu/thread-sense"
+  },
+  {
+    title: "Portfolio",
+    tech: "React • Vite • Tailwind",
+    desc: "Personal portfolio with 3D background and animated sections.",
+    color: "sky",
+    image: "https://placehold.co/1200x800/0f172a/ffffff?text=Portfolio",
+    live: "https://asishranjansahu.vercel.app",
+    github: "https://github.com/Asishranjansahu/ASISH-PORTFOLIO"
+  },
+  {
+    title: "ZERODHA CLONE",
+    tech: "React • Chart.js",
+    desc: "Brokerage UI clone with charts and order flow screens.",
+    color: "indigo",
+    image: "https://placehold.co/1200x800/0f172a/ffffff?text=ZERODHA+CLONE",
+    live: "https://zerodha-clone-demo.vercel.app",
+    github: "https://github.com/Asishranjansahu/zerodha-clone"
+  }
+];
+
 function App() {
+  const scrollRef = useRef(null);
+  const [isPaused, setIsPaused] = useState(false);
+
+  useEffect(() => {
+    const scrollContainer = scrollRef.current;
+    if (!scrollContainer) return;
+
+    let animationFrameId;
+    
+    const scroll = () => {
+      if (!isPaused) {
+        if (scrollContainer.scrollLeft >= scrollContainer.scrollWidth / 2) {
+          scrollContainer.scrollLeft = 0;
+        } else {
+          scrollContainer.scrollLeft += 0.5;
+        }
+      }
+      animationFrameId = requestAnimationFrame(scroll);
+    };
+
+    animationFrameId = requestAnimationFrame(scroll);
+
+    return () => cancelAnimationFrame(animationFrameId);
+  }, [isPaused]);
   const [matrixMode, setMatrixMode] = useState(false);
   const [konamiIndex, setKonamiIndex] = useState(0);
   const [isProfileOpen, setIsProfileOpen] = useState(false);
@@ -408,70 +489,22 @@ function App() {
                 <FolderGit2 className="w-5 h-5 md:w-6 md:h-6" />
               </span>
 
-              <div className="flex overflow-x-auto pb-8 gap-8 snap-x snap-mandatory hide-scrollbar">
-                {[
-                  {
-                    title: "Smart Campus",
-                    tech: "IoT • Flutter • Firebase",
-                    desc: "IoT-enabled campus management platform that automates attendance, monitoring, and resource tracking using real-time sensor data and Firebase backend.",
-                    color: "cyan",
-                    image: "https://placehold.co/1200x800/0f172a/ffffff?text=Smart+Campus",
-                    live: "https://smart-campus-automation-system.vercel.app/",
-                    github: "https://github.com/Asishranjansahu/smart-campus"
-                  },
-                  {
-                    title: "Dev Connect",
-                    tech: "MERN • Socket.IO",
-                    desc: "Real-time collaboration platform for developers.",
-                    color: "purple",
-                    image: "https://placehold.co/1200x800/0f172a/ffffff?text=Dev+Connect",
-                    live: "https://dev-connect-live.onrender.com",
-                    github: "https://github.com/Asishranjansahu/dev-connect"
-                  },
-                  {
-                    title: "Task Master",
-                    tech: "JS • LocalStorage",
-                    desc: "Dynamic task management with persistent storage.",
-                    color: "pink",
-                    image: "https://placehold.co/1200x800/0f172a/ffffff?text=Task+Master",
-                    live: "https://asishranjansahu.github.io/task-master",
-                    github: "https://github.com/Asishranjansahu/task-master"
-                  },
-                  {
-                    title: "Thread Sense",
-                    tech: "React • Tailwind • Firebase",
-                    desc: "Social threads app with realtime updates and modern UI.",
-                    color: "emerald",
-                    image: "/projects/thread-sense.svg",
-                    live: "https://thread-sense.vercel.app",
-                    github: "https://github.com/Asishranjansahu/thread-sense"
-                  },
-                  {
-                    title: "Portfolio",
-                    tech: "React • Vite • Tailwind",
-                    desc: "Personal portfolio with 3D background and animated sections.",
-                    color: "sky",
-                    image: "https://placehold.co/1200x800/0f172a/ffffff?text=Portfolio",
-                    live: "https://asishranjansahu.vercel.app",
-                    github: "https://github.com/Asishranjansahu/ASISH-PORTFOLIO"
-                  },
-                  {
-                    title: "ZERODHA CLONE",
-                    tech: "React • Chart.js",
-                    desc: "Brokerage UI clone with charts and order flow screens.",
-                    color: "indigo",
-                    image: "https://placehold.co/1200x800/0f172a/ffffff?text=ZERODHA+CLONE",
-                    live: "https://zerodha-clone-demo.vercel.app",
-                    github: "https://github.com/Asishranjansahu/zerodha-clone"
-                  }
-                ].map((project, i) => (
+              <div 
+                ref={scrollRef}
+                className="flex overflow-x-auto pb-8 gap-8 hide-scrollbar"
+                onMouseEnter={() => setIsPaused(true)}
+                onMouseLeave={() => setIsPaused(false)}
+                onTouchStart={() => setIsPaused(true)}
+                onTouchEnd={() => setIsPaused(false)}
+              >
+                {[...PROJECTS, ...PROJECTS].map((project, i) => (
                   <motion.div 
                     key={i}
                     initial={{ opacity: 0, x: 50 }}
                     whileInView={{ opacity: 1, x: 0 }}
-                    transition={{ delay: i * 0.1 }}
+                    transition={{ delay: (i % PROJECTS.length) * 0.1 }}
                     onClick={() => window.open(project.live, '_blank')}
-                    className="holo-card group h-full cursor-pointer hover:shadow-2xl hover:shadow-cyan-500/20 transition-all duration-300 min-w-[300px] md:min-w-[400px] snap-center flex-none"
+                    className="holo-card group h-full cursor-pointer hover:shadow-2xl hover:shadow-cyan-500/20 transition-all duration-300 min-w-[300px] md:min-w-[400px] flex-none"
                   >
                     <div className="h-48 relative overflow-hidden">
                       <img 
