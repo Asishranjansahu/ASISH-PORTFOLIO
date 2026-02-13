@@ -48,7 +48,7 @@ const WhoAmI = () => {
                     </h2>
                     <div className="flex flex-wrap gap-2 font-mono text-xs text-cyan-500">
                         <span className="border border-cyan-500/30 bg-cyan-500/5 px-3 py-1 hover:bg-cyan-500 hover:text-black transition-colors cursor-default">/ABOUT</span>
-                        <span className="border border-cyan-500/30 bg-cyan-500/5 px-3 py-1 hover:bg-cyan-500 hover:text-black transition-colors cursor-default">/SKILLS</span>
+                        <a href="#skills" className="border border-cyan-500/30 bg-cyan-500/5 px-3 py-1 hover:bg-cyan-500 hover:text-black transition-colors cursor-pointer">/SKILLS</a>
                         <span className="border border-cyan-500/30 bg-cyan-500/5 px-3 py-1 hover:bg-cyan-500 hover:text-black transition-colors cursor-default">/WORK</span>
                         <a href="#contact" className="bg-yellow-400 text-black px-3 py-1 font-bold hover:bg-yellow-300 transition-colors">HIRE ME</a>
                     </div>
