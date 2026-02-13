@@ -82,11 +82,22 @@ function App() {
     if (!scrollContainer) return;
 
     let animationFrameId;
+    let accumulatedScroll = 0;
     
+    // Calculate dimensions once to avoid reflows
+    const firstItem = scrollContainer.children[0];
+    const itemWidth = firstItem ? firstItem.offsetWidth : 290;
+    const gap = 32; // gap-8 = 32px
+    const singleSetWidth = (itemWidth + gap) * PROJECTS.length;
+
     const scroll = () => {
-      if (!isPaused) {
-        if (scrollContainer.scrollLeft >= scrollContainer.scrollWidth / 2) {
+      if (!isPaused && scrollContainer) {
+        accumulatedScroll += 0.5;
+        
+        // Use a clearer reset logic
+        if (scrollContainer.scrollLeft >= singleSetWidth) {
           scrollContainer.scrollLeft = 0;
+          accumulatedScroll = 0;
         } else {
           scrollContainer.scrollLeft += 0.5;
         }
