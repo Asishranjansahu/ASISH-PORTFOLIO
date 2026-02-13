@@ -55,7 +55,7 @@ const WhoAmI = () => {
                 </div>
 
                 <p className="text-xl text-slate-300 leading-relaxed font-light">
-                    I am Asish. A creative developer who believes the web has become too sanitized. I bring <span className="bg-yellow-400 text-black px-1 font-bold mx-1">personality</span> back to code.
+                    I’m Asish — a developer who turns ideas into <span className="text-white font-medium">fast, scalable</span>, and ridiculously clean web experiences. I don’t just write code. I design systems, solve real problems, and ship things that actually work.
                 </p>
 
                 <div className="space-y-4 font-mono text-sm md:text-base text-slate-400">
