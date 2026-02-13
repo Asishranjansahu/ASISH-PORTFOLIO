@@ -414,7 +414,7 @@ function App() {
                   {
                     title: "Smart Campus",
                     tech: "IoT • Flutter • Firebase",
-                    desc: "Automated campus management system integrating IoT sensors.",
+                    desc: "IoT-enabled campus management platform that automates attendance, monitoring, and resource tracking using real-time sensor data and Firebase backend.",
                     color: "cyan",
                     image: "https://placehold.co/1200x800/0f172a/ffffff?text=Smart+Campus",
                     live: "https://smart-campus-automation-system.vercel.app/",
