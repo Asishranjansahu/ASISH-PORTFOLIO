@@ -20,7 +20,7 @@ const PROJECTS = [
   {
     title: "Smart Campus",
     tech: "IoT • Flutter • Firebase",
-    desc: "IoT-enabled campus management platform that automates attendance, monitoring, and resource tracking using real-time sensor data and Firebase backend.",
+    desc: "IoT-driven campus automation system using Flutter & Firebase to eliminate manual tracking via real-time sensor networks.",
     color: "cyan",
     image: "https://placehold.co/1200x800/0f172a/ffffff?text=Smart+Campus",
     live: "https://smart-campus-automation-system.vercel.app/",
@@ -29,7 +29,7 @@ const PROJECTS = [
   {
     title: "Dev Connect",
     tech: "MERN • Socket.IO",
-    desc: "Real-time collaboration platform for developers.",
+    desc: "Real-time collaboration platform with WebSocket messaging and shared workspaces, enabling seamless developer communication.",
     color: "purple",
     image: "https://placehold.co/1200x800/0f172a/ffffff?text=Dev+Connect",
     live: "https://dev-connect-live.onrender.com",
@@ -38,7 +38,7 @@ const PROJECTS = [
   {
     title: "Task Master",
     tech: "JS • LocalStorage",
-    desc: "Dynamic task management with persistent storage.",
+    desc: "Offline-first task manager with local caching and persistent storage for fast, reliable productivity.",
     color: "pink",
     image: "https://placehold.co/1200x800/0f172a/ffffff?text=Task+Master",
     live: "https://asishranjansahu.github.io/task-master",
@@ -47,7 +47,7 @@ const PROJECTS = [
   {
     title: "Thread Sense",
     tech: "React • Tailwind • Firebase",
-    desc: "Social threads app with realtime updates and modern UI.",
+    desc: "Real-time social platform leveraging React & Firebase to deliver instant messaging and live content updates with zero latency.",
     color: "emerald",
     image: "/projects/thread-sense.svg",
     live: "https://thread-sense.vercel.app",
@@ -56,7 +56,7 @@ const PROJECTS = [
   {
     title: "Portfolio",
     tech: "React • Vite • Tailwind",
-    desc: "Personal portfolio with 3D background and animated sections.",
+    desc: "Immersive developer portfolio built with React & Vite, showcasing high-performance 3D visuals and responsive design.",
     color: "sky",
     image: "https://images.unsplash.com/photo-1545665277-5937489579f2?q=80&w=2070&auto=format&fit=crop",
     live: "https://asishranjansahu.vercel.app",
@@ -65,7 +65,7 @@ const PROJECTS = [
   {
     title: "ZERODHA CLONE",
     tech: "React • Chart.js",
-    desc: "Brokerage UI clone with charts and order flow screens.",
+    desc: "Full-stack trading dashboard with real-time charts and order management inspired by Zerodha’s UX.",
     color: "indigo",
     image: "https://images.unsplash.com/photo-1611974765270-ca1258634369?q=80&w=2064&auto=format&fit=crop",
     live: "https://zerodha-clone-demo.vercel.app",
