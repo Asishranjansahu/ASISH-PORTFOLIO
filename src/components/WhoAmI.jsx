@@ -59,14 +59,23 @@ const WhoAmI = () => {
                         <span>&gt;</span>
                         <span>about.asish</span>
                     </div>
-                    <p className="text-xl leading-relaxed font-light pl-4 border-l-2 border-cyan-500/20">
-                        <strong className="text-white">M.Tech CSE.</strong>
-                    </p>
-                    <p className="text-lg text-slate-400 pl-4 border-l-2 border-cyan-500/20">
-                        I build scalable, production-ready web applications using <span className="text-cyan-400">React, Next.js</span>, and modern backend systems — focused on performance, clean architecture, and solving real-world problems.
-                    </p>
+                    
+                    <div className="pl-4 border-l-2 border-cyan-500/20 space-y-4">
+                        <p className="text-xl leading-relaxed font-light">
+                            <strong className="text-white">M.Tech (Computer Science & Engineering) candidate</strong> | Software Engineer
+                        </p>
+                        
+                        <p className="text-lg text-slate-300">
+                            Engineer focused on building <span className="text-white font-medium">fast, scalable</span>, and clean web experiences.
+                        </p>
+
+                        <p className="text-lg text-slate-400">
+                            I build production-ready web applications using <span className="text-cyan-400">React, Next.js</span>, and modern backend systems. Focused on performance, clean architecture, and solving real-world problems.
+                        </p>
+                    </div>
+
                     <p className="text-lg text-green-400 font-medium pl-4 border-l-2 border-green-500/20 animate-pulse">
-                        Currently open to internships and Software Engineer roles.
+                        Open to internships and engineering roles.
                     </p>
                 </div>
 
