@@ -20,7 +20,7 @@ import WhoAmI from './components/WhoAmI';
 function App() {
   const [matrixMode, setMatrixMode] = useState(false);
   const [konamiIndex, setKonamiIndex] = useState(0);
-  const [isProfileOpen, setIsProfileOpen] = useState(true);
+  const [isProfileOpen, setIsProfileOpen] = useState(false);
   const [isSecretOpen, setIsSecretOpen] = useState(false);
 
   const konamiCode = [
