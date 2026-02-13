@@ -54,23 +54,20 @@ const WhoAmI = () => {
                     </div>
                 </div>
 
-                <p className="text-xl text-slate-300 leading-relaxed font-light">
-                    I’m Asish — a developer who turns ideas into <span className="text-white font-medium">fast, scalable</span>, and ridiculously clean web experiences. I don’t just write code. I design systems, solve real problems, and ship things that actually work.
-                </p>
-
-                <div className="space-y-4 font-mono text-sm md:text-base text-slate-400">
-                    <div className="flex gap-3 items-start group">
-                        <span className="text-cyan-500 mt-1 group-hover:translate-x-1 transition-transform">{'>'}</span>
-                        <p className="group-hover:text-cyan-400 transition-colors">Specialized in <strong className="text-white">Designing</strong> and <strong className="text-white">Web Development</strong>.</p>
+                <div className="font-mono text-slate-300 space-y-6">
+                    <div className="flex gap-2 text-cyan-400 font-bold">
+                        <span>&gt;</span>
+                        <span>about.asish</span>
                     </div>
-                    <div className="flex gap-3 items-start group">
-                        <span className="text-cyan-500 mt-1 group-hover:translate-x-1 transition-transform">{'>'}</span>
-                        <p className="group-hover:text-cyan-400 transition-colors">Obsessed with <strong className="text-white">Perfection</strong> and <strong className="text-white">Innovation</strong>.</p>
-                    </div>
-                    <div className="flex gap-3 items-start group">
-                        <span className="text-cyan-500 mt-1 group-hover:translate-x-1 transition-transform">{'>'}</span>
-                        <p className="group-hover:text-cyan-400 transition-colors">Fresh talent ready to build <strong className="text-white">Next-Gen</strong> solutions.</p>
-                    </div>
+                    <p className="text-xl leading-relaxed font-light pl-4 border-l-2 border-cyan-500/20">
+                        <strong className="text-white">M.Tech (CSE) candidate</strong> and Software Engineer.
+                    </p>
+                    <p className="text-lg text-slate-400 pl-4 border-l-2 border-cyan-500/20">
+                        Building scalable web apps with <span className="text-cyan-400">React, Next.js</span>, and modern backend systems. Focused on performance, clean architecture, and real-world problem solving.
+                    </p>
+                    <p className="text-lg text-green-400 font-medium pl-4 border-l-2 border-green-500/20 animate-pulse">
+                        Currently open to internships and engineering roles.
+                    </p>
                 </div>
 
                 {/* Status Bar */}
