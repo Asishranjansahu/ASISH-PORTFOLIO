@@ -818,9 +818,9 @@ function App() {
             </motion.h3>
             <div className="grid md:grid-cols-3 gap-8">
               {[
-                { title: "Hackathon Finalist", desc: "Built a feature-rich web app under time constraints.", color: "cyan" },
-                { title: "Top Performer", desc: "Recognized for consistent delivery and code quality.", color: "purple" },
-                { title: "AWS EC2/S3 Basics", desc: "Hands-on with EC2 instances and S3 storage.", color: "pink" }
+                { title: "Hackathon Finalist", desc: "Built a smart campus solution in 24 hours.", color: "cyan" },
+                { title: "Top Performer", desc: "Consistently shipped production features on schedule.", color: "purple" },
+                { title: "AWS Cloud", desc: "Deployed scalable apps via EC2 & S3.", color: "pink" }
               ].map((item, i) => (
                 <motion.div 
                   key={i}
@@ -890,6 +890,9 @@ function App() {
                     </a>
                     <a href="https://github.com/Asishranjansahu" target="_blank" rel="noopener noreferrer" className="p-3 rounded-full bg-white/5 hover:bg-[#333] hover:text-white transition-all duration-300">
                       <Github className="w-6 h-6" />
+                    </a>
+                    <a href="/resume.pdf" target="_blank" rel="noopener noreferrer" className="p-3 rounded-full bg-white/5 hover:bg-cyan-600 hover:text-white transition-all duration-300" title="Download Resume">
+                      <FileText className="w-6 h-6" />
                     </a>
                   </div>
                 </div>

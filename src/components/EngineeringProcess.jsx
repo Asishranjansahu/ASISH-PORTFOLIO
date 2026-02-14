@@ -12,10 +12,10 @@ const EngineeringProcess = () => {
   ];
 
   const bugFixing = [
-    { icon: Search, title: "Isolate", desc: "Reproduce the issue in a controlled environment." },
-    { icon: Terminal, title: "Diagnose", desc: "Analyze logs, stack traces, and component state." },
-    { icon: PenTool, title: "Resolve", desc: "Implement the fix and refactor for prevention." },
-    { icon: CheckCircle, title: "Verify", desc: "Run regression tests to ensure stability." }
+    { icon: Search, title: "Isolate", desc: "Reproduce issue in controlled environment." },
+    { icon: Terminal, title: "Diagnose", desc: "Analyze logs, stack traces, and state." },
+    { icon: PenTool, title: "Resolve", desc: "Implement fix and refactor." },
+    { icon: CheckCircle, title: "Verify", desc: "Run regression tests." }
   ];
 
   return (
@@ -27,8 +27,8 @@ const EngineeringProcess = () => {
           className="font-display text-4xl md:text-6xl font-bold mb-20 text-center flex items-center justify-center gap-4"
         >
           <Brain className="w-12 h-12 text-cyan-400" />
-          <span className="text-white">HOW I</span>
-          <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-purple-500">THINK</span>
+          <span className="text-white">ENGINEERING</span>
+          <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-purple-500">APPROACH</span>
         </motion.h3>
 
         {/* Workflow Diagram */}
@@ -118,15 +118,15 @@ const EngineeringProcess = () => {
             <div className="space-y-6 font-mono text-sm">
               <div className="p-4 bg-black/40 rounded-lg border border-white/5">
                 <p className="text-purple-400 mb-2">// 1. Requirement Analysis</p>
-                <p className="text-slate-400">Define core features, user stories, and constraints. "What problem are we solving?"</p>
+                <p className="text-slate-400">Define core features and constraints.</p>
               </div>
               <div className="p-4 bg-black/40 rounded-lg border border-white/5">
                 <p className="text-cyan-400 mb-2">// 2. System Design</p>
-                <p className="text-slate-400">Database schema, API endpoints, component hierarchy, and state management strategy.</p>
+                <p className="text-slate-400">Schema, APIs, and state strategy.</p>
               </div>
               <div className="p-4 bg-black/40 rounded-lg border border-white/5">
                 <p className="text-green-400 mb-2">// 3. Implementation</p>
-                <p className="text-slate-400">MVP first. Clean, modular code with comments where necessary. Commit often.</p>
+                <p className="text-slate-400">MVP first. Clean, modular code.</p>
               </div>
             </div>
           </motion.div>
