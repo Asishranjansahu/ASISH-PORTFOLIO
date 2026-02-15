@@ -62,7 +62,35 @@ const FEATURED_PROJECTS = [
   }
 ];
 
-const OTHER_PROJECTS = [];
+const OTHER_PROJECTS = [
+  {
+    title: "Dev Connect",
+    tech: "MERN • Socket.IO",
+    desc: "Real-time collaboration suite (MERN + Socket.io) enabling instant messaging and shared workspaces for developers.",
+    color: "purple",
+    image: "https://placehold.co/1200x800/0f172a/ffffff?text=Dev+Connect",
+    live: "https://dev-connect-live.onrender.com",
+    github: "https://github.com/Asishranjansahu/dev-connect"
+  },
+  {
+    title: "Mindscape",
+    tech: "React • Node.js • MongoDB",
+    desc: "Smart study planner (React + Node.js) that optimizes learning schedules to boost academic productivity.",
+    color: "emerald",
+    image: "https://placehold.co/1200x800/0f172a/ffffff?text=Mindscape",
+    live: "https://daily-study-planner-wine.vercel.app/",
+    github: "https://github.com/Asishranjansahu/Daily-Study-Planner.git"
+  },
+  {
+    title: "Task Master",
+    tech: "JS • LocalStorage",
+    desc: "Offline-first task manager (JS + LocalStorage) delivering zero-latency performance and persistent data reliability.",
+    color: "pink",
+    image: "https://placehold.co/1200x800/0f172a/ffffff?text=Task+Master",
+    live: "https://asishranjansahu.github.io/task-master",
+    github: "https://github.com/Asishranjansahu/task-master"
+  }
+];
 
 const PROJECTS = [...FEATURED_PROJECTS, ...OTHER_PROJECTS];
 
@@ -509,9 +537,9 @@ function App() {
                 <div className="relative border-l-2 border-cyan-500/30 ml-3 md:ml-6 space-y-12 pl-8 md:pl-12 py-4">
                   {[
                     { title: "NIST University", degree: "M.Tech in CSE — Focus: Distributed Systems & Web Engineering", year: "Pursuing", color: "cyan", bgClass: "bg-cyan-500/10", textClass: "text-cyan-400", borderClass: "border-cyan-500/20" },
-                    { title: "VIGNAN INSTITUTE OF TECHNOLOGY AND MANAGEMENT", degree: "B.Tech in CSE — CGPA: 8.4/10", year: "2022-2026", color: "purple", bgClass: "bg-purple-500/10", textClass: "text-purple-400", borderClass: "border-purple-500/20" },
-                    { title: "Higher Secondary (+2)", degree: "CBSE Board — Percentage: 82%", year: "2022", color: "pink", bgClass: "bg-pink-500/10", textClass: "text-pink-400", borderClass: "border-pink-500/20" },
-                    { title: "Secondary (10th)", degree: "CBSE Board — Percentage: 85%", year: "2020", color: "yellow", bgClass: "bg-yellow-500/10", textClass: "text-yellow-400", borderClass: "border-yellow-500/20" }
+                    { title: "VIGNAN INSTITUTE OF TECHNOLOGY AND MANAGEMENT", degree: "B.Tech in CSE — CGPA: 7.74/10", year: "2022-2026", color: "purple", bgClass: "bg-purple-500/10", textClass: "text-purple-400", borderClass: "border-purple-500/20" },
+                    { title: "Higher Secondary (+2)", degree: "CHSE Board — Percentage: 66%", year: "2021", color: "pink", bgClass: "bg-pink-500/10", textClass: "text-pink-400", borderClass: "border-pink-500/20" },
+                    { title: "Secondary (10th)", degree: "HSC Board — Percentage: 66%", year: "2019", color: "yellow", bgClass: "bg-yellow-500/10", textClass: "text-yellow-400", borderClass: "border-yellow-500/20" }
                   ].map((item, i) => (
                     <motion.div 
                       key={i}
