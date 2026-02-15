@@ -92,7 +92,6 @@ const FEATURED_PROJECTS = [
         "Cloud Functions",
         "Flutter App UI"
       ],
-      architectureImage: "https://placehold.co/1200x800/0f172a/ffffff?text=Smart+Campus+Architecture+Diagram",
       impact: "Reduced energy bills by 15% and cut attendance taking time by 90% across 5 classrooms."
     }
   },
@@ -165,7 +164,6 @@ const FEATURED_PROJECTS = [
         "Node.js/Express Backend",
         "MongoDB Atlas"
       ],
-      architectureImage: "https://placehold.co/1200x800/0f172a/ffffff?text=Dev+Connect+Architecture+Diagram",
       impact: "Streamlined team communication and reduced context switching by 30%."
     }
   }
@@ -231,25 +229,9 @@ function App() {
     // 2. Create a new Email Service (e.g., Gmail) -> Service ID
     // 3. Create a new Email Template -> Template ID
     // 4. Get your Public Key from Account > API Keys
-    const SERVICE_ID = 'service_id'; // REPLACE WITH YOUR SERVICE ID
-    const TEMPLATE_ID = 'template_id'; // REPLACE WITH YOUR TEMPLATE ID
-    const PUBLIC_KEY = 'public_key'; // REPLACE WITH YOUR PUBLIC KEY
-
-    // Fallback if keys are not set (simulated success for demo)
-    if (SERVICE_ID === 'service_id') {
-      setTimeout(() => {
-        // Fallback to mailto
-        const formData = new FormData(formRef.current);
-        const subject = `Portfolio Inquiry from ${formData.get('name')}`;
-        const body = formData.get('message');
-        window.location.href = `mailto:asishranjansahu2003@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-        
-        setIsSubmitting(false);
-        setSubmitStatus('success');
-        setTimeout(() => setSubmitStatus('idle'), 5000);
-      }, 1500);
-      return;
-    }
+    const SERVICE_ID = 'service_lvn2isb'; 
+    const TEMPLATE_ID = 'template_orpearm'; 
+    const PUBLIC_KEY = 'NsTa-665X3W8gPUFb'; 
 
     emailjs.sendForm(SERVICE_ID, TEMPLATE_ID, formRef.current, PUBLIC_KEY)
       .then((result) => {
@@ -259,6 +241,12 @@ function App() {
           setTimeout(() => setSubmitStatus('idle'), 5000);
       }, (error) => {
           console.log(error.text);
+          // Fallback to mailto if EmailJS fails
+          const formData = new FormData(formRef.current);
+          const subject = `Portfolio Inquiry from ${formData.get('name')}`;
+          const body = `Name: ${formData.get('name')}\nEmail: ${formData.get('email')}\n\nMessage:\n${formData.get('message')}`;
+          window.location.href = `mailto:asishranjansahu2003@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+          
           setSubmitStatus('error');
           setIsSubmitting(false);
           setTimeout(() => setSubmitStatus('idle'), 5000);
@@ -724,28 +712,25 @@ function App() {
               </div>
 
               <motion.div variants={fadeInUp} className="flex flex-wrap gap-4 pt-4">
-                <a href="#projects" className="group relative px-6 py-3 bg-white text-black font-display font-bold tracking-wider uppercase overflow-hidden rounded-sm hover:scale-105 transition-transform">
-                  <span className="relative z-10 group-hover:text-white transition-colors duration-300">View Projects</span>
-                  <div className="absolute inset-0 bg-cyan-600 transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-300 ease-out"></div>
-                </a>
-                
+                {/* Primary CTA */}
                 <a 
-                  href="mailto:asishranjansahu2003@gmail.com" 
+                  href="https://mail.google.com/mail/?view=cm&to=asishranjansahu2003@gmail.com" 
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="group px-6 py-3 bg-cyan-500 text-black font-display font-bold tracking-wider uppercase hover:bg-cyan-400 transition-all flex items-center gap-2 rounded-sm hover:scale-105 shadow-[0_0_20px_rgba(6,182,212,0.5)] animate-pulse"
                 >
-                  <Mail className="w-4 h-4" />
-                  Open to SWE Roles — Let's Connect
+                  <span className="text-lg">📬</span>
+                  Get In Touch
                 </a>
-                
+
+                {/* Secondary CTA */}
                 <a 
                   href="/resume.pdf" 
-                  target="_blank" 
-                  rel="noopener noreferrer" 
-                  download
-                  className="group px-6 py-3 bg-gradient-to-r from-emerald-500 to-teal-600 text-white font-display font-bold tracking-wider uppercase hover:from-emerald-400 hover:to-teal-500 transition-all flex items-center gap-2 rounded-sm hover:scale-105 shadow-lg shadow-emerald-500/20"
+                  download 
+                  className="group px-6 py-3 bg-white text-black font-display font-bold tracking-wider uppercase overflow-hidden rounded-sm hover:scale-105 transition-transform flex items-center gap-2"
                 >
-                  <FileText className="w-4 h-4" />
-                  Download Resume
+                  <span className="text-lg">📄</span>
+                  <span className="relative z-10 group-hover:text-cyan-600 transition-colors duration-300">Download Resume</span>
                 </a>
 
                 <a 
@@ -1528,7 +1513,7 @@ function App() {
               GET IN <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-pink-500">TOUCH</span>
             </motion.h3>
 
-            <div className="grid md:grid-cols-2 gap-12 items-start">
+            <div className="grid lg:grid-cols-2 gap-16 items-start">
               {/* Contact Info */}
               <motion.div 
                 initial={{ opacity: 0, x: -50 }}
@@ -1584,47 +1569,49 @@ function App() {
                 whileInView={{ opacity: 1, x: 0 }}
                 className="holo-card p-8 relative overflow-hidden"
               >
-                <div className="absolute top-0 right-0 p-4">
-                  <div className="flex items-center gap-2 text-emerald-400 text-xs font-mono bg-emerald-500/10 px-3 py-1 rounded-full border border-emerald-500/20">
-                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"/>
-                    Responds within 24hrs
-                  </div>
-                </div>
-
-                <form 
-                  ref={formRef}
-                  onSubmit={sendEmail}
-                  className="space-y-6"
-                >
+                <form ref={formRef} onSubmit={sendEmail} className="space-y-6 relative z-10">
+                  <h4 className="font-display text-2xl font-bold text-white mb-6">Send Message</h4>
+                  
                   <div className="space-y-2">
-                    <label className="text-sm font-mono text-cyan-400">YOUR NAME</label>
-                    <div className="relative">
-                      <User className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-slate-500" />
-                      <input 
-                        type="text" 
-                        name="name"
-                        required
-                        className="w-full bg-black/50 border border-white/10 rounded-lg py-3 pl-12 pr-4 text-white focus:border-cyan-500 focus:outline-none focus:ring-1 focus:ring-cyan-500/50 transition-all"
-                        placeholder="John Doe"
-                      />
-                    </div>
-                  </div>
-
-                  <div className="space-y-2">
-                    <label className="text-sm font-mono text-cyan-400">YOUR MESSAGE</label>
-                    <textarea 
-                      name="message"
+                    <label htmlFor="name" className="text-sm font-mono text-cyan-400">Name</label>
+                    <input 
+                      type="text" 
+                      name="name" 
+                      id="name"
                       required
+                      className="w-full bg-black/50 border border-white/10 rounded-lg p-3 text-white focus:outline-none focus:border-cyan-500 transition-colors placeholder:text-slate-600"
+                      placeholder="John Doe"
+                    />
+                  </div>
+
+                  <div className="space-y-2">
+                    <label htmlFor="email" className="text-sm font-mono text-cyan-400">Email</label>
+                    <input 
+                      type="email" 
+                      name="email" 
+                      id="email"
+                      required
+                      className="w-full bg-black/50 border border-white/10 rounded-lg p-3 text-white focus:outline-none focus:border-cyan-500 transition-colors placeholder:text-slate-600"
+                      placeholder="john@example.com"
+                    />
+                  </div>
+
+                  <div className="space-y-2">
+                    <label htmlFor="message" className="text-sm font-mono text-cyan-400">Message</label>
+                    <textarea 
+                      name="message" 
+                      id="message"
                       rows="4"
-                      className="w-full bg-black/50 border border-white/10 rounded-lg p-4 text-white focus:border-cyan-500 focus:outline-none focus:ring-1 focus:ring-cyan-500/50 transition-all"
-                      placeholder="Tell me about your project..."
+                      required
+                      className="w-full bg-black/50 border border-white/10 rounded-lg p-3 text-white focus:outline-none focus:border-cyan-500 transition-colors placeholder:text-slate-600"
+                      placeholder="Your message here..."
                     ></textarea>
                   </div>
 
                   <button 
-                    type="submit"
+                    type="submit" 
                     disabled={isSubmitting}
-                    className="w-full py-4 bg-gradient-to-r from-cyan-600 to-blue-600 rounded-lg font-bold tracking-widest uppercase hover:from-cyan-500 hover:to-blue-500 transition-all flex items-center justify-center gap-2 group disabled:opacity-50 disabled:cursor-not-allowed"
+                    className="w-full bg-cyan-500 text-black font-display font-bold py-4 rounded-lg hover:bg-cyan-400 transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2 group"
                   >
                     {isSubmitting ? (
                       <>
@@ -1638,22 +1625,24 @@ function App() {
                       </>
                     )}
                   </button>
+
                   {submitStatus === 'success' && (
                     <motion.div 
                       initial={{ opacity: 0, y: 10 }}
                       animate={{ opacity: 1, y: 0 }}
-                      className="p-4 bg-emerald-500/10 border border-emerald-500/20 rounded-lg text-emerald-400 text-sm text-center font-mono"
+                      className="p-4 bg-green-500/10 border border-green-500/20 text-green-400 rounded-lg text-center text-sm font-bold"
                     >
-                      Message sent successfully! I'll get back to you within 24 hours.
+                      Message sent successfully!
                     </motion.div>
                   )}
+
                   {submitStatus === 'error' && (
                     <motion.div 
                       initial={{ opacity: 0, y: 10 }}
                       animate={{ opacity: 1, y: 0 }}
-                      className="p-4 bg-red-500/10 border border-red-500/20 rounded-lg text-red-400 text-sm text-center font-mono"
+                      className="p-4 bg-red-500/10 border border-red-500/20 text-red-400 rounded-lg text-center text-sm font-bold"
                     >
-                      Failed to send message. Please try again or email me directly.
+                      Failed to send. Opening mail client...
                     </motion.div>
                   )}
                 </form>
