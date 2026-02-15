@@ -71,6 +71,15 @@ const WhoAmI = () => {
                         </p>
                     </div>
 
+                    <div className="pl-4 border-l-2 border-cyan-500/20">
+                        <h3 className="text-white font-bold mb-2">Specializing in:</h3>
+                        <ul className="list-disc list-inside text-slate-400 space-y-1">
+                            <li>Full Stack Development</li>
+                            <li>AI Integration</li>
+                            <li>Scalable Backend Systems</li>
+                        </ul>
+                    </div>
+
                     <p className="text-lg text-green-400 font-medium pl-4 border-l-2 border-green-500/20 animate-pulse">
                         Open to internships and engineering roles.
                     </p>
@@ -80,7 +89,7 @@ const WhoAmI = () => {
                 <div className="flex flex-wrap gap-4 pt-6 border-t border-white/10 mt-8">
                     <div className="bg-black border border-white/20 px-4 py-2 flex items-center gap-3 text-xs font-mono text-white hover:border-cyan-500 transition-colors">
                         <MapPin className="w-4 h-4 text-red-500" />
-                        LOCATION: WORLDWIDE
+                        LOCATION: INDIA | OPEN TO REMOTE
                     </div>
                     <div className="bg-green-500/10 border border-green-500/50 text-green-400 px-4 py-2 flex items-center gap-3 text-xs font-bold font-mono shadow-[0_0_15px_rgba(34,197,94,0.1)]">
                         <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
