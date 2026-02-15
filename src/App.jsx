@@ -20,11 +20,11 @@ const PROJECTS = [
   {
     title: "Mind Scape",
     tech: "React • Node.js • MongoDB",
-    desc: "A comprehensive mental wellness platform featuring guided meditations, mood tracking, and therapeutic resources.",
+    desc: "A smart daily study planner designed to organize learning schedules, track academic progress, and boost productivity.",
     color: "emerald",
     image: "https://placehold.co/1200x800/0f172a/ffffff?text=Mind+Scape",
-    live: "#",
-    github: "#"
+    live: "https://daily-study-planner-wine.vercel.app/",
+    github: "https://github.com/Asishranjansahu/daily-study-planner"
   },
   {
     title: "Smart Campus",
@@ -606,7 +606,12 @@ function App() {
             className={`group relative flex-none w-[290px] bg-zinc-900/50 backdrop-blur-sm border rounded-xl overflow-hidden flex flex-col transition-all duration-300 hover:-translate-y-1 hover:shadow-xl ${getColorClass(project.color, 'border')} ${getColorClass(project.color, 'hoverBorder')} ${getColorClass(project.color, 'hoverShadow')}`}
           >
             {/* Image Section */}
-            <div className="h-32 relative overflow-hidden group-hover:h-36 transition-all duration-500">
+            <a 
+              href={project.live}
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="block h-32 relative overflow-hidden group-hover:h-36 transition-all duration-500 cursor-pointer"
+            >
               <img 
                 src={project.image} 
                 alt={project.title}
@@ -627,7 +632,7 @@ function App() {
                   className="w-6 h-6 object-contain"
                 />
               </div>
-            </div>
+            </a>
 
             {/* Content Section */}
             <div className="p-5 flex-1 flex flex-col relative">
@@ -638,9 +643,11 @@ function App() {
                 </span>
               </div>
 
-              <h4 className={`font-display text-lg font-bold text-white mb-2 leading-tight transition-colors ${getColorClass(project.color, 'hoverText')}`}>
-                {project.title}
-              </h4>
+              <a href={project.live} target="_blank" rel="noopener noreferrer" className="block group/title">
+                <h4 className={`font-display text-lg font-bold text-white mb-2 leading-tight transition-colors ${getColorClass(project.color, 'hoverText')}`}>
+                  {project.title}
+                </h4>
+              </a>
               
               <p className="text-slate-400 text-xs leading-relaxed line-clamp-3 mb-4 flex-1">
                 {project.desc}
