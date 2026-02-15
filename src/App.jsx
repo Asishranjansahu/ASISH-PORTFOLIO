@@ -20,11 +20,11 @@ const PROJECTS = [
   {
     title: "Mindscape",
     tech: "React • Node.js • MongoDB",
-    desc: "A smart daily study planner designed to organize learning schedules, track academic progress, and boost productivity.",
+    desc: "A smart daily study planner designed to organize learning schedules, track academic progress, and boost productivity. (Live Demo Available)",
     color: "emerald",
     image: "https://placehold.co/1200x800/0f172a/ffffff?text=Mindscape",
     live: "https://daily-study-planner-wine.vercel.app/",
-    github: "https://github.com/Asishranjansahu/Daily-Study-Planner"
+    github: "https://github.com/Asishranjansahu/Daily-Study-Planner.git"
   },
   {
     title: "Smart Campus",
