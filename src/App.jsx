@@ -6,7 +6,6 @@ import TypewriterText from './components/TypewriterText';
 import Navbar from './components/Navbar';
 import TerminalComponent from './components/Terminal';
 import CommandPalette from './components/CommandPalette';
-import LiveDashboard from './components/LiveDashboard';
 import EngineeringProcess from './components/EngineeringProcess';
 import ProfileCard from './components/ProfileCard';
 import SecretDevHQ from './components/SecretDevHQ';
@@ -448,11 +447,6 @@ function App() {
                   </div>
                 </div>
               </motion.div>
-              
-              <motion.div variants={fadeInUp}>
-                <LiveDashboard />
-              </motion.div>
-
             </motion.div>
 
             <motion.div 
