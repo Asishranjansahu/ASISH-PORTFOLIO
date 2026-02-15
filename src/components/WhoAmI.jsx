@@ -41,7 +41,7 @@ const WhoAmI = () => {
             >
                 <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-white/10 pb-6">
                     <h2 className="text-4xl md:text-5xl font-black font-display tracking-tighter text-white">
-                        WHO AM I?
+                        ABOUT ME
                     </h2>
                     <div className="flex flex-wrap gap-2 font-mono text-xs text-cyan-500">
                         <span className="border border-cyan-500/30 bg-cyan-500/5 px-3 py-1 hover:bg-cyan-500 hover:text-black transition-colors cursor-default">/ABOUT</span>
@@ -64,6 +64,10 @@ const WhoAmI = () => {
                         
                         <p className="text-lg text-slate-400">
                             I am an <strong className="text-white">M.Tech (CSE) candidate</strong> and Full Stack Engineer focused on performance, clean architecture, and delivering production-ready applications.
+                        </p>
+
+                        <p className="text-lg text-slate-400">
+                            Built and deployed multiple <strong className="text-white">full-stack applications</strong> integrating AI and real-time systems.
                         </p>
                     </div>
 
