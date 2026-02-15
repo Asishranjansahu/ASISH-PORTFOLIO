@@ -46,10 +46,28 @@ A modern, animated portfolio built with React, Vite, Tailwind CSS, and a lightwe
 
 ## Project Structure
 
-- src/App.jsx — main page content
-- src/components/Background3D.jsx — starfield background
-- src/components/GlitchText.jsx — animated heading effect
-- src/index.css — global styles and utilities
+```bash
+.
+├── public/                 # Static assets (images, icons, resume)
+├── src/
+│   ├── components/         # Reusable UI components
+│   │   ├── Background3D.jsx    # Interactive 3D starfield background
+│   │   ├── CommandPalette.jsx  # Quick command access interface
+│   │   ├── EngineeringProcess.jsx # Engineering approach visualization
+│   │   ├── GithubStats.jsx     # GitHub activity integration
+│   │   ├── GlitchText.jsx      # Animated glitch text effect
+│   │   ├── HireMe.jsx          # Contact/Hire section
+│   │   ├── Navbar.jsx          # Navigation bar
+│   │   ├── ProfileCard.jsx     # User profile display
+│   │   └── ...                 # Other UI components
+│   ├── App.jsx             # Main application entry point
+│   ├── main.jsx            # React root rendering
+│   └── index.css           # Global styles and Tailwind directives
+├── index.html              # HTML entry point
+├── tailwind.config.js      # Tailwind CSS configuration
+├── vite.config.js          # Vite configuration
+└── package.json            # Project dependencies and scripts
+```
 
 ## Deployment
 
