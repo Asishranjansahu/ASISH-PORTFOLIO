@@ -584,7 +584,7 @@ function App() {
                     {/* Content Card */}
                     <div className="holo-card p-8 relative overflow-visible group hover:-translate-y-1 transition-transform duration-300">
                       <div className="mb-6">
-                        <h4 className="font-display text-2xl font-bold text-white mb-2">Full Stack Web Developer <span className="text-slate-400 text-lg font-normal">— Built and deployed full-stack apps used by 500+ users</span></h4>
+                        <h4 className="font-display text-2xl font-bold text-white mb-2">Full Stack Web Developer</h4>
                         <div className="space-y-2">
                             <div className="flex items-center gap-3 font-mono text-sm">
                                 <span className="text-purple-400 font-bold">Innovixion Tech</span>
