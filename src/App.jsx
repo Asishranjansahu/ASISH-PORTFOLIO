@@ -14,6 +14,9 @@ import GithubStats from './components/GithubStats';
 import HireMe from './components/HireMe';
 import Background3D from './components/Background3D';
 import WhoAmI from './components/WhoAmI';
+import StatsCard from './components/StatsCard';
+import Testimonials from './components/Testimonials';
+import CustomCursor from './components/CustomCursor';
 
 const FEATURED_PROJECTS = [
   {
@@ -267,7 +270,7 @@ function App() {
         bg: 'bg-cyan-400',
         border: 'border-cyan-500/30',
         hoverBorder: 'hover:border-cyan-500/50',
-        hoverShadow: 'hover:shadow-cyan-500/10',
+        hoverShadow: 'hover:shadow-[0_0_30px_rgba(6,182,212,0.3)]',
         hoverText: 'group-hover:text-cyan-400',
         linkText: 'text-cyan-500 hover:text-cyan-400',
         linkBg: 'bg-cyan-500/10 group-hover/link:bg-cyan-500/20'
@@ -277,7 +280,7 @@ function App() {
         bg: 'bg-purple-400',
         border: 'border-purple-500/30',
         hoverBorder: 'hover:border-purple-500/50',
-        hoverShadow: 'hover:shadow-purple-500/10',
+        hoverShadow: 'hover:shadow-[0_0_30px_rgba(168,85,247,0.3)]',
         hoverText: 'group-hover:text-purple-400',
         linkText: 'text-purple-500 hover:text-purple-400',
         linkBg: 'bg-purple-500/10 group-hover/link:bg-purple-500/20'
@@ -287,7 +290,7 @@ function App() {
         bg: 'bg-pink-400',
         border: 'border-pink-500/30',
         hoverBorder: 'hover:border-pink-500/50',
-        hoverShadow: 'hover:shadow-pink-500/10',
+        hoverShadow: 'hover:shadow-[0_0_30px_rgba(236,72,153,0.3)]',
         hoverText: 'group-hover:text-pink-400',
         linkText: 'text-pink-500 hover:text-pink-400',
         linkBg: 'bg-pink-500/10 group-hover/link:bg-pink-500/20'
@@ -297,7 +300,7 @@ function App() {
         bg: 'bg-emerald-400',
         border: 'border-emerald-500/30',
         hoverBorder: 'hover:border-emerald-500/50',
-        hoverShadow: 'hover:shadow-emerald-500/10',
+        hoverShadow: 'hover:shadow-[0_0_30px_rgba(16,185,129,0.3)]',
         hoverText: 'group-hover:text-emerald-400',
         linkText: 'text-emerald-500 hover:text-emerald-400',
         linkBg: 'bg-emerald-500/10 group-hover/link:bg-emerald-500/20'
@@ -307,7 +310,7 @@ function App() {
         bg: 'bg-sky-400',
         border: 'border-sky-500/30',
         hoverBorder: 'hover:border-sky-500/50',
-        hoverShadow: 'hover:shadow-sky-500/10',
+        hoverShadow: 'hover:shadow-[0_0_30px_rgba(14,165,233,0.3)]',
         hoverText: 'group-hover:text-sky-400',
         linkText: 'text-sky-500 hover:text-sky-400',
         linkBg: 'bg-sky-500/10 group-hover/link:bg-sky-500/20'
@@ -317,7 +320,7 @@ function App() {
         bg: 'bg-indigo-400',
         border: 'border-indigo-500/30',
         hoverBorder: 'hover:border-indigo-500/50',
-        hoverShadow: 'hover:shadow-indigo-500/10',
+        hoverShadow: 'hover:shadow-[0_0_30px_rgba(99,102,241,0.3)]',
         hoverText: 'group-hover:text-indigo-400',
         linkText: 'text-indigo-500 hover:text-indigo-400',
         linkBg: 'bg-indigo-500/10 group-hover/link:bg-indigo-500/20'
@@ -336,6 +339,7 @@ function App() {
         <div className="fixed inset-0 pointer-events-none z-[60] bg-[linear-gradient(rgba(18,16,16,0)_50%,rgba(0,0,0,0.25)_50%),linear-gradient(90deg,rgba(255,0,0,0.06),rgba(0,255,0,0.02),rgba(0,0,255,0.06))] bg-[length:100%_2px,3px_100%] animate-scanline mix-blend-overlay opacity-20"></div>
       )}
       
+      <CustomCursor />
       <Navbar onOpenProfile={() => setIsProfileOpen(true)} />
       {show3D && !matrixMode && <Background3D />}
 
@@ -515,6 +519,9 @@ function App() {
             </motion.div>
           </div>
         </section>
+
+        {/* Stats Card */}
+        <StatsCard />
 
         {/* About Me Section - WhoAmI */}
         <WhoAmI />
@@ -865,6 +872,9 @@ function App() {
             )}
           </div>
         </section>
+
+        {/* Testimonials Section */}
+        <Testimonials />
 
         {/* Skills Section */}
         <section id="skills" className="py-24 bg-[#0f1012] relative overflow-hidden">
