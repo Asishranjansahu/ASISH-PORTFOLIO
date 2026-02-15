@@ -537,7 +537,7 @@ function App() {
                 <div className="relative border-l-2 border-cyan-500/30 ml-3 md:ml-6 space-y-12 pl-8 md:pl-12 py-4">
                   {[
                     { title: "NIST University", degree: "M.Tech in CSE — Focus: Distributed Systems & Web Engineering", year: "Pursuing", color: "cyan", bgClass: "bg-cyan-500/10", textClass: "text-cyan-400", borderClass: "border-cyan-500/20" },
-                    { title: "VIGNAN INSTITUTE OF TECHNOLOGY AND MANAGEMENT", degree: "B.Tech in CSE — CGPA: 7.74/10", year: "2022-2026", color: "purple", bgClass: "bg-purple-500/10", textClass: "text-purple-400", borderClass: "border-purple-500/20" },
+                    { title: "VIGNAN INSTITUTE OF TECHNOLOGY AND MANAGEMENT", degree: "B.Tech in CSE — CGPA: 7.74/10", year: "2021-2025", color: "purple", bgClass: "bg-purple-500/10", textClass: "text-purple-400", borderClass: "border-purple-500/20" },
                     { title: "Higher Secondary (+2)", degree: "CHSE Board — Percentage: 66%", year: "2021", color: "pink", bgClass: "bg-pink-500/10", textClass: "text-pink-400", borderClass: "border-pink-500/20" },
                     { title: "Secondary (10th)", degree: "HSC Board — Percentage: 66%", year: "2019", color: "yellow", bgClass: "bg-yellow-500/10", textClass: "text-yellow-400", borderClass: "border-yellow-500/20" }
                   ].map((item, i) => (
