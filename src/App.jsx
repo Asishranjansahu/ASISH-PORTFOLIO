@@ -18,13 +18,13 @@ import WhoAmI from './components/WhoAmI';
 
 const PROJECTS = [
   {
-    title: "Mind Scape",
+    title: "Mindscape",
     tech: "React • Node.js • MongoDB",
     desc: "A smart daily study planner designed to organize learning schedules, track academic progress, and boost productivity.",
     color: "emerald",
-    image: "https://placehold.co/1200x800/0f172a/ffffff?text=Mind+Scape",
+    image: "https://placehold.co/1200x800/0f172a/ffffff?text=Mindscape",
     live: "https://daily-study-planner-wine.vercel.app",
-    github: "https://github.com/Asishranjansahu/Daily-Study-Planner.git"
+    github: "https://github.com/Asishranjansahu/Daily-Study-Planner"
   },
   {
     title: "Smart Campus",
@@ -622,7 +622,7 @@ function App() {
                 }}
                 className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-zinc-900 to-transparent opacity-80" />
+              <div className="absolute inset-0 bg-gradient-to-t from-zinc-900 to-transparent opacity-80 pointer-events-none" />
               
               {/* Floating Logo Badge */}
               <div className="absolute top-3 right-3 w-10 h-10 rounded-full bg-black/60 backdrop-blur-md border border-white/10 flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300">
