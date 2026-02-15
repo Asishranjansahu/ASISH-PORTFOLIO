@@ -39,14 +39,14 @@ const GithubStats = () => {
           <motion.img 
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
-            src="https://github-readme-stats.vercel.app/api?username=Asishranjansahu&show_icons=true&theme=transparent&bg_color=00000000&title_color=22d3ee&text_color=94a3b8&icon_color=a78bfa&hide_border=true"
+            src="https://github-readme-stats.vercel.app/api?username=Asishranjansahu&show_icons=true&theme=dark&hide_border=true&bg_color=0d1117"
             alt="GitHub Stats"
             className="w-full max-w-md"
           />
           <motion.img 
             initial={{ opacity: 0, x: 20 }}
             whileInView={{ opacity: 1, x: 0 }}
-            src="https://github-readme-stats.vercel.app/api/top-langs/?username=Asishranjansahu&layout=compact&theme=transparent&bg_color=00000000&title_color=22d3ee&text_color=94a3b8&hide_border=true"
+            src="https://github-readme-stats.vercel.app/api/top-langs/?username=Asishranjansahu&layout=compact&theme=dark&hide_border=true&bg_color=0d1117"
             alt="Top Languages"
             className="w-full max-w-md"
           />

@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Award, Code2, Globe, Terminal, ExternalLink } from 'lucide-react';
+import { Award, Code2, Globe, Terminal, ExternalLink, Linkedin } from 'lucide-react';
 
 const Certifications = () => {
   const certs = [
@@ -33,6 +33,26 @@ const Certifications = () => {
       bg: "bg-green-500/10",
       border: "border-green-500/20",
       link: "https://www.hackerrank.com/certificates/iframe/885694294025"
+    },
+    {
+      title: "Data Structures & Algorithms",
+      issuer: "LeetCode",
+      date: "Ongoing",
+      icon: Code2,
+      color: "text-yellow-500",
+      bg: "bg-yellow-500/10",
+      border: "border-yellow-500/20",
+      link: "https://leetcode.com/u/Asishranjansahu/"
+    },
+    {
+      title: "View More Certifications",
+      issuer: "LinkedIn",
+      date: "Professional Profile",
+      icon: Linkedin,
+      color: "text-blue-600",
+      bg: "bg-blue-600/10",
+      border: "border-blue-600/20",
+      link: "https://www.linkedin.com/in/asish-ranjan-sahu-15ab1422b/details/certifications/"
     }
   ];
 
