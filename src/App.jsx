@@ -19,74 +19,50 @@ const FEATURED_PROJECTS = [
   {
     title: "Thread Sense",
     tech: "NLP • React • Firebase",
-    desc: "AI-powered platform that analyzes discussion threads using semantic search and NLP to generate intelligent summaries and insights.",
+    desc: "Built NLP-powered discussion analyzer that clusters conversations and reduces manual browsing time by ~40%.",
     color: "emerald",
     image: "/projects/thread-sense.svg",
     live: "https://thread-sense.vercel.app",
     github: "https://github.com/Asishranjansahu/thread-sense",
     badge: "AI Project",
-    metric: "Processed multi-thread discussions with AI-based semantic clustering."
+    metric: "Reduced manual browsing time by ~40% via semantic clustering."
   },
   {
     title: "Stock Trading Platform",
     tech: "React • Chart.js",
-    desc: "Real-time trading dashboard simulating order execution and live stock visualization using React and Chart.js.",
+    desc: "Real-time trading dashboard simulating order execution with <100ms latency updates using React and Chart.js.",
     color: "indigo",
     image: "https://images.unsplash.com/photo-1611974765270-ca1258634369?q=80&w=2064&auto=format&fit=crop",
     live: "https://zerodha-clone-demo.vercel.app",
     github: "https://github.com/Asishranjansahu/zerodha-clone",
-    badge: "Featured"
+    badge: "Featured",
+    metric: "Processed 500+ simulated orders/sec with real-time visualization."
   },
   {
     title: "Smart Campus",
     tech: "IoT • Flutter • Firebase",
-    desc: "IoT-driven campus automation (Flutter + Firebase) that eliminates manual tracking via real-time sensor networks.",
+    desc: "IoT-driven campus automation that reduced manual tracking effort by 90% via real-time sensor networks.",
     color: "cyan",
     image: "https://placehold.co/1200x800/0f172a/ffffff?text=Smart+Campus",
     live: "https://smart-campus-automation-system.vercel.app/",
     github: "https://github.com/Asishranjansahu/smart-campus",
-    badge: "Production Ready"
-  }
-];
-
-const OTHER_PROJECTS = [
-  {
-    title: "Dev Connect",
-    tech: "MERN • Socket.IO",
-    desc: "Real-time collaboration suite (MERN + Socket.io) enabling instant messaging and shared workspaces for developers.",
-    color: "purple",
-    image: "https://placehold.co/1200x800/0f172a/ffffff?text=Dev+Connect",
-    live: "https://dev-connect-live.onrender.com",
-    github: "https://github.com/Asishranjansahu/dev-connect"
-  },
-  {
-    title: "Mindscape",
-    tech: "React • Node.js • MongoDB",
-    desc: "Smart study planner (React + Node.js) that optimizes learning schedules to boost academic productivity. (Live Demo Available)",
-    color: "emerald",
-    image: "https://placehold.co/1200x800/0f172a/ffffff?text=Mindscape",
-    live: "https://daily-study-planner-wine.vercel.app/",
-    github: "https://github.com/Asishranjansahu/Daily-Study-Planner.git"
-  },
-  {
-    title: "Task Master",
-    tech: "JS • LocalStorage",
-    desc: "Offline-first task manager (JS + LocalStorage) delivering zero-latency performance and persistent data reliability.",
-    color: "pink",
-    image: "https://placehold.co/1200x800/0f172a/ffffff?text=Task+Master",
-    live: "https://asishranjansahu.github.io/task-master",
-    github: "https://github.com/Asishranjansahu/task-master"
+    badge: "Production Ready",
+    metric: "Eliminated 90% of manual tracking via IoT sensor network."
   },
   {
     title: "Portfolio",
     tech: "React • Vite • Tailwind",
-    desc: "High-performance personal brand platform (React + Three.js) featuring immersive 3D visuals and 99+ Lighthouse performance scores.",
+    desc: "High-performance personal brand platform featuring immersive 3D visuals and 99+ Lighthouse performance scores.",
     color: "sky",
     image: "https://images.unsplash.com/photo-1545665277-5937489579f2?q=80&w=2070&auto=format&fit=crop",
     live: "https://asishranjansahu.vercel.app",
-    github: "https://github.com/Asishranjansahu/ASISH-PORTFOLIO"
+    github: "https://github.com/Asishranjansahu/ASISH-PORTFOLIO",
+    badge: "Best Design",
+    metric: "Achieved 99+ Lighthouse performance score."
   }
 ];
+
+const OTHER_PROJECTS = [];
 
 const PROJECTS = [...FEATURED_PROJECTS, ...OTHER_PROJECTS];
 
@@ -384,12 +360,8 @@ function App() {
 
                 <motion.div variants={fadeInUp} className="space-y-4">
                   <h2 className="text-xl md:text-2xl text-slate-300 font-light leading-relaxed">
-                    Full Stack Developer <span className="text-cyan-500 mx-2">|</span> Building AI-Powered & Scalable Web Applications
+                    Full Stack Developer <span className="text-cyan-500 mx-2">|</span> React • Node.js • AI Integration <span className="text-cyan-500 mx-2">|</span> Building Scalable Web Apps
                   </h2>
-                  
-                  <p className="text-lg md:text-xl text-slate-400 font-mono">
-                    React • Node.js • MongoDB • AI Integrations
-                  </p>
                 </motion.div>
               </div>
 
@@ -407,7 +379,7 @@ function App() {
                   className="group px-6 py-3 border border-cyan-500/50 font-display font-bold tracking-wider uppercase hover:bg-cyan-500/10 transition-all flex items-center gap-2 text-cyan-400 rounded-sm hover:scale-105"
                 >
                   <FileText className="w-4 h-4" />
-                  Download Resume
+                  Download Resume (PDF)
                 </a>
 
                 <a 
@@ -537,7 +509,9 @@ function App() {
                 <div className="relative border-l-2 border-cyan-500/30 ml-3 md:ml-6 space-y-12 pl-8 md:pl-12 py-4">
                   {[
                     { title: "NIST University", degree: "M.Tech in CSE — Focus: Distributed Systems & Web Engineering", year: "Pursuing", color: "cyan", bgClass: "bg-cyan-500/10", textClass: "text-cyan-400", borderClass: "border-cyan-500/20" },
-                    { title: "VIGNAN INSTITUTE OF TECHNOLOGY AND MANAGEMENT", degree: "B.Tech in CSE — CGPA: 7.74", year: "2021-2025", color: "purple", bgClass: "bg-purple-500/10", textClass: "text-purple-400", borderClass: "border-purple-500/20" }
+                    { title: "VIGNAN INSTITUTE OF TECHNOLOGY AND MANAGEMENT", degree: "B.Tech in CSE — CGPA: 8.4/10", year: "2022-2026", color: "purple", bgClass: "bg-purple-500/10", textClass: "text-purple-400", borderClass: "border-purple-500/20" },
+                    { title: "Higher Secondary (+2)", degree: "CBSE Board — Percentage: 82%", year: "2022", color: "pink", bgClass: "bg-pink-500/10", textClass: "text-pink-400", borderClass: "border-pink-500/20" },
+                    { title: "Secondary (10th)", degree: "CBSE Board — Percentage: 85%", year: "2020", color: "yellow", bgClass: "bg-yellow-500/10", textClass: "text-yellow-400", borderClass: "border-yellow-500/20" }
                   ].map((item, i) => (
                     <motion.div 
                       key={i}
@@ -751,112 +725,116 @@ function App() {
             </div>
 
             {/* Other Projects Section */}
-            <motion.h4 
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              className="font-display text-2xl font-bold text-slate-500 mb-8 text-center uppercase tracking-widest"
-            >
-              Other Projects
-            </motion.h4>
-            
-            <div className="relative border-l-2 border-cyan-500/30 ml-3 md:ml-6 pl-8 md:pl-12 py-4">
-              {/* Timeline Icon */}
-              <span className="absolute -left-5 md:-left-[73px] top-0 flex items-center justify-center w-10 h-10 md:w-12 md:h-12 rounded-full bg-black border border-cyan-500 text-cyan-400 shadow-[0_0_10px_rgba(34,211,238,0.3)] z-10">
-                <FolderGit2 className="w-5 h-5 md:w-6 md:h-6" />
-              </span>
+            {OTHER_PROJECTS.length > 0 && (
+              <>
+                <motion.h4 
+                  initial={{ opacity: 0 }}
+                  whileInView={{ opacity: 1 }}
+                  className="font-display text-2xl font-bold text-slate-500 mb-8 text-center uppercase tracking-widest"
+                >
+                  Other Projects
+                </motion.h4>
+                
+                <div className="relative border-l-2 border-cyan-500/30 ml-3 md:ml-6 pl-8 md:pl-12 py-4">
+                  {/* Timeline Icon */}
+                  <span className="absolute -left-5 md:-left-[73px] top-0 flex items-center justify-center w-10 h-10 md:w-12 md:h-12 rounded-full bg-black border border-cyan-500 text-cyan-400 shadow-[0_0_10px_rgba(34,211,238,0.3)] z-10">
+                    <FolderGit2 className="w-5 h-5 md:w-6 md:h-6" />
+                  </span>
 
-              <div 
-                ref={scrollRef}
-                className="flex overflow-x-auto pb-8 gap-6 hide-scrollbar"
-                onMouseEnter={() => setIsPaused(true)}
-                onMouseLeave={() => setIsPaused(false)}
-                onTouchStart={() => setIsPaused(true)}
-                onTouchEnd={() => setIsPaused(false)}
-              >
-                {OTHER_PROJECTS.map((project, i) => (
-                  <motion.div 
-                    key={i}
-                    initial={{ opacity: 0, scale: 0.9 }}
-                    whileInView={{ opacity: 1, scale: 1 }}
-                    transition={{ delay: i * 0.1 }}
-                    className={`group relative flex-none w-[280px] bg-zinc-900/50 backdrop-blur-sm border rounded-xl overflow-hidden flex flex-col transition-all duration-300 hover:-translate-y-1 hover:shadow-xl ${getColorClass(project.color, 'border')} ${getColorClass(project.color, 'hoverBorder')} ${getColorClass(project.color, 'hoverShadow')}`}
+                  <div 
+                    ref={scrollRef}
+                    className="flex overflow-x-auto pb-8 gap-6 hide-scrollbar"
+                    onMouseEnter={() => setIsPaused(true)}
+                    onMouseLeave={() => setIsPaused(false)}
+                    onTouchStart={() => setIsPaused(true)}
+                    onTouchEnd={() => setIsPaused(false)}
                   >
-                    {/* Image Section */}
-                    <a 
-                      href={project.live}
-                      target="_blank" 
-                      rel="noopener noreferrer"
-                      className="block h-32 relative overflow-hidden group-hover:h-36 transition-all duration-500 cursor-pointer"
-                    >
-                      <img 
-                        src={project.image} 
-                        alt={project.title}
-                        loading="lazy" 
-                        onError={(e) => {
-                          e.currentTarget.onerror = null;
-                          e.currentTarget.src = "https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=2070&auto=format&fit=crop";
-                        }}
-                        className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-t from-zinc-900 to-transparent opacity-80 pointer-events-none" />
-                      
-                      {/* Floating Logo Badge */}
-                      <div className="absolute top-3 right-3 w-8 h-8 rounded-full bg-black/60 backdrop-blur-md border border-white/10 flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300">
-                        <img 
-                          src={getTechIcon(project.tech.split('•')[0])} 
-                          alt="Tech Logo" 
-                          className="w-4 h-4 object-contain"
-                        />
-                      </div>
-                    </a>
-
-                    {/* Content Section */}
-                    <div className="p-4 flex-1 flex flex-col relative">
-                      <div className="flex items-center gap-2 mb-2">
-                        <span className={`w-1.5 h-1.5 rounded-full animate-pulse ${getColorClass(project.color, 'bg')}`} />
-                        <span className={`text-[10px] font-mono font-bold uppercase tracking-wider ${getColorClass(project.color, 'text')}`}>
-                          {project.tech}
-                        </span>
-                      </div>
-
-                      <a href={project.live} target="_blank" rel="noopener noreferrer" className="block group/title">
-                        <h4 className={`font-display text-base font-bold text-white mb-1 leading-tight transition-colors ${getColorClass(project.color, 'hoverText')}`}>
-                          {project.title}
-                        </h4>
-                      </a>
-                      
-                      <p className="text-slate-400 text-xs leading-relaxed line-clamp-2 mb-3 flex-1">
-                        {project.desc}
-                      </p>
-
-                      {/* Action Links */}
-                      <div className="flex items-center justify-between pt-3 border-t border-white/5 mt-auto">
-                        <a 
-                          href={project.github}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="flex items-center gap-2 text-[10px] font-bold text-slate-500 hover:text-white transition-colors group/link"
-                        >
-                          <div className="p-1 rounded-full bg-white/5 group-hover/link:bg-white/10 transition-colors">
-                            <Github className="w-3 h-3" />
-                          </div>
-                          Code
-                        </a>
+                    {OTHER_PROJECTS.map((project, i) => (
+                      <motion.div 
+                        key={i}
+                        initial={{ opacity: 0, scale: 0.9 }}
+                        whileInView={{ opacity: 1, scale: 1 }}
+                        transition={{ delay: i * 0.1 }}
+                        className={`group relative flex-none w-[280px] bg-zinc-900/50 backdrop-blur-sm border rounded-xl overflow-hidden flex flex-col transition-all duration-300 hover:-translate-y-1 hover:shadow-xl ${getColorClass(project.color, 'border')} ${getColorClass(project.color, 'hoverBorder')} ${getColorClass(project.color, 'hoverShadow')}`}
+                      >
+                        {/* Image Section */}
                         <a 
                           href={project.live}
-                          target="_blank"
+                          target="_blank" 
                           rel="noopener noreferrer"
-                          className={`flex items-center gap-1.5 text-[10px] font-bold transition-colors group/link ${getColorClass(project.color, 'linkText')}`}
+                          className="block h-32 relative overflow-hidden group-hover:h-36 transition-all duration-500 cursor-pointer"
                         >
-                          Live Demo
-                          <ExternalLink className="w-3 h-3 group-hover/link:translate-x-0.5 transition-transform" />
+                          <img 
+                            src={project.image} 
+                            alt={project.title}
+                            loading="lazy" 
+                            onError={(e) => {
+                              e.currentTarget.onerror = null;
+                              e.currentTarget.src = "https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=2070&auto=format&fit=crop";
+                            }}
+                            className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                          />
+                          <div className="absolute inset-0 bg-gradient-to-t from-zinc-900 to-transparent opacity-80 pointer-events-none" />
+                          
+                          {/* Floating Logo Badge */}
+                          <div className="absolute top-3 right-3 w-8 h-8 rounded-full bg-black/60 backdrop-blur-md border border-white/10 flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300">
+                            <img 
+                              src={getTechIcon(project.tech.split('•')[0])} 
+                              alt="Tech Logo" 
+                              className="w-4 h-4 object-contain"
+                            />
+                          </div>
                         </a>
-                      </div>
-                    </div>
-                  </motion.div>
-                ))}
-              </div>
-            </div>
+
+                        {/* Content Section */}
+                        <div className="p-4 flex-1 flex flex-col relative">
+                          <div className="flex items-center gap-2 mb-2">
+                            <span className={`w-1.5 h-1.5 rounded-full animate-pulse ${getColorClass(project.color, 'bg')}`} />
+                            <span className={`text-[10px] font-mono font-bold uppercase tracking-wider ${getColorClass(project.color, 'text')}`}>
+                              {project.tech}
+                            </span>
+                          </div>
+
+                          <a href={project.live} target="_blank" rel="noopener noreferrer" className="block group/title">
+                            <h4 className={`font-display text-base font-bold text-white mb-1 leading-tight transition-colors ${getColorClass(project.color, 'hoverText')}`}>
+                              {project.title}
+                            </h4>
+                          </a>
+                          
+                          <p className="text-slate-400 text-xs leading-relaxed line-clamp-2 mb-3 flex-1">
+                            {project.desc}
+                          </p>
+
+                          {/* Action Links */}
+                          <div className="flex items-center justify-between pt-3 border-t border-white/5 mt-auto">
+                            <a 
+                              href={project.github}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="flex items-center gap-2 text-[10px] font-bold text-slate-500 hover:text-white transition-colors group/link"
+                            >
+                              <div className="p-1 rounded-full bg-white/5 group-hover/link:bg-white/10 transition-colors">
+                                <Github className="w-3 h-3" />
+                              </div>
+                              Code
+                            </a>
+                            <a 
+                              href={project.live}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className={`flex items-center gap-1.5 text-[10px] font-bold transition-colors group/link ${getColorClass(project.color, 'linkText')}`}
+                            >
+                              Live Demo
+                              <ExternalLink className="w-3 h-3 group-hover/link:translate-x-0.5 transition-transform" />
+                            </a>
+                          </div>
+                        </div>
+                      </motion.div>
+                    ))}
+                  </div>
+                </div>
+              </>
+            )}
           </div>
         </section>
 
@@ -871,120 +849,117 @@ function App() {
               TECHNICAL <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-purple-500">SKILLS</span>
             </motion.h3>
 
-            <div className="space-y-20">
-              {/* Frontend */}
+            <div className="space-y-24">
+              {/* Primary Stack - The Hero Section */}
               <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }}>
-                <div className="flex items-center gap-4 mb-8">
-                  <div className="h-px bg-gradient-to-r from-transparent to-slate-800 flex-1" />
-                  <span className="text-cyan-400 font-mono tracking-[0.2em] uppercase text-sm font-bold">Frontend Development</span>
-                  <div className="h-px bg-gradient-to-l from-transparent to-slate-800 flex-1" />
+                <div className="flex items-center gap-4 mb-10 justify-center">
+                  <div className="h-px bg-gradient-to-r from-transparent to-cyan-500 w-24" />
+                  <span className="text-cyan-400 font-mono tracking-[0.2em] uppercase text-lg font-bold">Primary Stack</span>
+                  <div className="h-px bg-gradient-to-l from-transparent to-cyan-500 w-24" />
                 </div>
-                <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-6">
+                
+                <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto">
                   {[
-                    { label: 'React.js', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg' },
-                    { label: 'JavaScript', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg' },
-                    { label: 'HTML5', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg' },
-                    { label: 'CSS3', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg' },
-                    { label: 'Tailwind CSS', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original.svg' },
-                    { label: 'Bootstrap', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bootstrap/bootstrap-original.svg' }
+                    { label: 'React.js', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg', desc: 'Frontend' },
+                    { label: 'Node.js', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg', desc: 'Backend' },
+                    { label: 'MongoDB', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg', desc: 'Database' },
+                    { label: 'REST APIs', icon: Server, isLucide: true, desc: 'Architecture' }
                   ].map((item, i) => (
-                    <div key={i} className="group relative bg-zinc-900/50 hover:bg-zinc-900 rounded-xl p-6 flex flex-col items-center justify-center gap-4 border border-zinc-800 hover:border-cyan-500/50 transition-all duration-300 hover:-translate-y-1">
-                      <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/5 to-transparent opacity-0 group-hover:opacity-100 rounded-xl transition-opacity" />
-                      <img src={item.icon} alt={item.label} className="w-12 h-12 object-contain transition-all duration-300 group-hover:scale-110" />
-                      <span className="font-mono text-sm text-slate-400 group-hover:text-cyan-400 transition-colors">{item.label}</span>
+                    <div key={i} className="group relative bg-zinc-900 rounded-2xl p-8 flex flex-col items-center justify-center gap-4 border border-cyan-500/30 shadow-[0_0_20px_rgba(6,182,212,0.15)] hover:shadow-[0_0_30px_rgba(6,182,212,0.25)] hover:-translate-y-2 transition-all duration-300">
+                      <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/10 to-transparent rounded-2xl opacity-50" />
+                      {item.isLucide ? (
+                        <item.icon className="w-16 h-16 text-cyan-400 drop-shadow-[0_0_10px_rgba(34,211,238,0.5)]" />
+                      ) : (
+                        <img src={item.icon} alt={item.label} className="w-16 h-16 object-contain drop-shadow-[0_0_10px_rgba(255,255,255,0.2)]" />
+                      )}
+                      <div className="text-center relative z-10">
+                        <span className="font-display text-xl font-bold text-white block mb-1">{item.label}</span>
+                        <span className="font-mono text-xs text-cyan-400 tracking-wider uppercase">{item.desc}</span>
+                      </div>
                     </div>
                   ))}
                 </div>
               </motion.div>
 
-              {/* Backend */}
+              {/* Familiar With - Grid Layout */}
               <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }}>
-                <div className="flex items-center gap-4 mb-8">
+                <div className="flex items-center gap-4 mb-12">
                   <div className="h-px bg-gradient-to-r from-transparent to-slate-800 flex-1" />
-                  <span className="text-purple-400 font-mono tracking-[0.2em] uppercase text-sm font-bold">Backend Development</span>
+                  <span className="text-slate-500 font-mono tracking-[0.2em] uppercase text-sm font-bold">Familiar With</span>
                   <div className="h-px bg-gradient-to-l from-transparent to-slate-800 flex-1" />
                 </div>
-                <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-6">
-                  {[
-                    { label: 'Node.js', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg' },
-                    { label: 'Express.js', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original.svg' },
-                    { label: 'Java', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg' }
-                  ].map((item, i) => (
-                    <div key={i} className="group relative bg-zinc-900/50 hover:bg-zinc-900 rounded-xl p-6 flex flex-col items-center justify-center gap-4 border border-zinc-800 hover:border-purple-500/50 transition-all duration-300 hover:-translate-y-1">
-                      <div className="absolute inset-0 bg-gradient-to-br from-purple-500/5 to-transparent opacity-0 group-hover:opacity-100 rounded-xl transition-opacity" />
-                      <img src={item.icon} alt={item.label} className="w-12 h-12 object-contain transition-all duration-300 group-hover:scale-110" />
-                      <span className="font-mono text-sm text-slate-400 group-hover:text-purple-400 transition-colors">{item.label}</span>
-                    </div>
-                  ))}
-                </div>
-              </motion.div>
 
-              {/* Database */}
-              <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }}>
-                <div className="flex items-center gap-4 mb-8">
-                  <div className="h-px bg-gradient-to-r from-transparent to-slate-800 flex-1" />
-                  <span className="text-emerald-400 font-mono tracking-[0.2em] uppercase text-sm font-bold">Database</span>
-                  <div className="h-px bg-gradient-to-l from-transparent to-slate-800 flex-1" />
-                </div>
-                <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-6">
-                  {[
-                    { label: 'MongoDB', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg' },
-                    { label: 'MySQL', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg' }
-                  ].map((item, i) => (
-                    <div key={i} className="group relative bg-zinc-900/50 hover:bg-zinc-900 rounded-xl p-6 flex flex-col items-center justify-center gap-4 border border-zinc-800 hover:border-emerald-500/50 transition-all duration-300 hover:-translate-y-1">
-                      <div className="absolute inset-0 bg-gradient-to-br from-emerald-500/5 to-transparent opacity-0 group-hover:opacity-100 rounded-xl transition-opacity" />
-                      <img src={item.icon} alt={item.label} className="w-12 h-12 object-contain transition-all duration-300 group-hover:scale-110" />
-                      <span className="font-mono text-sm text-slate-400 group-hover:text-emerald-400 transition-colors">{item.label}</span>
+                <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                  {/* Frontend Group */}
+                  <div className="space-y-4">
+                    <h4 className="font-display text-lg font-bold text-slate-300 text-center mb-4">Frontend</h4>
+                    <div className="grid grid-cols-2 gap-3">
+                      {[
+                        { label: 'JavaScript', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg' },
+                        { label: 'HTML5', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg' },
+                        { label: 'CSS3', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg' },
+                        { label: 'Tailwind', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original.svg' },
+                        { label: 'Bootstrap', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bootstrap/bootstrap-original.svg' }
+                      ].map((item, i) => (
+                        <div key={i} className="bg-zinc-900/30 border border-white/5 rounded-lg p-3 flex flex-col items-center gap-2 hover:bg-zinc-800/50 transition-colors">
+                          <img src={item.icon} alt={item.label} className="w-8 h-8 object-contain" />
+                          <span className="text-xs text-slate-400 font-mono">{item.label}</span>
+                        </div>
+                      ))}
                     </div>
-                  ))}
-                </div>
-              </motion.div>
+                  </div>
 
-              {/* Tools & DevOps */}
-              <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }}>
-                <div className="flex items-center gap-4 mb-8">
-                  <div className="h-px bg-gradient-to-r from-transparent to-slate-800 flex-1" />
-                  <span className="text-orange-400 font-mono tracking-[0.2em] uppercase text-sm font-bold">Tools & DevOps</span>
-                  <div className="h-px bg-gradient-to-l from-transparent to-slate-800 flex-1" />
-                </div>
-                <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-6">
-                  {[
-                    { label: 'Git', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg' },
-                    { label: 'AWS', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-plain-wordmark.svg' },
-                    { label: 'Postman', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postman/postman-original.svg' },
-                    { label: 'VS Code', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg' },
-                    { label: 'npm', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/npm/npm-original-wordmark.svg' }
-                  ].map((item, i) => (
-                    <div key={i} className="group relative bg-zinc-900/50 hover:bg-zinc-900 rounded-xl p-6 flex flex-col items-center justify-center gap-4 border border-zinc-800 hover:border-orange-500/50 transition-all duration-300 hover:-translate-y-1">
-                      <div className="absolute inset-0 bg-gradient-to-br from-orange-500/5 to-transparent opacity-0 group-hover:opacity-100 rounded-xl transition-opacity" />
-                      <img src={item.icon} alt={item.label} className="w-12 h-12 object-contain transition-all duration-300 group-hover:scale-110" />
-                      <span className="font-mono text-sm text-slate-400 group-hover:text-orange-400 transition-colors">{item.label}</span>
+                  {/* Backend Group */}
+                  <div className="space-y-4">
+                    <h4 className="font-display text-lg font-bold text-slate-300 text-center mb-4">Backend</h4>
+                    <div className="grid grid-cols-2 gap-3">
+                      {[
+                        { label: 'Express.js', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original.svg' },
+                        { label: 'Java', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg' }
+                      ].map((item, i) => (
+                        <div key={i} className="bg-zinc-900/30 border border-white/5 rounded-lg p-3 flex flex-col items-center gap-2 hover:bg-zinc-800/50 transition-colors">
+                          <img src={item.icon} alt={item.label} className="w-8 h-8 object-contain" />
+                          <span className="text-xs text-slate-400 font-mono">{item.label}</span>
+                        </div>
+                      ))}
                     </div>
-                  ))}
-                </div>
-              </motion.div>
+                  </div>
 
-              {/* Core Competencies */}
-              <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }}>
-                <div className="flex items-center gap-4 mb-8">
-                  <div className="h-px bg-gradient-to-r from-transparent to-slate-800 flex-1" />
-                  <span className="text-pink-400 font-mono tracking-[0.2em] uppercase text-sm font-bold">Core Concepts</span>
-                  <div className="h-px bg-gradient-to-l from-transparent to-slate-800 flex-1" />
-                </div>
-                <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-6">
-                  {[
-                    { label: 'DSA', icon: Workflow },
-                    { label: 'OOPS', icon: Shapes },
-                    { label: 'REST APIs', icon: Server },
-                    { label: 'Full Stack', icon: Code2 },
-                    { label: 'Microservices', icon: Boxes }
-                  ].map((item, i) => (
-                    <div key={i} className="group relative bg-zinc-900/50 hover:bg-zinc-900 rounded-xl p-6 flex flex-col items-center justify-center gap-4 border border-zinc-800 hover:border-pink-500/50 transition-all duration-300 hover:-translate-y-1">
-                      <div className="absolute inset-0 bg-gradient-to-br from-pink-500/5 to-transparent opacity-0 group-hover:opacity-100 rounded-xl transition-opacity" />
-                      <item.icon className="w-10 h-10 text-pink-400 transition-colors duration-300" />
-                      <span className="font-mono text-sm text-slate-400 group-hover:text-pink-400 transition-colors text-center">{item.label}</span>
+                  {/* Tools & Database */}
+                  <div className="space-y-4">
+                    <h4 className="font-display text-lg font-bold text-slate-300 text-center mb-4">Tools & DB</h4>
+                    <div className="grid grid-cols-2 gap-3">
+                      {[
+                        { label: 'MySQL', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg' },
+                        { label: 'Git', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg' },
+                        { label: 'AWS', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-plain-wordmark.svg' },
+                        { label: 'Postman', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postman/postman-original.svg' }
+                      ].map((item, i) => (
+                        <div key={i} className="bg-zinc-900/30 border border-white/5 rounded-lg p-3 flex flex-col items-center gap-2 hover:bg-zinc-800/50 transition-colors">
+                          <img src={item.icon} alt={item.label} className="w-8 h-8 object-contain" />
+                          <span className="text-xs text-slate-400 font-mono">{item.label}</span>
+                        </div>
+                      ))}
                     </div>
-                  ))}
+                  </div>
+
+                  {/* Core Concepts */}
+                  <div className="space-y-4">
+                    <h4 className="font-display text-lg font-bold text-slate-300 text-center mb-4">Concepts</h4>
+                    <div className="grid grid-cols-2 gap-3">
+                      {[
+                        { label: 'DSA', icon: Workflow },
+                        { label: 'OOPS', icon: Shapes },
+                        { label: 'Full Stack', icon: Code2 },
+                        { label: 'Microservices', icon: Boxes }
+                      ].map((item, i) => (
+                        <div key={i} className="bg-zinc-900/30 border border-white/5 rounded-lg p-3 flex flex-col items-center gap-2 hover:bg-zinc-800/50 transition-colors">
+                          <item.icon className="w-8 h-8 text-pink-400" />
+                          <span className="text-xs text-slate-400 font-mono text-center">{item.label}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
                 </div>
               </motion.div>
             </div>

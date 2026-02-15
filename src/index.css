@@ -27,11 +27,11 @@ body {
 /* Utilities */
 @layer utilities {
   .text-glow {
-    text-shadow: 0 0 10px rgba(0, 243, 255, 0.5), 0 0 20px rgba(0, 243, 255, 0.3);
+    text-shadow: 0 0 10px rgba(0, 243, 255, 0.42), 0 0 20px rgba(0, 243, 255, 0.25);
   }
   
   .box-glow {
-    box-shadow: 0 0 20px rgba(0, 243, 255, 0.1);
+    box-shadow: 0 0 20px rgba(0, 243, 255, 0.08);
   }
 
   .clip-path-polygon-1 {

@@ -28,7 +28,7 @@ const EngineeringProcess = () => {
         >
           <Brain className="w-12 h-12 text-cyan-400" />
           <span className="text-white">ENGINEERING</span>
-          <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-purple-500">APPROACH</span>
+          <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-purple-500">WORKFLOW</span>
         </motion.h3>
 
         {/* Workflow Diagram */}
@@ -127,6 +127,9 @@ const EngineeringProcess = () => {
               <div className="p-4 bg-black/40 rounded-lg border border-white/5">
                 <p className="text-green-400 mb-2">// 3. Implementation</p>
                 <p className="text-slate-400">MVP first. Clean, modular code.</p>
+              </div>
+              <div className="pt-2 border-t border-white/5">
+                 <p className="text-xs text-slate-500 italic">Applied this workflow while building Thread Sense and Smart Campus Automation systems.</p>
               </div>
             </div>
           </motion.div>
