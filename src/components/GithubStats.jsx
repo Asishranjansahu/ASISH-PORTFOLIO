@@ -1,5 +1,6 @@
 import React from 'react';
-import GitHubCalendar from 'react-github-calendar';
+import { GitHubCalendar } from 'react-github-calendar';
+
 import { motion } from 'framer-motion';
 import { Github, Star, GitCommit, GitPullRequest, ExternalLink } from 'lucide-react';
 
