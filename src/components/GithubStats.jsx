@@ -1,7 +1,7 @@
 import React from 'react';
-import { GitHubCalendar } from 'react-github-calendar';
+import GitHubCalendar from 'react-github-calendar';
 import { motion } from 'framer-motion';
-import { Github, Star, GitCommit, GitPullRequest } from 'lucide-react';
+import { Github, Star, GitCommit, GitPullRequest, ExternalLink } from 'lucide-react';
 
 const GithubStats = () => {
   return (
@@ -18,9 +18,19 @@ const GithubStats = () => {
               Code Activity
             </span>
           </h3>
-          <p className="text-slate-400 font-mono max-w-2xl mx-auto">
+          <p className="text-slate-400 font-mono max-w-2xl mx-auto mb-8">
             My contributions to the open-source world. Consistent shipping is my love language.
           </p>
+          
+          <a 
+            href="https://github.com/Asishranjansahu" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 px-6 py-3 bg-white/5 border border-white/10 rounded-full text-white font-bold hover:bg-white/10 hover:border-white/20 transition-all group"
+          >
+            View GitHub Activity
+            <ExternalLink className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+          </a>
         </motion.div>
 
         {/* Stats Grid */}

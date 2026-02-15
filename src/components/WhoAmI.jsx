@@ -80,6 +80,24 @@ const WhoAmI = () => {
                         </ul>
                     </div>
 
+                    <div className="pl-4 border-l-2 border-purple-500/20">
+                        <h3 className="text-white font-bold mb-2 flex items-center gap-2">
+                            <span className="w-2 h-2 rounded-full bg-purple-500 animate-pulse"></span>
+                            Learning Roadmap:
+                        </h3>
+                        <ul className="list-none text-slate-400 space-y-2 text-sm font-mono">
+                            <li className="flex items-center gap-2">
+                                <span className="text-purple-500">→</span> System Design
+                            </li>
+                            <li className="flex items-center gap-2">
+                                <span className="text-purple-500">→</span> Distributed Systems Basics
+                            </li>
+                            <li className="flex items-center gap-2">
+                                <span className="text-purple-500">→</span> Advanced React Performance
+                            </li>
+                        </ul>
+                    </div>
+
                     <p className="text-lg text-green-400 font-medium pl-4 border-l-2 border-green-500/20 animate-pulse">
                         Open to internships and engineering roles.
                     </p>

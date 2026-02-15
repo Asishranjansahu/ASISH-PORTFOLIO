@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Brain, Bug, GitMerge, Rocket, Search, Code, CheckCircle, PenTool, Layout, Terminal } from 'lucide-react';
+import { Brain, Bug, GitMerge, Rocket, Search, Code, CheckCircle, PenTool, Layout, Terminal, Globe, Database, Zap } from 'lucide-react';
 
 const EngineeringProcess = () => {
   const workflowSteps = [
@@ -74,6 +74,46 @@ const EngineeringProcess = () => {
             ))}
           </motion.div>
         </div>
+
+        {/* System Design Flow - NEW */}
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          className="mb-24 bg-zinc-900/30 border border-white/5 rounded-3xl p-8 md:p-12 relative overflow-hidden"
+        >
+          <div className="absolute inset-0 bg-grid-white opacity-[0.02] [mask-image:linear-gradient(0deg,white,rgba(255,255,255,0.6))] pointer-events-none" />
+          
+          <div className="text-center mb-12">
+            <h4 className="font-display text-2xl font-bold text-white mb-3">System Architecture Thinking</h4>
+            <p className="text-slate-400 font-mono text-sm">How I structure scalable applications</p>
+          </div>
+
+          <div className="flex flex-wrap justify-center items-center gap-4 md:gap-6 relative z-10">
+            {[
+              { label: "Client", icon: Layout, color: "text-blue-400" },
+              { label: "API Gateway", icon: Globe, color: "text-purple-400" },
+              { label: "Auth", icon: CheckCircle, color: "text-green-400" },
+              { label: "Database", icon: Database, color: "text-yellow-400" },
+              { label: "Cache", icon: Zap, color: "text-red-400" },
+              { label: "Deployment", icon: Rocket, color: "text-cyan-400" }
+            ].map((node, i, arr) => (
+              <React.Fragment key={i}>
+                <div className="flex flex-col items-center gap-3">
+                  <div className="w-16 h-16 rounded-xl bg-black/50 border border-white/10 flex items-center justify-center shadow-lg hover:border-cyan-500/50 transition-colors">
+                    <node.icon className={`w-6 h-6 ${node.color}`} />
+                  </div>
+                  <span className="font-mono text-xs font-bold text-slate-400">{node.label}</span>
+                </div>
+                {i < arr.length - 1 && (
+                  <div className="text-slate-600">
+                    <span className="hidden md:block">→</span>
+                    <span className="block md:hidden">↓</span>
+                  </div>
+                )}
+              </React.Fragment>
+            ))}
+          </div>
+        </motion.div>
 
         <div className="grid md:grid-cols-2 gap-12">
           {/* Bug Hunter Protocol */}
