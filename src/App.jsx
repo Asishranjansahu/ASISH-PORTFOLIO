@@ -528,7 +528,7 @@ function App() {
                 <div className="relative border-l-2 border-cyan-500/30 ml-3 md:ml-6 space-y-12 pl-8 md:pl-12 py-4">
                   {[
                     { title: "NIST University", degree: "M.Tech in CSE — Focus: Distributed Systems & Web Engineering", year: "Pursuing", color: "cyan", bgClass: "bg-cyan-500/10", textClass: "text-cyan-400", borderClass: "border-cyan-500/20" },
-                    { title: "VIGNAN INSTIT", degree: "B.Tech in CSE", year: "2021-2025", color: "purple", bgClass: "bg-purple-500/10", textClass: "text-purple-400", borderClass: "border-purple-500/20" }
+                    { title: "VIGNAN INSTITUTE OF TECHNOLOGY AND MANAGEMENT", degree: "B.Tech in CSE", year: "2021-2025", color: "purple", bgClass: "bg-purple-500/10", textClass: "text-purple-400", borderClass: "border-purple-500/20" }
                   ].map((item, i) => (
                     <motion.div 
                       key={i}
