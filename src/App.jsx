@@ -929,11 +929,22 @@ function App() {
 
                 {/* Content Section */}
                 <div className="p-6 flex-1 flex flex-col relative">
-                  <div className="flex items-center gap-2 mb-3">
-                    <span className={`w-1.5 h-1.5 rounded-full animate-pulse ${getColorClass(project.color, 'bg')}`} />
-                    <span className={`text-xs font-mono font-bold uppercase tracking-wider ${getColorClass(project.color, 'text')}`}>
-                      {project.tech}
-                    </span>
+                  <div className="flex items-center justify-between mb-3">
+                    <div className="flex items-center gap-2">
+                      <span className={`w-1.5 h-1.5 rounded-full animate-pulse ${getColorClass(project.color, 'bg')}`} />
+                      <span className={`text-xs font-mono font-bold uppercase tracking-wider ${getColorClass(project.color, 'text')}`}>
+                        {project.tech}
+                      </span>
+                    </div>
+                    {project.difficulty && (
+                      <span className={`text-[10px] font-bold px-2 py-0.5 rounded-full border ${
+                        project.difficulty === 'Advanced' ? 'text-red-400 border-red-500/30 bg-red-500/10' :
+                        project.difficulty === 'Intermediate' ? 'text-yellow-400 border-yellow-500/30 bg-yellow-500/10' :
+                        'text-green-400 border-green-500/30 bg-green-500/10'
+                      }`}>
+                        {project.difficulty}
+                      </span>
+                    )}
                   </div>
 
                   <a href={project.live} target="_blank" rel="noopener noreferrer" className="block group/title">
