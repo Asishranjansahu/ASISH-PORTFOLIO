@@ -23,7 +23,7 @@ const PROJECTS = [
     desc: "A smart daily study planner designed to organize learning schedules, track academic progress, and boost productivity.",
     color: "emerald",
     image: "https://placehold.co/1200x800/0f172a/ffffff?text=Mindscape",
-    live: "https://daily-study-planner-wine.vercel.app",
+    live: "https://daily-study-planner-wine.vercel.app/",
     github: "https://github.com/Asishranjansahu/Daily-Study-Planner"
   },
   {
@@ -605,17 +605,13 @@ function App() {
             transition={{ delay: (i % PROJECTS.length) * 0.1 }}
             className={`group relative flex-none w-[290px] bg-zinc-900/50 backdrop-blur-sm border rounded-xl overflow-hidden flex flex-col transition-all duration-300 hover:-translate-y-1 hover:shadow-xl ${getColorClass(project.color, 'border')} ${getColorClass(project.color, 'hoverBorder')} ${getColorClass(project.color, 'hoverShadow')}`}
           >
-            {/* Primary Link Overlay */}
+            {/* Image Section */}
             <a 
               href={project.live}
               target="_blank" 
               rel="noopener noreferrer"
-              className="absolute inset-0 z-10"
-              aria-label={`View ${project.title}`}
-            />
-
-            {/* Image Section */}
-            <div className="block h-32 relative overflow-hidden group-hover:h-36 transition-all duration-500 pointer-events-none">
+              className="block h-32 relative overflow-hidden group-hover:h-36 transition-all duration-500 cursor-pointer"
+            >
               <img 
                 src={project.image} 
                 alt={project.title}
@@ -626,7 +622,7 @@ function App() {
                 }}
                 className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-zinc-900 to-transparent opacity-80" />
+              <div className="absolute inset-0 bg-gradient-to-t from-zinc-900 to-transparent opacity-80 pointer-events-none" />
               
               {/* Floating Logo Badge */}
               <div className="absolute top-3 right-3 w-10 h-10 rounded-full bg-black/60 backdrop-blur-md border border-white/10 flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300">
@@ -636,10 +632,10 @@ function App() {
                   className="w-6 h-6 object-contain"
                 />
               </div>
-            </div>
+            </a>
 
             {/* Content Section */}
-            <div className="p-5 flex-1 flex flex-col relative pointer-events-none">
+            <div className="p-5 flex-1 flex flex-col relative">
               <div className="flex items-center gap-2 mb-2">
                 <span className={`w-1.5 h-1.5 rounded-full animate-pulse ${getColorClass(project.color, 'bg')}`} />
                 <span className={`text-[10px] font-mono font-bold uppercase tracking-wider ${getColorClass(project.color, 'text')}`}>
@@ -647,18 +643,18 @@ function App() {
                 </span>
               </div>
 
-              <div className="block group/title">
+              <a href={project.live} target="_blank" rel="noopener noreferrer" className="block group/title">
                 <h4 className={`font-display text-lg font-bold text-white mb-2 leading-tight transition-colors ${getColorClass(project.color, 'hoverText')}`}>
                   {project.title}
                 </h4>
-              </div>
+              </a>
               
               <p className="text-slate-400 text-xs leading-relaxed line-clamp-3 mb-4 flex-1">
                 {project.desc}
               </p>
 
               {/* Action Links */}
-              <div className="flex items-center justify-between pt-4 border-t border-white/5 mt-auto relative z-20 pointer-events-auto">
+              <div className="flex items-center justify-between pt-4 border-t border-white/5 mt-auto">
                 <a 
                   href={project.github}
                   target="_blank"
