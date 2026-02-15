@@ -15,7 +15,6 @@ import HireMe from './components/HireMe';
 import Background3D from './components/Background3D';
 import WhoAmI from './components/WhoAmI';
 import StatsCard from './components/StatsCard';
-import Testimonials from './components/Testimonials';
 import CustomCursor from './components/CustomCursor';
 
 const FEATURED_PROJECTS = [
@@ -1162,8 +1161,6 @@ function App() {
           </div>
         </section>
 
-        {/* Testimonials Section */}
-        <Testimonials />
 
         {/* Skills Section */}
         <section id="skills" className="py-24 bg-[#0f1012] relative overflow-hidden">
