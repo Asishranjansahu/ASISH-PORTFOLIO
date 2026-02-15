@@ -23,8 +23,8 @@ const PROJECTS = [
     desc: "A smart daily study planner designed to organize learning schedules, track academic progress, and boost productivity.",
     color: "emerald",
     image: "https://placehold.co/1200x800/0f172a/ffffff?text=Mind+Scape",
-    live: "https://daily-study-planner-wine.vercel.app/",
-    github: "https://github.com/Asishranjansahu/daily-study-planner"
+    live: "https://daily-study-planner-wine.vercel.app",
+    github: "https://github.com/Asishranjansahu/Daily-Study-Planner.git"
   },
   {
     title: "Smart Campus",
