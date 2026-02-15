@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useRef } from 'react';
-import { Github, Linkedin, Mail, ExternalLink, Code2, Cpu, GraduationCap, Briefcase, Award, Cloud, Database, Cog, CircuitBoard, Image, Server, Globe, GitPullRequest, Shapes, HardDrive, Boxes, Workflow, Lightbulb, Users, RefreshCw, MessageCircle, MapPin, Send, User, FileText, FolderGit2, Terminal, X } from 'lucide-react';
+import { Github, Activity, Linkedin, Mail, ExternalLink, Code2, Cpu, GraduationCap, Briefcase, Award, Cloud, Database, Cog, CircuitBoard, Image, Server, Globe, GitPullRequest, Shapes, HardDrive, Boxes, Workflow, Lightbulb, Users, RefreshCw, MessageCircle, MapPin, Send, User, FileText, FolderGit2, Terminal, X } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import GlitchText from './components/GlitchText';
 import TypewriterText from './components/TypewriterText';
@@ -19,22 +19,13 @@ const FEATURED_PROJECTS = [
   {
     title: "Thread Sense",
     tech: "NLP • React • Firebase",
-    desc: "AI discussion analysis platform (NLP + Semantic Search) that intelligently clusters and summarizes community conversations.",
+    desc: "AI-powered platform that analyzes discussion threads using semantic search and NLP to generate intelligent summaries and insights.",
     color: "emerald",
     image: "/projects/thread-sense.svg",
     live: "https://thread-sense.vercel.app",
     github: "https://github.com/Asishranjansahu/thread-sense",
-    badge: "AI Project"
-  },
-  {
-    title: "Smart Campus",
-    tech: "IoT • Flutter • Firebase",
-    desc: "IoT-driven campus automation (Flutter + Firebase) that eliminates manual tracking via real-time sensor networks.",
-    color: "cyan",
-    image: "https://placehold.co/1200x800/0f172a/ffffff?text=Smart+Campus",
-    live: "https://smart-campus-automation-system.vercel.app/",
-    github: "https://github.com/Asishranjansahu/smart-campus",
-    badge: "Production Ready"
+    badge: "AI Project",
+    metric: "Processed multi-thread discussions with AI-based semantic clustering."
   },
   {
     title: "Stock Trading Platform",
@@ -45,6 +36,16 @@ const FEATURED_PROJECTS = [
     live: "https://zerodha-clone-demo.vercel.app",
     github: "https://github.com/Asishranjansahu/zerodha-clone",
     badge: "Featured"
+  },
+  {
+    title: "Smart Campus",
+    tech: "IoT • Flutter • Firebase",
+    desc: "IoT-driven campus automation (Flutter + Firebase) that eliminates manual tracking via real-time sensor networks.",
+    color: "cyan",
+    image: "https://placehold.co/1200x800/0f172a/ffffff?text=Smart+Campus",
+    live: "https://smart-campus-automation-system.vercel.app/",
+    github: "https://github.com/Asishranjansahu/smart-campus",
+    badge: "Production Ready"
   }
 ];
 
@@ -645,70 +646,83 @@ function App() {
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ delay: i * 0.1 }}
-                  className={`group relative bg-zinc-900/50 backdrop-blur-sm border rounded-xl overflow-hidden flex flex-col transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl ${getColorClass(project.color, 'border')} ${getColorClass(project.color, 'hoverBorder')} ${getColorClass(project.color, 'hoverShadow')}`}
+                  className={`group relative bg-zinc-900/50 backdrop-blur-sm border rounded-xl overflow-hidden flex flex-col transition-all duration-300 hover:scale-[1.02] hover:shadow-2xl ${getColorClass(project.color, 'border')} ${getColorClass(project.color, 'hoverBorder')} ${getColorClass(project.color, 'hoverShadow')}`}
+              >
+                {/* Badge */}
+                {project.badge && (
+                  <div className="absolute top-0 right-0 z-20">
+                    <div className={`px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-white ${
+                      project.badge === 'AI Project' ? 'bg-emerald-500' :
+                      project.badge === 'Production Ready' ? 'bg-cyan-500' :
+                      'bg-indigo-500'
+                    } rounded-bl-xl shadow-lg`}>
+                      {project.badge}
+                    </div>
+                  </div>
+                )}
+
+                {/* Image Section */}
+                <a 
+                  href={project.live}
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="block h-52 relative overflow-hidden group-hover:h-56 transition-all duration-500 cursor-pointer"
                 >
-                  {/* Badge */}
-                  {project.badge && (
-                    <div className="absolute top-0 right-0 z-20">
-                      <div className={`px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-white ${
-                        project.badge === 'AI Project' ? 'bg-emerald-500' :
-                        project.badge === 'Production Ready' ? 'bg-cyan-500' :
-                        'bg-indigo-500'
-                      } rounded-bl-xl shadow-lg`}>
-                        {project.badge}
+                  <img 
+                    src={project.image} 
+                    alt={project.title}
+                    loading="lazy" 
+                    onError={(e) => {
+                      e.currentTarget.onerror = null;
+                      e.currentTarget.src = "https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=2070&auto=format&fit=crop";
+                    }}
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-zinc-900 via-transparent to-transparent opacity-90 pointer-events-none" />
+                  
+                  {/* Tech Logo */}
+                  <div className="absolute bottom-4 left-4 w-12 h-12 rounded-xl bg-black/60 backdrop-blur-md border border-white/10 flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300">
+                    <img 
+                      src={getTechIcon(project.tech.split('•')[0])} 
+                      alt="Tech Logo" 
+                      className="w-7 h-7 object-contain"
+                    />
+                  </div>
+                </a>
+
+                {/* Content Section */}
+                <div className="p-6 flex-1 flex flex-col relative">
+                  <div className="flex items-center gap-2 mb-3">
+                    <span className={`w-1.5 h-1.5 rounded-full animate-pulse ${getColorClass(project.color, 'bg')}`} />
+                    <span className={`text-xs font-mono font-bold uppercase tracking-wider ${getColorClass(project.color, 'text')}`}>
+                      {project.tech}
+                    </span>
+                  </div>
+
+                  <a href={project.live} target="_blank" rel="noopener noreferrer" className="block group/title">
+                    <h4 className={`font-display text-xl font-bold text-white mb-3 leading-tight transition-colors ${getColorClass(project.color, 'hoverText')}`}>
+                      {project.title}
+                    </h4>
+                  </a>
+                  
+                  <p className="text-slate-400 text-sm leading-relaxed mb-6 flex-1">
+                    {project.desc}
+                  </p>
+
+                  {/* Impact Metric */}
+                  {project.metric && (
+                    <div className="mb-6 px-4 py-3 bg-zinc-900/50 border border-emerald-500/20 rounded-lg backdrop-blur-sm relative overflow-hidden group-hover:border-emerald-500/40 transition-colors">
+                      <div className="absolute inset-0 bg-emerald-500/5 animate-pulse" />
+                      <div className="relative flex items-center gap-3">
+                        <Activity className="w-4 h-4 text-emerald-400 flex-shrink-0" />
+                        <p className="text-xs font-bold text-emerald-100/90 leading-relaxed">
+                          {project.metric}
+                        </p>
                       </div>
                     </div>
                   )}
 
-                  {/* Image Section */}
-                  <a 
-                    href={project.live}
-                    target="_blank" 
-                    rel="noopener noreferrer"
-                    className="block h-48 relative overflow-hidden group-hover:h-52 transition-all duration-500 cursor-pointer"
-                  >
-                    <img 
-                      src={project.image} 
-                      alt={project.title}
-                      loading="lazy" 
-                      onError={(e) => {
-                        e.currentTarget.onerror = null;
-                        e.currentTarget.src = "https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=2070&auto=format&fit=crop";
-                      }}
-                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-zinc-900 via-transparent to-transparent opacity-90 pointer-events-none" />
-                    
-                    {/* Tech Logo */}
-                    <div className="absolute bottom-4 left-4 w-12 h-12 rounded-xl bg-black/60 backdrop-blur-md border border-white/10 flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300">
-                      <img 
-                        src={getTechIcon(project.tech.split('•')[0])} 
-                        alt="Tech Logo" 
-                        className="w-7 h-7 object-contain"
-                      />
-                    </div>
-                  </a>
-
-                  {/* Content Section */}
-                  <div className="p-6 flex-1 flex flex-col relative">
-                    <div className="flex items-center gap-2 mb-3">
-                      <span className={`w-1.5 h-1.5 rounded-full animate-pulse ${getColorClass(project.color, 'bg')}`} />
-                      <span className={`text-xs font-mono font-bold uppercase tracking-wider ${getColorClass(project.color, 'text')}`}>
-                        {project.tech}
-                      </span>
-                    </div>
-
-                    <a href={project.live} target="_blank" rel="noopener noreferrer" className="block group/title">
-                      <h4 className={`font-display text-xl font-bold text-white mb-3 leading-tight transition-colors ${getColorClass(project.color, 'hoverText')}`}>
-                        {project.title}
-                      </h4>
-                    </a>
-                    
-                    <p className="text-slate-400 text-sm leading-relaxed mb-6 flex-1">
-                      {project.desc}
-                    </p>
-
-                    {/* Action Links */}
+                  {/* Action Links */}
                     <div className="flex items-center justify-between pt-4 border-t border-white/5 mt-auto">
                       <a 
                         href={project.github}
