@@ -527,8 +527,8 @@ function App() {
                 
                 <div className="relative border-l-2 border-cyan-500/30 ml-3 md:ml-6 space-y-12 pl-8 md:pl-12 py-4">
                   {[
-                    { title: "NIST University", degree: "M.Tech in CSE", year: "Pursuing", color: "cyan", bgClass: "bg-cyan-500/10", textClass: "text-cyan-400", borderClass: "border-cyan-500/20" },
-                    { title: "VITAM", degree: "B.Tech in CSE", year: "2021-2025", color: "purple", bgClass: "bg-purple-500/10", textClass: "text-purple-400", borderClass: "border-purple-500/20" }
+                    { title: "NIST University", degree: "M.Tech in CSE — Focus: Distributed Systems & Web Engineering", year: "Pursuing", color: "cyan", bgClass: "bg-cyan-500/10", textClass: "text-cyan-400", borderClass: "border-cyan-500/20" },
+                    { title: "VIGNAN INSTIT", degree: "B.Tech in CSE", year: "2021-2025", color: "purple", bgClass: "bg-purple-500/10", textClass: "text-purple-400", borderClass: "border-purple-500/20" }
                   ].map((item, i) => (
                     <motion.div 
                       key={i}
@@ -583,14 +583,20 @@ function App() {
 
                     {/* Content Card */}
                     <div className="holo-card p-8 relative overflow-visible group hover:-translate-y-1 transition-transform duration-300">
-                      <div className="flex justify-between items-start mb-6">
-                        <div>
-                          <h4 className="font-display text-2xl font-bold text-white">Web Developer <span className="text-slate-400 text-lg font-normal">— Built and deployed full-stack apps used by 500+ users</span></h4>
-                          <p className="text-purple-400 font-mono text-sm mt-1">Innovixion Tech</p>
+                      <div className="mb-6">
+                        <h4 className="font-display text-2xl font-bold text-white mb-2">Full Stack Web Developer <span className="text-slate-400 text-lg font-normal">— Built and deployed full-stack apps used by 500+ users</span></h4>
+                        <div className="space-y-2">
+                            <div className="flex items-center gap-3 font-mono text-sm">
+                                <span className="text-purple-400 font-bold">Innovixion Tech</span>
+                                <span className="text-slate-600">|</span>
+                                <span className="text-slate-400">Nov - Dec 2023</span>
+                            </div>
+                            <p className="text-cyan-400/90 font-mono text-xs tracking-wide">
+                                React.js • Node.js • MongoDB • REST APIs • Vercel
+                            </p>
                         </div>
-                        <span className="text-xs font-mono text-slate-500">Nov - Dec 2023</span>
                       </div>
-                      <div className="text-slate-400 leading-relaxed border-l-2 border-white/10 pl-4 space-y-2">
+                      <div className="text-slate-400 leading-relaxed border-l-2 border-white/10 pl-4 space-y-2 max-w-2xl">
                         <div className="flex items-start gap-2">
                           <span className="text-purple-400 mt-1.5">▹</span>
                           <p>Engineered responsive dashboards using <span className="text-white">React.js & Node.js</span>, reducing manual data entry by 40%.</p>
