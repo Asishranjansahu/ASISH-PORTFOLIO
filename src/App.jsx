@@ -15,15 +15,16 @@ import HireMe from './components/HireMe';
 import Background3D from './components/Background3D';
 import WhoAmI from './components/WhoAmI';
 
-const PROJECTS = [
+const FEATURED_PROJECTS = [
   {
-    title: "Mindscape",
-    tech: "React • Node.js • MongoDB",
-    desc: "Smart study planner (React + Node.js) that optimizes learning schedules to boost academic productivity. (Live Demo Available)",
+    title: "Thread Sense",
+    tech: "NLP • React • Firebase",
+    desc: "AI discussion analysis platform (NLP + Semantic Search) that intelligently clusters and summarizes community conversations.",
     color: "emerald",
-    image: "https://placehold.co/1200x800/0f172a/ffffff?text=Mindscape",
-    live: "https://daily-study-planner-wine.vercel.app/",
-    github: "https://github.com/Asishranjansahu/Daily-Study-Planner.git"
+    image: "/projects/thread-sense.svg",
+    live: "https://thread-sense.vercel.app",
+    github: "https://github.com/Asishranjansahu/thread-sense",
+    badge: "AI Project"
   },
   {
     title: "Smart Campus",
@@ -32,8 +33,22 @@ const PROJECTS = [
     color: "cyan",
     image: "https://placehold.co/1200x800/0f172a/ffffff?text=Smart+Campus",
     live: "https://smart-campus-automation-system.vercel.app/",
-    github: "https://github.com/Asishranjansahu/smart-campus"
+    github: "https://github.com/Asishranjansahu/smart-campus",
+    badge: "Production Ready"
   },
+  {
+    title: "Stock Trading Platform",
+    tech: "React • Chart.js",
+    desc: "Real-time trading dashboard simulating order execution and live stock visualization using React and Chart.js.",
+    color: "indigo",
+    image: "https://images.unsplash.com/photo-1611974765270-ca1258634369?q=80&w=2064&auto=format&fit=crop",
+    live: "https://zerodha-clone-demo.vercel.app",
+    github: "https://github.com/Asishranjansahu/zerodha-clone",
+    badge: "Featured"
+  }
+];
+
+const OTHER_PROJECTS = [
   {
     title: "Dev Connect",
     tech: "MERN • Socket.IO",
@@ -42,6 +57,15 @@ const PROJECTS = [
     image: "https://placehold.co/1200x800/0f172a/ffffff?text=Dev+Connect",
     live: "https://dev-connect-live.onrender.com",
     github: "https://github.com/Asishranjansahu/dev-connect"
+  },
+  {
+    title: "Mindscape",
+    tech: "React • Node.js • MongoDB",
+    desc: "Smart study planner (React + Node.js) that optimizes learning schedules to boost academic productivity. (Live Demo Available)",
+    color: "emerald",
+    image: "https://placehold.co/1200x800/0f172a/ffffff?text=Mindscape",
+    live: "https://daily-study-planner-wine.vercel.app/",
+    github: "https://github.com/Asishranjansahu/Daily-Study-Planner.git"
   },
   {
     title: "Task Master",
@@ -53,15 +77,6 @@ const PROJECTS = [
     github: "https://github.com/Asishranjansahu/task-master"
   },
   {
-    title: "Thread Sense",
-    tech: "NLP • React • Firebase",
-    desc: "AI discussion analysis platform (NLP + Semantic Search) that intelligently clusters and summarizes community conversations.",
-    color: "emerald",
-    image: "/projects/thread-sense.svg",
-    live: "https://thread-sense.vercel.app",
-    github: "https://github.com/Asishranjansahu/thread-sense"
-  },
-  {
     title: "Portfolio",
     tech: "React • Vite • Tailwind",
     desc: "High-performance personal brand platform (React + Three.js) featuring immersive 3D visuals and 99+ Lighthouse performance scores.",
@@ -69,17 +84,10 @@ const PROJECTS = [
     image: "https://images.unsplash.com/photo-1545665277-5937489579f2?q=80&w=2070&auto=format&fit=crop",
     live: "https://asishranjansahu.vercel.app",
     github: "https://github.com/Asishranjansahu/ASISH-PORTFOLIO"
-  },
-  {
-    title: "ZERODHA CLONE",
-    tech: "React • Chart.js",
-    desc: "Real-time trading dashboard (React + Chart.js) simulating high-frequency stock data updates and order execution.",
-    color: "indigo",
-    image: "https://images.unsplash.com/photo-1611974765270-ca1258634369?q=80&w=2064&auto=format&fit=crop",
-    live: "https://zerodha-clone-demo.vercel.app",
-    github: "https://github.com/Asishranjansahu/zerodha-clone"
   }
 ];
+
+const PROJECTS = [...FEATURED_PROJECTS, ...OTHER_PROJECTS];
 
 function App() {
   const scrollRef = useRef(null);
@@ -624,10 +632,118 @@ function App() {
             <motion.h3 
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              className="font-display text-4xl md:text-6xl font-bold mb-20 text-center"
+              className="font-display text-4xl md:text-6xl font-bold mb-12 text-center"
             >
               FEATURED <span className="text-stroke-cyan text-transparent">PROJECTS</span>
             </motion.h3>
+
+            {/* Featured Projects Grid - Top Row */}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-20">
+              {FEATURED_PROJECTS.map((project, i) => (
+                <motion.div 
+                  key={i}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ delay: i * 0.1 }}
+                  className={`group relative bg-zinc-900/50 backdrop-blur-sm border rounded-xl overflow-hidden flex flex-col transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl ${getColorClass(project.color, 'border')} ${getColorClass(project.color, 'hoverBorder')} ${getColorClass(project.color, 'hoverShadow')}`}
+                >
+                  {/* Badge */}
+                  {project.badge && (
+                    <div className="absolute top-0 right-0 z-20">
+                      <div className={`px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-white ${
+                        project.badge === 'AI Project' ? 'bg-emerald-500' :
+                        project.badge === 'Production Ready' ? 'bg-cyan-500' :
+                        'bg-indigo-500'
+                      } rounded-bl-xl shadow-lg`}>
+                        {project.badge}
+                      </div>
+                    </div>
+                  )}
+
+                  {/* Image Section */}
+                  <a 
+                    href={project.live}
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="block h-48 relative overflow-hidden group-hover:h-52 transition-all duration-500 cursor-pointer"
+                  >
+                    <img 
+                      src={project.image} 
+                      alt={project.title}
+                      loading="lazy" 
+                      onError={(e) => {
+                        e.currentTarget.onerror = null;
+                        e.currentTarget.src = "https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=2070&auto=format&fit=crop";
+                      }}
+                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-zinc-900 via-transparent to-transparent opacity-90 pointer-events-none" />
+                    
+                    {/* Tech Logo */}
+                    <div className="absolute bottom-4 left-4 w-12 h-12 rounded-xl bg-black/60 backdrop-blur-md border border-white/10 flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300">
+                      <img 
+                        src={getTechIcon(project.tech.split('•')[0])} 
+                        alt="Tech Logo" 
+                        className="w-7 h-7 object-contain"
+                      />
+                    </div>
+                  </a>
+
+                  {/* Content Section */}
+                  <div className="p-6 flex-1 flex flex-col relative">
+                    <div className="flex items-center gap-2 mb-3">
+                      <span className={`w-1.5 h-1.5 rounded-full animate-pulse ${getColorClass(project.color, 'bg')}`} />
+                      <span className={`text-xs font-mono font-bold uppercase tracking-wider ${getColorClass(project.color, 'text')}`}>
+                        {project.tech}
+                      </span>
+                    </div>
+
+                    <a href={project.live} target="_blank" rel="noopener noreferrer" className="block group/title">
+                      <h4 className={`font-display text-xl font-bold text-white mb-3 leading-tight transition-colors ${getColorClass(project.color, 'hoverText')}`}>
+                        {project.title}
+                      </h4>
+                    </a>
+                    
+                    <p className="text-slate-400 text-sm leading-relaxed mb-6 flex-1">
+                      {project.desc}
+                    </p>
+
+                    {/* Action Links */}
+                    <div className="flex items-center justify-between pt-4 border-t border-white/5 mt-auto">
+                      <a 
+                        href={project.github}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center gap-2 text-xs font-bold text-slate-500 hover:text-white transition-colors group/link"
+                      >
+                        <div className="p-2 rounded-lg bg-white/5 group-hover/link:bg-white/10 transition-colors">
+                          <Github className="w-4 h-4" />
+                        </div>
+                        Source Code
+                      </a>
+                      <a 
+                        href={project.live}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className={`flex items-center gap-2 text-xs font-bold transition-colors group/link ${getColorClass(project.color, 'linkText')}`}
+                      >
+                        Live Demo
+                        <ExternalLink className="w-4 h-4 group-hover/link:translate-x-0.5 transition-transform" />
+                      </a>
+                    </div>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+
+            {/* Other Projects Section */}
+            <motion.h4 
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              className="font-display text-2xl font-bold text-slate-500 mb-8 text-center uppercase tracking-widest"
+            >
+              Other Projects
+            </motion.h4>
             
             <div className="relative border-l-2 border-cyan-500/30 ml-3 md:ml-6 pl-8 md:pl-12 py-4">
               {/* Timeline Icon */}
@@ -637,95 +753,93 @@ function App() {
 
               <div 
                 ref={scrollRef}
-                className="flex overflow-x-auto pb-8 gap-8 hide-scrollbar"
+                className="flex overflow-x-auto pb-8 gap-6 hide-scrollbar"
                 onMouseEnter={() => setIsPaused(true)}
                 onMouseLeave={() => setIsPaused(false)}
                 onTouchStart={() => setIsPaused(true)}
                 onTouchEnd={() => setIsPaused(false)}
               >
-                {[...PROJECTS, ...PROJECTS].map((project, i) => (
+                {OTHER_PROJECTS.map((project, i) => (
                   <motion.div 
-            key={i}
-            initial={{ opacity: 0, scale: 0.9 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            transition={{ delay: (i % PROJECTS.length) * 0.1 }}
-            className={`group relative flex-none w-[290px] bg-zinc-900/50 backdrop-blur-sm border rounded-xl overflow-hidden flex flex-col transition-all duration-300 hover:-translate-y-1 hover:shadow-xl ${getColorClass(project.color, 'border')} ${getColorClass(project.color, 'hoverBorder')} ${getColorClass(project.color, 'hoverShadow')}`}
-          >
-            {/* Image Section */}
-            <a 
-              href={project.live}
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="block h-32 relative overflow-hidden group-hover:h-36 transition-all duration-500 cursor-pointer"
-            >
-              <img 
-                src={project.image} 
-                alt={project.title}
-                loading="lazy" 
-                onError={(e) => {
-                  e.currentTarget.onerror = null;
-                  e.currentTarget.src = "https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=2070&auto=format&fit=crop";
-                }}
-                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-zinc-900 to-transparent opacity-80 pointer-events-none" />
-              
-              {/* Floating Logo Badge */}
-              <div className="absolute top-3 right-3 w-10 h-10 rounded-full bg-black/60 backdrop-blur-md border border-white/10 flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300">
-                <img 
-                  src={getTechIcon(project.tech.split('•')[0])} 
-                  alt="Tech Logo" 
-                  className="w-6 h-6 object-contain"
-                />
-              </div>
-            </a>
+                    key={i}
+                    initial={{ opacity: 0, scale: 0.9 }}
+                    whileInView={{ opacity: 1, scale: 1 }}
+                    transition={{ delay: i * 0.1 }}
+                    className={`group relative flex-none w-[280px] bg-zinc-900/50 backdrop-blur-sm border rounded-xl overflow-hidden flex flex-col transition-all duration-300 hover:-translate-y-1 hover:shadow-xl ${getColorClass(project.color, 'border')} ${getColorClass(project.color, 'hoverBorder')} ${getColorClass(project.color, 'hoverShadow')}`}
+                  >
+                    {/* Image Section */}
+                    <a 
+                      href={project.live}
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="block h-32 relative overflow-hidden group-hover:h-36 transition-all duration-500 cursor-pointer"
+                    >
+                      <img 
+                        src={project.image} 
+                        alt={project.title}
+                        loading="lazy" 
+                        onError={(e) => {
+                          e.currentTarget.onerror = null;
+                          e.currentTarget.src = "https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=2070&auto=format&fit=crop";
+                        }}
+                        className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-zinc-900 to-transparent opacity-80 pointer-events-none" />
+                      
+                      {/* Floating Logo Badge */}
+                      <div className="absolute top-3 right-3 w-8 h-8 rounded-full bg-black/60 backdrop-blur-md border border-white/10 flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300">
+                        <img 
+                          src={getTechIcon(project.tech.split('•')[0])} 
+                          alt="Tech Logo" 
+                          className="w-4 h-4 object-contain"
+                        />
+                      </div>
+                    </a>
 
-            {/* Content Section */}
-            <div className="p-5 flex-1 flex flex-col relative">
-              <div className="flex items-center gap-2 mb-2">
-                <span className={`w-1.5 h-1.5 rounded-full animate-pulse ${getColorClass(project.color, 'bg')}`} />
-                <span className={`text-[10px] font-mono font-bold uppercase tracking-wider ${getColorClass(project.color, 'text')}`}>
-                  {project.tech}
-                </span>
-              </div>
+                    {/* Content Section */}
+                    <div className="p-4 flex-1 flex flex-col relative">
+                      <div className="flex items-center gap-2 mb-2">
+                        <span className={`w-1.5 h-1.5 rounded-full animate-pulse ${getColorClass(project.color, 'bg')}`} />
+                        <span className={`text-[10px] font-mono font-bold uppercase tracking-wider ${getColorClass(project.color, 'text')}`}>
+                          {project.tech}
+                        </span>
+                      </div>
 
-              <a href={project.live} target="_blank" rel="noopener noreferrer" className="block group/title">
-                <h4 className={`font-display text-lg font-bold text-white mb-2 leading-tight transition-colors ${getColorClass(project.color, 'hoverText')}`}>
-                  {project.title}
-                </h4>
-              </a>
-              
-              <p className="text-slate-400 text-xs leading-relaxed line-clamp-3 mb-4 flex-1">
-                {project.desc}
-              </p>
+                      <a href={project.live} target="_blank" rel="noopener noreferrer" className="block group/title">
+                        <h4 className={`font-display text-base font-bold text-white mb-1 leading-tight transition-colors ${getColorClass(project.color, 'hoverText')}`}>
+                          {project.title}
+                        </h4>
+                      </a>
+                      
+                      <p className="text-slate-400 text-xs leading-relaxed line-clamp-2 mb-3 flex-1">
+                        {project.desc}
+                      </p>
 
-              {/* Action Links */}
-              <div className="flex items-center justify-between pt-4 border-t border-white/5 mt-auto">
-                <a 
-                  href={project.github}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-2 text-xs font-bold text-slate-500 hover:text-white transition-colors group/link"
-                >
-                  <div className="p-1.5 rounded-full bg-white/5 group-hover/link:bg-white/10 transition-colors">
-                    <Github className="w-3.5 h-3.5" />
-                  </div>
-                  Code
-                </a>
-                <a 
-                  href={project.live}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={`flex items-center gap-2 text-xs font-bold transition-colors group/link ${getColorClass(project.color, 'linkText')}`}
-                >
-                  Live Demo
-                  <div className={`p-1.5 rounded-full transition-colors ${getColorClass(project.color, 'linkBg')}`}>
-                    <ExternalLink className="w-3.5 h-3.5" />
-                  </div>
-                </a>
-              </div>
-            </div>
-          </motion.div>
+                      {/* Action Links */}
+                      <div className="flex items-center justify-between pt-3 border-t border-white/5 mt-auto">
+                        <a 
+                          href={project.github}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="flex items-center gap-2 text-[10px] font-bold text-slate-500 hover:text-white transition-colors group/link"
+                        >
+                          <div className="p-1 rounded-full bg-white/5 group-hover/link:bg-white/10 transition-colors">
+                            <Github className="w-3 h-3" />
+                          </div>
+                          Code
+                        </a>
+                        <a 
+                          href={project.live}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className={`flex items-center gap-1.5 text-[10px] font-bold transition-colors group/link ${getColorClass(project.color, 'linkText')}`}
+                        >
+                          Live Demo
+                          <ExternalLink className="w-3 h-3 group-hover/link:translate-x-0.5 transition-transform" />
+                        </a>
+                      </div>
+                    </div>
+                  </motion.div>
                 ))}
               </div>
             </div>
