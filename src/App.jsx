@@ -18,6 +18,15 @@ import WhoAmI from './components/WhoAmI';
 
 const PROJECTS = [
   {
+    title: "Mind Scape",
+    tech: "React • Node.js • MongoDB",
+    desc: "A comprehensive mental wellness platform featuring guided meditations, mood tracking, and therapeutic resources.",
+    color: "emerald",
+    image: "https://placehold.co/1200x800/0f172a/ffffff?text=Mind+Scape",
+    live: "#",
+    github: "#"
+  },
+  {
     title: "Smart Campus",
     tech: "IoT • Flutter • Firebase",
     desc: "IoT-driven campus automation system using Flutter & Firebase to eliminate manual tracking via real-time sensor networks.",
@@ -406,7 +415,7 @@ function App() {
               transition={{ duration: 1.5, ease: "circOut" }}
               className="order-1 lg:order-2 flex justify-center lg:justify-end relative"
             >
-              <div className="relative w-80 h-80 md:w-[500px] md:h-[500px]">
+              <div className="relative w-64 h-64 md:w-[500px] md:h-[500px]">
                 <div className="absolute inset-0 bg-gradient-to-tr from-cyan-500 to-purple-600 rounded-full blur-[100px] opacity-20 animate-pulse-slow"></div>
                 <div className="relative w-full h-full rounded-full overflow-hidden border-2 border-white/10 box-glow group">
                   <img 
