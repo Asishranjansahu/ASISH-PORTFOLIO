@@ -41,8 +41,8 @@ const TypewriterText = ({
   return (
     <span className={className}>
       {displayedText}
-      {showCursor && (
-        <span className={`inline-block w-[3px] h-[0.8em] bg-cyan-400 ml-1 align-baseline ${isDone ? 'animate-pulse' : 'opacity-100'}`}></span>
+      {showCursor && !isDone && (
+        <span className="inline-block w-[3px] h-[0.8em] bg-cyan-400 ml-1 align-baseline opacity-100"></span>
       )}
     </span>
   );
