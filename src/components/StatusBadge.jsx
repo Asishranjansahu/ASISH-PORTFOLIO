@@ -15,10 +15,10 @@ const StatusBadge = () => {
           <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-green-500"></span>
         </span>
         <span className="text-xs font-bold text-green-400 uppercase tracking-wider hidden xl:block">
-          Available for Internships
+          Open to Internships & Full-Time Opportunities
         </span>
         <span className="text-xs font-bold text-green-400 uppercase tracking-wider xl:hidden">
-          Available
+          Open to Work
         </span>
       </div>
 

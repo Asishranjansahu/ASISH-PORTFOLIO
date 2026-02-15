@@ -370,7 +370,7 @@ function App() {
             >
               
               <div className="space-y-6">
-                <motion.h1 variants={fadeInUp} className="font-display text-5xl md:text-7xl font-bold leading-none tracking-tighter text-white">
+                <motion.h1 variants={fadeInUp} className="font-display text-4xl md:text-6xl font-bold leading-none tracking-tighter text-white">
                   Asish Ranjan Sahu
                 </motion.h1>
 
@@ -422,6 +422,32 @@ function App() {
                   <Linkedin className="w-5 h-5 text-slate-300 group-hover:text-white" />
                 </a>
               </motion.div>
+
+              <motion.div variants={fadeInUp} className="flex items-center gap-3 text-slate-400 text-sm font-mono pt-2">
+                <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
+                Built scalable apps used in real-world scenarios
+              </motion.div>
+
+              <motion.div variants={fadeInUp} className="border-t border-white/10 pt-8 mt-8">
+                <h3 className="text-sm font-bold text-white uppercase tracking-widest mb-4 flex items-center gap-2">
+                  <span className="w-8 h-[1px] bg-cyan-500"></span>
+                  Currently Working On
+                </h3>
+                <div className="space-y-3">
+                  <div className="flex items-center gap-3 text-slate-400 text-sm hover:text-cyan-400 transition-colors">
+                    <CircuitBoard className="w-4 h-4 text-cyan-500" />
+                    <span>AI-powered discussion intelligence (Thread Sense)</span>
+                  </div>
+                  <div className="flex items-center gap-3 text-slate-400 text-sm hover:text-cyan-400 transition-colors">
+                    <Server className="w-4 h-4 text-purple-500" />
+                    <span>Learning Next.js Server Actions</span>
+                  </div>
+                  <div className="flex items-center gap-3 text-slate-400 text-sm hover:text-cyan-400 transition-colors">
+                    <Database className="w-4 h-4 text-emerald-500" />
+                    <span>Improving scalable backend architecture</span>
+                  </div>
+                </div>
+              </motion.div>
               
               <motion.div variants={fadeInUp}>
                 <LiveDashboard />
@@ -452,35 +478,35 @@ function App() {
 
                 {/* Floating Skills */}
                 <motion.div
-                  animate={{ y: [0, -20, 0] }}
+                  animate={{ y: [0, -10, 0] }}
                   transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-                  className="absolute -top-4 -right-4 w-16 h-16 bg-black/80 border border-cyan-500/30 rounded-xl flex items-center justify-center backdrop-blur-md shadow-lg shadow-cyan-500/20"
+                  className="absolute -top-4 -right-4 w-16 h-16 bg-black/80 border border-cyan-500/20 rounded-xl flex items-center justify-center backdrop-blur-md shadow-lg shadow-cyan-500/10 opacity-80 hover:opacity-100 transition-opacity"
                 >
-                  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" alt="React" className="w-8 h-8 animate-spin-slow" />
+                  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" alt="React" className="w-8 h-8 animate-spin-slow opacity-90" />
                 </motion.div>
 
                 <motion.div
-                  animate={{ y: [0, 20, 0] }}
+                  animate={{ y: [0, 10, 0] }}
                   transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-                  className="absolute top-1/2 -right-12 w-14 h-14 bg-black/80 border border-purple-500/30 rounded-xl flex items-center justify-center backdrop-blur-md shadow-lg shadow-purple-500/20"
+                  className="absolute top-1/2 -right-12 w-14 h-14 bg-black/80 border border-purple-500/20 rounded-xl flex items-center justify-center backdrop-blur-md shadow-lg shadow-purple-500/10 opacity-80 hover:opacity-100 transition-opacity"
                 >
-                  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" alt="Node" className="w-7 h-7" />
+                  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" alt="Node" className="w-7 h-7 opacity-90" />
                 </motion.div>
 
                 <motion.div
-                  animate={{ y: [0, -15, 0] }}
+                  animate={{ y: [0, -8, 0] }}
                   transition={{ duration: 6, repeat: Infinity, ease: "easeInOut", delay: 2 }}
-                  className="absolute -bottom-8 right-10 w-12 h-12 bg-black/80 border border-yellow-500/30 rounded-xl flex items-center justify-center backdrop-blur-md shadow-lg shadow-yellow-500/20"
+                  className="absolute -bottom-8 right-10 w-12 h-12 bg-black/80 border border-yellow-500/20 rounded-xl flex items-center justify-center backdrop-blur-md shadow-lg shadow-yellow-500/10 opacity-80 hover:opacity-100 transition-opacity"
                 >
-                  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JS" className="w-6 h-6 rounded" />
+                  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JS" className="w-6 h-6 rounded opacity-90" />
                 </motion.div>
 
                 <motion.div
-                  animate={{ x: [0, 15, 0] }}
+                  animate={{ x: [0, 8, 0] }}
                   transition={{ duration: 7, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
-                  className="absolute -left-8 top-1/3 w-14 h-14 bg-black/80 border border-red-500/30 rounded-xl flex items-center justify-center backdrop-blur-md shadow-lg shadow-red-500/20"
+                  className="absolute -left-8 top-1/3 w-14 h-14 bg-black/80 border border-red-500/20 rounded-xl flex items-center justify-center backdrop-blur-md shadow-lg shadow-red-500/10 opacity-80 hover:opacity-100 transition-opacity"
                 >
-                  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" alt="Java" className="w-7 h-7" />
+                  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" alt="Java" className="w-7 h-7 opacity-90" />
                 </motion.div>
               </div>
             </motion.div>
