@@ -12,7 +12,7 @@ import SecretDevHQ from './components/SecretDevHQ';
 
 import GithubStats from './components/GithubStats';
 import HireMe from './components/HireMe';
-import WhyHireMe from './components/WhyHireMe';
+import ValueProposition from './components/ValueProposition';
 import Testimonials from './components/Testimonials';
 import Background3D from './components/Background3D';
 import WhoAmI from './components/WhoAmI';
@@ -833,6 +833,9 @@ function App() {
           </div>
         </section>
 
+        {/* Value Proposition Section */}
+        <ValueProposition />
+
         {/* Projects Section */}
         <section id="projects" className="py-32 px-6 bg-black/50 scroll-mt-20">
           <div className="max-w-7xl mx-auto">
@@ -1344,9 +1347,6 @@ function App() {
             </div>
           </div>
         </section>
-
-        {/* Why Hire Me Section */}
-        <WhyHireMe />
 
         {/* Contact Section */}
         <HireMe />
