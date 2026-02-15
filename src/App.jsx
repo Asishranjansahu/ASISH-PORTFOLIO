@@ -583,8 +583,8 @@ function App() {
             >
               
               <div className="space-y-6">
-                <motion.h1 variants={fadeInUp} className="font-display text-4xl md:text-6xl font-bold leading-none tracking-tighter text-white">
-                  Asish Ranjan Sahu
+                <motion.h1 variants={fadeInUp} className="font-display text-4xl md:text-6xl font-bold leading-none tracking-tighter text-white mb-4">
+                  <TypewriterText text="Asish Ranjan Sahu" typingSpeed={100} startDelay={500} />
                 </motion.h1>
 
                 <motion.div variants={fadeInUp} className="space-y-4">

@@ -1,47 +1,49 @@
 import React, { useState, useEffect } from 'react';
 
 const TypewriterText = ({ 
-  texts, 
-  typingSpeed = 50, 
-  deletingSpeed = 30, 
-  pauseTime = 2000, 
+  text, 
+  typingSpeed = 100, 
+  startDelay = 0,
+  showCursor = true,
   className = "" 
 }) => {
   const [displayedText, setDisplayedText] = useState('');
-  const [isDeleting, setIsDeleting] = useState(false);
-  const [loopNum, setLoopNum] = useState(0);
-  const [typing, setTyping] = useState(true);
+  const [started, setStarted] = useState(false);
+  const [isDone, setIsDone] = useState(false);
 
   useEffect(() => {
-    let timer;
-    const i = loopNum % texts.length;
-    const fullText = texts[i];
+    const startTimeout = setTimeout(() => {
+      setStarted(true);
+    }, startDelay);
+    return () => clearTimeout(startTimeout);
+  }, [startDelay]);
 
-    if (isDeleting) {
-      timer = setTimeout(() => {
-        setDisplayedText(fullText.substring(0, displayedText.length - 1));
-        if (displayedText.length === 0) {
-          setIsDeleting(false);
-          setLoopNum(loopNum + 1);
-        }
-      }, deletingSpeed);
-    } else {
-      timer = setTimeout(() => {
-        setDisplayedText(fullText.substring(0, displayedText.length + 1));
-        if (displayedText.length === fullText.length) {
-          // Pause before deleting
-          setTimeout(() => setIsDeleting(true), pauseTime);
-        }
-      }, typingSpeed);
-    }
+  useEffect(() => {
+    if (!started) return;
 
-    return () => clearTimeout(timer);
-  }, [displayedText, isDeleting, loopNum, texts, typingSpeed, deletingSpeed, pauseTime]);
+    let index = 0;
+    // Reset text when text prop changes
+    setDisplayedText(''); 
+    
+    const intervalId = setInterval(() => {
+      if (index < text.length) {
+        setDisplayedText(text.substring(0, index + 1));
+        index++;
+      } else {
+        setIsDone(true);
+        clearInterval(intervalId);
+      }
+    }, typingSpeed);
+
+    return () => clearInterval(intervalId);
+  }, [text, typingSpeed, started]);
 
   return (
     <span className={className}>
       {displayedText}
-      <span className="animate-pulse text-cyan-400 font-bold inline-block ml-1">|</span>
+      {showCursor && (
+        <span className={`inline-block w-[3px] h-[0.8em] bg-cyan-400 ml-1 align-baseline ${isDone ? 'animate-pulse' : 'opacity-100'}`}></span>
+      )}
     </span>
   );
 };
