@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useRef } from 'react';
-import { Github, Activity, Linkedin, Mail, ExternalLink, Code2, Cpu, GraduationCap, Briefcase, Award, Cloud, Database, Cog, CircuitBoard, Image, Server, Globe, GitPullRequest, Shapes, HardDrive, Boxes, Workflow, Lightbulb, Users, RefreshCw, MessageCircle, MapPin, Send, User, FileText, FolderGit2, Terminal, X } from 'lucide-react';
+import { Github, Activity, Linkedin, Mail, ExternalLink, Code2, Cpu, GraduationCap, Briefcase, Award, Cloud, Database, Cog, CircuitBoard, Image, Server, Globe, GitPullRequest, Shapes, HardDrive, Boxes, Workflow, Lightbulb, Users, RefreshCw, MessageCircle, MapPin, Send, User, FileText, FolderGit2, Terminal, X, Star, GitFork } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import GlitchText from './components/GlitchText';
 import TypewriterText from './components/TypewriterText';
@@ -23,58 +23,75 @@ const FEATURED_PROJECTS = [
     title: "Thread Sense",
     tech: "NLP • React • Firebase",
     desc: "Built NLP-powered discussion analyzer that clusters conversations and reduces manual browsing time by ~40%.",
+    problem: "Online discussions become noisy and hard to analyze.",
+    solution: "Built NLP clustering engine using semantic similarity.",
+    result: "Auto-grouped discussions into meaningful topics, reducing noise.",
+    architecture: ["NLP Clustering", "React Frontend", "Firebase Realtime DB", "Python Backend"],
     color: "emerald",
     image: "/projects/thread-sense.svg",
     live: "https://thread-sense.vercel.app",
     github: "https://github.com/Asishranjansahu/thread-sense",
     badge: "AI Project",
-    metric: "Reduced manual browsing time by ~40% via semantic clustering."
-  },
-  {
-    title: "Stock Trading Platform",
-    tech: "React • Chart.js",
-    desc: "Real-time trading dashboard simulating order execution with <100ms latency updates using React and Chart.js.",
-    color: "indigo",
-    image: "https://images.unsplash.com/photo-1611974765270-ca1258634369?q=80&w=2064&auto=format&fit=crop",
-    live: "https://zerodha-clone-demo.vercel.app",
-    github: "https://github.com/Asishranjansahu/zerodha-clone",
-    badge: "Featured",
-    metric: "Processed 500+ simulated orders/sec with real-time visualization."
+    difficulty: "Advanced",
+    metric: "Reduced manual browsing time by ~40% via semantic clustering.",
+    stats: { stars: 12, forks: 4, size: "12MB" },
+    caseStudy: true
   },
   {
     title: "Smart Campus",
     tech: "IoT • Flutter • Firebase",
     desc: "IoT-driven campus automation that reduced manual tracking effort by 90% via real-time sensor networks.",
+    problem: "Manual tracking of campus resources is inefficient and error-prone.",
+    solution: "Integrated IoT sensors with a Flutter mobile app for real-time monitoring.",
+    result: "Eliminated 90% of manual tracking effort and improved resource allocation.",
+    architecture: ["IoT Sensors (ESP8266)", "Flutter Mobile App", "Firebase Realtime DB", "Cloud Functions"],
     color: "cyan",
     image: "https://placehold.co/1200x800/0f172a/ffffff?text=Smart+Campus",
     live: "https://smart-campus-automation-system.vercel.app/",
     github: "https://github.com/Asishranjansahu/smart-campus",
     badge: "Production Ready",
-    metric: "Eliminated 90% of manual tracking via IoT sensor network."
+    difficulty: "Advanced",
+    metric: "Eliminated 90% of manual tracking via IoT sensor network.",
+    stats: { stars: 8, forks: 2, size: "45MB" }
   },
   {
-    title: "Portfolio",
-    tech: "React • Vite • Tailwind",
-    desc: "High-performance personal brand platform featuring immersive 3D visuals and 99+ Lighthouse performance scores.",
-    color: "sky",
-    image: "https://images.unsplash.com/photo-1545665277-5937489579f2?q=80&w=2070&auto=format&fit=crop",
-    live: "https://asishranjansahu.vercel.app",
-    github: "https://github.com/Asishranjansahu/ASISH-PORTFOLIO",
-    badge: "Best Design",
-    metric: "Achieved 99+ Lighthouse performance score."
+    title: "Stock Trading Platform",
+    tech: "React • Chart.js",
+    desc: "Real-time trading dashboard simulating order execution with <100ms latency updates using React and Chart.js.",
+    problem: "Traders need real-time visualization to make split-second decisions.",
+    solution: "Developed a high-performance dashboard with WebSocket integration.",
+    result: "Achieved <100ms latency updates and processed 500+ orders/sec.",
+    architecture: ["React", "Redux Toolkit", "Chart.js", "WebSockets", "Node.js"],
+    color: "indigo",
+    image: "https://images.unsplash.com/photo-1611974765270-ca1258634369?q=80&w=2064&auto=format&fit=crop",
+    live: "https://zerodha-clone-demo.vercel.app",
+    github: "https://github.com/Asishranjansahu/zerodha-clone",
+    badge: "Featured",
+    difficulty: "Intermediate",
+    metric: "Processed 500+ simulated orders/sec with real-time visualization.",
+    stats: { stars: 15, forks: 5, size: "8MB" }
+  },
+  {
+    title: "AI Code Assistant",
+    tech: "Next.js • OpenAI • Tailwind",
+    desc: "Intelligent code completion tool leveraging OpenAI API to suggest optimized code snippets in real-time.",
+    problem: "Developers spend significant time looking up syntax and patterns.",
+    solution: "Integrated OpenAI API to provide context-aware code suggestions.",
+    result: "Accelerates coding workflow by providing instant, relevant snippets.",
+    architecture: ["Next.js 14", "OpenAI API", "Tailwind CSS", "Vercel Edge Functions"],
+    color: "pink",
+    image: "https://images.unsplash.com/photo-1555949963-ff9fe0c870eb?q=80&w=2070&auto=format&fit=crop",
+    live: "#",
+    github: "#",
+    badge: "Currently Building",
+    difficulty: "Advanced",
+    metric: "Targeting 50% reduction in boilerplate coding time.",
+    stats: { stars: 0, forks: 0, size: "In Progress" },
+    inProgress: true
   }
 ];
 
 const OTHER_PROJECTS = [
-  {
-    title: "Dev Connect",
-    tech: "MERN • Socket.IO",
-    desc: "Real-time collaboration suite (MERN + Socket.io) enabling instant messaging and shared workspaces for developers.",
-    color: "purple",
-    image: "https://placehold.co/1200x800/0f172a/ffffff?text=Dev+Connect",
-    live: "https://dev-connect-live.onrender.com",
-    github: "https://github.com/Asishranjansahu/dev-connect"
-  },
   {
     title: "Mindscape",
     tech: "React • Node.js • MongoDB",
@@ -92,6 +109,24 @@ const OTHER_PROJECTS = [
     image: "https://placehold.co/1200x800/0f172a/ffffff?text=Task+Master",
     live: "https://asishranjansahu.github.io/task-master",
     github: "https://github.com/Asishranjansahu/task-master"
+  },
+  {
+    title: "Portfolio",
+    tech: "React • Vite • Tailwind",
+    desc: "High-performance personal brand platform featuring immersive 3D visuals and 99+ Lighthouse performance scores.",
+    color: "sky",
+    image: "https://images.unsplash.com/photo-1545665277-5937489579f2?q=80&w=2070&auto=format&fit=crop",
+    live: "https://asishranjansahu.vercel.app",
+    github: "https://github.com/Asishranjansahu/ASISH-PORTFOLIO"
+  },
+  {
+    title: "Dev Connect",
+    tech: "MERN • Socket.IO",
+    desc: "Real-time collaboration suite (MERN + Socket.io) enabling instant messaging and shared workspaces for developers.",
+    color: "purple",
+    image: "https://placehold.co/1200x800/0f172a/ffffff?text=Dev+Connect",
+    live: "https://dev-connect-live.onrender.com",
+    github: "https://github.com/Asishranjansahu/dev-connect"
   }
 ];
 
@@ -647,6 +682,24 @@ function App() {
               FEATURED <span className="text-stroke-cyan text-transparent">PROJECTS</span>
             </motion.h3>
 
+            {/* Tech Summary */}
+            <div className="mb-20">
+              <motion.div 
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                className="bg-zinc-900/30 border border-white/5 rounded-2xl p-8 backdrop-blur-sm max-w-4xl mx-auto text-center hover:border-cyan-500/20 transition-colors duration-500"
+              >
+                <h4 className="text-slate-400 font-mono text-sm uppercase tracking-widest mb-6">Tech Stack Across Projects</h4>
+                <div className="flex flex-wrap justify-center gap-3">
+                  {['React', 'Next.js', 'Node.js', 'MongoDB', 'Firebase', 'WebSockets', 'NLP', 'Tailwind', 'Framer Motion', 'TypeScript'].map((tech, i) => (
+                    <span key={i} className="px-4 py-2 rounded-full bg-white/5 border border-white/10 text-slate-300 text-sm font-medium hover:bg-white/10 hover:border-cyan-500/30 hover:text-cyan-400 transition-all cursor-default hover:-translate-y-1">
+                      {tech}
+                    </span>
+                  ))}
+                </div>
+              </motion.div>
+            </div>
+
             {/* Featured Projects Grid - Top Row */}
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-20">
               {FEATURED_PROJECTS.map((project, i) => (
@@ -657,12 +710,23 @@ function App() {
                   transition={{ delay: i * 0.1 }}
                   className={`group relative bg-zinc-900/50 backdrop-blur-sm border rounded-xl overflow-hidden flex flex-col transition-all duration-300 hover:scale-[1.02] hover:shadow-2xl ${getColorClass(project.color, 'border')} ${getColorClass(project.color, 'hoverBorder')} ${getColorClass(project.color, 'hoverShadow')}`}
               >
+                {/* Difficulty Badge */}
+                {project.difficulty && (
+                  <div className={`absolute top-0 left-0 z-20 px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-white rounded-br-xl shadow-lg ${
+                    project.difficulty === 'Advanced' ? 'bg-red-500' :
+                    project.difficulty === 'Intermediate' ? 'bg-yellow-500' : 'bg-green-500'
+                  }`}>
+                    {project.difficulty}
+                  </div>
+                )}
+
                 {/* Badge */}
                 {project.badge && (
                   <div className="absolute top-0 right-0 z-20">
                     <div className={`px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-white ${
                       project.badge === 'AI Project' ? 'bg-emerald-500' :
                       project.badge === 'Production Ready' ? 'bg-cyan-500' :
+                      project.badge === 'Currently Building' ? 'bg-pink-500' :
                       'bg-indigo-500'
                     } rounded-bl-xl shadow-lg`}>
                       {project.badge}
@@ -685,7 +749,7 @@ function App() {
                       e.currentTarget.onerror = null;
                       e.currentTarget.src = "https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=2070&auto=format&fit=crop";
                     }}
-                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                    className={`w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 ${project.inProgress ? 'grayscale hover:grayscale-0' : ''}`}
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-zinc-900 via-transparent to-transparent opacity-90 pointer-events-none" />
                   
@@ -714,25 +778,65 @@ function App() {
                     </h4>
                   </a>
                   
-                  <p className="text-slate-400 text-sm leading-relaxed mb-6 flex-1">
-                    {project.desc}
-                  </p>
+                  {/* Problem/Solution Display */}
+                  {project.problem ? (
+                    <div className="mb-6 space-y-2 text-xs bg-white/5 p-3 rounded-lg border border-white/5 hover:border-white/10 transition-colors">
+                      <div className="flex gap-2">
+                        <span className="text-red-400 font-bold uppercase w-14 shrink-0">Problem:</span>
+                        <p className="text-slate-400 leading-relaxed">{project.problem}</p>
+                      </div>
+                      <div className="flex gap-2">
+                        <span className="text-emerald-400 font-bold uppercase w-14 shrink-0">Solution:</span>
+                        <p className="text-slate-300 leading-relaxed">{project.solution}</p>
+                      </div>
+                      <div className="flex gap-2">
+                        <span className="text-purple-400 font-bold uppercase w-14 shrink-0">Result:</span>
+                        <p className="text-slate-300 leading-relaxed">{project.result}</p>
+                      </div>
+                    </div>
+                  ) : (
+                    <p className="text-slate-400 text-sm leading-relaxed mb-6 flex-1">
+                      {project.desc}
+                    </p>
+                  )}
 
-                  {/* Impact Metric */}
-                  {project.metric && (
-                    <div className="mb-6 px-4 py-3 bg-zinc-900/50 border border-emerald-500/20 rounded-lg backdrop-blur-sm relative overflow-hidden group-hover:border-emerald-500/40 transition-colors">
-                      <div className="absolute inset-0 bg-emerald-500/5 animate-pulse" />
-                      <div className="relative flex items-center gap-3">
-                        <Activity className="w-4 h-4 text-emerald-400 flex-shrink-0" />
-                        <p className="text-xs font-bold text-emerald-100/90 leading-relaxed">
-                          {project.metric}
-                        </p>
+                  {/* Architecture Dropdown */}
+                  {project.architecture && (
+                    <div className="mb-4">
+                      <details className="group/details">
+                        <summary className="flex items-center gap-2 text-xs font-bold text-slate-500 cursor-pointer hover:text-cyan-400 transition-colors select-none">
+                          <Cog className="w-3 h-3 transition-transform duration-300 group-open/details:rotate-90" />
+                          Architecture Highlights
+                        </summary>
+                        <div className="mt-3 pl-3 border-l-2 border-white/10 space-y-1.5">
+                          {project.architecture.map((item, idx) => (
+                            <div key={idx} className="flex items-center gap-2 text-xs text-slate-400">
+                              <span className={`w-1 h-1 rounded-full ${getColorClass(project.color, 'bg')}`} />
+                              {item}
+                            </div>
+                          ))}
+                        </div>
+                      </details>
+                    </div>
+                  )}
+
+                  {/* GitHub Stats */}
+                  {project.stats && (
+                    <div className="flex items-center gap-4 mb-4 pt-4 border-t border-white/5 text-[10px] font-mono text-slate-500">
+                      <div className="flex items-center gap-1.5 hover:text-yellow-400 transition-colors" title="Stars">
+                        <Star className="w-3 h-3" /> {project.stats.stars}
+                      </div>
+                      <div className="flex items-center gap-1.5 hover:text-cyan-400 transition-colors" title="Forks">
+                        <GitFork className="w-3 h-3" /> {project.stats.forks}
+                      </div>
+                      <div className="flex items-center gap-1.5 hover:text-purple-400 transition-colors" title="Repo Size">
+                        <HardDrive className="w-3 h-3" /> {project.stats.size}
                       </div>
                     </div>
                   )}
 
                   {/* Action Links */}
-                    <div className="flex items-center justify-between pt-4 border-t border-white/5 mt-auto">
+                    <div className="flex items-center justify-between pt-2 mt-auto">
                       <a 
                         href={project.github}
                         target="_blank"
@@ -742,17 +846,24 @@ function App() {
                         <div className="p-2 rounded-lg bg-white/5 group-hover/link:bg-white/10 transition-colors">
                           <Github className="w-4 h-4" />
                         </div>
-                        Source Code
+                        Source
                       </a>
-                      <a 
-                        href={project.live}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className={`flex items-center gap-2 text-xs font-bold transition-colors group/link ${getColorClass(project.color, 'linkText')}`}
-                      >
-                        Live Demo
-                        <ExternalLink className="w-4 h-4 group-hover/link:translate-x-0.5 transition-transform" />
-                      </a>
+                      
+                      {project.caseStudy ? (
+                         <button className="flex items-center gap-2 px-3 py-2 rounded-lg bg-emerald-500/10 text-emerald-400 text-xs font-bold hover:bg-emerald-500/20 transition-colors border border-emerald-500/30">
+                           <FileText className="w-3 h-3" /> Case Study
+                         </button>
+                      ) : (
+                        <a 
+                          href={project.live}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className={`flex items-center gap-2 text-xs font-bold transition-colors group/link ${getColorClass(project.color, 'linkText')}`}
+                        >
+                          Live Demo
+                          <ExternalLink className="w-4 h-4 group-hover/link:translate-x-0.5 transition-transform" />
+                        </a>
+                      )}
                     </div>
                   </div>
                 </motion.div>
