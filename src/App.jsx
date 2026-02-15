@@ -14,6 +14,7 @@ import GithubStats from './components/GithubStats';
 import HireMe from './components/HireMe';
 import ValueProposition from './components/ValueProposition';
 import Testimonials from './components/Testimonials';
+import Certifications from './components/Certifications';
 import Background3D from './components/Background3D';
 import WhoAmI from './components/WhoAmI';
 import StatsCard from './components/StatsCard';
@@ -601,6 +602,14 @@ function App() {
                 </a>
                 
                 <a 
+                  href="mailto:asishranjansahu2003@gmail.com" 
+                  className="group px-6 py-3 bg-cyan-500 text-black font-display font-bold tracking-wider uppercase hover:bg-cyan-400 transition-all flex items-center gap-2 rounded-sm hover:scale-105 shadow-[0_0_20px_rgba(6,182,212,0.5)] animate-pulse"
+                >
+                  <Mail className="w-4 h-4" />
+                  Open to SWE Roles — Let's Connect
+                </a>
+                
+                <a 
                   href="/resume.pdf" 
                   target="_blank" 
                   rel="noopener noreferrer" 
@@ -608,7 +617,7 @@ function App() {
                   className="group px-6 py-3 border border-cyan-500/50 font-display font-bold tracking-wider uppercase hover:bg-cyan-500/10 transition-all flex items-center gap-2 text-cyan-400 rounded-sm hover:scale-105"
                 >
                   <FileText className="w-4 h-4" />
-                  Download Resume (PDF)
+                  Resume
                 </a>
 
                 <a 
@@ -1315,6 +1324,9 @@ function App() {
         {/* Testimonials */}
         <Testimonials />
 
+        {/* Certifications Section */}
+        <Certifications />
+
         <section id="achievements" className="py-32 px-6 bg-black/60 scroll-mt-20">
           <div className="max-w-7xl mx-auto">
             <motion.h3 
@@ -1393,11 +1405,17 @@ function App() {
                   </div>
 
                   <div className="pt-8 border-t border-white/10 flex gap-4">
-                    <a href="https://linkedin.com/in/asish-ranjan-sahu" target="_blank" rel="noopener noreferrer" className="p-3 rounded-full bg-white/5 hover:bg-[#0077b5] hover:text-white transition-all duration-300">
+                    <a href="https://linkedin.com/in/asish-ranjan-sahu" target="_blank" rel="noopener noreferrer" className="p-3 rounded-full bg-white/5 hover:bg-[#0077b5] hover:text-white transition-all duration-300" title="LinkedIn">
                       <Linkedin className="w-6 h-6" />
                     </a>
-                    <a href="https://github.com/Asishranjansahu" target="_blank" rel="noopener noreferrer" className="p-3 rounded-full bg-white/5 hover:bg-[#333] hover:text-white transition-all duration-300">
+                    <a href="https://github.com/Asishranjansahu" target="_blank" rel="noopener noreferrer" className="p-3 rounded-full bg-white/5 hover:bg-[#333] hover:text-white transition-all duration-300" title="GitHub">
                       <Github className="w-6 h-6" />
+                    </a>
+                    <a href="https://leetcode.com/Asishranjansahu" target="_blank" rel="noopener noreferrer" className="p-3 rounded-full bg-white/5 hover:bg-[#FFA116] hover:text-white transition-all duration-300" title="LeetCode">
+                      <Code2 className="w-6 h-6" />
+                    </a>
+                    <a href="https://hackerrank.com/asishranjansahu" target="_blank" rel="noopener noreferrer" className="p-3 rounded-full bg-white/5 hover:bg-[#2EC866] hover:text-white transition-all duration-300" title="HackerRank">
+                      <Terminal className="w-6 h-6" />
                     </a>
                     <a href="/resume.pdf" target="_blank" rel="noopener noreferrer" className="p-3 rounded-full bg-white/5 hover:bg-cyan-600 hover:text-white transition-all duration-300" title="Download Resume">
                       <FileText className="w-6 h-6" />
