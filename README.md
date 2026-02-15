@@ -160,7 +160,7 @@ This project is optimized for Vercel.
 
 - **GitHub:** [@Asishranjansahu](https://github.com/Asishranjansahu)
 - **LinkedIn:** [Asish Ranjan Sahu](https://linkedin.com/in/asishranjansahu)
-- **Email:** [contact.asishsahu@gmail.com](mailto:contact.asishsahu@gmail.com)
+- **Email:** [asishranjansahu2003@gmail.com](mailto:asishranjansahu2003@gmail.com)
 
 ---
 
