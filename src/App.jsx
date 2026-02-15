@@ -369,37 +369,57 @@ function App() {
               className="order-2 lg:order-1 space-y-8"
             >
               
-              <div className="space-y-2">
+              <div className="space-y-6">
+                <motion.h1 variants={fadeInUp} className="font-display text-5xl md:text-7xl font-bold leading-none tracking-tighter text-white">
+                  Asish Ranjan Sahu
+                </motion.h1>
 
-                <motion.h2 variants={fadeInUp} className="font-display text-5xl md:text-8xl font-bold leading-none tracking-tighter">
-                  <GlitchText text="FUTURE" />
-                  <br />
-                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-purple-500 to-pink-500 text-glow">
-                    REALITY
-                  </span>
-                </motion.h2>
+                <motion.div variants={fadeInUp} className="space-y-4">
+                  <h2 className="text-xl md:text-2xl text-slate-300 font-light leading-relaxed">
+                    Full Stack Developer <span className="text-cyan-500 mx-2">|</span> Building AI-Powered & Scalable Web Applications
+                  </h2>
+                  
+                  <p className="text-lg md:text-xl text-slate-400 font-mono">
+                    React • Node.js • MongoDB • AI Integrations
+                  </p>
+                </motion.div>
               </div>
 
-              <motion.div variants={fadeInUp} className="text-xl text-slate-400 max-w-xl leading-relaxed border-l-2 border-cyan-500/50 pl-6">
-                I design and ship high-performance web products that feel fast, clean, and built to last.
-              </motion.div>
-
-              <motion.div variants={fadeInUp} className="flex flex-wrap gap-6 pt-4">
-                <a href="#projects" className="group relative px-8 py-4 bg-white text-black font-display font-bold tracking-widest uppercase overflow-hidden">
-                  <span className="relative z-10 group-hover:text-white transition-colors duration-300">View Work</span>
+              <motion.div variants={fadeInUp} className="flex flex-wrap gap-4 pt-4">
+                <a href="#projects" className="group relative px-6 py-3 bg-white text-black font-display font-bold tracking-wider uppercase overflow-hidden rounded-sm hover:scale-105 transition-transform">
+                  <span className="relative z-10 group-hover:text-white transition-colors duration-300">View Projects</span>
                   <div className="absolute inset-0 bg-cyan-600 transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-300 ease-out"></div>
                 </a>
-                <a href="#contact" className="group px-8 py-4 border border-white/20 font-display font-bold tracking-widest uppercase hover:bg-white/5 transition-all">
-                  Contact
-                </a>
+                
                 <a 
                   href="/resume.pdf" 
                   target="_blank" 
                   rel="noopener noreferrer" 
-                  className="group px-8 py-4 border border-cyan-500/30 font-display font-bold tracking-widest uppercase hover:bg-cyan-500/10 transition-all flex items-center gap-2 text-cyan-400"
+                  download
+                  className="group px-6 py-3 border border-cyan-500/50 font-display font-bold tracking-wider uppercase hover:bg-cyan-500/10 transition-all flex items-center gap-2 text-cyan-400 rounded-sm hover:scale-105"
                 >
-                  <FileText className="w-5 h-5" />
-                  Resume
+                  <FileText className="w-4 h-4" />
+                  Download Resume
+                </a>
+
+                <a 
+                  href="https://github.com/Asishranjansahu" 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="group p-3 border border-white/20 hover:bg-white/10 transition-all rounded-sm hover:scale-110 flex items-center justify-center"
+                  aria-label="GitHub"
+                >
+                  <Github className="w-5 h-5 text-slate-300 group-hover:text-white" />
+                </a>
+
+                <a 
+                  href="https://linkedin.com/in/asishranjansahu" 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="group p-3 border border-white/20 hover:bg-white/10 transition-all rounded-sm hover:scale-110 flex items-center justify-center"
+                  aria-label="LinkedIn"
+                >
+                  <Linkedin className="w-5 h-5 text-slate-300 group-hover:text-white" />
                 </a>
               </motion.div>
               
