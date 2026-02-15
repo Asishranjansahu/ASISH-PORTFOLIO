@@ -8,19 +8,19 @@ const Certifications = () => {
       title: "Google Developer Groups",
       issuer: "Google Developers",
       date: "2024",
-      icon: Globe,
+      image: "https://upload.wikimedia.org/wikipedia/commons/b/b2/Google_Developer_Groups_logo.svg",
       color: "text-blue-500",
-      bg: "bg-blue-500/10",
+      bg: "bg-white",
       border: "border-blue-500/20",
       link: "https://developers.google.com/community/gdg" 
     },
     {
       title: "Java Full Stack",
-      issuer: "Udemy / Coursera", // Placeholder
+      issuer: "Udemy / Coursera",
       date: "2023",
-      icon: Code2,
+      image: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg",
       color: "text-orange-500",
-      bg: "bg-orange-500/10",
+      bg: "bg-white",
       border: "border-orange-500/20",
       link: "#"
     },
@@ -32,7 +32,7 @@ const Certifications = () => {
       color: "text-green-500",
       bg: "bg-green-500/10",
       border: "border-green-500/20",
-      link: "https://www.hackerrank.com/certificates/iframe/885694294025" // Example link
+      link: "https://www.hackerrank.com/certificates/iframe/885694294025"
     }
   ];
 
@@ -67,8 +67,12 @@ const Certifications = () => {
                 <ExternalLink className="w-5 h-5 text-slate-500 hover:text-white" />
               </div>
               
-              <div className={`w-14 h-14 rounded-xl ${cert.bg} flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300`}>
-                <cert.icon className={`w-8 h-8 ${cert.color}`} />
+              <div className={`w-14 h-14 rounded-xl ${cert.bg} flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300 overflow-hidden`}>
+                {cert.image ? (
+                  <img src={cert.image} alt={cert.title} className="w-8 h-8 object-contain" />
+                ) : (
+                  <cert.icon className={`w-8 h-8 ${cert.color}`} />
+                )}
               </div>
               
               <h3 className="text-xl font-bold text-white mb-2 group-hover:text-cyan-400 transition-colors">

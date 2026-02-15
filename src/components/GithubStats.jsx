@@ -35,25 +35,21 @@ const GithubStats = () => {
         </motion.div>
 
         {/* Stats Grid */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-16">
-          {[
-            { label: 'Total Commits', value: '126', icon: GitCommit, color: 'text-cyan-400' },
-            { label: 'Pull Requests', value: '10+', icon: GitPullRequest, color: 'text-purple-400' },
-            { label: 'Repositories', value: '7', icon: Github, color: 'text-pink-400' },
-            { label: 'Stars Earned', value: '11', icon: Star, color: 'text-yellow-400' },
-          ].map((stat, i) => (
-            <motion.div
-              key={i}
-              initial={{ opacity: 0, scale: 0.9 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              transition={{ delay: i * 0.1 }}
-              className="bg-zinc-900/50 border border-zinc-800 p-6 rounded-2xl text-center hover:border-cyan-500/30 transition-colors"
-            >
-              <stat.icon className={`w-8 h-8 ${stat.color} mx-auto mb-4`} />
-              <div className="text-3xl font-bold text-white mb-1 font-display">{stat.value}</div>
-              <div className="text-sm text-slate-500 font-mono uppercase tracking-wider">{stat.label}</div>
-            </motion.div>
-          ))}
+        <div className="grid md:grid-cols-2 gap-8 mb-16 justify-items-center">
+          <motion.img 
+            initial={{ opacity: 0, x: -20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            src="https://github-readme-stats.vercel.app/api?username=Asishranjansahu&show_icons=true&theme=transparent&bg_color=00000000&title_color=22d3ee&text_color=94a3b8&icon_color=a78bfa&hide_border=true"
+            alt="GitHub Stats"
+            className="w-full max-w-md"
+          />
+          <motion.img 
+            initial={{ opacity: 0, x: 20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            src="https://github-readme-stats.vercel.app/api/top-langs/?username=Asishranjansahu&layout=compact&theme=transparent&bg_color=00000000&title_color=22d3ee&text_color=94a3b8&hide_border=true"
+            alt="Top Languages"
+            className="w-full max-w-md"
+          />
         </div>
 
         {/* Heatmap */}
