@@ -58,16 +58,12 @@ const WhoAmI = () => {
                     </div>
                     
                     <div className="pl-4 border-l-2 border-cyan-500/20 space-y-4">
-                        <p className="text-xl leading-relaxed font-light">
-                            <strong className="text-white">M.Tech (Computer Science & Engineering) candidate</strong> | Software Engineer
+                        <p className="text-xl leading-relaxed text-slate-300 italic font-light">
+                            "I enjoy building systems that solve real-world problems and improve user experience through scalable web technologies."
                         </p>
                         
-                        <p className="text-lg text-slate-300">
-                            Engineer focused on building <span className="text-white font-medium">fast, scalable</span>, and clean web experiences.
-                        </p>
-
                         <p className="text-lg text-slate-400">
-                            I build production-ready web applications using <span className="text-cyan-400">React, Next.js</span>, and modern backend systems. Focused on performance, clean architecture, and solving real-world problems.
+                            I am an <strong className="text-white">M.Tech (CSE) candidate</strong> and Full Stack Engineer focused on performance, clean architecture, and delivering production-ready applications.
                         </p>
                     </div>
 
