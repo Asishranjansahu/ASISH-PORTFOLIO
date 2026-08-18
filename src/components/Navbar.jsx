@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Code2, Menu, X, FolderGit2, GraduationCap, Briefcase, Award, Mail, User, Cpu, Brain, Github, IdCard } from 'lucide-react';
+import { Code2, Menu, X, FolderGit2, GraduationCap, Briefcase, Award, Mail, User, Cpu, Brain, Github, IdCard, Lightbulb } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import StatusBadge from './StatusBadge';
 
@@ -20,6 +20,7 @@ const Navbar = ({ onOpenProfile }) => {
     { name: 'Skills', href: '#skills', icon: Cpu },
     { name: 'Process', href: '#how-i-think', icon: Brain },
     { name: 'Projects', href: '#projects', icon: FolderGit2 },
+    { name: 'Ideas', href: '#ideas', icon: Lightbulb },
     { name: 'Education', href: '#education', icon: GraduationCap },
     { name: 'Experience', href: '#experience', icon: Briefcase },
     { name: 'Achievements', href: '#achievements', icon: Award },

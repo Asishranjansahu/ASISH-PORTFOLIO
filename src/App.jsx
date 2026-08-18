@@ -527,6 +527,10 @@ function App() {
            const contact = document.getElementById('contact');
            if(contact) contact.scrollIntoView({ behavior: 'smooth' });
            setLastKey(null);
+        } else if (e.key.toLowerCase() === 'i') {
+           const ideas = document.getElementById('ideas');
+           if(ideas) ideas.scrollIntoView({ behavior: 'smooth' });
+           setLastKey(null);
         }
       }
     };
@@ -1322,6 +1326,207 @@ function App() {
           </div>
         </section>
 
+        {/* Ideas Lab Section */}
+        <section id="ideas" className="py-32 px-6 relative overflow-hidden scroll-mt-20">
+          <div className="absolute inset-0 bg-gradient-to-b from-purple-900/5 via-transparent to-cyan-900/5 pointer-events-none" />
+          <div className="max-w-7xl mx-auto relative z-10">
+            <motion.h3 
+              initial={{ opacity: 0, y: 20 }} 
+              whileInView={{ opacity: 1, y: 0 }}
+              className="font-display text-4xl md:text-6xl font-bold mb-6 text-center"
+            >
+              <Lightbulb className="w-10 h-10 text-yellow-400 inline-block mr-3" />
+              IDEAS <span className="text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 via-pink-500 to-purple-500">LAB</span>
+            </motion.h3>
+            <motion.p 
+              initial={{ opacity: 0 }} 
+              whileInView={{ opacity: 1 }}
+              className="text-slate-500 font-mono text-sm text-center mb-16 max-w-2xl mx-auto"
+            >
+              Concepts, experiments, and future directions I'm exploring — where curiosity meets code.
+            </motion.p>
+
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {/* Idea Card 1 */}
+              <motion.div 
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0 }}
+                className="group relative bg-zinc-900/60 backdrop-blur-sm border border-yellow-500/20 rounded-2xl p-8 hover:border-yellow-500/40 hover:shadow-[0_0_30px_rgba(234,179,8,0.1)] transition-all duration-500"
+              >
+                <div className="absolute top-4 right-4">
+                  <span className="px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider bg-yellow-500/10 text-yellow-400 border border-yellow-500/20">
+                    Exploring
+                  </span>
+                </div>
+                <div className="w-14 h-14 rounded-xl bg-yellow-500/10 border border-yellow-500/20 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                  <Cpu className="w-7 h-7 text-yellow-400" />
+                </div>
+                <h4 className="font-display text-xl font-bold text-white mb-3 group-hover:text-yellow-400 transition-colors">
+                  AI-Powered Code Review Bot
+                </h4>
+                <p className="text-slate-400 text-sm leading-relaxed mb-6">
+                  An autonomous agent that reviews PRs, suggests optimizations, and detects potential bugs before they reach production — powered by LLM fine-tuning on real codebases.
+                </p>
+                <div className="flex flex-wrap gap-2">
+                  {['LLMs', 'GitHub API', 'Python', 'Fine-tuning'].map((tag, i) => (
+                    <span key={i} className="px-3 py-1 rounded-full text-[10px] font-mono font-bold bg-yellow-500/10 text-yellow-400/70 border border-yellow-500/10">
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+              </motion.div>
+
+              {/* Idea Card 2 */}
+              <motion.div 
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.1 }}
+                className="group relative bg-zinc-900/60 backdrop-blur-sm border border-purple-500/20 rounded-2xl p-8 hover:border-purple-500/40 hover:shadow-[0_0_30px_rgba(168,85,247,0.1)] transition-all duration-500"
+              >
+                <div className="absolute top-4 right-4">
+                  <span className="px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider bg-purple-500/10 text-purple-400 border border-purple-500/20">
+                    Concept
+                  </span>
+                </div>
+                <div className="w-14 h-14 rounded-xl bg-purple-500/10 border border-purple-500/20 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                  <Globe className="w-7 h-7 text-purple-400" />
+                </div>
+                <h4 className="font-display text-xl font-bold text-white mb-3 group-hover:text-purple-400 transition-colors">
+                  Decentralized Knowledge Graph
+                </h4>
+                <p className="text-slate-400 text-sm leading-relaxed mb-6">
+                  A peer-to-peer knowledge sharing network where developers contribute and query interconnected technical concepts — no central authority, just distributed intelligence.
+                </p>
+                <div className="flex flex-wrap gap-2">
+                  {['Web3', 'Graph DB', 'P2P', 'Rust'].map((tag, i) => (
+                    <span key={i} className="px-3 py-1 rounded-full text-[10px] font-mono font-bold bg-purple-500/10 text-purple-400/70 border border-purple-500/10">
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+              </motion.div>
+
+              {/* Idea Card 3 */}
+              <motion.div 
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.2 }}
+                className="group relative bg-zinc-900/60 backdrop-blur-sm border border-cyan-500/20 rounded-2xl p-8 hover:border-cyan-500/40 hover:shadow-[0_0_30px_rgba(6,182,212,0.1)] transition-all duration-500"
+              >
+                <div className="absolute top-4 right-4">
+                  <span className="px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider bg-cyan-500/10 text-cyan-400 border border-cyan-500/20">
+                    Experiment
+                  </span>
+                </div>
+                <div className="w-14 h-14 rounded-xl bg-cyan-500/10 border border-cyan-500/20 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                  <Database className="w-7 h-7 text-cyan-400" />
+                </div>
+                <h4 className="font-display text-xl font-bold text-white mb-3 group-hover:text-cyan-400 transition-colors">
+                  Smart Data Pipeline Builder
+                </h4>
+                <p className="text-slate-400 text-sm leading-relaxed mb-6">
+                  A visual drag-and-drop ETL tool that auto-generates optimized data pipelines using AI — turning hours of data engineering into minutes of configuration.
+                </p>
+                <div className="flex flex-wrap gap-2">
+                  {['React', 'Apache Spark', 'AI/ML', 'Docker'].map((tag, i) => (
+                    <span key={i} className="px-3 py-1 rounded-full text-[10px] font-mono font-bold bg-cyan-500/10 text-cyan-400/70 border border-cyan-500/10">
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+              </motion.div>
+
+              {/* Idea Card 4 */}
+              <motion.div 
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.3 }}
+                className="group relative bg-zinc-900/60 backdrop-blur-sm border border-emerald-500/20 rounded-2xl p-8 hover:border-emerald-500/40 hover:shadow-[0_0_30px_rgba(16,185,129,0.1)] transition-all duration-500"
+              >
+                <div className="absolute top-4 right-4">
+                  <span className="px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
+                    Vision
+                  </span>
+                </div>
+                <div className="w-14 h-14 rounded-xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                  <Workflow className="w-7 h-7 text-emerald-400" />
+                </div>
+                <h4 className="font-display text-xl font-bold text-white mb-3 group-hover:text-emerald-400 transition-colors">
+                  Real-Time Collaboration Engine
+                </h4>
+                <p className="text-slate-400 text-sm leading-relaxed mb-6">
+                  A CRDT-based multiplayer editing framework for any app — like Google Docs but for code editors, design tools, and spreadsheets. Sub-50ms sync, offline-first.
+                </p>
+                <div className="flex flex-wrap gap-2">
+                  {['CRDTs', 'WebSockets', 'TypeScript', 'Redis'].map((tag, i) => (
+                    <span key={i} className="px-3 py-1 rounded-full text-[10px] font-mono font-bold bg-emerald-500/10 text-emerald-400/70 border border-emerald-500/10">
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+              </motion.div>
+
+              {/* Idea Card 5 */}
+              <motion.div 
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.4 }}
+                className="group relative bg-zinc-900/60 backdrop-blur-sm border border-pink-500/20 rounded-2xl p-8 hover:border-pink-500/40 hover:shadow-[0_0_30px_rgba(236,72,153,0.1)] transition-all duration-500"
+              >
+                <div className="absolute top-4 right-4">
+                  <span className="px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider bg-pink-500/10 text-pink-400 border border-pink-500/20">
+                    Dream
+                  </span>
+                </div>
+                <div className="w-14 h-14 rounded-xl bg-pink-500/10 border border-pink-500/20 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                  <CircuitBoard className="w-7 h-7 text-pink-400" />
+                </div>
+                <h4 className="font-display text-xl font-bold text-white mb-3 group-hover:text-pink-400 transition-colors">
+                  Neuro-Adaptive Learning Platform
+                </h4>
+                <p className="text-slate-400 text-sm leading-relaxed mb-6">
+                  An education platform that adapts in real-time to a student's cognitive load — using eye tracking and response patterns to optimize lesson pacing and difficulty.
+                </p>
+                <div className="flex flex-wrap gap-2">
+                  {['Computer Vision', 'React Native', 'ML', 'Edge Computing'].map((tag, i) => (
+                    <span key={i} className="px-3 py-1 rounded-full text-[10px] font-mono font-bold bg-pink-500/10 text-pink-400/70 border border-pink-500/10">
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+              </motion.div>
+
+              {/* Idea Card 6 - CTA */}
+              <motion.div 
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.5 }}
+                className="group relative bg-zinc-900/60 backdrop-blur-sm border border-dashed border-white/20 rounded-2xl p-8 flex flex-col items-center justify-center text-center hover:border-cyan-500/30 transition-all duration-500 min-h-[280px]"
+              >
+                <div className="w-16 h-16 rounded-full bg-gradient-to-br from-cyan-500/20 to-purple-500/20 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                  <span className="text-3xl">💡</span>
+                </div>
+                <h4 className="font-display text-xl font-bold text-white mb-3">
+                  Have an Idea?
+                </h4>
+                <p className="text-slate-500 text-sm leading-relaxed mb-6 max-w-[240px]">
+                  Always open to collaborating on exciting projects. Let's build something amazing together.
+                </p>
+                <a 
+                  href="#contact" 
+                  onClick={(e) => {
+                    e.preventDefault();
+                    document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
+                  }}
+                  className="px-5 py-2 rounded-full bg-cyan-500/10 text-cyan-400 text-sm font-bold border border-cyan-500/20 hover:bg-cyan-500/20 transition-colors"
+                >
+                  Let's Talk →
+                </a>
+              </motion.div>
+            </div>
+          </div>
+        </section>
 
         {/* Skills Section */}
         <section id="skills" className="py-24 bg-[#0f1012] relative overflow-hidden">

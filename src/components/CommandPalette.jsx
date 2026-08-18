@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Search, Terminal, User, FolderGit2, Mail, FileText, ArrowRight, Command } from 'lucide-react';
+import { Search, Terminal, User, FolderGit2, Mail, FileText, ArrowRight, Command, Lightbulb } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 const CommandPalette = ({ isOpen, onClose, navigateTo }) => {
@@ -10,6 +10,7 @@ const CommandPalette = ({ isOpen, onClose, navigateTo }) => {
   const commands = [
     { id: 'about', label: 'About Me', icon: User, action: () => navigateTo('about-me'), shortcut: 'G + A' },
     { id: 'projects', label: 'Projects', icon: FolderGit2, action: () => navigateTo('projects'), shortcut: 'G + P' },
+    { id: 'ideas', label: 'Ideas Lab', icon: Lightbulb, action: () => navigateTo('ideas'), shortcut: 'G + I' },
     { id: 'contact', label: 'Contact', icon: Mail, action: () => navigateTo('contact'), shortcut: 'G + C' },
     { id: 'resume', label: 'View Resume', icon: FileText, action: () => window.open('/resume.pdf', '_blank'), shortcut: 'R' },
     { id: 'terminal', label: 'Open Terminal', icon: Terminal, action: () => navigateTo('terminal'), shortcut: 'T' },
