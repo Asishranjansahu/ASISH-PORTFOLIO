@@ -1,10 +1,6 @@
-Here is the enterprise-grade, comprehensive `README.md` for **ASISH-PORTFOLIO**, structured in the exact same architectural format, depth, and design style as your reference.
-
----
-
 <div align="center">
 
-# 🌐 Asish Ranjan Sahu — Developer Portfolio
+# 🌐 Asish Ranjan Sahu — Portfolio
 
 ### Component-Driven SPA & Interactive Software Engineering Showcase
 
