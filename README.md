@@ -1,7 +1,3 @@
-# 📦 REPOSITORY 2: `ASISH-PORTFOLIO`
-📄 **File:** `README.md` *(Paste this inside your Portfolio repo)*
-
-```markdown
 <div align="center">
 
 # 👨‍💻 Asish Ranjan Sahu — Developer Portfolio
@@ -17,11 +13,12 @@
 [![PRs Welcome](https://img.shields.io/badge/PRs-Welcome-brightgreen?style=flat-square)](https://github.com/Asishranjansahu/ASISH-PORTFOLIO/pulls)
 
 <p align="center">
-  <a href="#-core-features">Features</a> •
+  <a href="#-overview">Overview</a> •
   <a href="#-architecture--component-flow">Architecture</a> •
+  <a href="#-core-features">Features</a> •
   <a href="#-tech-stack">Tech Stack</a> •
   <a href="#-getting-started">Quick Start</a> •
-  <a href="#-configuration">Configuration</a>
+  <a href="#-available-scripts">Scripts</a>
 </p>
 
 </div>
@@ -38,23 +35,23 @@ This repository contains the source code for the personal developer portfolio of
 
 ```mermaid
 flowchart TB
-    subgraph PresentationLayer ["UI & Interaction Layer (React 18 + Vite)"]
-        Hero["Hero & Dynamic Bio Section"]
-        Projects["Featured Project Showcase & Filter Engine"]
+    subgraph PresentationLayer ["UI and Interaction Layer (React 18 + Vite)"]
+        Hero["Hero and Dynamic Bio Section"]
+        Projects["Featured Project Showcase"]
         Skills["Interactive Tech Stack Matrix"]
-        Experience["Interactive Career & Education Timeline"]
-        ContactForm["Contact Form (Controlled Inputs + Validation)"]
+        Experience["Career and Education Timeline"]
+        ContactForm["Contact Form and Validation"]
     end
 
-    subgraph EngineLayer ["Core Animation & State Systems"]
-        MotionEngine["Framer Motion (Viewport Triggers & Parallax)"]
-        ThemeEngine["Theme Provider (Dark / Light Mode Context)"]
-        IconEngine["Lucide React Icon Library"]
+    subgraph EngineLayer ["Core Animation and State Systems"]
+        MotionEngine["Framer Motion Engine"]
+        ThemeEngine["Theme Provider (Dark / Light)"]
+        IconEngine["Lucide React Icons"]
     end
 
-    subgraph ServiceLayer ["External APIs & Delivery"]
-        EmailService["Contact API (EmailJS / Resend Gateway)"]
-        CDN["Vercel Edge Network (Global CDN Assets)"]
+    subgraph ServiceLayer ["External APIs and Delivery"]
+        EmailService["Contact API (EmailJS / Resend)"]
+        CDN["Vercel Edge Network"]
     end
 
     PresentationLayer --> MotionEngine
@@ -152,6 +149,7 @@ code
 Bash
 npm run build
 Deploy to Vercel
+You can deploy this project with zero configuration using the Vercel CLI:
 code
 Bash
 npm install -g vercel
@@ -162,23 +160,4 @@ This repository is licensed under the MIT License. See the LICENSE file for more
 Asish Ranjan Sahu
 Full Stack Software Engineer
 GitHub: @Asishranjansahu
-LinkedIn: Asish Ranjan Sahu
 Repository: ASISH-PORTFOLIO
-code
-Code
----
-
-### 🚀 Commands to Save & Push to GitHub
-
-Once you paste the files, run these commands inside each project folder to push:
-
-```bash
-# Push Smart Campus README
-git add README.md
-git commit -m "docs: update professional enterprise README"
-git push origin main
-
-# Push Portfolio README
-git add README.md
-git commit -m "docs: update engineering portfolio README"
-git push origin main
