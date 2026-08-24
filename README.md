@@ -1,34 +1,69 @@
-# 👨‍💻 Asish Ranjan Sahu — Engineering Portfolio
+# 👨‍💻 Asish Ranjan Sahu — Software Engineer Portfolio
 
-> **High-Performance Personal Portfolio & Software Engineering Showcase**
+> **A premium, high-performance portfolio showcasing engineering skills, selected projects, and professional experience**
 
-[![React](https://img.shields.io/badge/React-18.2.0-61DAFB?style=flat-square&logo=react&logoColor=black)](https://reactjs.org/)
-[![Vite](https://img.shields.io/badge/Vite-4.4.5-646CFF?style=flat-square&logo=vite&logoColor=white)](https://vitejs.dev/)
-[![TailwindCSS](https://img.shields.io/badge/Tailwind_CSS-3.3.3-38B2AC?style=flat-square&logo=tailwind-css&logoColor=white)](https://tailwindcss.com/)
-[![Framer Motion](https://img.shields.io/badge/Framer_Motion-10.x-0055FF?style=flat-square&logo=framer&logoColor=white)](https://www.framer.com/motion/)
-[![Vercel](https://img.shields.io/badge/Deployed_on-Vercel-000000?style=flat-square&logo=vercel&logoColor=white)](https://vercel.com/)
-[![License](https://img.shields.io/badge/License-MIT-blue?style=flat-square)](LICENSE)
+<p align="center">
+  <a href="https://react.dev/">
+    <img src="https://img.shields.io/badge/React-18.2.0-61DAFB?style=for-the-badge&logo=react&logoColor=black" alt="React" />
+  </a>
+  <a href="https://vitejs.dev/">
+    <img src="https://img.shields.io/badge/Vite-4.4.5-646CFF?style=for-the-badge&logo=vite&logoColor=white" alt="Vite" />
+  </a>
+  <a href="https://tailwindcss.com/">
+    <img src="https://img.shields.io/badge/Tailwind_CSS-3.3.3-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white" alt="Tailwind CSS" />
+  </a>
+  <a href="https://www.framer.com/motion/">
+    <img src="https://img.shields.io/badge/Framer_Motion-10.x-0055FF?style=for-the-badge&logo=framer&logoColor=white" alt="Framer Motion" />
+  </a>
+  <a href="https://vercel.com/">
+    <img src="https://img.shields.io/badge/Deployed_on-Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white" alt="Vercel" />
+  </a>
+  <a href="LICENSE">
+    <img src="https://img.shields.io/badge/License-MIT-blue?style=for-the-badge" alt="MIT License" />
+  </a>
+</p>
+
+<p align="center">
+  <img src="https://img.shields.io/badge/Status-Active-success?style=flat-square" alt="Status" />
+  <img src="https://img.shields.io/badge/Type-Portfolio-blueviolet?style=flat-square" alt="Type" />
+  <img src="https://img.shields.io/badge/Focus-Frontend%20%26%20UI%2FUX-informational?style=flat-square" alt="Focus" />
+  <img src="https://img.shields.io/badge/Responsive-Yes-brightgreen?style=flat-square" alt="Responsive" />
+</p>
 
 ---
 
-## 📌 Executive Summary
+## 📊 Portfolio Metrics
 
-This repository contains the source code for the personal developer portfolio of **Asish Ranjan Sahu**. Built as a reactive single-page application (SPA), the system is engineered around three core tenets:
-
-- **Deterministic 60 FPS UX:** Hardware-accelerated transitions and physics-based gesture tracking powered by **Framer Motion**.
-- **Sub-Second Page Loads:** Zero layout shifts, tree-shaken asset bundles, and static asset distribution via the **Vercel Edge Network**.
-- **Engineered Modularity:** Decoupled data contracts, atomic component hierarchy, and strict separation between layout, animation, and ingestion layers.
+<p align="center">
+  <img src="https://img.shields.io/badge/Projects-Featured%20Work-111827?style=for-the-badge&logo=github&logoColor=white" alt="Projects" />
+  <img src="https://img.shields.io/badge/Architecture-Component%20Based-111827?style=for-the-badge&logo=react&logoColor=61DAFB" alt="Architecture" />
+  <img src="https://img.shields.io/badge/UI-Modern%20%2B%20Responsive-111827?style=for-the-badge&logo=tailwindcss&logoColor=38B2AC" alt="UI" />
+  <img src="https://img.shields.io/badge/Performance-Optimized-111827?style=for-the-badge&logo=lighthouse&logoColor=white" alt="Performance" />
+</p>
 
 ---
 
-## 🚀 Core Features
+## 📌 Overview
 
-- **Fluid Micro-Interactions:** Smooth scroll physics, staggered entrance animations, and magnetic UI components.
-- **Dynamic Project Showcase:** Filterable repository cards with live preview hyperlinks, repository links, and tech badges.
-- **Interactive Tech Stack Matrix:** Visual breakdown of front-end, back-end, database, and DevOps proficiencies.
-- **Serverless Contact Ingestion:** Real-time form validation with client-side anti-spam and direct email dispatching.
-- **Lighthouse 100/100 Focused:** Zero render-blocking scripts, responsive WebP image pipelines, and optimized critical CSS.
-- **Universal Responsiveness:** Mobile-first responsive design matching desktop, tablet, and mobile standards.
+This repository contains the source code for my personal developer portfolio, designed to present my professional profile, technical expertise, and selected software engineering projects in a polished and structured format.
+
+The application is built with a strong focus on:
+
+- **Professional Presentation:** Clear sections for background, skills, projects, and contact.
+- **Performance:** Fast loading, optimized assets, and smooth transitions.
+- **Maintainability:** Modular structure with reusable components and clean separation of concerns.
+- **Responsiveness:** Mobile-first layout that adapts across all screen sizes.
+
+---
+
+## ✨ Highlights
+
+- **Premium Hero Section:** Strong first impression with modern layout and motion.
+- **About & Experience Sections:** Concise professional summary and engineering journey.
+- **Skills Showcase:** Structured display of front-end, back-end, and tooling expertise.
+- **Project Gallery:** Featured work with links, descriptions, and technology stack.
+- **Contact Integration:** Easy way for recruiters, collaborators, and clients to connect.
+- **Modern UI/UX:** Elegant design system with subtle animations and visual consistency.
 
 ---
 
@@ -36,75 +71,74 @@ This repository contains the source code for the personal developer portfolio of
 
 | Domain | Technology / Library | Purpose |
 | :--- | :--- | :--- |
-| **Core Framework** | React 18.2.0 | Declarative UI, hooks, and component lifecycle |
-| **Bundling & Build** | Vite 4.4.5 (ESBuild) | Fast Hot Module Replacement (HMR) & Rollup bundling |
-| **Styling** | Tailwind CSS 3.3.3 | Utility-first JIT CSS compilation & design tokens |
-| **Animations** | Framer Motion 10.x | Spring physics, layout animations & scroll triggers |
-| **Iconography** | Lucide React | Tree-shakable SVG icons |
-| **Form Gateway** | EmailJS / REST API | Serverless contact form handling |
-| **Hosting & CI/CD** | Vercel | Automatic deployments & global edge CDN distribution |
+| **Core Framework** | React 18.2.0 | Declarative UI and reusable components |
+| **Bundling & Build** | Vite 4.4.5 | Fast dev server and optimized production builds |
+| **Styling** | Tailwind CSS 3.3.3 | Utility-first responsive styling |
+| **Animations** | Framer Motion 10.x | Smooth transitions and interactive motion |
+| **Iconography** | Lucide React | Lightweight and scalable icons |
+| **Contact Handling** | EmailJS / API Integration | Serverless contact form communication |
+| **Deployment** | Vercel | Continuous deployment and hosting |
 
 ---
 
-## 📂 Project Structure
+## 📁 Project Structure
 
-```
+```bash
 ASISH-PORTFOLIO/
-├── public/                # Static distribution assets & favicon
+├── public/                # Static assets and favicon
 ├── src/
-│   ├── assets/            # Compressed graphics, SVGs, and resume PDF
-│   ├── components/        # Modular UI components
-│   │   ├── Navbar.jsx     # Header navigation with scroll spy
-│   │   ├── Hero.jsx       # Hero banner with dynamic typing effect
-│   │   ├── About.jsx      # Engineering background & philosophy
-│   │   ├── Skills.jsx     # Technical skill matrices
-│   │   ├── Projects.jsx   # Project cards & repository showcase
-│   │   ├── Experience.jsx # Career & education timeline
-│   │   ├── Contact.jsx    # Functional contact form with status alerts
-│   │   └── Footer.jsx     # Social links & copyright metadata
-│   ├── data/              # Decoupled static data files
-│   │   ├── projects.json  # Project manifests and links
-│   │   └── skills.json    # Skill taxonomy and icons
+│   ├── assets/            # Images, resume, and media files
+│   ├── components/        # Reusable UI components
+│   │   ├── Navbar.jsx     # Navigation bar
+│   │   ├── Hero.jsx       # Landing section
+│   │   ├── About.jsx      # Professional summary
+│   │   ├── Skills.jsx     # Technical skills section
+│   │   ├── Projects.jsx   # Project showcase
+│   │   ├── Experience.jsx # Career timeline
+│   │   ├── Contact.jsx    # Contact form
+│   │   └── Footer.jsx     # Footer and links
+│   ├── data/              # Static JSON data
 │   ├── App.jsx            # Main application layout
-│   ├── main.jsx           # React DOM root hydration
-│   └── index.css          # Tailwind CSS global styles
-├── vite.config.js         # Vite bundler configuration
-├── tailwind.config.js     # Tailwind CSS theme & tokens
-└── package.json           # Dependencies and scripts
+│   ├── main.jsx           # React entry point
+│   └── index.css          # Global styles
+├── vite.config.js         # Vite configuration
+├── tailwind.config.js     # Tailwind theme setup
+└── package.json           # Scripts and dependencies
 ```
 
 ---
 
-## 🚦 Quick Start & Local Development
+## 🚀 Getting Started
 
 ### Prerequisites
 - **Node.js**: `v18.x` or higher
 - **npm**: `v9.x` or higher
 
-### 1. Clone the Repository
+### Clone the Repository
 ```bash
 git clone git@github.com:Asishranjansahu/ASISH-PORTFOLIO.git
 cd ASISH-PORTFOLIO
 ```
 
-### 2. Install Dependencies
+### Install Dependencies
 ```bash
 npm install
 ```
 
-### 3. Setup Environment Variables
-Create a `.env` file in the root folder:
+### Configure Environment Variables
+Create a `.env` file in the project root if your contact form uses EmailJS or an API:
 ```env
 VITE_EMAILJS_SERVICE_ID=your_service_id
 VITE_EMAILJS_TEMPLATE_ID=your_template_id
 VITE_EMAILJS_PUBLIC_KEY=your_public_key
 ```
 
-### 4. Run Locally
+### Run Locally
 ```bash
 npm run dev
 ```
-Open **`http://localhost:5173`** in your browser.
+
+Open **http://localhost:5173** in your browser.
 
 ---
 
@@ -112,22 +146,36 @@ Open **`http://localhost:5173`** in your browser.
 
 | Command | Description |
 | :--- | :--- |
-| `npm run dev` | Starts the Vite local development server with live reload. |
-| `npm run build` | Compiles optimized production assets into the `dist/` directory. |
-| `npm run preview` | Runs a local server to test the production build. |
-| `npm run lint` | Checks code formatting and syntax consistency. |
+| `npm run dev` | Start local development server |
+| `npm run build` | Generate optimized production build |
+| `npm run preview` | Preview production build locally |
+| `npm run lint` | Run linting and code quality checks |
 
 ---
 
-## 🚀 Production Build & Deployment
+## 📈 Professional Focus
 
-### Build the Project
+This portfolio is intended to demonstrate:
+
+- Strong front-end engineering fundamentals
+- Clean component-based architecture
+- Attention to UI/UX detail
+- Performance optimization practices
+- Production-ready deployment workflows
+- Maintainable, reusable code structure
+
+---
+
+## 🚀 Deployment
+
+This portfolio is deployed using **Vercel** for fast global delivery and simple CI/CD workflows.
+
+### Build for Production
 ```bash
 npm run build
 ```
 
-### Deploy to Vercel
-Deploy with zero configuration using the Vercel CLI:
+### Deploy
 ```bash
 npm install -g vercel
 vercel
@@ -141,11 +189,10 @@ This project is licensed under the **MIT License**. See the [LICENSE](LICENSE) f
 
 ---
 
-## 👨‍💻 Maintainer & Contact
+## 👨‍💻 Maintainer
 
 **Asish Ranjan Sahu**  
-*Full Stack Software Engineer*
+*Software Engineer*
 
 - **GitHub:** [@Asishranjansahu](https://github.com/Asishranjansahu)
 - **Repository:** [ASISH-PORTFOLIO](https://github.com/Asishranjansahu/ASISH-PORTFOLIO)
-```
