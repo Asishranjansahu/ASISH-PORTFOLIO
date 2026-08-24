@@ -1,6 +1,6 @@
 # 👨‍💻 Asish Ranjan Sahu — Software Engineer Portfolio
 
-> **A premium, high-performance portfolio showcasing engineering skills, selected projects, and professional experience**
+> **A modern, high-performance portfolio showcasing engineering skills, selected projects, and professional experience**
 
 <p align="center">
   <a href="https://react.dev/">
