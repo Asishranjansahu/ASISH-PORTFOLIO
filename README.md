@@ -33,41 +33,42 @@ This repository contains the source code for the personal developer portfolio of
 
 ## 🏗️ Architecture & Component Flow
 
-```mermaid
-flowchart TB
-    subgraph PresentationLayer ["UI and Interaction Layer (React 18 + Vite)"]
-        Hero["Hero and Dynamic Bio Section"]
-        Projects["Featured Project Showcase"]
-        Skills["Interactive Tech Stack Matrix"]
-        Experience["Career and Education Timeline"]
-        ContactForm["Contact Form and Validation"]
-    end
+```text
++-------------------------------------------------------------------------------+
+|                 Presentation Layer (React 18 + Vite + Tailwind)              |
+|  +--------------------+  +--------------------+  +-------------------------+  |
+|  |    Hero Section    |  |  Project Showcase  |  |  Interactive Skills     |  |
+|  +--------------------+  +--------------------+  +-------------------------+  |
+|  | Career Timeline    |  | Contact Form (a11y)|  |  Theme Engine (Dark/Lt) |  |
+|  +--------------------+  +--------------------+  +-------------------------+  |
++---------------------------------------+---------------------------------------+
+                                        |
+                   +--------------------+--------------------+
+                   |                                         |
+                   v                                         v
++------------------------------------+    +------------------------------------+
+|       Core Engine & Motion         |    |    External Services & Edge CDN    |
+| - Framer Motion 60fps Physics      |    | - EmailJS / Form Validation API    |
+| - Lucide React UI Icons            |    | - Vercel Global Edge Network (CDN) |
++------------------------------------+    +------------------------------------+
+```
 
-    subgraph EngineLayer ["Core Animation and State Systems"]
-        MotionEngine["Framer Motion Engine"]
-        ThemeEngine["Theme Provider (Dark / Light)"]
-        IconEngine["Lucide React Icons"]
-    end
+---
 
-    subgraph ServiceLayer ["External APIs and Delivery"]
-        EmailService["Contact API (EmailJS / Resend)"]
-        CDN["Vercel Edge Network"]
-    end
+## ✨ Core Features
 
-    PresentationLayer --> MotionEngine
-    PresentationLayer --> ThemeEngine
-    ContactForm --> EmailService
-    PresentationLayer -.-> CDN
-✨ Core Features
-Fluid 60 FPS Micro-Interactions: Smooth scroll physics, staggered entrance animations, and magnetic UI components powered by Framer Motion.
-Dynamic Project Showcase: Filterable repository cards with live preview hyperlinks, GitHub repo links, architecture highlights, and tech badges.
-Interactive Tech Stack Matrix: Visual breakdown of front-end, back-end, database, and DevOps competencies.
-Serverless Contact Delivery: Real-time form validation with client-side anti-spam and direct email dispatching.
-Lighthouse 100/100 Focused: Zero render-blocking scripts, responsive WebP image pipelines, and optimized critical CSS.
-Universal Responsiveness: Mobile-first responsive design matching desktop, tablet, and mobile viewport standards.
-🛠️ Tech Stack
-code
-Text
+- **Fluid 60 FPS Micro-Interactions:** Smooth scroll physics, staggered entrance animations, and magnetic UI components powered by Framer Motion.
+- **Dynamic Project Showcase:** Filterable repository cards with live preview hyperlinks, GitHub repo links, architecture highlights, and tech badges.
+- **Interactive Tech Stack Matrix:** Visual breakdown of front-end, back-end, database, and DevOps competencies.
+- **Serverless Contact Delivery:** Real-time form validation with client-side anti-spam and direct email dispatching.
+- **Lighthouse 100/100 Focused:** Zero render-blocking scripts, responsive WebP image pipelines, and optimized critical CSS.
+- **Universal Responsiveness:** Mobile-first responsive design matching desktop, tablet, and mobile viewport standards.
+
+---
+
+## 🛠️ Tech Stack
+
+```text
 ├── Framework & Build
 │   ├── Core Library:         React 18 (Hooks, Suspense)
 │   ├── Build Tool:           Vite (Lightning Fast HMR & ESBuild)
@@ -83,9 +84,13 @@ Text
     ├── Hosting:              Vercel Edge Network
     ├── Form Handling:        EmailJS / Web3Forms
     └── Version Control:      Git / GitHub Actions
-📂 Repository Structure
-code
-Text
+```
+
+---
+
+## 📂 Repository Structure
+
+```text
 ASISH-PORTFOLIO/
 ├── src/
 │   ├── assets/              # Compressed static media, SVGs, and resume PDF
@@ -108,56 +113,84 @@ ASISH-PORTFOLIO/
 ├── vite.config.js           # Vite build and alias configuration
 ├── tailwind.config.js       # Design system tokens, colors, and shadows
 └── package.json             # Project dependencies and script declarations
-🚦 Getting Started
-Prerequisites
-Node.js: v18.x or v20.x LTS
-npm: v9.x+ (or yarn / pnpm)
-1. Clone the Repository
-code
-Bash
+```
+
+---
+
+## 🚦 Getting Started
+
+### Prerequisites
+- **Node.js**: `v18.x` or `v20.x` LTS
+- **npm**: `v9.x`+ (or `yarn` / `pnpm`)
+
+### 1. Clone the Repository
+```bash
 git clone git@github.com:Asishranjansahu/ASISH-PORTFOLIO.git
 cd ASISH-PORTFOLIO
-2. Install Dependencies
-code
-Bash
+```
+
+### 2. Install Dependencies
+```bash
 npm install
-3. Configure Environment Variables
-Create a .env file in the project root:
-code
-Bash
+```
+
+### 3. Configure Environment Variables
+Create a `.env` file in the project root:
+```bash
 cp .env.example .env
+```
 Populate your credentials:
-code
-Env
+```env
 VITE_EMAILJS_SERVICE_ID=your_service_id
 VITE_EMAILJS_TEMPLATE_ID=your_template_id
 VITE_EMAILJS_PUBLIC_KEY=your_public_key
-4. Run Locally
-code
-Bash
+```
+
+### 4. Run Locally
+```bash
 npm run dev
-Open http://localhost:5173 in your browser.
-⚙️ Available Scripts
-Command	Action
-npm run dev	Starts Vite local development server with Hot Module Replacement (HMR).
-npm run build	Compiles optimized static assets into the dist/ directory.
-npm run preview	Spawns a local web server to preview production build artifacts.
-npm run lint	Runs ESLint to verify code cleanliness and consistency.
-🚀 Production Build & Deployment
-Compile Static Assets
-code
-Bash
+```
+Open **`http://localhost:5173`** in your browser.
+
+---
+
+## ⚙️ Available Scripts
+
+| Command | Action |
+| :--- | :--- |
+| `npm run dev` | Starts Vite local development server with Hot Module Replacement (HMR). |
+| `npm run build` | Compiles optimized static assets into the `dist/` directory. |
+| `npm run preview`| Spawns a local web server to preview production build artifacts. |
+| `npm run lint` | Runs ESLint to verify code cleanliness and consistency. |
+
+---
+
+## 🚀 Production Build & Deployment
+
+### Compile Static Assets
+```bash
 npm run build
-Deploy to Vercel
+```
+
+### Deploy to Vercel
 You can deploy this project with zero configuration using the Vercel CLI:
-code
-Bash
+```bash
 npm install -g vercel
 vercel
-📄 License
-This repository is licensed under the MIT License. See the LICENSE file for more information.
-👨‍💻 Author & Connect
-Asish Ranjan Sahu
-Full Stack Software Engineer
-GitHub: @Asishranjansahu
-Repository: ASISH-PORTFOLIO
+```
+
+---
+
+## 📄 License
+
+This repository is licensed under the **MIT License**. See the [LICENSE](LICENSE) file for details.
+
+---
+
+## 👨‍💻 Author & Connect
+
+**Asish Ranjan Sahu**  
+*Full Stack Software Engineer*
+
+- **GitHub:** [@Asishranjansahu](https://github.com/Asishranjansahu)
+- **Repository:** [ASISH-PORTFOLIO](https://github.com/Asishranjansahu/ASISH-PORTFOLIO)
