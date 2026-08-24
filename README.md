@@ -55,29 +55,32 @@ This repository contains the source code for my personal developer portfolio. It
 ---
 
 ## 📂 Project Structure
-
-```text
 ASISH-PORTFOLIO/
-├── public/                # Static assets, favicon, resume, and icons
+├── public/ # Static assets, favicon, resume, and icons
 ├── src/
-│   ├── assets/            # Project images and illustrations
-│   ├── components/        # Reusable UI components (Navbar, Footer, Cards, etc.)
-│   ├── App.jsx            # Main application layout
-│   ├── index.css          # Global styles & Tailwind directives
-│   └── main.jsx           # Vite application entry point
-├── index.html             # HTML entry template
-├── postcss.config.js      # PostCSS configuration
-├── tailwind.config.js     # Tailwind CSS design system config
-├── vite.config.js         # Vite bundler configuration
-├── package.json           # Project dependencies and npm scripts
-└── README.md              # Project documentation
-
-⚡ Getting Started
-Follow these steps to run the portfolio locally on your machine.
-Prerequisites
-Make sure you have Node.js (v16.x or higher) and npm installed:
+│ ├── assets/ # Project images and illustrations
+│ ├── components/ # Reusable UI components (Navbar, Footer, Cards, etc.)
+│ ├── App.jsx # Main application layout
+│ ├── index.css # Global styles & Tailwind directives
+│ └── main.jsx # Vite application entry point
+├── index.html # HTML entry template
+├── postcss.config.js # PostCSS configuration
+├── tailwind.config.js # Tailwind CSS design system config
+├── vite.config.js # Vite bundler configuration
+├── package.json # Project dependencies and npm scripts
+└── README.md # Project documentation
 code
-Bash
+Code
+---
+
+## ⚡ Getting Started
+
+Follow these steps to run the portfolio locally on your machine.
+
+### Prerequisites
+Make sure you have [Node.js](https://nodejs.org/) (v16.x or higher) and `npm` installed:
+
+bash
 node -v
 npm -v
 Installation
@@ -95,7 +98,7 @@ code
 Bash
 npm run dev
 Open in browser:
-Open your browser and navigate to http://localhost:5173.
+Navigate to http://localhost:5173
 🛠 Available Scripts
 In the project root directory, you can run:
 Command	Description
