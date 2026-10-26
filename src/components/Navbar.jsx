@@ -1,123 +1,95 @@
-import React, { useState, useEffect } from 'react';
-import { Code2, Menu, X, FolderGit2, GraduationCap, Briefcase, Award, Mail, User, Cpu, Brain, Github, IdCard, Lightbulb } from 'lucide-react';
-import { motion, AnimatePresence } from 'framer-motion';
-import StatusBadge from './StatusBadge';
+import React, { useRef, useState } from 'react';
+import { AnimatePresence, motion } from 'framer-motion';
+import { Code2, Menu, X } from 'lucide-react';
 
-const Navbar = ({ onOpenProfile }) => {
+const navLinks = [
+  { name: 'Projects', href: '#projects' },
+  { name: 'Hackathons', href: '#hackathons' },
+  { name: 'Experience', href: '#experience' },
+  { name: 'Skills', href: '#skills' },
+  { name: 'Education', href: '#education' },
+  { name: 'Certifications', href: '#certifications' },
+  { name: 'GitHub activity', href: '#github-stats' },
+  { name: 'Contact', href: '#contact' },
+];
+
+const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
+  const menuButtonRef = useRef(null);
 
-  useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 50);
-    };
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
-  const navLinks = [
-    { name: 'About Me', href: '#about-me', icon: User },
-    { name: 'Skills', href: '#skills', icon: Cpu },
-    { name: 'Process', href: '#how-i-think', icon: Brain },
-    { name: 'Projects', href: '#projects', icon: FolderGit2 },
-    { name: 'Ideas', href: '#ideas', icon: Lightbulb },
-    { name: 'Education', href: '#education', icon: GraduationCap },
-    { name: 'Experience', href: '#experience', icon: Briefcase },
-    { name: 'Achievements', href: '#achievements', icon: Award },
-    { name: 'Activity', href: '#github-stats', icon: Github },
-    { name: 'Contact', href: '#contact', icon: Mail },
-  ];
+  const closeMenu = () => setIsOpen(false);
+  const handleKeyDown = (event) => {
+    if (event.key === 'Escape' && isOpen) {
+      closeMenu();
+      menuButtonRef.current?.focus();
+    }
+  };
 
   return (
-    <nav className={`fixed top-0 left-0 right-0 z-[100] transition-all duration-300 ${scrolled ? 'bg-black/80 backdrop-blur-md border-b border-white/10 py-4' : 'bg-gradient-to-b from-black/80 to-transparent py-6'}`}>
-      <div className="max-w-7xl mx-auto px-6 flex justify-between items-center">
-        {/* Logo */}
-        <a href="#" className="flex items-center gap-3 group">
-          <div className="relative">
-            <div className="absolute inset-0 bg-cyan-500 blur-lg opacity-20 group-hover:opacity-40 transition-opacity"></div>
-            <div className="relative border border-white/10 p-2 rounded-lg bg-black/50 hover:border-cyan-500/50 transition-colors">
-              <Code2 className="w-8 h-8 text-cyan-400" />
-            </div>
-          </div>
-          <span className="font-display font-bold text-xl tracking-tight text-white group-hover:text-cyan-400 transition-colors">
-            Asish<span className="text-cyan-400">.dev</span>
+    <nav
+      aria-label="Main navigation"
+      onKeyDown={handleKeyDown}
+      className="site-nav fixed inset-x-0 top-0 z-[100] border-b border-white/[0.06]"
+    >
+      <div className="mx-auto flex max-w-[1120px] items-center justify-between px-6 py-4">
+        <a href="#hero" onClick={closeMenu} className="flex items-center gap-3 text-white">
+          <span className="flex h-10 w-10 items-center justify-center rounded-xl border border-[var(--border)] bg-[var(--surface)]">
+            <Code2 className="h-5 w-5 text-cyan-300" aria-hidden="true" />
+          </span>
+          <span className="text-lg font-bold tracking-tight">
+            Asish<span className="text-cyan-300">.dev</span>
           </span>
         </a>
 
-        {/* Desktop Navigation */}
-        <div className="hidden md:flex items-center gap-6">
-          <div className="flex items-center gap-4">
-            {navLinks.map((link) => (
-              <a 
-                key={link.name} 
-                href={link.href} 
-                className="group relative p-2"
-                title={link.name}
-              >
-                <div className="absolute inset-0 bg-cyan-500/20 rounded-lg scale-0 group-hover:scale-100 transition-transform duration-300"></div>
-                <link.icon className="w-5 h-5 text-slate-400 group-hover:text-cyan-400 transition-colors relative z-10" />
-              </a>
-            ))}
-            <button 
-              onClick={onOpenProfile}
-              className="group relative p-2"
-              title="View Profile Card"
+        <div className="hidden items-center gap-6 lg:flex">
+          {navLinks.map((link) => (
+            <a
+              key={link.name}
+              href={link.href}
+              className="site-nav-link text-sm font-medium text-slate-300 transition-colors hover:text-cyan-200"
             >
-              <div className="absolute inset-0 bg-purple-500/20 rounded-lg scale-0 group-hover:scale-100 transition-transform duration-300"></div>
-              <IdCard className="w-5 h-5 text-slate-400 group-hover:text-purple-400 transition-colors relative z-10" />
-            </button>
-          </div>
-          <div className="w-px h-6 bg-white/10"></div>
-          <StatusBadge />
+              {link.name}
+            </a>
+          ))}
         </div>
 
-        {/* Mobile Menu Button */}
-        <button 
-          className="md:hidden text-white p-2"
-          onClick={() => setIsOpen(!isOpen)}
+        <button
+          ref={menuButtonRef}
+          type="button"
+          className="inline-flex h-11 w-11 items-center justify-center rounded-xl border border-[var(--border)] bg-[var(--surface)] text-white transition-colors hover:border-cyan-300 lg:hidden"
+          onClick={() => setIsOpen((open) => !open)}
+          aria-label={isOpen ? 'Close navigation menu' : 'Open navigation menu'}
+          aria-expanded={isOpen}
+          aria-controls="mobile-navigation"
         >
-          {isOpen ? <X /> : <Menu />}
+          {isOpen ? <X aria-hidden="true" /> : <Menu aria-hidden="true" />}
         </button>
-
-        {/* Mobile Navigation */}
-        <AnimatePresence>
-          {isOpen && (
-            <motion.div 
-              initial={{ opacity: 0, y: -20 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -20 }}
-              className="absolute top-full left-0 right-0 bg-black/95 backdrop-blur-xl border-b border-white/10 p-6 md:hidden"
-            >
-              <div className="flex flex-col gap-6">
-                <div className="flex justify-center pb-4 border-b border-white/10">
-                  <StatusBadge />
-                </div>
-                {navLinks.map((link) => (
-                  <a 
-                    key={link.name} 
-                    href={link.href} 
-                    className="text-lg font-display font-bold uppercase tracking-widest text-slate-400 hover:text-cyan-400 flex items-center gap-4"
-                    onClick={() => setIsOpen(false)}
-                  >
-                    <link.icon className="w-5 h-5 text-cyan-400" />
-                    {link.name}
-                  </a>
-                ))}
-                <button 
-                  onClick={() => {
-                    onOpenProfile();
-                    setIsOpen(false);
-                  }}
-                  className="text-lg font-display font-bold uppercase tracking-widest text-slate-400 hover:text-purple-400 flex items-center gap-4 text-left"
-                >
-                  <IdCard className="w-5 h-5 text-purple-400" />
-                  View Profile Card
-                </button>
-              </div>
-            </motion.div>
-          )}
-        </AnimatePresence>
       </div>
+
+      <AnimatePresence>
+        {isOpen && (
+          <motion.div
+            id="mobile-navigation"
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: 'auto' }}
+            exit={{ opacity: 0, height: 0 }}
+            className="mobile-nav overflow-hidden border-t border-white/[0.06] bg-[var(--background)] lg:hidden"
+          >
+            <div className="mx-auto flex max-h-[calc(100dvh-5rem)] max-w-[1120px] flex-col gap-1 overflow-y-auto px-6 py-4">
+              {navLinks.map((link) => (
+                <a
+                  key={link.name}
+                  href={link.href}
+                  onClick={closeMenu}
+                  className="rounded-lg px-3 py-3 text-base font-medium text-slate-200 transition-colors hover:bg-white/[0.06] hover:text-cyan-200"
+                >
+                  {link.name}
+                </a>
+              ))}
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </nav>
   );
 };
