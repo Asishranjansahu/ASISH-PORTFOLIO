@@ -3,8 +3,10 @@ import {
   Activity,
   ArrowDown,
   ArrowUpRight,
+  BriefcaseBusiness,
   Building2,
   Code2,
+  GraduationCap,
   Mail,
   MapPin,
   Music2,
@@ -143,6 +145,34 @@ const skillGroups = [
   },
 ];
 
+const skillLogos = {
+  'Java (21)': 'java',
+  Python: 'python',
+  JavaScript: 'javascript',
+  'Spring Boot': 'spring',
+  'Node.js': 'nodejs',
+  'Express.js': 'express',
+  PostgreSQL: 'postgresql',
+  MySQL: 'mysql',
+  MongoDB: 'mongodb',
+  HTML5: 'html5',
+  CSS3: 'css3',
+  Bootstrap: 'bootstrap',
+  'React.js': 'react',
+  'Chart.js': 'chartjs',
+  'AWS (EC2, S3)': 'aws',
+  Firebase: 'firebase',
+  Docker: 'docker',
+  'GitHub Actions': 'github-actions',
+  Maven: 'maven',
+  'JUnit 5': 'junit',
+  Git: 'git',
+  GitHub: 'github',
+  Postman: 'postman',
+  'VS Code': 'vscode',
+  'IntelliJ IDEA': 'intellij',
+};
+
 const ProjectCard = ({ project, featured = false }) => {
   const ProjectIcon = project.icon;
 
@@ -278,10 +308,10 @@ function App() {
                 </a>
               </div>
               <div className="hero-meta mt-7 flex flex-wrap gap-x-6 gap-y-3 text-sm text-slate-300">
-                <a className="transition-colors hover:text-cyan-300" href="https://github.com/Asishranjansahu" target="_blank" rel="noopener noreferrer">
+                <a className="hero-meta-link transition-colors hover:text-cyan-300" href="https://github.com/Asishranjansahu" target="_blank" rel="noopener noreferrer">
                   GitHub activity
                 </a>
-                <a className="transition-colors hover:text-cyan-300" href="mailto:asishranjansahu2003@gmail.com">
+                <a className="hero-meta-link transition-colors hover:text-cyan-300" href="mailto:asishranjansahu2003@gmail.com">
                   asishranjansahu2003@gmail.com
                 </a>
               </div>
@@ -297,6 +327,48 @@ function App() {
                 decoding="async"
                 className="hero-portrait mx-auto aspect-square w-full max-w-[360px] rounded-2xl border border-[var(--border)] object-cover lg:ml-auto"
               />
+            </div>
+          </div>
+        </section>
+
+        <section id="about" aria-labelledby="about-heading" className="about-section scroll-mt-24 px-6 py-24">
+          <div className="mx-auto grid max-w-[1120px] gap-10 lg:grid-cols-[0.8fr_1.2fr] lg:items-start lg:gap-16">
+            <div className="section-heading max-w-xl">
+              <p className="section-kicker mb-3 text-sm font-semibold uppercase tracking-[0.2em] text-cyan-300">About</p>
+              <h2 id="about-heading" className="font-display text-3xl font-bold text-white md:text-5xl">A bit about me</h2>
+            </div>
+
+            <div className="about-content">
+              <p className="text-lg leading-relaxed text-slate-200">
+                I’m an entry-level full stack developer focused on Java, Spring Boot, and React, and open to SWE roles and internships.
+              </p>
+              <p className="mt-5 leading-relaxed text-slate-300">
+                I earned a B.Tech in Computer Science &amp; Engineering from Vignan Institute of Technology &amp; Management (2021–2025). I’m currently a Virtual Intern at Infosys Springboard, working with a team on a Digital Subsidy &amp; Grant Administration Platform.
+              </p>
+
+              <div className="mt-7 grid gap-4 sm:grid-cols-2">
+                <article className="holo-card about-detail-card p-5">
+                  <GraduationCap className="mb-4 h-5 w-5 text-cyan-300" aria-hidden="true" />
+                  <h3 className="font-semibold text-white">Education</h3>
+                  <p className="mt-2 text-slate-300">B.Tech, Computer Science &amp; Engineering</p>
+                  <p className="mt-1 text-sm text-slate-400">Vignan Institute of Technology &amp; Management · 2021–2025</p>
+                </article>
+                <article className="holo-card about-detail-card p-5">
+                  <BriefcaseBusiness className="mb-4 h-5 w-5 text-cyan-300" aria-hidden="true" />
+                  <h3 className="font-semibold text-white">Current role</h3>
+                  <p className="mt-2 text-slate-300">Virtual Intern · Infosys Springboard</p>
+                  <p className="mt-1 text-sm text-slate-400">Digital Subsidy &amp; Grant Administration Platform</p>
+                </article>
+              </div>
+
+              <div className="mt-6 flex flex-wrap gap-5">
+                <a href="#projects" className="about-link inline-flex min-h-11 items-center gap-2 font-semibold text-cyan-300">
+                  Explore projects <ArrowUpRight className="h-4 w-4" aria-hidden="true" />
+                </a>
+                <a href="#experience" className="about-link inline-flex min-h-11 items-center gap-2 font-semibold text-cyan-300">
+                  View experience <ArrowUpRight className="h-4 w-4" aria-hidden="true" />
+                </a>
+              </div>
             </div>
           </div>
         </section>
@@ -375,7 +447,7 @@ function App() {
           </div>
         </section>
 
-        <section id="skills" className="scroll-mt-24 px-6 py-24">
+        <section id="skills" className="skills-section scroll-mt-24 px-6 py-24">
           <div className="mx-auto max-w-[1120px]">
             <div className="section-heading mb-10 max-w-2xl">
               <p className="section-kicker mb-3 text-sm font-semibold uppercase tracking-[0.2em] text-cyan-300">Technical skills</p>
@@ -383,11 +455,22 @@ function App() {
             </div>
             <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-3">
               {skillGroups.map((group) => (
-                <article key={group.title} className="holo-card p-5 md:p-6">
-                  <h3 className="mb-4 text-lg font-semibold text-white">{group.title}</h3>
-                  <div className="flex flex-wrap gap-2">
+                <article key={group.title} className="holo-card skill-group-card p-5 md:p-6">
+                  <h3 className="skill-group-title mb-4 text-lg font-semibold text-white">{group.title}</h3>
+                  <div className="flex flex-wrap gap-2.5">
                     {group.skills.map((skill) => (
-                      <span key={skill} className="rounded-full border border-[var(--border)] bg-[var(--background)] px-3 py-1.5 text-sm text-slate-200">
+                      <span key={skill} className={`skill-chip ${skillLogos[skill] ? 'has-logo' : ''}`}>
+                        {skillLogos[skill] && (
+                          <img
+                            src={`/tech-logos/${skillLogos[skill]}.svg`}
+                            alt=""
+                            aria-hidden="true"
+                            width="20"
+                            height="20"
+                            loading="lazy"
+                            decoding="async"
+                          />
+                        )}
                         {skill}
                       </span>
                     ))}
@@ -445,11 +528,11 @@ function App() {
                 </p>
               </div>
               <div className="flex flex-col justify-center gap-4 text-slate-200">
-                <a className="flex items-center gap-3 break-all transition-colors hover:text-cyan-300" href="mailto:asishranjansahu2003@gmail.com">
+                <a className="contact-detail-link flex items-center gap-3 break-all transition-colors hover:text-cyan-300" href="mailto:asishranjansahu2003@gmail.com">
                   <Mail className="h-5 w-5 shrink-0 text-cyan-300" aria-hidden="true" />
                   asishranjansahu2003@gmail.com
                 </a>
-                <a className="flex items-center gap-3 transition-colors hover:text-cyan-300" href="tel:+916372411499">
+                <a className="contact-detail-link flex items-center gap-3 transition-colors hover:text-cyan-300" href="tel:+916372411499">
                   <Phone className="h-5 w-5 shrink-0 text-cyan-300" aria-hidden="true" />
                   +91 6372411499
                 </a>
@@ -458,7 +541,7 @@ function App() {
                     href="https://linkedin.com/in/asish-ranjan-sahu-15ab1422b"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="min-h-10 inline-flex items-center text-cyan-300 transition-colors hover:text-cyan-200"
+                    className="inline-flex items-center text-cyan-300 transition-colors hover:text-cyan-200"
                   >
                     LinkedIn
                   </a>
@@ -466,7 +549,7 @@ function App() {
                     href="https://www.hackerrank.com/Asish"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="min-h-10 inline-flex items-center text-cyan-300 transition-colors hover:text-cyan-200"
+                    className="inline-flex items-center text-cyan-300 transition-colors hover:text-cyan-200"
                   >
                     HackerRank
                   </a>
@@ -489,7 +572,7 @@ function App() {
         </main>
 
         <footer className="border-t border-[var(--border)] px-6 py-6 text-center text-sm text-slate-300">
-          Asish Ranjan Sahu
+          © {new Date().getFullYear()} Asish Ranjan Sahu. All rights reserved.
         </footer>
       </div>
     </MotionConfig>

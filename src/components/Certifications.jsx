@@ -56,7 +56,7 @@ const Certifications = () => (
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={`View ${certification.name} certificate PDF`}
-                  className="certificate-action inline-flex min-h-10 items-center gap-2 text-sm font-semibold text-cyan-300 underline-offset-4 hover:text-cyan-200 hover:underline"
+                  className="certificate-action inline-flex items-center gap-2 text-sm font-semibold text-cyan-300 underline-offset-4 hover:text-cyan-200 hover:underline"
                 >
                   View Certificate (PDF) <ArrowUpRight className="h-4 w-4" aria-hidden="true" />
                 </a>

@@ -45,6 +45,25 @@ body {
   outline-offset: 4px;
 }
 
+a,
+button,
+summary {
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+}
+
+button,
+summary {
+  cursor: pointer;
+}
+
+a:active,
+button:active,
+summary:active {
+  transform: scale(0.98);
+  transition-duration: 80ms;
+}
+
 .skip-link {
   position: fixed;
   top: 0.75rem;
@@ -71,6 +90,9 @@ body {
 
 .site-nav-link {
   position: relative;
+  min-height: 2.75rem;
+  display: inline-flex;
+  align-items: center;
 }
 
 .site-nav-link::after {
@@ -178,6 +200,24 @@ body {
   text-underline-offset: 0.25em;
 }
 
+.hero-meta a {
+  display: inline-flex;
+  min-height: 2.75rem;
+  align-items: center;
+}
+
+.contact-detail-link {
+  min-height: 2.75rem;
+}
+
+.contact-panel > div > a {
+  min-height: 2.75rem;
+}
+
+.contact-panel > div > div a {
+  min-height: 2.75rem;
+}
+
 .button-primary,
 .button-secondary {
   transition: transform 180ms ease, background-color 180ms ease, border-color 180ms ease, color 180ms ease;
@@ -208,6 +248,31 @@ body {
   height: 1px;
   background: currentColor;
   content: '';
+}
+
+.about-section {
+  position: relative;
+}
+
+.about-content {
+  max-width: 52rem;
+}
+
+.about-detail-card {
+  min-height: 100%;
+  background:
+    radial-gradient(ellipse at 100% 0%, color-mix(in srgb, var(--accent) 6%, transparent), transparent 48%),
+    var(--surface);
+}
+
+.about-link {
+  text-underline-offset: 0.3em;
+  transition: color 180ms ease;
+}
+
+.about-link:hover {
+  color: #7dd3fc;
+  text-decoration: underline;
 }
 
 .portfolio-main p,
@@ -324,7 +389,7 @@ nav [class~="text-sm"] {
 }
 
 .more-projects > summary {
-  min-height: 2.75rem;
+  min-height: 3rem;
   cursor: pointer;
 }
 
@@ -352,6 +417,61 @@ nav [class~="text-sm"] {
 
 .stat-proof-points > span {
   min-height: 2.75rem;
+}
+
+.skill-group-card {
+  min-height: 100%;
+  background:
+    radial-gradient(ellipse at 100% 0%, color-mix(in srgb, var(--accent) 5%, transparent), transparent 44%),
+    var(--surface);
+}
+
+.skill-group-title {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+}
+
+.skill-group-title::before {
+  width: 0.45rem;
+  height: 1.25rem;
+  flex: 0 0 auto;
+  border-radius: 999px;
+  background: var(--accent);
+  content: '';
+}
+
+.skill-chip {
+  display: inline-flex;
+  min-height: 2.75rem;
+  align-items: center;
+  gap: 0.6rem;
+  border: 1px solid var(--border);
+  border-radius: 0.75rem;
+  background: color-mix(in srgb, var(--background) 84%, var(--surface));
+  padding: 0.45rem 0.75rem;
+  color: var(--text);
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  transition: transform 180ms ease, border-color 180ms ease, background-color 180ms ease;
+}
+
+.skill-chip:hover {
+  transform: translateY(-2px);
+  border-color: color-mix(in srgb, var(--accent) 65%, var(--border));
+  background: color-mix(in srgb, var(--accent) 7%, var(--surface));
+}
+
+.skill-chip img {
+  width: 1.25rem;
+  height: 1.25rem;
+  flex: 0 0 auto;
+  object-fit: contain;
+}
+
+.skill-chip img[src$="/express.svg"],
+.skill-chip img[src$="/github.svg"] {
+  filter: brightness(0) invert(1);
 }
 
 .experience-card {
@@ -383,6 +503,7 @@ nav [class~="text-sm"] {
 }
 
 .certificate-action {
+  min-height: 2.75rem;
   text-decoration: underline;
   text-underline-offset: 0.3em;
 }
@@ -394,7 +515,22 @@ nav [class~="text-sm"] {
 }
 
 .mobile-nav a {
+  min-height: 3rem;
+  display: flex;
+  align-items: center;
+}
+
+.github-section article a,
+.github-section [role="status"] a {
   min-height: 2.75rem;
+  display: inline-flex;
+  align-items: center;
+  padding-block: 0.25rem;
+}
+
+.contact-panel a:active,
+.hero-meta a:active {
+  color: var(--accent);
 }
 
 .text-white,
@@ -473,6 +609,10 @@ img {
 
   .certificate-card:hover,
   .participation-card:hover {
+    transform: none;
+  }
+
+  .skill-chip:hover {
     transform: none;
   }
 }

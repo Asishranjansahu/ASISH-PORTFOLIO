@@ -3,6 +3,7 @@ import { AnimatePresence, motion } from 'framer-motion';
 import { Code2, Menu, X } from 'lucide-react';
 
 const navLinks = [
+  { name: 'About', href: '#about' },
   { name: 'Projects', href: '#projects' },
   { name: 'Hackathons', href: '#hackathons' },
   { name: 'Experience', href: '#experience' },
@@ -33,7 +34,7 @@ const Navbar = () => {
     >
       <div className="mx-auto flex max-w-[1120px] items-center justify-between px-6 py-4">
         <a href="#hero" onClick={closeMenu} className="flex items-center gap-3 text-white">
-          <span className="flex h-10 w-10 items-center justify-center rounded-xl border border-[var(--border)] bg-[var(--surface)]">
+          <span className="flex h-11 w-11 items-center justify-center rounded-xl border border-[var(--border)] bg-[var(--surface)]">
             <Code2 className="h-5 w-5 text-cyan-300" aria-hidden="true" />
           </span>
           <span className="text-lg font-bold tracking-tight">
@@ -46,6 +47,7 @@ const Navbar = () => {
             <a
               key={link.name}
               href={link.href}
+              onClick={closeMenu}
               className="site-nav-link text-sm font-medium text-slate-300 transition-colors hover:text-cyan-200"
             >
               {link.name}
